@@ -46,6 +46,7 @@ const Navbar = () => {
                   href="#pablo"
                 >
                   <span className="ml-2">Solutions</span>
+                  
                 </Link>
               </li>
               <li className="nav-item">
