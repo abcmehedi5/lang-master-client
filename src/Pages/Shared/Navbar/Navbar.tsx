@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const Navbar = () => {
   const Navigation = () => (
     <>
-      <p className="relative mx-4  rounded-xl">
+      <p className="relative mx-4 hover:bg-[#33333345]  rounded-xl">
         <NavLink
           to="/"
           title="home"
@@ -16,7 +16,7 @@ const Navbar = () => {
           <p className="px-4 py-4">Home</p>
         </NavLink>
       </p>
-      <p className="relative mx-4  rounded-xl">
+      <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
           to="/service"
           title="service"
@@ -25,7 +25,7 @@ const Navbar = () => {
           <p className="px-4 py-4">Service</p>
         </NavLink>
       </p>
-      <p className="relative mx-4  rounded-xl">
+      <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
           to="/contact"
           title="contact us"
@@ -34,7 +34,7 @@ const Navbar = () => {
           <p className="px-4 py-4">Contact us</p>
         </NavLink>
       </p>
-      <p className="relative mx-4  rounded-xl">
+      <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
           to="/projects"
           title="Our Projects"
@@ -46,8 +46,29 @@ const Navbar = () => {
     </>
   );
 
+  // -------- navbar end--------
+  const ResponsiveIconsSection = () => (
+    <div className="flex">
+      <button>
+        <AiFillMessage className="text-4xl " />
+      </button>
+      <span className="custom-divider"></span>
+      <button>
+        <BiSolidBellRing className="text-4xl " />
+      </button>
+      <span className="custom-divider"></span>
+    </div>
+  );
+
+  // ----------- get started button --------
+  const Getstarted = () => (
+    <div>
+      <button className="defaultBtn">GET STARTED</button>
+    </div>
+  );
+
   return (
-    <div className="md:navbar py-0 bg-gradient-to-r from-[#0A4D68] to-[#73539e] px-5">
+    <div className="navbar justify-between py-0 bg-gradient-to-r from-[#5e50ad] to-[#73539e] px-5">
       <div className="navbar-start flex">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -57,9 +78,15 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm flex items-center dropdown-content mt-3 z-[1] p-2 shadow-2xl bg-base-100 rounded-box w-52"
           >
             <Navigation />
+
+            <div className="ml-5 my-2">
+              <ResponsiveIconsSection />
+            </div>
+
+            <Getstarted />
           </ul>
         </div>
 
@@ -73,16 +100,10 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+
       <div className="md:navbar-end flex items-center md:pb-0 ml-4 pb-2">
-        <div className="flex">
-          <p>
-            <AiFillMessage className="text-2xl text-white" />
-          </p>
-          <span className="custom-divider"></span>
-          <p>
-            <BiSolidBellRing className="text-2xl text-white" />
-          </p>
-          <span className="custom-divider"></span>
+        <div className="hidden lg:flex text-white">
+          <ResponsiveIconsSection />
         </div>
 
         {/* -------- user profile */}
@@ -111,16 +132,11 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <span className="custom-divider"></span>
-
         {/* get started button */}
-        <button
-          className="defaultBtn btn"
-          // className="btn border-0 
-          // rounded-full bg-gradient-to-b text-white text-sm md:text-xl from-[#63a107] to-[#85d905] hover:from-[#85d905] hover:to-[#63a107]"
-        >
-          GET STARTED
-        </button>
+        <div className="hidden lg:flex">
+          <span className="custom-divider"></span>
+          <Getstarted />
+        </div>
       </div>
     </div>
   );
