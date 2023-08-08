@@ -1,7 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
 import { AiFillMessage } from 'react-icons/ai';
 import { BiSolidBellRing } from 'react-icons/bi';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Navbar = () => {
 
@@ -56,17 +57,20 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar py-0 bg-gradient-to-r from-[#5e50ad] to-[#73539e] px-5">
-        <div className="navbar-start">
+        <div className="md:navbar py-0 bg-gradient-to-r from-[#5e50ad] to-[#73539e] px-5">
+        <div className="navbar-start flex">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+              {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg> */}
+              <p className="text-3xl text-white"><GiHamburgerMenu /></p>
             </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <Navigation />
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl text-white">MOCKUPS FOR FREE</a>
+         
+         <Link to='/' className="btn btn-ghost normal-case text-xl text-white">MOCKUPS FOR FREE</Link>
+         
           <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-white">
           <Navigation />
@@ -88,11 +92,13 @@ const Navbar = () => {
             <li><a>Item 3</a></li>
           </ul>
         </div> */}
-        <div className="navbar-end">
+        <div className="md:navbar-end flex items-center md:pb-0 ml-4 pb-2">
+           <div className="flex"> 
             <p><AiFillMessage className="text-2xl text-white" /></p>
             <span className="custom-divider"></span>
             <p><BiSolidBellRing className="text-2xl text-white" /></p>
             <span className="custom-divider"></span>
+            </div>
           
           {/* -------- user profile */}
            <div className="dropdown dropdown-end">
