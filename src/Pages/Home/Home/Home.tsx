@@ -1,7 +1,9 @@
+import Cover from "../Cover/Cover";
+
 const Home = () => {
     return (
         <div>
-            <h1>this is home page</h1>
+            <Cover></Cover>
         </div>
     );
 };
