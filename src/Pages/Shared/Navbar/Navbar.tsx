@@ -47,7 +47,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="md:navbar py-0 bg-gradient-to-r from-[#5e50ad] to-[#73539e] px-5">
+    <div className="md:navbar py-0 bg-gradient-to-r from-[#0A4D68] to-[#73539e] px-5">
       <div className="navbar-start flex">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -115,8 +115,9 @@ const Navbar = () => {
 
         {/* get started button */}
         <button
-          className="btn border-0 
-          rounded-full bg-gradient-to-b text-white text-sm md:text-xl from-[#63a107] to-[#85d905] hover:from-[#85d905] hover:to-[#63a107]"
+          className="defaultBtn btn"
+          // className="btn border-0 
+          // rounded-full bg-gradient-to-b text-white text-sm md:text-xl from-[#63a107] to-[#85d905] hover:from-[#85d905] hover:to-[#63a107]"
         >
           GET STARTED
         </button>

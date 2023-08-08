@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.defaultBtn {
+  border: none;
+  border-radius: 15px;
+  background-image: linear-gradient(to bottom, #00ffca, #047e65);
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+}
+
+.defaultBtn:hover {
+  background-image: linear-gradient(to bottom, #047e65, #00ffca);
+}
+
+@media (min-width: 768px) {
+  .defaultBtn {
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    padding: 1rem 2rem;
+  }
+}
