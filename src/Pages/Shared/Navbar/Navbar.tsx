@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import './Navbar.css'
 import { AiFillMessage } from 'react-icons/ai';
+import { BiSolidBellRing } from 'react-icons/bi';
 
 const Navbar = () => {
 
@@ -55,7 +56,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar py-0 bg-gradient-to-r from-[#5e50ad] to-[#73539e] text-white px-5">
+        <div className="navbar py-0 bg-gradient-to-r from-[#5e50ad] to-[#73539e] px-5">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -65,9 +66,9 @@ const Navbar = () => {
             <Navigation />
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">MOCKUPS FOR FREE</a>
+          <a className="btn btn-ghost normal-case text-xl text-white">MOCKUPS FOR FREE</a>
           <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 text-white">
           <Navigation />
           </ul>
         </div>
@@ -88,10 +89,38 @@ const Navbar = () => {
           </ul>
         </div> */}
         <div className="navbar-end">
-            <p><AiFillMessage /></p>
-          <a className="btn">Button</a>
+            <p><AiFillMessage className="text-2xl text-white" /></p>
+            <span className="custom-divider"></span>
+            <p><BiSolidBellRing className="text-2xl text-white" /></p>
+            <span className="custom-divider"></span>
+          
+          {/* -------- user profile and name */}
+           <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src="https://i.ibb.co/23dGSyY/images.jpg" />
         </div>
-      </div>
+      </label>
+      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+        <li>
+          <a className="justify-between">
+            Profile
+            <span className="badge">New</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+
+    <span className="custom-divider"></span>
+
+    {/* get started button */}
+    <a className="cursor-pointer py-2 px-4 
+          rounded-full bg-gradient-to-b from-[#63a107] to-[#85d905] hover:from-[#85d905] hover:to-[#63a107]">GET STARTED</a>
+    </div>
+        </div>
+     
     );
 };
 

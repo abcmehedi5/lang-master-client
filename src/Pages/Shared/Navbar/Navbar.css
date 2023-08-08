@@ -22,6 +22,10 @@
     width: 100%; /* Expand the underline to full width on hover */
   }
 
-  .shadow-cus{
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.87); /* Customize the shadow as needed */
+
+  .custom-divider{
+    height: 30px;
+    width: 1px;
+    background: #fff;
+    margin: 0 10px;
   }
