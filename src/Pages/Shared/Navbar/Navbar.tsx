@@ -94,7 +94,7 @@ const Navbar = () => {
             <p><BiSolidBellRing className="text-2xl text-white" /></p>
             <span className="custom-divider"></span>
           
-          {/* -------- user profile and name */}
+          {/* -------- user profile */}
            <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
@@ -116,8 +116,8 @@ const Navbar = () => {
     <span className="custom-divider"></span>
 
     {/* get started button */}
-    <a className="cursor-pointer py-2 px-4 
-          rounded-full bg-gradient-to-b from-[#63a107] to-[#85d905] hover:from-[#85d905] hover:to-[#63a107]">GET STARTED</a>
+    <button className="btn border-0 
+          rounded-full bg-gradient-to-b text-white text-sm md:text-xl from-[#63a107] to-[#85d905] hover:from-[#85d905] hover:to-[#63a107]">GET STARTED</button>
     </div>
         </div>
      
