@@ -134,7 +134,7 @@ const Navbar = () => {
 
         {/* get started button */}
         <div className="hidden lg:flex">
-          <span className="custom-divider"></span>
+          <span className="custom-divider pb-14"></span>
           <Getstarted />
         </div>
       </div>
