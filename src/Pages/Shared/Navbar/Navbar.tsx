@@ -107,7 +107,7 @@ const Navbar = () => {
         </div>
 
         {/* -------- user profile */}
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end z-10">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img src="https://i.ibb.co/23dGSyY/images.jpg" />
