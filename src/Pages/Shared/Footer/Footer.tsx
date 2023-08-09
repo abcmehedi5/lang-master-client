@@ -26,9 +26,10 @@ const Footer = () => {
             <BsInstagram className="text-4xl rounded-full p-2 text-white bg-[#db316d]" />
           </a>
           <a>
-            <FaLinkedinIn className="text-4xl rounded-full p-2 text-white bg-[#0476b5]" />
+            <FaLinkedinIn className="text-4xl rounded-full p-2 text-white bg-[#0375b3]" />
           </a>
-          <a>
+          <a>         
+        
             <AiFillYoutube className="text-4xl rounded-full p-2 text-white bg-[#f90304]" />
           </a>
         </div>
