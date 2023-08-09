@@ -9,9 +9,9 @@ import { FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div>
+    <footer>
       <img src={wave} alt="bg" />
-      <div className="bg-[#0b4e69] flex items-center justify-between py-2">
+      <div className="bg-[#0b4e69] flex items-center justify-between py-2 px-5">
         <div>
           <h2 className="btn btn-ghost normal-case text-xl text-white">
             Lang-Master
@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <footer className="footer items-center justify-between p-10 bg-[#0b4e69] text-white">
+      <div className="footer items-center justify-between p-10 bg-[#0b4e69] text-white">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
@@ -76,8 +76,21 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+      <hr />
+      <div className="flex items-center justify-between bg-[#0b4e69] py-4 px-5 text-white">
+        <div className="flex">
+          <p>copyrite &copy;2021</p>
+          &nbsp; &nbsp;
+          <p>All rights reserved</p>
+        </div>
+        <div className="flex">
+          <p>Privacy Policy</p>
+          &nbsp; &nbsp;
+          <p>Terms and Condition</p>
+        </div>
+      </div>
+    </footer>
   );
 };
 
