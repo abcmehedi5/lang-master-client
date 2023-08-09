@@ -2,6 +2,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 const HomepageBlog = () => {
   return (
     <>
+      {/* // TODO: More will be added such that make it dynamic with link also button to read this blog */}
       <section className="w-9/12 mx-auto my-20">
         {/* section title  */}
         <div className="flex justify-between pb-10">
@@ -13,14 +14,15 @@ const HomepageBlog = () => {
             <MdOutlineKeyboardArrowRight className="inline-block font-bold" />
           </button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          <div className="col-span-8">
+        {/* blog card starts  */}
+        <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8">
+          <div className="col-span-8 mb-10">
             {/* card one  */}
             <div>
-              <div className="relative overflow-hidden bg-cover h-[500px] bg-no-repeat">
+              <div className="relative overflow-hidden bg-cover md:h-[500px] bg-no-repeat">
                 <img
-                  className="rounded-t-sm h-full object-cover "
-                  src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+                  className="rounded-t-sm md:h-full object-cover "
+                  src="https://img.freepik.com/free-vector/hand-drawn-english-book-background_23-2149483336.jpg?w=1380&t=st=1691615234~exp=1691615834~hmac=37643c18fe8623691908dad633c8519d4abfadf1c82d56a23e39de52b1a67774"
                   alt=""
                 />
               </div>
@@ -39,13 +41,13 @@ const HomepageBlog = () => {
             </div>
           </div>
           {/* // TODO: blog two and three description will be added later if needed  */}
-          <div className="col-span-4 flex flex-col gap-8">
+          <div className="col-span-4 md:flex flex-col gap-8">
             {/* card two  */}
-            <div>
-              <div className="relative overflow-hidden bg-cover h-[200px] bg-no-repeat">
+            <div className="max-sm:mb-10">
+              <div className="relative overflow-hidden bg-cover md:h-[200px] bg-no-repeat">
                 <img
-                  className="rounded-t-sm w-full h-full object-cover"
-                  src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+                  className="rounded-t-sm w-full md:h-full object-cover"
+                  src="https://img.freepik.com/free-vector/kids-online-lessons_52683-36818.jpg?w=1380&t=st=1691615413~exp=1691616013~hmac=345423322d585a9c80c95612c9784994351207d8f9a21859282b25e7420029ab"
                   alt=""
                 />
               </div>
@@ -69,7 +71,7 @@ const HomepageBlog = () => {
               <div className="relative overflow-hidden bg-cover h-[200px] bg-no-repeat">
                 <img
                   className="rounded-t-sm w-full h-full object-cover"
-                  src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg"
+                  src="https://img.freepik.com/free-vector/student-with-laptop-studying-online-course_74855-5293.jpg?w=1380&t=st=1691615340~exp=1691615940~hmac=31082f36ee8bebb40d03764165268bd03d751e39b2e69abbf46cd15d8e6e6ac4"
                   alt=""
                 />
               </div>
