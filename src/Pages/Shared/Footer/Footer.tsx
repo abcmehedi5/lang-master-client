@@ -1,8 +1,11 @@
 import './Footer.css'
+import wave from '../../../../public/wave.svg'
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 ">
+   <div className=''>
+     <img className='' src={wave} alt="" />
+     <footer className="footer p-10 bg-[#095d75] text-white">
       <div>
       <span className="footer-title">Services</span> 
       <a className="link link-hover">Branding</a> 
@@ -38,6 +41,7 @@ const Footer = () => {
       
     
   </footer>
+   </div>
   );
 };
 
