@@ -46,9 +46,6 @@ const Cover: React.FC<CoverProps> = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    {/* <SwiperSlide><img src={one} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={two} alt="" /></SwiperSlide>
-                    <SwiperSlide><img src={three} alt="" /></SwiperSlide> */}
                 </Swiper>
             </div>
         </div>
