@@ -54,7 +54,7 @@ const Cover: React.FC<CoverProps> = () => {
                 <img
                   src={imagePath}
                   alt={`Slide ${index + 1}`}
-                  className="lg:h-96 md:h-17 w-full rounded-xl"
+                  className="lg:h-96 md:h-24 w-full rounded-xl"
                 />
               </SwiperSlide>
             ))}
