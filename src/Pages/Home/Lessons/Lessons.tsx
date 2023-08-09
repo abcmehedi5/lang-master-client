@@ -1,33 +1,55 @@
+import computerImg from "./../../../assets/img/interactiveLesson.svg";
 const Lessons = () => {
   return (
-    <>
-      <section className="bg-gray-100 py-10">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-semibold text-center mb-8">
-            Interactive Lessons
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-4 bg-white shadow-lg rounded-lg">
-              <h3 className="text-xl font-semibold mb-2">
-                Listening Exercises
-              </h3>
-              <p>
-                Improve your listening skills with engaging audio exercises that
-                cover various topics and accents.
-              </p>
-            </div>
-            <div className="p-4 bg-white shadow-lg rounded-lg">
-              <h3 className="text-xl font-semibold mb-2">Speaking Practice</h3>
-              <p>
-                Practice speaking by recording your voice and comparing it to
-                native speakers.
-              </p>
-            </div>
-            {/* Add more lesson types here */}
+    <div className="w-9/12 mx-auto my-20">
+      <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">
+        Why You'll Love Learning with LangMaster
+      </h2>
+      <div className="grid grid-cols-3 gap-8">
+        <div className="col-span-1">
+          <div className="p-4">
+            <h2 className="text-2xl font-semibold mb-4">
+              Effective and Result Oriented
+            </h2>
+            <p className="text-gray-600">
+              Our courses provide effective and successful training in reading,
+              listening, and speaking skills. Learn about our latest research!
+            </p>
+          </div>
+          <div className="p-4 mt-4">
+            <h2 className="text-2xl font-semibold mb-4">Learn Like Yourself</h2>
+            <p className="text-gray-600">
+              Every lesson, created by combining the best of artificial
+              intelligence and linguistics, will assist you in learning a new
+              language at the right pace and speed.
+            </p>
           </div>
         </div>
-      </section>
-    </>
+        <div className="col-span-1 p-4">
+          <div className="flex justify-center items-center h-full">
+            <img src={computerImg} alt="" />
+          </div>
+        </div>
+        <div className="col-span-1">
+          <div className="p-4">
+            <h2 className="text-2xl font-semibold mb-4">Keep Interest Alive</h2>
+            <p className="text-gray-600">
+              Making language learning practice enjoyable and easy with features
+              like challenges and fun exercises is our way of making the path of
+              learning a new language smoother for you.
+            </p>
+          </div>
+          <div className="p-4 mt-4">
+            <h2 className="text-2xl font-semibold mb-4">Enjoy Your Time</h2>
+            <p className="text-gray-600">
+              To learn well, you have to learn with a serious face, no kidding!
+              With engaging exercises and characters full of humor, combine them
+              to make your expertise even more enjoyable.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
