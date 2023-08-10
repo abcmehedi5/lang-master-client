@@ -15,7 +15,7 @@ const Lessons = () => {
         {/* left text div  */}
         <div className="col-span-1 lg:order-1">
           <div className="flex gap-4">
-            <span className="text-4xl">🔥</span>
+            <span className="text-3xl">🔥</span>
             <div>
               <h2 className="text-xl font-semibold mb-4">
                 Effective and Result Oriented
@@ -29,9 +29,9 @@ const Lessons = () => {
           </div>
           <div className="mt-4">
             <div className="flex gap-4">
-              <span className="text-4xl">✅</span>
+              <span className="text-3xl">✅</span>
               <div>
-                <h2 className="text-2xl font-semibold mb-4">
+                <h2 className="text-xl font-semibold mb-4">
                   Learn Like Yourself
                 </h2>
                 <p className="text-gray-600">
@@ -47,9 +47,9 @@ const Lessons = () => {
         {/* right text div  */}
         <div className="col-span-1 lg:order-3">
           <div className="flex gap-4">
-            <span className="text-4xl">👑</span>
+            <span className="text-3xl">👑</span>
             <div>
-              <h2 className="text-2xl font-semibold mb-4">
+              <h2 className="text-xl font-semibold mb-4">
                 Keep Interest Alive
               </h2>
               <p className="text-gray-600">
@@ -61,9 +61,9 @@ const Lessons = () => {
           </div>
           <div className="mt-4">
             <div className="flex gap-4">
-              <span className="text-4xl">👨</span>
+              <span className="text-3xl">👨</span>
               <div>
-                <h2 className="text-2xl font-semibold mb-4">Enjoy Your Time</h2>
+                <h2 className="text-xl font-semibold mb-4">Enjoy Your Time</h2>
                 <p className="text-gray-600">
                   To learn well, you have to learn with a serious face, no
                   kidding! With engaging exercises and characters full of humor,
