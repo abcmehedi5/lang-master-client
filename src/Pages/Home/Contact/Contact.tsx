@@ -13,19 +13,19 @@ const Contact = () => {
           modi debitis dolore, minus asperiores accusantium quia?
         </p>
         <div>
-          <h4 className="text-2xl flex items-center">
+          <h4 className="text-xl flex items-center">
             <AiOutlinePhone /> &nbsp; Call US
           </h4>
           <p>+880123456789</p>
         </div>
         <div className="my-4">
-          <h4 className="text-2xl flex items-center">
+          <h4 className="text-xl flex items-center">
             <AiTwotoneMail /> &nbsp; Email
           </h4>
           <p>exaple@gmail.com</p>
         </div>
         <div>
-          <h4 className="text-2xl flex items-center">
+          <h4 className="text-xl flex items-center">
             <HiLocationMarker /> &nbsp; Location
           </h4>
           <p>12 rock stret, 21 aventg</p>
