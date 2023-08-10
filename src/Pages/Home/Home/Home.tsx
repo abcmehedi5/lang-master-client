@@ -1,5 +1,7 @@
 import Cover from "../Cover/Cover";
 
+
+
 const Home = () => {
     return (
         <div>
