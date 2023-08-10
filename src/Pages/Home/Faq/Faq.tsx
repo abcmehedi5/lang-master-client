@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import faq from "../../../assets/img/two.jpg";
 const Faq = () => {
   return (
-      <div className="md:flex items-center justify-center my-20 w-[90%] mx-auto">
-        {/* -----img side----- */}
+    <div className="md:flex items-center justify-center my-20 w-[90%] mx-auto">
+      {/* -----img side----- */}
       <div className="md:w-1/2 p-4">
         <h1 className="text-5xl font-bold">Frequently asked question</h1>
         <p className="my-4">
