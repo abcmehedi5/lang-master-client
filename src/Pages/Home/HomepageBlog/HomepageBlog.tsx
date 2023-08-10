@@ -33,7 +33,7 @@ const HomepageBlog = () => {
                 <p className="text-gray-800 text-xl pb-3 font-semibold">
                   10 Effective Tips to Accelerate Your Language Learning Journey
                 </p>
-                <p className="text-base text-neutral-600 dark:text-neutral-200">
+                <p className="text-base text-neutral-600 dark:text-neutral-500">
                   Discover 10 proven strategies to enhance your language
                   learning process and make the most of your study sessions
                 </p>

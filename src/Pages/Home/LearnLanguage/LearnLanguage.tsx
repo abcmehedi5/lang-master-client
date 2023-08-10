@@ -17,7 +17,7 @@ function LearnLanguage() {
     const learning: string[] = [img1, img2, img3, img4];
 
     return (
-        <div className="my-4 shadow-lg">
+        <div className="my-4 shadow-lg container mx-auto">
             {/* Group button */}
             <div className="flex border bg-slate-100 mx-auto justify-center md:w-1/2 w-full rounded-3xl text-center my-6 ">
                 <Link to="/" className="hover:bg-[#047e65] hover:text-white items-center p-4 w-full rounded-3xl flex gap-2">
