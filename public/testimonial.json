@@ -1,0 +1,50 @@
+[
+  {
+      "_id": 1,
+      "image": "https://images.unsplash.com/profile-1619796074146-69e1b29e66adimage?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
+      "name": "John Dallas",
+      "passion": "Language Enthusiast",
+      "description": "John found our language program incredibly engaging. The mix of data-driven techniques and traditional teaching methods fueled his passion for languages.",
+      "rating": 5
+  },
+  {
+      "_id": 2,
+      "image": "https://images.unsplash.com/profile-1514561552931-d49cebe2d717?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
+      "name": "Aimee Irving",
+      "passion": "Culture Explorer",
+      "description": "Aimee's journey with our language courses has allowed her to delve deeper into various cultures. She's passionate about learning and experiencing new perspectives.",
+      "rating": 4
+  },
+  {
+      "_id": 3,
+      "image": "https://images.unsplash.com/profile-1650369319777-484509df5494image?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
+      "name": "John Destin",
+      "passion": "Global Communicator",
+      "description": "As a global communicator, John found our language program invaluable for his international interactions. The fusion of modern and traditional methods improved his fluency.",
+      "rating": 4.5
+  },
+  {
+      "_id": 4,
+      "image": "https://images.unsplash.com/profile-1642220767942-c4150c25e42eimage?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
+      "name": "Emily Smith",
+      "passion": "Family Connecter",
+      "description": "Emily's passion for connecting with family led her to our language courses. The dynamic approach helped her br_idge language gaps and connect on a deeper level.",
+      "rating": 5
+  },
+  {
+      "_id": 5,
+      "image": "https://images.unsplash.com/profile-fb-1631234027-71839941972f.jpg?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
+      "name": "Michael Johnson",
+      "passion": "Business Communicator",
+      "description": "Michael's passion for effective business communication found a home in our language program. Enhanced skills empowered him to navigate global markets with conf_idence.",
+      "rating": 4.7
+  },
+  {
+      "_id": 6,
+      "image": "https://images.unsplash.com/profile-1517962614310-0be74ebf2651?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
+      "name": "Sophia Williams",
+      "passion": "Future Professional",
+      "description": "Sophia, a future professional, honed her language skills with our courses. The blend of modern insights and traditional methods prepares her for a successful career.",
+      "rating": 4.8
+  }
+]
