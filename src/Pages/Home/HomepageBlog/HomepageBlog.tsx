@@ -30,7 +30,7 @@ const HomepageBlog = () => {
                 <p className="text-[#757575] pb-3 font-semibold">
                   Language Learning Tips
                 </p>
-                <p className="text-gray-800 text-xl pb-3 font-semibold">
+                <p className="text-gray-800 text-xl pb-3 font-semibold hover:underline hover:cursor-pointer">
                   10 Effective Tips to Accelerate Your Language Learning Journey
                 </p>
                 <p className="text-base text-neutral-600 dark:text-neutral-500">
@@ -55,7 +55,7 @@ const HomepageBlog = () => {
                 <p className="text-[#757575] pb-3 font-semibold">
                   Cultural Insights Through Language
                 </p>
-                <p className="text-gray-800 text-xl pb-3 font-semibold">
+                <p className="text-gray-800 text-xl pb-3 font-semibold hover:underline hover:cursor-pointer">
                   Unveiling Cultural Treasures: Exploring Traditions Through
                   Language Learning
                 </p>
@@ -79,7 +79,7 @@ const HomepageBlog = () => {
                 <p className="text-[#757575] pb-3 font-semibold">
                   Mastering Pronunciation
                 </p>
-                <p className="text-gray-800 text-xl pb-3 font-semibold">
+                <p className="text-gray-800 text-xl pb-3 font-semibold hover:underline hover:cursor-pointer">
                   Cracking the Code: A Guide to Mastering Pronunciation in a New
                   Language
                 </p>
