@@ -14,7 +14,7 @@ import seven from "../../../assets/img/seven.jpg";
 import eight from "../../../assets/img/eight.jpg";
 import nine from "../../../assets/img/nine.jpg";
 // import required modules
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 interface CoverProps {
   // Define any props you might pass to the component
@@ -23,7 +23,7 @@ interface CoverProps {
 const Cover: React.FC<CoverProps> = () => {
   const images = [one, two, three, four, five, six, seven, eight, nine];
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 lg:mx-auto gap-4 mx-4 px-5 bg-gray-300 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 lg:mx-auto gap-4 mx-4 px-5 bg-gray-100 items-center">
       <div className="text-left mx-auto py-9">
         <p className="text-teal-500 font-medium pb-4">Education system</p>
         <h1 className="text-5xl font-bold">Start Sharing</h1>
@@ -45,8 +45,9 @@ const Cover: React.FC<CoverProps> = () => {
       <div>
         <Swiper
           navigation={true}
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           className="w-full lg:h-96 md:h-auto"
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
         >
           <Swiper navigation={true} modules={[Navigation]} className="w-full">
             {images.map((imagePath, index) => (
