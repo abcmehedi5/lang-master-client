@@ -37,10 +37,10 @@ const Navbar = () => {
       <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
           to="/projects"
-          title="Our Projects"
+          title="Our Classs"
           className={({ isActive }) => (isActive ? " underline-cus" : "")}
         >
-          <p className="px-4 py-4">Our Project</p>
+          <p className="px-4 py-4">Our Class</p>
         </NavLink>
       </p>
     </>
@@ -91,7 +91,7 @@ const Navbar = () => {
         </div>
 
         <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
-          MOCKUPS FOR FREE
+          LANG-MASTER
         </Link>
 
         <div className="navbar-center hidden lg:flex">
