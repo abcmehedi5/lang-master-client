@@ -1,14 +1,65 @@
+import { useEffect, useState } from "react";
+import { MdLocationPin } from 'react-icons/md';
 import "./Profile.css";
 
+interface Profile {
+    _id: string;
+    name: string;
+    rating: number;
+    details: string;
+    description: string;
+    image: string;
+    passion: string;
+    location: string;
+    joiningDate: Date;
+    email: string;
+    following: number;
+    followers: number;
+    mobileNumber: number;
+  }
+
 const Profile = () => {
+    const [profiles, setProfiles] = useState<Profile[]>([]);
+
+    useEffect(() => {
+        fetch("../../../../public/users.json")
+          .then((res) => res.json())
+          .then((data) => setProfiles(data))
+          .catch((error) => console.error(error));
+      }, []);
+      
+      const slicedProfiles = profiles.slice(0, 1);
     return (
         <div className="profile">
+             {slicedProfiles.map((profile) => (
             <div className="mx-auto md:max-w-none px-4 max-w-7xl sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
                 <section className="text-center">
                     <div
                     className="p-5 bg-image text-white"
                     >
-                        ee
+                        <div className="flex">
+                            <div className="flex items-center mt-8 text-left">
+                                <img
+                                className="flex-shrink-0 object-cover rounded-full w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 ml-4"
+                                src={profile.image}
+                                alt=""
+                                />
+                                <div className="ml-4">
+                                    <p className="font-bold text-blue-900 font-pj text-3xl">
+                                        {profile.name}
+                                    </p>
+                                    <p className="mt-0.5 text-sm font-pj text-gray-900">
+                                        {profile.passion}
+                                    </p>
+                                    <p className="mt-0.5 text-sm font-pj text-gray-900 flex">
+                                        <span className="me-1 my-1"><MdLocationPin></MdLocationPin></span>{profile.location}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="text-right">
+                                <h2>hh</h2>
+                            </div>
+                        </div>
                     </div>
                         <div className="dark-overlay">
                             <div
@@ -56,6 +107,7 @@ const Profile = () => {
                         </div>
                 </section>
             </div>
+            ))}
         </div>
     );
 };
