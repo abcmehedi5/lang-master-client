@@ -5,8 +5,20 @@ import { MdLeaderboard } from "react-icons/md";
 const LearningLayout = () => {
   return (
     <div className="drawer lg:drawer-open ">
+      {/*background blur color */}
+
+      <div className=" -inset-x-1 inset-y-16 md:-inset-x-2 md:-inset-y-6">
+        <div
+          className="w-full h-full max-w-5xl mx-auto rounded-3xl opacity-10 blur-lg filter"
+          style={{
+            background:
+              "linear-gradient(90deg, #44ff9a -0.55%, #44b0ff 22.86%, #8b44ff 48.36%, #ff6644 73.33%, #ebff70 99.34%)",
+          }}
+        ></div>
+      </div>
+
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col items-center justify-center">
+      <div className="drawer-content ">
         {/* Page content here */}
         <label
           htmlFor="my-drawer-2"

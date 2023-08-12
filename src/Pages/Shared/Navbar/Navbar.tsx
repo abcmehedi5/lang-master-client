@@ -63,7 +63,7 @@ const Navbar = () => {
   // ----------- get started button --------
   const Getstarted = () => (
     <div>
-      <button className="defaultBtn">GET STARTED</button>
+     <Link to="/user-dashboard/learning"> <button className="defaultBtn">GET STARTED</button></Link>
     </div>
   );
 
