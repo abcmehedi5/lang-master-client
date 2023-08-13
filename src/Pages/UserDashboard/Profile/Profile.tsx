@@ -49,7 +49,7 @@ const Profile = () => {
                                     alt=""
                                     />
                                 </div>
-                                <div className="mt-6">
+                                <div className="mt-2 md:mt-6 lg:mt-6">
                                     <p className="font-bold text-white font-pj text-md md:text-3xl lg:text-3xl mb-2">
                                         {profile.name}
                                     </p>
@@ -77,7 +77,7 @@ const Profile = () => {
                                 </div>
                             </div>
                             <div className="mx-4">
-                                <div className="flex mb-3 text-right text-[11px]">
+                                <div className="flex mb-3 text-[11px]">
                                     <span className="my-1 me-1 mx-4 text-md"><FaClock></FaClock></span>Joined {profile.joiningDate}
                                 </div>
                                 <button className="bg-white hover:bg-gray-100 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded text-[9px] md:text-sm">
@@ -95,37 +95,109 @@ const Profile = () => {
                                 backdropFilter: 'blur(30px)',
                             }}
                             >
-                            <div className="card-body py-5 px-md-5">
-                                <div className="row d-flex justify-content-center">
+                            <div className="card-body py-5 px-md-5 text-left">
+                                <div className="row">
                                     <div className="col-lg-8">
-                                        <h2 className="fw-bold mb-5">Registration now</h2>
-                                        <form>
-                                        <div className="mb-4">
-                                            <input type="text" id="form3Example1" placeholder="Name" name='name' className="form-control" />
-                                        </div>
+                                        <h2 className="font-bold mb-5 text-left ">About</h2>
+                                        <p>{profile.description}</p>
+                                       
+                                          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
+                                             {/* started card  */}
+                                            <div className="card w-auto border border-gray-400 hover:border-blue-600 cursor-pointer bg-white my-6">
+                                                <div className="card-body">
+                                                    <table className="table-auto">
+                                                        <thead>
+                                                            <tr>
+                                                            <th style={{ fontSize: '1.5rem' }}>Info</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody className="text-sm">
+                                                            <tr>
+                                                                <td>Full Name:</td>
+                                                                <td>{profile.name}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody className="text-sm">
+                                                            <tr>
+                                                                <td>Mobile :</td>
+                                                                <td>{profile.mobileNumber}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody className="text-sm">
+                                                            <tr>
+                                                                <td>E-mail :</td>
+                                                                <td>{profile.email}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tbody className="text-sm">
+                                                            <tr>
+                                                                <td>Location :</td>
+                                                                <td>{profile.location}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
 
-                                        <div className="mb-4">
-                                            <input type="email" name='email' id="form3Example3" placeholder="Email address" className="form-control" />
-                                        
-                                        </div>
+                                            <article className="mt-0 md:mt-6 lg:mt-6">
+                                            <h2 className="font-bold">Statistics</h2>
+                                            <ul className="mt-4 space-y-2">
+                                               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                                                        >
+                                                            <strong className="font-medium text-black">0</strong>
 
-                                
-                                        <div className="form-check d-flex justify-content-center mb-4">
-                                            <input
-                                            className="me-2 custom-checkbox"
-                                            type="checkbox"
-                                            id="form2Example33"
-                                        
-                                            />
-                                            <label htmlFor="form2Example33" className="form-check-label">
-                                            I agree to the terms and conditions
-                                            </label>
+                                                            <p className="mt-1 text-xs font-medium text-black">
+                                                            Day streak
+                                                            </p>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                                                        >
+                                                            <strong className="font-medium text-black">0</strong>
+
+                                                            <p className="mt-1 text-xs font-medium text-black">
+                                                            Total xp
+                                                            </p>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                                                        >
+                                                            <strong className="font-medium text-black">None</strong>
+
+                                                            <p className="mt-1 text-xs font-medium text-black">
+                                                            Current League
+                                                            </p>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                                                        >
+                                                            <strong className="font-medium text-black">0</strong>
+
+                                                            <p className="mt-1 text-xs font-medium text-black">
+                                                            Top 3 finishes
+                                                            </p>
+                                                        </a>
+                                                    </li>
+                                               </div>
+
+                                             
+                                            </ul>
+                                            </article>
+                                          </div>
                                         </div>
-                                        {/* <button type="submit" className="btn-block mb-4 bg-warning text-white py-2">
-                                            Register Now
-                                        </button> */}
-                                        </form>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
