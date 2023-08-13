@@ -35,29 +35,48 @@ const Profile = () => {
             <div className="mx-auto md:max-w-none px-4 max-w-7xl sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
                 <section className="text-center">
                     <div
-                    className="p-5 bg-image text-white"
+                    className="p-4 bg-image text-white"
                     >
-                        <div className="flex">
-                            <div className="flex items-center mt-8 text-left">
+                        <div className="grid grid-cols-2">
+                            <div className="flex items-center text-left">
                                 <img
                                 className="flex-shrink-0 object-cover rounded-full w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 ml-4"
                                 src={profile.image}
                                 alt=""
                                 />
-                                <div className="ml-4">
+                                <div className="ml-4 mt-6">
                                     <p className="font-bold text-blue-900 font-pj text-3xl">
                                         {profile.name}
                                     </p>
                                     <p className="mt-0.5 text-sm font-pj text-gray-900">
                                         {profile.passion}
                                     </p>
-                                    <p className="mt-0.5 text-sm font-pj text-gray-900 flex">
-                                        <span className="me-1 my-1"><MdLocationPin></MdLocationPin></span>{profile.location}
-                                    </p>
+                                    <div className="flex">
+                                        <p className="mt-0.5 text-sm font-pj text-gray-900 flex">
+                                            <span className="me-1 my-1"><MdLocationPin></MdLocationPin></span>{profile.location}
+                                        </p>
+                                        <p className="mt-0.5 text-sm font-pj text-gray-900 flex">
+                                            <span className="me-1 my-1"><MdLocationPin></MdLocationPin></span>{profile.location}
+                                        </p>
+                                    </div>
+                                    <div className="flex text-center mt-2">
+                                        <p className="font-pj me-5">
+                                            <span className="text-lg font-bold">{profile.followers}</span>
+                                            <p className="text-sm">Followers</p>
+                                        </p>
+                                        <p className="font-pj">
+                                            <span className="text-lg font-bold">{profile.following}</span>
+                                            <p className="text-sm">Followings</p>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="text-right">
-                                <h2>hh</h2>
+                            <div className="">
+                                <div className="flex justify-end m-4">
+                                    <button className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
+                                        + Follow
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
