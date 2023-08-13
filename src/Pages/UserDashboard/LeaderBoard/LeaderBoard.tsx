@@ -22,13 +22,13 @@ const LeaderBoard = () => {
 
   return (
 
-    <div className="overflow-x-auto w-full mx-auto flex mt-20">
-      <div className="w-full mx-10 text-center">
+    <div className="w-full mx-auto md:flex mt-14">
+      <div className="w-full md:mx-10 text-center">
         <div className="space-y-2 mb-2">
         <h1 className="text-3xl font-semibold">লিডারবোর্ড আনলক করুন!</h1>
         <p className="text-xl text-gray-600 font-semibold">প্রতিযোগিতায় অংশ নিতে হলে আপনাকে আরও 7টি লেসন শেষ করতে হবে</p>
         </div>
-        <div className="overflow-x-auto">
+        <div className="">
           {usersPoint
             .sort((a, b) => b.points - a.points)
             .map((userPoint, index) => (
@@ -60,7 +60,7 @@ const LeaderBoard = () => {
             ))}
         </div>
       </div>
-      <div className="w-[400px] h-full mx-auto border-2 px-3 py-4 mr-10 rounded-lg">
+      <div className="md:w-[400px] w-full h-full mx-auto border-2 px-3 py-4 md:mr-10 rounded-lg">
       <h5 className="text-gray-500 text-xl">লিডারবোর্ড কী?</h5>
       <p className="text-2xl">লেসন প্র্যাকটিস করুন। পয়েন্ট জিতুন। প্রতিযোগিতায় মেতে উঠুন।</p>
       <p className="text-xl text-gray-700">লেসন প্র্যাকটিস করে পয়েন্ট জিতুন, এবং মেতে উঠুন সাপ্তাহিক লিডারবোর্ডের প্রতিযোগিতায়</p>
