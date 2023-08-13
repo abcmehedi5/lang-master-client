@@ -3,6 +3,8 @@ import { FcHome, FcReadingEbook, FcBusinessman } from "react-icons/fc";
 import { MdLeaderboard } from "react-icons/md";
 
 const LearningLayout = () => {
+
+
   return (
     <div className="drawer lg:drawer-open ">
       {/*background blur color */}
