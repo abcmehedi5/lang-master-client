@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { MdLocationPin } from 'react-icons/md';
+import { TbBuildingEstate } from 'react-icons/tb';
 import "./Profile.css";
+import { FaClock } from "react-icons/fa";
 
 interface Profile {
     _id: string;
@@ -16,6 +18,7 @@ interface Profile {
     following: number;
     followers: number;
     mobileNumber: number;
+    state:string;
   }
 
 const Profile = () => {
@@ -37,25 +40,27 @@ const Profile = () => {
                     <div
                     className="p-4 bg-image text-white"
                     >
-                        <div className="grid grid-cols-2">
-                            <div className="flex items-center text-left">
-                                <img
-                                className="flex-shrink-0 object-cover rounded-full w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 ml-4"
-                                src={profile.image}
-                                alt=""
-                                />
-                                <div className="ml-4 mt-6">
-                                    <p className="font-bold text-blue-900 font-pj text-3xl">
+                        <div className="flex justify-between items-center">
+                            <div className="grid grid-cols-1 md:grid-cols-2 items-center text-left">
+                                <div>
+                                    <img
+                                    className="object-cover rounded-full w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 md:ml-12"
+                                    src={profile.image}
+                                    alt=""
+                                    />
+                                </div>
+                                <div className="mt-6">
+                                    <p className="font-bold text-white font-pj text-md md:text-3xl lg:text-3xl mb-2">
                                         {profile.name}
                                     </p>
-                                    <p className="mt-0.5 text-sm font-pj text-gray-900">
+                                    <p className="mt-0.5 text-[11px] md:text-sm lg:text-sm font-pj text-white">
                                         {profile.passion}
                                     </p>
-                                    <div className="flex">
-                                        <p className="mt-0.5 text-sm font-pj text-gray-900 flex">
-                                            <span className="me-1 my-1"><MdLocationPin></MdLocationPin></span>{profile.location}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                                        <p className="mt-0.5 text-sm font-pj  me-5 flex text-white">
+                                            <span className="my-1 me-1"><TbBuildingEstate></TbBuildingEstate></span>{profile.state}
                                         </p>
-                                        <p className="mt-0.5 text-sm font-pj text-gray-900 flex">
+                                        <p className="mt-0.5 text-sm font-pj flex">
                                             <span className="me-1 my-1"><MdLocationPin></MdLocationPin></span>{profile.location}
                                         </p>
                                     </div>
@@ -71,12 +76,13 @@ const Profile = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="">
-                                <div className="flex justify-end m-4">
-                                    <button className="bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">
-                                        + Follow
-                                    </button>
+                            <div className="mx-4">
+                                <div className="flex mb-3 text-right text-[11px]">
+                                    <span className="my-1 me-1 mx-4 text-md"><FaClock></FaClock></span>Joined {profile.joiningDate}
                                 </div>
+                                <button className="bg-white hover:bg-gray-100 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded text-[9px] md:text-sm">
+                                    + Follow
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -115,9 +121,9 @@ const Profile = () => {
                                             I agree to the terms and conditions
                                             </label>
                                         </div>
-                                        <button type="submit" className="btn-block mb-4 bg-warning text-white py-2">
+                                        {/* <button type="submit" className="btn-block mb-4 bg-warning text-white py-2">
                                             Register Now
-                                        </button>
+                                        </button> */}
                                         </form>
                                     </div>
                                     </div>
