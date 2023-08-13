@@ -6,6 +6,7 @@ import Learning from "../Pages/UserDashboard/Learning/Learning";
 import LeaderBoard from "../Pages/UserDashboard/LeaderBoard/LeaderBoard";
 import Grammar from "../Pages/UserDashboard/Grammar/Grammar";
 import Profile from "../Pages/UserDashboard/Profile/Profile";
+import Quizzes from "../Pages/UserDashboard/Quiz/Quizzes";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "leader-board",
         element: <LeaderBoard></LeaderBoard>,
+      },
+      {
+        path: "quiz",
+        element: <Quizzes></Quizzes>,
       },
       {
         path: "grammar",

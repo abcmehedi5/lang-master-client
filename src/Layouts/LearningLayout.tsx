@@ -51,6 +51,15 @@ const LearningLayout = () => {
           </li>
           <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
             <Link
+              to="/user-dashboard/quiz"
+              className="hover:text-white flex gap-2 items-center"
+            >
+              <MdLeaderboard style={{ fontSize: "30px" }} />
+              কুইজ
+            </Link>
+          </li>
+          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
+            <Link
               to="/user-dashboard/grammar"
               className="hover:text-white flex gap-2 items-center"
             >
