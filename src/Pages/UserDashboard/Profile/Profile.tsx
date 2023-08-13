@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { MdLocationPin } from 'react-icons/md';
+import { MdFindReplace, MdLocationPin } from 'react-icons/md';
 import { TbBuildingEstate } from 'react-icons/tb';
 import "./Profile.css";
-import { FaClock } from "react-icons/fa";
+import { FaClock, FaFacebook } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { BsPersonFillAdd } from "react-icons/bs";
 
 interface Profile {
     _id: string;
@@ -194,6 +196,43 @@ const Profile = () => {
                                                </div>
 
                                              
+                                            </ul>
+                                            </article>
+                                            <article className="mt-0 md:mt-6 lg:mt-6">
+                                            <h2 className="font-bold">Add friends</h2>
+                                            <ul className="mt-4 space-y-2">
+                                               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                                                        >
+                                                            <strong className="font-medium text-black"><MdFindReplace></MdFindReplace></strong>
+                                                            <span className="font-medium">Find friends</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                                                        >
+                                                            <strong className="font-medium text-black"><BsPersonFillAdd></BsPersonFillAdd></strong>
+                                                            <strong className="font-medium text-black">Invite friends</strong>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            href="https://www.facebook.com/"
+                                                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                                                        >
+                                                            <strong className="font-medium text-black">Contact to</strong>
+
+                                                            <p className="mt-1 text-xs font-medium text-black flex">
+                                                            Facebook <FaFacebook className="mt-1 ml-1 text-blue-500"></FaFacebook>
+                                                            </p>
+                                                        </a>
+                                                    </li>
+                                               </div>
                                             </ul>
                                             </article>
                                           </div>
