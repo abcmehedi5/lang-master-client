@@ -21,21 +21,18 @@ const LeaderBoard = () => {
   ];
 
   return (
-    <div className="overflow-x-auto md:w-11/12 mx-auto">
-      <div>
-        {/* head */}
-        <div className="bg-[#000] text-center py-3 grid grid-cols-3 text-white mb-4 px-5">
-          {/* <p></p> */}
-          <p>Name</p>
-          <p>Email</p>
-          <p>Score</p>
-          {/* <p></p> */}
+
+    <div className="overflow-x-auto w-full mx-auto flex mt-20">
+      <div className="w-full mx-10 text-center">
+        <div className="space-y-2 mb-2">
+        <h1 className="text-3xl font-semibold">লিডারবোর্ড আনলক করুন!</h1>
+        <p className="text-xl text-gray-600 font-semibold">প্রতিযোগিতায় অংশ নিতে হলে আপনাকে আরও 7টি লেসন শেষ করতে হবে</p>
         </div>
         <div className="overflow-x-auto">
           {usersPoint
             .sort((a, b) => b.points - a.points)
             .map((userPoint, index) => (
-              <div key={index} className="grid text-center grid-cols-3 w-full mb-4 bg-[#088395] py-2 px-5 items-center text-white">
+              <div key={index} className="grid text-center grid-cols-2 w-full mb-4 bg-[#088395] py-2 px-5 items-center text-white">
                 {/* <p>{index + 1}</p> */}
                 <div>
                   <p className="flex items-center space-x-3">
@@ -55,15 +52,21 @@ const LeaderBoard = () => {
                     </div>
                   </p>
                 </div>
-                <p>
+                {/* <p>
                   {userPoint?.useremail}
-                </p>
+                </p> */}
                 <p>{userPoint?.points}</p>
               </div>
             ))}
         </div>
       </div>
+      <div className="w-[400px] h-full mx-auto border-2 px-3 py-4 mr-10 rounded-lg">
+      <h5 className="text-gray-500 text-xl">লিডারবোর্ড কী?</h5>
+      <p className="text-2xl">লেসন প্র্যাকটিস করুন। পয়েন্ট জিতুন। প্রতিযোগিতায় মেতে উঠুন।</p>
+      <p className="text-xl text-gray-700">লেসন প্র্যাকটিস করে পয়েন্ট জিতুন, এবং মেতে উঠুন সাপ্তাহিক লিডারবোর্ডের প্রতিযোগিতায়</p>
+      </div>
     </div>
+   
   );
 };
 
