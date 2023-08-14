@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { MdFindReplace, MdLocationPin } from 'react-icons/md';
 import { TbBuildingEstate } from 'react-icons/tb';
 import "./Profile.css";
-import { FaClock, FaFacebook } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaClock, FaEdit, FaFacebook } from "react-icons/fa";
 import { BsPersonFillAdd } from "react-icons/bs";
 
 interface Profile {
@@ -47,9 +46,9 @@ const Profile = () => {
                                 <div>
                                     <img
                                     className="object-cover rounded-full w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 md:ml-12"
-                                    src={profile.image}
-                                    alt=""
-                                    />
+                                    src={profile.image} 
+                                    alt=""></img>
+                                    
                                 </div>
                                 <div className="mt-2 md:mt-6 lg:mt-6">
                                     <p className="font-bold text-white font-pj text-md md:text-3xl lg:text-3xl mb-2">
@@ -107,37 +106,46 @@ const Profile = () => {
                                              {/* started card  */}
                                             <div className="card w-auto border border-gray-400 hover:border-blue-600 cursor-pointer bg-white my-6">
                                                 <div className="card-body">
-                                                    <table className="table-auto">
-                                                        <thead>
-                                                            <tr>
-                                                            <th style={{ fontSize: '1.5rem' }}>Info</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody className="text-sm">
-                                                            <tr>
-                                                                <td>Full Name:</td>
-                                                                <td>{profile.name}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                        <tbody className="text-sm">
-                                                            <tr>
-                                                                <td>Mobile :</td>
-                                                                <td>{profile.mobileNumber}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                        <tbody className="text-sm">
-                                                            <tr>
-                                                                <td>E-mail :</td>
-                                                                <td>{profile.email}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                        <tbody className="text-sm">
-                                                            <tr>
-                                                                <td>Location :</td>
-                                                                <td>{profile.location}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                    <div className="grid grid-cols-2">
+                                                        <div>
+                                                            <h2 className="text-4xl mb-3">Info</h2>
+                                                        </div>
+                                                        <div className="text-right m-3">
+                                                            <button className=""><FaEdit></FaEdit></button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                                                        <div>
+                                                            <h1 className="font-bold">Full Name:</h1>
+                                                        </div>
+                                                        <div>
+                                                            <h1>{profile.name}</h1>
+                                                        </div>
+                                                    </div>
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                                                        <div>
+                                                            <h1 className="font-bold">Mobile Number:</h1>
+                                                        </div>
+                                                        <div>
+                                                            <h1>{profile.mobileNumber}</h1>
+                                                        </div>
+                                                    </div>
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                                                        <div>
+                                                            <h1 className="font-bold">Email:</h1>
+                                                        </div>
+                                                        <div>
+                                                            <h1>{profile.email}</h1>
+                                                        </div>
+                                                    </div>
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                                                        <div>
+                                                            <h1 className="font-bold">Location:</h1>
+                                                        </div>
+                                                        <div>
+                                                            <h1>{profile.location}</h1>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
 
