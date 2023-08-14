@@ -65,8 +65,6 @@ const Profile = () => {
                                             <span className="me-1 my-1"><MdLocationPin /></span>{profile.location}
                                         </span>
                                     </div>
-                                    
-
                                     <div className="flex text-center mt-2">
                                         <span className="font-pj me-5">
                                             <span className="text-lg font-bold">{profile.followers}</span>
