@@ -111,7 +111,8 @@ const Profile = () => {
                                                             <h2 className="text-4xl mb-3">Info</h2>
                                                         </div>
                                                         <div className="text-right m-3">
-                                                            <button className=""><FaEdit></FaEdit></button>
+                                                            <button className="tooltip" > <span className="tooltiptext">Edit</span>
+                                                            <FaEdit></FaEdit></button>
                                                         </div>
                                                     </div>
                                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
