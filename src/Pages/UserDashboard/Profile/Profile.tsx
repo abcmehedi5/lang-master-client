@@ -36,7 +36,7 @@ const Profile = () => {
     return (
         <div className="profile">
              {slicedProfiles.map((profile) => (
-            <div className="mx-auto md:max-w-none px-4 max-w-7xl sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+            <div key={profile._id} className="mx-auto md:max-w-none px-4 max-w-7xl sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
                 <section className="text-center">
                     <div
                     className="p-4 bg-image text-white"
@@ -58,22 +58,23 @@ const Profile = () => {
                                         {profile.passion}
                                     </p>
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-                                        <p className="mt-0.5 text-sm font-pj  me-5 flex text-white">
-                                            <span className="my-1 me-1"><TbBuildingEstate></TbBuildingEstate></span>{profile.state}
-                                        </p>
-                                        <p className="mt-0.5 text-sm font-pj flex">
-                                            <span className="me-1 my-1"><MdLocationPin></MdLocationPin></span>{profile.location}
-                                        </p>
+                                        <span className="mt-0.5 text-sm font-pj me-5 flex text-white">
+                                            <span className="my-1 me-1"><TbBuildingEstate /></span>{profile.state}
+                                        </span>
+                                        <span className="mt-0.5 text-sm font-pj flex">
+                                            <span className="me-1 my-1"><MdLocationPin /></span>{profile.location}
+                                        </span>
                                     </div>
+
                                     <div className="flex text-center mt-2">
-                                        <p className="font-pj me-5">
+                                        <span className="font-pj me-5">
                                             <span className="text-lg font-bold">{profile.followers}</span>
                                             <p className="text-sm">Followers</p>
-                                        </p>
-                                        <p className="font-pj">
+                                        </span>
+                                        <span className="font-pj">
                                             <span className="text-lg font-bold">{profile.following}</span>
                                             <p className="text-sm">Followings</p>
-                                        </p>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
