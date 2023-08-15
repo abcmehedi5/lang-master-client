@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserCredential } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
+import GoogleFb from "../Shared/Google-Fb/GoogleFb";
 
 const Login = () => {
   interface FormData {
@@ -96,14 +97,7 @@ const Login = () => {
           </form>
 
           <div className="divider">or</div>
-          <div className="flex items-center gap-3 justify-center mt-2 mb-4">
-          <button className="btn btn-circle">
-            <FcGoogle className="text-2xl" />
-          </button>
-          <button className="btn btn-circle">
-            <FaFacebookF className="text-2xl text-[#1877f2]" />
-          </button>
-          </div>
+          <GoogleFb></GoogleFb>
         </div>
       </div>
     </div>
