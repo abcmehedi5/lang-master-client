@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import SingleUnitCard from "./SingleUnitCard";
 export interface LearnDataItem {
-  _id: number;
+  _id: string;
   unit: string;
   topic: string;
   lesson: string;
   points: string;
   progress: string;
+  lessons: object;
+  lessonNumber: string;
+  lessonTitle: string;
 }
 const Learning = () => {
   const [unitData, setUnitData] = useState<LearnDataItem[]>([]);
