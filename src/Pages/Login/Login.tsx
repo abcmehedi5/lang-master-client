@@ -4,31 +4,28 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserCredential } from "firebase/auth";
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF } from "react-icons/fa";
 import GoogleFb from "../Shared/Google-Fb/GoogleFb";
 
-const Login = () => {
-  interface FormData {
-    email: string;
-    password: string;
-    loginUser: any;
-  }
+interface FormData {
+  email: string;
+  password: string;
+}
 
+const Login: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FormData>();
   const { loginUser } = useContext(AuthContext);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data: FormData) => {
-    console.log(data.email);
-    loginUser(data?.email, data?.password)
+    loginUser(data.email, data.password)
       .then((result: UserCredential) => {
         const userlogin = result.user;
         console.log(userlogin);
@@ -97,7 +94,7 @@ const Login = () => {
           </form>
 
           <div className="divider">or</div>
-          <GoogleFb></GoogleFb>
+          <GoogleFb />
         </div>
       </div>
     </div>

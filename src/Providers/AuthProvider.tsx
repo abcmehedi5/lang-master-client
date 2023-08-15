@@ -36,14 +36,11 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-
-    
   // login with google popup
-  const logingoogle = ()=>{
-    setLoading(true)
-   return signInWithPopup(auth, googleprovider)
-  }
-
+  const logingoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleprovider);
+  };
 
   // logout user
   const logOut = () => {
@@ -51,14 +48,15 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   };
 
 
-  // updatePtofile
-  const updateUserProfile = (name, photo)=>{
+  // update user profile
+  const updateUserProfile = (name: string, photo: any) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
-      photoURL: photo
-    })
-  }
-
+      photoURL: photo,
+    });
+  };
+  
+  
   // current user save
 
   useEffect(() => {
