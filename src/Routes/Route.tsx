@@ -7,6 +7,7 @@ import LeaderBoard from "../Pages/UserDashboard/LeaderBoard/LeaderBoard";
 import Grammar from "../Pages/UserDashboard/Grammar/Grammar";
 import Profile from "../Pages/UserDashboard/Profile/Profile";
 import Quizzes from "../Pages/UserDashboard/Quiz/Quizzes";
+import Login from "../Pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: '/login',
+        element: <Login></Login>,
+      }
     ],
   },
   {
