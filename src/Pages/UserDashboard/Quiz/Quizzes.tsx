@@ -20,6 +20,26 @@ const Quizzes: React.FC = () => {
       options: ["Mars", "Venus", "Jupiter", "Saturn"],
       correctAnswer: "Mars",
     },
+    {
+      question: "Question 3: What is the largest mammal on Earth?",
+      options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+      correctAnswer: "Blue Whale",
+    },
+    {
+      question: "Question 4: Which scientist developed the theory of relativity?",
+      options: ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Niels Bohr"],
+      correctAnswer: "Albert Einstein",
+    },
+    {
+      question: "Question 5: Which gas do plants primarily use for photosynthesis?",
+      options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+      correctAnswer: "Carbon Dioxide",
+    },
+    {
+      question: "Question 6: What famous painting is known for its mysterious smile?",
+      options: ["Starry Night", "The Persistence of Memory", "The Scream", "Mona Lisa"],
+      correctAnswer: "Mona Lisa",
+    }
   ];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
