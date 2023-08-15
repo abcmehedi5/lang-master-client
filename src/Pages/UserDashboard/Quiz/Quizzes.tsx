@@ -11,7 +11,7 @@ interface QuizDataItem {
 const Quizzes: React.FC = () => {
   const quizData: QuizDataItem[] = [
     {
-      question: "Question 1: What is the capital of France?",
+      question: "Question 1: Which city serves as the capital of France?",
       options: ["Paris", "London", "Berlin", "Madrid"],
       correctAnswer: "Paris",
     },
@@ -21,7 +21,7 @@ const Quizzes: React.FC = () => {
       correctAnswer: "Mars",
     },
     {
-      question: "Question 3: What is the largest mammal on Earth?",
+      question: "Question 3: What's the largest mammal in the oceans?",
       options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
       correctAnswer: "Blue Whale",
     },
@@ -43,17 +43,29 @@ const Quizzes: React.FC = () => {
   ];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+  const [score, setScore] = useState<number>(0);
+  const [quizFinished, setQuizFinished] = useState<boolean>(false);
 
-  const handleNextClick = () => {
-    if (currentQuestionIndex < quizData.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+  const handleAnswerClick = (answerIndex: number) => {
+    if (quizFinished) {
+      return; // Prevent scoring after the quiz is finished
+    }
+
+    const selectedAnswer = quizData[currentQuestionIndex].options[answerIndex];
+    if (selectedAnswer === quizData[currentQuestionIndex].correctAnswer) {
+      setScore(score + 10);
+    }
+
+    const nextQuestion = currentQuestionIndex + 1;
+    if (nextQuestion < quizData.length) {
+      setCurrentQuestionIndex(nextQuestion);
+    } else {
+      setQuizFinished(true);
     }
   };
-  const handlePreviousClick = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex(currentQuestionIndex - 1);
-    }
-  };
+
+  const scorePercentage = (score / (quizData.length * 10)) * 100;
+  const isLastQuestion = currentQuestionIndex === quizData.length - 1;
 
   return (
     <div
@@ -70,7 +82,13 @@ const Quizzes: React.FC = () => {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {quizData[currentQuestionIndex].options.map((option, index) => (
-            <Quiz key={index} option={option} index={index} />
+            <Quiz
+              key={index}
+              option={option}
+              index={index}
+              handleAnswerClick={handleAnswerClick}
+              disabled={quizFinished}
+            />
           ))}
         </div>
       </div>
@@ -78,17 +96,40 @@ const Quizzes: React.FC = () => {
       <div className="flex justify-center gap-4 mt-12">
         <button
           className="w-40 bg-purple-500 text-white py-2 rounded text-xl font-semibold"
-          onClick={handlePreviousClick}
-          disabled={currentQuestionIndex === 0}
+          onClick={() =>
+            setCurrentQuestionIndex(Math.max(currentQuestionIndex - 1, 0))
+          }
+          disabled={currentQuestionIndex === 0 || quizFinished}
         >
           Previous
         </button>
-        <button
-          className="w-40 bg-blue-500 text-white py-2 px-4 rounded text-xl font-semibold"
-          onClick={handleNextClick}
-        >
-          Next
-        </button>
+        {isLastQuestion ? (
+          <div className="w-40 text-white my-4 text-xl font-semibold">Finished</div>
+        ) : (
+          <button
+            className="w-40 bg-blue-500 text-white py-2 px-4 rounded text-xl font-semibold"
+            onClick={() =>
+              setCurrentQuestionIndex(
+                Math.min(currentQuestionIndex + 1, quizData.length - 1)
+              )
+            }
+            disabled={quizFinished}
+          >
+            Next
+          </button>
+        )}
+      </div>
+
+      <div className="text-center mt-8 text-xl font-semibold">
+        {quizFinished ? (
+          <div className="text-white">
+            Your Score: {scorePercentage.toFixed(2)}%
+            <br />
+            Total Score: {score} out of {quizData.length * 10}
+          </div>
+        ) : (
+          <div className="text-white">Your Score: {scorePercentage.toFixed(2)}%</div>
+        )}
       </div>
     </div>
   );
