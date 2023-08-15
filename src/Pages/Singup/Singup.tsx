@@ -29,7 +29,7 @@ const Signup: React.FC = () => {
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = async (data: FormData) => {
-    const { name, email, password, confirmPassword, number, image } = data;
+    const { name, email, password, confirmPassword, image } = data;
     console.log(data);
 
     if (password !== confirmPassword) {

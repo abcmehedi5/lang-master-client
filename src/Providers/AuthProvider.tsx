@@ -9,16 +9,19 @@ import {
 import { GoogleAuthProvider, getAuth } from "firebase/auth/cordova";
 import { ReactNode, createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
+
 interface AuthInfo {
   user: any;
-  loginUser: any;
-  createUserEmail: any;
+  createUserEmail: (email: string, password: string) => Promise<any>;
+  loginUser: (email: string, password: string) => Promise<any>;
   logingoogle: any;
-  updateUserProfile: any;
-  logOut: any;
+  updateUserProfile: (name: string, photo: any) => Promise<any>;
+  logOut: () => any;
   loading: boolean;
 }
+
 export const AuthContext = createContext<AuthInfo | null>(null);
+
 const auth = getAuth(app);
 const googleprovider = new GoogleAuthProvider();
 const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -44,9 +47,9 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   // logout user
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
-
 
   // update user profile
   const updateUserProfile = (name: string, photo: any) => {
@@ -55,24 +58,16 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       photoURL: photo,
     });
   };
-  
-  
+
   // current user save
-
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
-      if (currentUser) {
-        setUser(currentUser);
-        console.log(currentUser);
-
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      console.log("current user", currentUser);
+      setLoading(false);
     });
     return () => {
-      unsubscribe();
+      return unsubscribe();
     };
   }, []);
 
