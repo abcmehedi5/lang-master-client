@@ -34,6 +34,7 @@ const router = createBrowserRouter([
         path: "grammar",
         element: <Grammar></Grammar>,
       },
+      
       {
         path: "profile",
         element: <Profile></Profile>,

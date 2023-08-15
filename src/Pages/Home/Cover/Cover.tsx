@@ -31,13 +31,13 @@ const Cover: React.FC<CoverProps> = () => {
           knowledge
         </h2>
         <p className="tracking-normal my-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Lang-Master is a user-friendly language learning project
           <br />
-          Quia voluptates libero exercitationem, doloribus commodi hic
+         It offers interactive lessons for improving language skills effectively.
           <br />
-          inventore soluta nemo quo deserunt laborum ut rerum fugiat
+         The platform provides personalized learning paths and practical assessments.
           <br />
-          fuga aliquid. Suscipit placeat pariatur consequuntur!
+          With Lang-Master, mastering new languages becomes enjoyable and efficient.
         </p>
         <button className="btn  defaultBtn ">Get Started</button>
       </div>
