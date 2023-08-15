@@ -1,84 +1,40 @@
 import { useEffect, useState } from "react";
-import cardBg from "./../../../assets/learningCardBg2.svg";
-interface ProgressData {
-  progress: number;
+import SingleUnitCard from "./SingleUnitCard";
+export interface LearnDataItem {
+  _id: number;
+  unit: string;
+  topic: string;
+  lesson: string;
+  points: string;
+  progress: string;
 }
 const Learning = () => {
-  //   const [progress, setProgress] = useState<number>(0);
-  //   console.log(progress);
-  //   useEffect(() => {
-  //     fetch("learning.json")
-  //       .then((response) => response.json())
-  //       .then((data: ProgressData[]) => {
-  //         console.log(data);
-  //         setProgress(data[0].progress);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error loading JSON:", error);
-  //       });
-  //   }, []);
-
-  const [progress, setProgress] = useState<number>(0);
+  const [unitData, setUnitData] = useState<LearnDataItem[]>([]);
 
   useEffect(() => {
-    fetch("/learn.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data: ProgressData[]) => {
-        console.log("Fetched data:", data);
-        if (data.length > 0) {
-          setProgress(data[0].progress);
-        }
-      })
-      .catch((error) => {
-        console.error("Error loading JSON:", error);
-      });
-  }, []);
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/learn.json");
+        const learnData = await response.json();
+        setUnitData(learnData);
+      } catch (error) {
+        console.error("error fetching learning data", error);
+      }
+    };
 
-  console.log("Progress:", progress);
+    fetchData();
+  }, []);
+  console.log(unitData);
 
   return (
     <>
       <div className="px-4 py-8 md:px-20 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        <div
-          className="w-full rounded-md p-6 text-gray-300"
-          style={{
-            backgroundImage: `url(${cardBg})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <h1 className="text-2xl font-bold mb-2">ইউনিট - ১</h1>
-          <h4 className="text-xl font-semibold">নিজের পরিচয় দিন</h4>
-          <div className="flex gap-8 text-base my-2">
-            <p>পাঠ: ১০</p>
-            <p>পয়েন্টস: ১০০</p>
-          </div>
-          {/* progress bar  */}
-          <div className="flex flex-col gap-3">
-            <h3 className="font-semibold">আপনার অগ্রগতি:</h3>
-            <div className="mt-1">
-              <div className="relative">
-                <div className="h-6 bg-gray-200 w-full rounded-full">
-                  <p
-                    style={{ width: `${progress}%` }}
-                    className="h-full bg-teal-500 text-white text-center rounded-full"
-                  >
-                    {progress}%
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-center mt-8">
-            <button className="defaultBtn">শুরু করুন</button>
-          </div>
-        </div>
+        {unitData.map((singleUnit) => (
+          <SingleUnitCard
+            key={singleUnit._id}
+            singleUnit={singleUnit}
+          ></SingleUnitCard>
+        ))}
       </div>
     </>
   );
