@@ -12,7 +12,7 @@ const Singup = () => {
   interface FormData {
     email: string;
     password: string;
-    loginUser: any;
+    createUserEmail: any;
   }
 
   const {
@@ -20,18 +20,18 @@ const Singup = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { loginUser } = useContext(AuthContext);
+  const { createUserEmail } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data: FormData) => {
-    console.log(data.email);
-    loginUser(data?.email, data?.password)
+    console.log(data);
+    createUserEmail(data?.email, data?.password)
       .then((result: UserCredential) => {
-        const userlogin = result.user;
-        console.log(userlogin);
+        const signedup = result.user;
+        console.log(signedup);
         navigate(from, { replace: true });
         setError("");
       })
