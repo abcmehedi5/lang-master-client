@@ -45,27 +45,47 @@ const Quizzes: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [quizFinished, setQuizFinished] = useState<boolean>(false);
+  const [scoreShown, setScoreShown] = useState<boolean>(false);
+  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState<number>(-1);
 
   const handleAnswerClick = (answerIndex: number) => {
-    if (quizFinished) {
-      return; // Prevent scoring after the quiz is finished
+    if (quizFinished || scoreShown) {
+      return;
     }
+
+    setSelectedAnswerIndex(answerIndex);
 
     const selectedAnswer = quizData[currentQuestionIndex].options[answerIndex];
     if (selectedAnswer === quizData[currentQuestionIndex].correctAnswer) {
       setScore(score + 10);
     }
 
-    const nextQuestion = currentQuestionIndex + 1;
-    if (nextQuestion < quizData.length) {
-      setCurrentQuestionIndex(nextQuestion);
-    } else {
+    if (currentQuestionIndex === quizData.length - 1) {
       setQuizFinished(true);
     }
   };
 
   const scorePercentage = (score / (quizData.length * 10)) * 100;
+
+  const goToPreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+      setSelectedAnswerIndex(-1);
+      setScoreShown(false);
+    }
+  };
+
+  const goToNextQuestion = () => {
+    if (currentQuestionIndex < quizData.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setSelectedAnswerIndex(-1);
+      setScoreShown(false);
+    }
+  };
+
   const isLastQuestion = currentQuestionIndex === quizData.length - 1;
+  const shouldShowPreviousButton = !scoreShown && !quizFinished;
+  const shouldShowGetTotalScoreButton = isLastQuestion && !scoreShown && !quizFinished;
 
   return (
     <div
@@ -87,48 +107,44 @@ const Quizzes: React.FC = () => {
               option={option}
               index={index}
               handleAnswerClick={handleAnswerClick}
-              disabled={quizFinished}
+              selected={selectedAnswerIndex === index}
+              correct={quizData[currentQuestionIndex].correctAnswer === option}
+              disabled={scoreShown || quizFinished}
             />
           ))}
         </div>
       </div>
 
       <div className="flex justify-center gap-4 mt-12">
-        <button
-          className="w-40 bg-purple-500 text-white py-2 rounded text-xl font-semibold"
-          onClick={() =>
-            setCurrentQuestionIndex(Math.max(currentQuestionIndex - 1, 0))
-          }
-          disabled={currentQuestionIndex === 0 || quizFinished}
-        >
-          Previous
-        </button>
-        {isLastQuestion ? (
-          <div className="w-40 text-white my-4 text-xl font-semibold">Finished</div>
-        ) : (
-          <button
-            className="w-40 bg-blue-500 text-white py-2 px-4 rounded text-xl font-semibold"
-            onClick={() =>
-              setCurrentQuestionIndex(
-                Math.min(currentQuestionIndex + 1, quizData.length - 1)
-              )
-            }
-            disabled={quizFinished}
-          >
-            Next
+        {shouldShowPreviousButton && (
+          <button className="w-40 bg-purple-500 text-white py-2 rounded text-xl font-semibold" onClick={goToPreviousQuestion} disabled={currentQuestionIndex === 0}>
+            Previous
           </button>
         )}
+        {shouldShowGetTotalScoreButton ? (
+          <button className="w-50 bg-blue-500 text-white py-2 px-6 rounded text-xl font-semibold" onClick={() => setScoreShown(true)} disabled={scoreShown || quizFinished}>
+            Get Total Score
+          </button>
+        ) : (
+          !isLastQuestion && (
+            <button className="w-40 bg-blue-500 text-white py-2 px-4 rounded text-xl font-semibold" onClick={goToNextQuestion} disabled={quizFinished}>
+              Next
+            </button>
+          )
+        )}
       </div>
-
+      
       <div className="text-center mt-8 text-xl font-semibold">
-        {quizFinished ? (
+        {scoreShown ? (
           <div className="text-white">
             Your Score: {scorePercentage.toFixed(2)}%
             <br />
             Total Score: {score} out of {quizData.length * 10}
           </div>
         ) : (
-          <div className="text-white">Your Score: {scorePercentage.toFixed(2)}%</div>
+          quizFinished && (
+            <div className="text-white">Your Score: {scorePercentage.toFixed(2)}%</div>
+          )
         )}
       </div>
     </div>

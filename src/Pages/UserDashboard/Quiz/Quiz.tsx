@@ -3,27 +3,36 @@ import React from "react";
 interface QuizProps {
   option: string;
   index: number;
-  handleAnswerClick: (answerIndex: number) => void;
+  handleAnswerClick: (index: number) => void;
+  selected: boolean;
+  correct: boolean;
+  disabled: boolean;
 }
 
-const Quiz: React.FC<QuizProps> = ({ option, index, handleAnswerClick }) => {
+const Quiz: React.FC<QuizProps> = ({
+  option,
+  index,
+  handleAnswerClick,
+  selected,
+  correct,
+  disabled,
+}) => {
+  let buttonClass = "border py-2 px-4 rounded-lg text-lg font-semibold";
+
+  if (selected) {
+    buttonClass += correct ? " bg-green-500 text-white" : " bg-red-500 text-white";
+  } else {
+    buttonClass += " bg-gray-100 text-gray-800";
+  }
+
   return (
-    <div
-      className="w-full overflow-hidden group"
-      style={{ borderRadius: "20px 0 0 0" }}
+    <button
+      className={buttonClass}
+      onClick={() => handleAnswerClick(index)}
+      disabled={disabled}
     >
-      <div className="bg-gradient-to-r from-[#00ffca] via-teal-500 to-[#047e65] group-hover:from-[#047e65] group-hover:via-teal-500 group-hover:to-[#00ffca] hover:cursor-pointer transition duration-300">
-        <label className="font-semibold px-4 py-4 text-white text-xl flex gap-2 cursor-pointer">
-          <input
-            type="radio"
-            name={`question_${index}`}
-            value={option}
-            onClick={() => handleAnswerClick(index)}
-          />
-          {option}
-        </label>
-      </div>
-    </div>
+      {option}
+    </button>
   );
 };
 
