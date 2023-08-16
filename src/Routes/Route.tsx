@@ -12,6 +12,8 @@ import LearnLesson from "../Pages/UserDashboard/LearnLesson/LearnLesson";
 import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 import Login from "../Pages/Login/Login";
 import Singup from "../Pages/Singup/Singup";
+import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
+import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +80,18 @@ const router = createBrowserRouter([
   {
     path: "learning/:id/lesson/:lessonNumber",
     element: <QuestionsForLearn></QuestionsForLearn>,
+  },
+
+  // admin dashboard
+  {
+    path: "admin-dashboard",
+    element: <AdminDashboadLayout></AdminDashboadLayout>,
+    children: [
+      {
+        path: "user-manage",
+        element: <UserManage></UserManage>,
+      },
+    ],
   },
 ]);
 
