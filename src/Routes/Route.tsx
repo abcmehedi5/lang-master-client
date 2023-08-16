@@ -7,7 +7,7 @@ import LeaderBoard from "../Pages/UserDashboard/LeaderBoard/LeaderBoard";
 import Grammar from "../Pages/UserDashboard/Grammar/Grammar";
 import Profile from "../Pages/UserDashboard/Profile/Profile";
 import Quizzes from "../Pages/UserDashboard/Quiz/Quizzes";
-import AboutUs from "../Pages/AboutUs/AboutUs";
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  // user dashboard
   {
     path: "user-dashboard",
     element: <LearningLayout></LearningLayout>,
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
       {
         path: "learning",
         element: <Learning></Learning>,
+      },
+      {
+        path: "learning/:id",
+        element: <LearnLesson></LearnLesson>,
+        loader: ({ params }: any) => fetch(`/learn.json/${params.id}`),
       },
       {
         path: "leader-board",
@@ -49,6 +55,12 @@ const router = createBrowserRouter([
         element: <Profile></Profile>,
       },
     ],
+  },
+
+  // questions page
+  {
+    path: "learning/:id/lesson/:lessonNumber",
+    element: <QuestionsForLearn></QuestionsForLearn>,
   },
 ]);
 
