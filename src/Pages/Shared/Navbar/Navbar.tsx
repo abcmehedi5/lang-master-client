@@ -3,35 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { AiFillMessage } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useEffect, useState } from "react";
-import bell from "../../../assets/img/notification-2.png";
-
-interface Review {
-  _id: string;
-  name: string;
-  rating: number;
-  details: string;
-  description: string;
-  image: string;
-  passion: string;
-  title: string;
-  notification: string;
-  date: string;
-}
-
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  const [notifications, setNotifications] = useState<Review[]>([]);
-
-  useEffect(() => {
-    fetch("../../../../public/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setNotifications(data);
-      });
-  }, []);
-
   const Navigation = () => (
     <>
       <p className="relative mx-4 hover:bg-[#33333345]  rounded-xl">
@@ -138,6 +109,7 @@ const Navbar = () => {
   const Getstarted = () => (
     <div>
       <Link to="/user-dashboard/learning">
+
         <button className="defaultBtn">GET STARTED</button>
       </Link>
     </div>
@@ -183,30 +155,40 @@ const Navbar = () => {
         </div>
 
         {/* -------- user profile */}
-        <div className="dropdown dropdown-end z-10">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://i.ibb.co/23dGSyY/images.jpg" />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
+        {user ? (
+          <div className="dropdown dropdown-end z-10">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <button onClick={handleLogout}>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </button>
+            </ul>
+          </div>
+        ) : (
+          <Link title="login" to="/login">
+            <button>
+              <FiLogIn className="text-4xl text-white" />
+            </button>
+          </Link>
+        )}
 
         {/* get started button */}
         <div className="hidden lg:flex">
