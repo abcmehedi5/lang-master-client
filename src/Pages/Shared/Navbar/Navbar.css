@@ -6,8 +6,8 @@
     position: absolute;
     width: 100%;
     height: 5px;
-    background-color: #fff; /* The color of the underline */
-    bottom: -15px;
+    background-color: #8c45ff; /* The color of the underline */
+    bottom: -1px;
     left: 0;
   }
  
