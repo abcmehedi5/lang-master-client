@@ -10,6 +10,7 @@ import Quizzes from "../Pages/UserDashboard/Quiz/Quizzes";
 import Login from "../Pages/Login/Login";
 import Singup from "../Pages/Singup/Singup";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,15 +21,10 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: '/login',
-        element: <Login></Login>,
-      },
-      {
-        path: '/signup',
-        element: <Singup></Singup>,
-      }
+
     ],
   },
+  // user dashboard
   {
     path: "user-dashboard",
     element: <LearningLayout></LearningLayout>,
@@ -36,6 +32,11 @@ const router = createBrowserRouter([
       {
         path: "learning",
         element: <Learning></Learning>,
+      },
+      {
+        path: "learning/:id",
+        element: <LearnLesson></LearnLesson>,
+        loader: ({ params }: any) => fetch(`/learn.json/${params.id}`),
       },
       {
         path: "leader-board",
@@ -54,6 +55,12 @@ const router = createBrowserRouter([
         element: <Profile></Profile>,
       },
     ],
+  },
+
+  // questions page
+  {
+    path: "learning/:id/lesson/:lessonNumber",
+    element: <QuestionsForLearn></QuestionsForLearn>,
   },
 ]);
 

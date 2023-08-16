@@ -1,26 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { AiFillMessage } from "react-icons/ai";
-import { BiSolidBellRing } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useContext } from "react";
-import { AuthContext } from "../../../Providers/AuthProvider";
-import { FiLogIn } from "react-icons/fi";
-
-const Navbar: React.FC = () => {
-  const { user, logOut } = useContext(AuthContext);
-  console.log(user);
-
-  const handleLogout = () => {
-    logOut()
-      .then(() => {
-        console.log("Logged out successfully");
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
-
   const Navigation = () => (
     <>
       <p className="relative mx-4 hover:bg-[#33333345]  rounded-xl">
@@ -52,11 +34,11 @@ const Navbar: React.FC = () => {
       </p>
       <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
-          to="/projects"
+          to="/about-us"
           title="Our Classs"
           className={({ isActive }) => (isActive ? " underline-cus" : "")}
         >
-          <p className="px-4 py-4">Our Class</p>
+          <p className="px-4 py-4">About Us</p>
         </NavLink>
       </p>
     </>
@@ -69,9 +51,56 @@ const Navbar: React.FC = () => {
         <AiFillMessage className="text-4xl " />
       </button>
       <span className="custom-divider"></span>
-      <button>
-        <BiSolidBellRing className="text-4xl " />
-      </button>
+      <div></div>
+
+      {/* this is toggle for notification bar */}
+
+      <div className="relative dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <button
+            onClick={() => setOpen(open)}
+            className="btn btn-ghost btn-circle"
+          >
+            <div className="indicator">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                />
+              </svg>
+              <span className="badge badge-xs badge-primary indicator-item">
+                {notifications.length}
+              </span>
+            </div>
+          </button>
+        </label>
+        <ul className="menu menu-sm dropdown-content mt-3 z-10 shadow bg-base-100 rounded-box w-72 absolute right-0">
+          {notifications.map((_notification) => (
+            <li
+              onClick={() => setOpen(false)}
+              className="text-green-500 flex font-serif"
+              key={_notification._id}
+            >
+              <div className="flex gap-4 ">
+                <img className="w-4 bg-red-300  " src={bell} alt="" />
+                <span className="justify-between">{_notification.title}</span>
+              </div>
+              <a className="ml-8" href="">
+                <small>{_notification.date}</small>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <span className="custom-divider"></span>
     </div>
   );
@@ -80,7 +109,7 @@ const Navbar: React.FC = () => {
   const Getstarted = () => (
     <div>
       <Link to="/user-dashboard/learning">
-        {" "}
+
         <button className="defaultBtn">GET STARTED</button>
       </Link>
     </div>

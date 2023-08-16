@@ -1,0 +1,38 @@
+[
+    {
+      "_id": "1001",
+      "title": "You are on Leader Board!",
+      "description": "You have received a new message from a friend.",
+      "date": "now!"
+    },
+    {
+      "_id": "2002",
+      "title": "Unlock the Premium test! ",
+      "description": "Don't forget to submit your project report by the end of the day.",
+      "date": "1 hr ago"
+    },
+    {
+      "_id": "3003",
+      "title": "Jump on your next level",
+      "description": "The community picnic has been rescheduled to next Saturday due to weather conditions.",
+      "date": "2hr ago"
+    },
+    {
+      "_id": "4004",
+      "title": "Congrats! you are now ready to grammar",
+      "description": "Big summer sale starts tomorrow! Get ready for amazing discounts.",
+      "date": "2 days "
+    },
+    {
+      "_id": "5005",
+      "title": "Firstly, set your goal on site",
+      "description": "There will be a scheduled maintenance on the website this weekend.",
+      "date": "1 week ago"
+    },
+    {
+      "_id": "6006",
+      "title": "You got 50 to test-1",
+      "description": "Join us in celebrating John's birthday in the office break room at lunchtime.",
+      "date": "2 weeks ago"
+    }
+  ]
