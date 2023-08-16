@@ -76,9 +76,9 @@ const Signup: React.FC = () => {
 
   return (
     <div className="my-10">
-      <div className="hero-content flex-col md:flex-row-reverse">
+      <div className="hero-content flex-col md:flex-row gap-5">
         <img className="md:w-[40%]" src={login} alt="" />
-        <div className="card flex-shrink-0 w-[60%] shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 md:w-[50%] shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-0">
             <h1 className="text-4xl font-semibold">Please Register</h1>
             {/* -------- full name field ---------- */}
@@ -97,7 +97,7 @@ const Signup: React.FC = () => {
               )}
             </div>
             {/* -------------- email and phone number */}
-            <div className="flex gap-5">
+            <div className="lg:flex gap-5">
               {/* -------- email field ---------- */}
               <div className="form-control w-full">
                 <label className="label">
