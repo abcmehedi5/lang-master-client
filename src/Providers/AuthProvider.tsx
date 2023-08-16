@@ -6,7 +6,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { GoogleAuthProvider, getAuth } from "firebase/auth/cordova";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { ReactNode, createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
 
