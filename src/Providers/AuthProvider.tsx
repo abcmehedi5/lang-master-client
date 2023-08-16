@@ -2,20 +2,28 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
-import { getAuth } from "firebase/auth/cordova";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { ReactNode, createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
+
 interface AuthInfo {
   user: any;
-  loginUser: any;
-  createUserEmail: any;
-  logOut: any;
+  createUserEmail: (email: string, password: string) => Promise<any>;
+  loginUser: (email: string, password: string) => Promise<any>;
+  logingoogle: any;
+  updateUserProfile: (name: string, photo: any) => Promise<any>;
+  logOut: () => any;
   loading: boolean;
 }
+
 export const AuthContext = createContext<AuthInfo | null>(null);
+
 const auth = getAuth(app);
+const googleprovider = new GoogleAuthProvider();
 const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,28 +39,36 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // logout user
+  // login with google popup
+  const logingoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleprovider);
+  };
 
+  // logout user
   const logOut = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
+  // update user profile
+  const updateUserProfile = (name: string, photo: any) => {
+    const currentUser = auth.currentUser;
+    return updateProfile(currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   // current user save
-
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
-      if (currentUser) {
-        setUser(currentUser);
-        console.log(currentUser);
-
-        // ...
-      } else {
-        // User is signed out
-        // ...
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      console.log("current user", currentUser);
+      setLoading(false);
     });
     return () => {
-      unsubscribe();
+      return unsubscribe();
     };
   }, []);
 
@@ -60,6 +76,8 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     user,
     createUserEmail,
     loginUser,
+    logingoogle,
+    updateUserProfile,
     logOut,
     loading,
   };
