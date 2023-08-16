@@ -4,6 +4,7 @@ import { TbBuildingEstate } from 'react-icons/tb';
 import "./Profile.css";
 import { FaClock, FaEdit, FaFacebook } from "react-icons/fa";
 import { BsPersonFillAdd } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 interface Profile {
     _id: string;
@@ -110,10 +111,10 @@ const Profile = () => {
                                                         <div>
                                                             <h2 className="text-4xl mb-3">Info</h2>
                                                         </div>
-                                                        <div className="text-right m-3">
+                                                        <Link to="/user-dashboard/edit" className="text-right m-3">
                                                             <button className="tooltip" > <span className="tooltiptext">Edit</span>
                                                             <FaEdit></FaEdit></button>
-                                                        </div>
+                                                        </Link>
                                                     </div>
                                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                                                         <div>

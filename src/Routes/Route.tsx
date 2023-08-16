@@ -7,6 +7,7 @@ import LeaderBoard from "../Pages/UserDashboard/LeaderBoard/LeaderBoard";
 import Grammar from "../Pages/UserDashboard/Grammar/Grammar";
 import Profile from "../Pages/UserDashboard/Profile/Profile";
 import Quizzes from "../Pages/UserDashboard/Quiz/Quizzes";
+import Edit from "../Pages/UserDashboard/Profile/Edit";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile></Profile>,
       },
+      {
+        path: "edit",
+        element: <Edit></Edit>
+      }
     ],
   },
 ]);
