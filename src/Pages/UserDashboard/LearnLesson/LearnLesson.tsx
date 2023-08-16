@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Lottie from "lottie-react-web";
 import lessonAnimation from "./../../../assets/lessonAnimation.json";
-import { useParams } from "react-router-dom";
-import { LearnDataItem } from "../Learning/Learning";
+import { Link, useParams } from "react-router-dom";
+import useLearnData from "../../../hooks/useLearnData/useLearnData";
+import { LearnDataItem } from "../../../hooks/useLearnData/LearnDataItem";
 
 const LearnLesson = () => {
   const { id } = useParams<{ id: string }>();
-  const [lessonsData, setLessonsData] = useState<LearnDataItem[]>([]);
   const [activeLesson, setActiveLesson] = useState<string | null>(null);
+  const { allLearnData, loading } = useLearnData();
 
-  useEffect(() => {
-    fetch(`/learn.json`)
-      .then((response) => response.json())
-      .then((data: LearnDataItem[]) => {
-        const selectedItem = data.find((item) => item._id === id);
-        setLessonsData(selectedItem.lessons);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [id]);
-  console.log(lessonsData);
+  // finding data by unit number
+  const selectedLesson = allLearnData.find((item) => item._id === id);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (!selectedLesson) {
+    return <p>Unit not found.</p>;
+  }
+  const lessons: LearnDataItem["lessons"] = selectedLesson.lessons;
 
   // handle lesson button click
   const handleLessonClick = (lessonNumber: string) => {
@@ -42,10 +42,11 @@ const LearnLesson = () => {
               height={400}
             />
           </div>
+
           {/* lesson content here */}
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-            {lessonsData.map((lesson) => (
+            {lessons.map((lesson) => (
               <div key={lesson.lessonNumber} className="relative inline-block">
                 <div className="p-[6px] border-[6px] border-[#096379aa] rounded-full">
                   <button
@@ -58,11 +59,16 @@ const LearnLesson = () => {
                   </button>
                 </div>
                 {activeLesson === lesson.lessonNumber && (
-                  <button
-                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-green-500 text-white px-4 py-2 rounded opacity-100 scale-100 transition-all duration-300 ease-in-out`}
+                  <Link
+                    to={`/learning/${id}/lesson/${lesson.lessonNumber}`}
+                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-green-500 text-white px-4 py-2 rounded ${
+                      activeLesson === lesson.lessonNumber
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-90"
+                    } transition-all duration-300 ease-in-out`}
                   >
-                    Another Button
-                  </button>
+                    Start
+                  </Link>
                 )}
               </div>
             ))}
