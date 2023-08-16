@@ -26,20 +26,33 @@ const Quizzes: React.FC = () => {
       correctAnswer: "Blue Whale",
     },
     {
-      question: "Question 4: Which scientist developed the theory of relativity?",
-      options: ["Isaac Newton", "Albert Einstein", "Galileo Galilei", "Niels Bohr"],
+      question:
+        "Question 4: Which scientist developed the theory of relativity?",
+      options: [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Galileo Galilei",
+        "Niels Bohr",
+      ],
       correctAnswer: "Albert Einstein",
     },
     {
-      question: "Question 5: Which gas do plants primarily use for photosynthesis?",
+      question:
+        "Question 5: Which gas do plants primarily use for photosynthesis?",
       options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
       correctAnswer: "Carbon Dioxide",
     },
     {
-      question: "Question 6: What famous painting is known for its mysterious smile?",
-      options: ["Starry Night", "The Persistence of Memory", "The Scream", "Mona Lisa"],
+      question:
+        "Question 6: What famous painting is known for its mysterious smile?",
+      options: [
+        "Starry Night",
+        "The Persistence of Memory",
+        "The Scream",
+        "Mona Lisa",
+      ],
       correctAnswer: "Mona Lisa",
-    }
+    },
   ];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
@@ -104,7 +117,9 @@ const Quizzes: React.FC = () => {
           Previous
         </button>
         {isLastQuestion ? (
-          <div className="w-40 text-white my-4 text-xl font-semibold">Finished</div>
+          <div className="w-40 text-white my-4 text-xl font-semibold">
+            Finished
+          </div>
         ) : (
           <button
             className="w-40 bg-blue-500 text-white py-2 px-4 rounded text-xl font-semibold"
@@ -128,7 +143,9 @@ const Quizzes: React.FC = () => {
             Total Score: {score} out of {quizData.length * 10}
           </div>
         ) : (
-          <div className="text-white">Your Score: {scorePercentage.toFixed(2)}%</div>
+          <div className="text-white">
+            Your Score: {scorePercentage.toFixed(2)}%
+          </div>
         )}
       </div>
     </div>
