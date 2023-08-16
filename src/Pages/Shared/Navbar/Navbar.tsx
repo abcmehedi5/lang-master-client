@@ -138,6 +138,7 @@ const Navbar = () => {
   const Getstarted = () => (
     <div>
       <Link to="/user-dashboard/learning">
+      login-and-signup
         <button className="defaultBtn">GET STARTED</button>
       </Link>
     </div>

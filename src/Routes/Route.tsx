@@ -8,6 +8,11 @@ import Grammar from "../Pages/UserDashboard/Grammar/Grammar";
 import Profile from "../Pages/UserDashboard/Profile/Profile";
 import Quizzes from "../Pages/UserDashboard/Quiz/Quizzes";
 
+import AboutUs from "../Pages/AboutUs/AboutUs";
+import LearnLesson from "../Pages/UserDashboard/LearnLesson/LearnLesson";
+import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
+import Login from "../Pages/Login/Login";
+import Singup from "../Pages/Singup/Singup";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +22,19 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs></AboutUs>,
+      },
+
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <Singup></Singup>,
       },
       {
         path: "/about-us",
