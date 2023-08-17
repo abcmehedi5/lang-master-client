@@ -1,77 +1,98 @@
 [
-  {
-    "tense": {
-      "present_tense": {
+    {
+        "name": "present_tense",
         "simple": "I write code every day.",
         "continuous": "I am currently writing a report.",
         "perfect": "I have completed my tasks for the day.",
-        "perfect_continuous": "I have been working on this project for weeks."
-      },
-      "past_tense": {
+        "perfect_continuous": "I have been working on this project for weeks.",
+        "category": "tense"
+    },
+    {
+        "name": "past_tense",
         "simple": "Yesterday, I wrote a detailed email.",
         "continuous": "During the meeting, I was discussing the project progress.",
         "perfect": "By the time I arrived, they had already finished the presentation.",
-        "perfect_continuous": "Before the event, they had been rehearsing their performance."
-      },
-      "future_tense": {
+        "perfect_continuous": "Before the event, they had been rehearsing their performance.",
+        "category": "tense"
+    },
+    {
+        "name": "future_tense",
         "simple": "Tomorrow, I will submit the final report.",
         "continuous": "Next week, I will be attending a conference.",
         "perfect": "By this time next year, I will have completed my certification.",
-        "perfect_continuous": "In five years, I will have been working in this industry for a decade."
-      }
+        "perfect_continuous": "In five years, I will have been working in this industry for a decade.",
+        "category": "tense"
     },
-    "parts_of_speech": {
-      "noun": {
+    {
+        "name": "noun",
         "definition": "A word that represents a person, place, thing, or idea.",
-        "example": "The cat chased the mouse."
-      },
-      "pronoun": {
-        "definition": "A word used to replace a noun to avoid repetition.",
-        "example": "She is going to the park."
-      },
-      "verb": {
-        "definition": "A word that expresses an action, occurrence, or state of being.",
-        "example": "They are singing in the choir."
-      },
-      "adjective": {
-        "definition": "A word that describes or modifies a noun.",
-        "example": "The red car is fast."
-      },
-      "adverb": {
-        "definition": "A word that modifies a verb, adjective, or other adverb, indicating time, manner, place, etc.",
-        "example": "She speaks softly."
-      },
-      "preposition": {
-        "definition": "A word that shows the relationship of a noun or pronoun to another word.",
-        "example": "The book is on the table."
-      },
-      "conjunction": {
-        "definition": "A word that connects words, phrases, or clauses.",
-        "example": "She likes both chocolate and vanilla ice cream."
-      },
-      "interjection": {
-        "definition": "A word or phrase used to express strong feeling or surprise.",
-        "example": "Wow, that's amazing!"
-      }
+        "example": "The cat chased the mouse.",
+        "category": "parts_of_speech"
     },
-    "genders": {
-      "male": {
+    {
+        "name": "pronoun",
+        "definition": "A word used to replace a noun to avoid repetition.",
+        "example": "She is going to the park.",
+        "category": "parts_of_speech"
+    },
+    {
+        "name": "verb",
+        "definition": "A word that expresses an action, occurrence, or state of being.",
+        "example": "They are singing in the choir.",
+        "category": "parts_of_speech"
+    },
+    {
+        "name": "adjective",
+        "definition": "A word that describes or modifies a noun.",
+        "example": "The red car is fast.",
+        "category": "parts_of_speech"
+    },
+    {
+        "name": "adverb",
+        "definition": "A word that modifies a verb, adjective, or other adverb, indicating time, manner, place, etc.",
+        "example": "She speaks softly.",
+        "category": "parts_of_speech"
+    },
+    {
+        "name": "preposition",
+        "definition": "A word that shows the relationship of a noun or pronoun to another word.",
+        "example": "The book is on the table.",
+        "category": "parts_of_speech"
+    },
+    {
+        "name": "conjunction",
+        "definition": "A word that connects words, phrases, or clauses.",
+        "example": "She likes both chocolate and vanilla ice cream.",
+        "category": "parts_of_speech"
+    },
+    {
+        "name": "interjection",
+        "definition": "A word or phrase used to express strong feeling or surprise.",
+        "example": "Wow, that's amazing!",
+        "category": "parts_of_speech"
+    },
+    {
+        "name": "male",
         "definition": "A gender identity that typically corresponds with being assigned male at birth.",
-        "example": "He is a talented musician."
-      },
-      "female": {
+        "example": "He is a talented musician.",
+        "category": "genders"
+    },
+    {
+        "name": "female",
         "definition": "A gender identity that typically corresponds with being assigned female at birth.",
-        "example": "She is a dedicated scientist."
-      },
-      "non_binary": {
-        "id": "3",
+        "example": "She is a dedicated scientist.",
+        "category": "genders"
+    },
+    {
+        "name": "non_binary",
         "definition": "A gender identity that doesn't exclusively align with male or female, often encompassing a range of identities.",
-        "example": "They are an advocate for non-binary rights."
-      },
-      "transgender": {
+        "example": "They are an advocate for non-binary rights.",
+        "category": "genders"
+    },
+    {
+        "name": "transgender",
         "definition": "A gender identity that differs from the sex assigned at birth, often transitioning to align with their true identity.",
-        "example": "She is a transgender woman who advocates for inclusivity."
-      }
+        "example": "She is a transgender woman who advocates for inclusivity.",
+        "category": "genders"
     }
-  }
 ]

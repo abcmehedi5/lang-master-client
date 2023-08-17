@@ -3,16 +3,21 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./Routes/Route.tsx";
-import {   QueryClientProvider } from "react-query";
-import { queryClient } from "./Pages/UserDashboard/Grammar/Grammar.tsx";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
-
+// Create a client
+const queryClient = new QueryClient()
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
