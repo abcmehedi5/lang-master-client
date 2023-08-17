@@ -32,7 +32,7 @@ const LearnLesson = () => {
       <div className="flex justify-center min-h-screen items-center">
         <div>
           <div>
-            <Lottie
+            {/* <Lottie
               options={{
                 animationData: lessonAnimation,
                 loop: true,
@@ -40,7 +40,7 @@ const LearnLesson = () => {
               }}
               width={400}
               height={400}
-            />
+            /> */}
           </div>
 
           {/* lesson content here */}
@@ -61,13 +61,13 @@ const LearnLesson = () => {
                 {activeLesson === lesson.lessonNumber && (
                   <Link
                     to={`/learning/${id}/lesson/${lesson.lessonNumber}`}
-                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-green-500 text-white px-4 py-2 rounded ${
+                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 px-6 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white rounded-lg shadow-md ${
                       activeLesson === lesson.lessonNumber
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-90"
-                    } transition-all duration-300 ease-in-out`}
+                    } transition-all duration-300 ease-in-out hover:opacity-100 hover:scale-100`}
                   >
-                    Start
+                    শুরু করুন
                   </Link>
                 )}
               </div>
