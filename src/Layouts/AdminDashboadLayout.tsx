@@ -1,4 +1,5 @@
 import { FcHome } from "react-icons/fc";
+import { MdQuiz } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
 
 const AdminDashboadLayout = () => {
@@ -30,14 +31,23 @@ const AdminDashboadLayout = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}
-        <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3">
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
+        <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3 space-y-2">
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
             <Link
               to="/admin-dashboard/user-manage"
-              className="hover:text-white flex gap-2 items-center"
+              className=" flex gap-2 items-center"
             >
               <FcHome style={{ fontSize: "30px" }} />
               User Manage
+            </Link>
+          </li>
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+          <Link
+              to="/admin-dashboard/add-quize"
+              className="flex gap-2 items-center"
+            >
+              <MdQuiz style={{ fontSize: "30px" }} />
+              Add Quiz
             </Link>
           </li>
         </ul>
