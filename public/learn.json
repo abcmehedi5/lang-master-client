@@ -3,6 +3,7 @@
     "_id": "1",
     "unit": "ইউনিট - ১",
     "topic": "নিজের পরিচয় দিন",
+    "totalLessons": "৯",
     "lessons": [
       {
         "lessonNumber": "১",
@@ -46,6 +47,7 @@
     "_id": "2",
     "unit": "ইউনিট - ২",
     "topic": "পরিবেশ ও প্রাকৃতিক সংসাধন",
+    "totalLessons": "৯",
     "lessons": [
       {
         "lessonNumber": "১",
@@ -104,6 +106,7 @@
     "_id": "3",
     "unit": "ইউনিট - ৩",
     "topic": "প্রযুক্তি ও পোষক খাবার",
+    "totalLessons": "৯",
     "lessons": [
       {
         "lessonNumber": "১",
@@ -167,6 +170,7 @@
     "_id": "4",
     "unit": "ইউনিট - ৪",
     "topic": "বিশেষ প্রাণী ও বৃক্ষ",
+    "totalLessons": "৯",
     "lessons": [
       {
         "lessonNumber": "১",
@@ -210,6 +214,7 @@
     "_id": "5",
     "unit": "ইউনিট - ৫",
     "topic": "ভূগোল ও আবহাওয়া",
+    "totalLessons": "৯",
     "lessons": [
       {
         "lessonNumber": "১",

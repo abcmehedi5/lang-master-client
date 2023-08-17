@@ -16,7 +16,7 @@ export interface LessonQuiz {
     _id: string;
     unit: string;
     topic: string;
-    lesson: string;
+    totalLessons: string;
     points: string;
     progress: string;
     lessons: Lesson[];

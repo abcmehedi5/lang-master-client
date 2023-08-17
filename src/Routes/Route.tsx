@@ -9,12 +9,11 @@ import Profile from "../Pages/UserDashboard/Profile/Profile";
 import Quizzes from "../Pages/UserDashboard/Quiz/Quizzes";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import LearnLesson from "../Pages/UserDashboard/LearnLesson/LearnLesson";
-import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 import Login from "../Pages/Login/Login";
 import Singup from "../Pages/Singup/Singup";
 import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
 import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
-import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
+
 
 const router = createBrowserRouter([
   {

@@ -1,15 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Lesson } from "../../../hooks/useLearnData/LearnDataItem";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
+import TotalScore from "./TotalScore";
 
-const QuestionsForLearn: React.FC = () => {
+interface Question {
+  question: string;
+  options: string[];
+  correctAnswer: string;
+}
+
+interface Lesson {
+  lessonNumber: string;
+  lessonTitle: string;
+  quiz: Question[];
+}
+
+interface LessonsComponentType {
+  selectedLesson: Lesson;
+}
+
+// ! Main code start
+
+const QuestionsForLearn: React.FC<LessonsComponentType> = () => {
+  // ! state Data fetching by params
   const { id, lessonNumber } = useParams<{
     id: string;
     lessonNumber: string;
   }>();
-  const { allLearnData, loading } = useLearnData(); // Use your custom hook here
+  const { allLearnData, loading } = useLearnData();
 
+  // ! states for quiz
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState<number>(0);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null); // Added type annotation
+  const [showScore, setShowScore] = useState(false);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState<boolean | null>(null);
+  const [correctAnswerIndex, setCorrectAnswerIndex] = useState<number>(0);
+
+  const [clickedOptions, setClickedOptions] = useState<{
+    [key: number]: number;
+  }>({});
+
+  // ! code for selecting specific lesson
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -26,13 +58,60 @@ const QuestionsForLearn: React.FC = () => {
   if (!selectedLesson) {
     return <p>Lesson not found.</p>;
   }
+  console.log(selectedLesson.quiz);
+  const questions = selectedLesson.quiz;
+
+  // ! end
+
+  // ! code for quiz start
+  const handleRestart = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setSelectedOption(null);
+    setShowScore(false);
+    setIsCorrectAnswer(null); // Reset isCorrectAnswer state
+    setCorrectAnswerIndex(0); // Reset correctAnswerIndex state
+    setClickedOptions({}); // Reset clickedOptions state
+  };
+
+  const handleButtonClick = (option: string, index: number) => {
+    setSelectedOption(option);
+    updateScore(option);
+
+    setIsCorrectAnswer(option === questions[currentQuestion].correctAnswer);
+    setCorrectAnswerIndex(
+      questions[currentQuestion].options.indexOf(
+        questions[currentQuestion].correctAnswer
+      )
+    );
+    // Set the clicked option for the current question
+    setClickedOptions((prevClickedOptions) => ({
+      ...prevClickedOptions,
+      [currentQuestion]: index,
+    }));
+  };
+
+  const handleNext = () => {
+    setSelectedOption(null); // Clear the selected option for the next question
+
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setShowScore(true);
+    }
+    setIsCorrectAnswer(true);
+  };
+  const updateScore = (selectedOption: string) => {
+    if (selectedOption === questions[currentQuestion].correctAnswer) {
+      setScore(score + 1);
+    }
+  };
+  // ! end
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8">
-      <h2 className="text-2xl font-semibold mb-4">
-        {selectedLesson.lessonTitle}
-      </h2>
-      <div className="bg-gray-200 h-4 relative">
+    <div className="flex justify-center items-center h-screen">
+      {/* // TODO: Have to work with progress for questions number  */}
+      {/* <div className="bg-gray-200 h-4 relative">
         <button className="absolute right-0 top-1/2 transform -translate-y-1/2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,32 +128,68 @@ const QuestionsForLearn: React.FC = () => {
             />
           </svg>
         </button>
-      </div>
+      </div> */}
 
-      <ul>
-        {selectedLesson.quiz.map((question, index) => (
-          <li key={index} className="mb-6">
-            <p className="text-lg font-medium mb-2">{question.question}</p>
+      {/* ! questions sections  */}
+
+      <div className="max-w-2xl mx-auto px-4 py-8 ">
+        {showScore ? (
+          <TotalScore totalScore={score} onRestart={handleRestart}></TotalScore>
+        ) : (
+          <div>
+            <div className="mb-8">
+              <span className="text-2xl font-bold">
+                {questions[currentQuestion].question}
+              </span>
+            </div>
             <ul className="mb-6">
-              {question.options.map((option, optionIndex) => (
-                <li
-                  key={optionIndex}
-                  className="bg-white border rounded-lg p-4 hover:bg-gray-100 cursor-pointer"
-                >
-                  {option}
-                </li>
+              {/* options section  */}
+              {questions[currentQuestion].options.map((option, index) => (
+                <div className="w-full">
+                  <button
+                    key={index}
+                    className={`border border-b-2 shadow-md rounded-xl px-4 py-4 block w-full mb-3 hover:bg-base-200 transition duration-200 tran ${
+                      selectedOption === option
+                        ? option === questions[currentQuestion].correctAnswer
+                          ? "bg-green-200 border-green-400 shadow-lg"
+                          : "bg-red-400 border-red-200"
+                        : "hover:bg-red-200"
+                    }`}
+                    onClick={() => handleButtonClick(option, index)}
+                    disabled={
+                      clickedOptions[currentQuestion] !== undefined &&
+                      clickedOptions[currentQuestion] !== index
+                    }
+                  >
+                    {option}
+                  </button>
+                </div>
               ))}
             </ul>
-          </li>
-        ))}
-      </ul>
-      <div className="flex justify-between">
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-          Previous
-        </button>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-          Next
-        </button>
+
+            {/* showing correct ans here if answer is wrong  */}
+            <div>
+              {isCorrectAnswer === false && (
+                <p className="text-red-500 mt-2 font-semibold text-center py-4">
+                  সঠিক উত্তর:{" "}
+                  {questions[currentQuestion].options[correctAnswerIndex]}
+                </p>
+              )}
+            </div>
+
+            {/* next question  button */}
+            <div className="flex justify-center">
+              <button
+                onClick={handleNext}
+                className={`defaultBtn mt-3 px-2 py-2 ${
+                  selectedOption === null ? "hidden" : ""
+                }`}
+              >
+                চালিয়ে যান
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,11 +1,26 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { AiFillMessage } from "react-icons/ai";
 import { BiSolidBellRing } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { FiLogIn } from "react-icons/fi";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        console.log("Logged out successfully");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   const Navigation = () => (
     <>
       <p className="relative mx-4 hover:bg-[#33333345]  rounded-xl">
@@ -111,30 +126,40 @@ const Navbar = () => {
         </div>
 
         {/* -------- user profile */}
-        <div className="dropdown dropdown-end z-10">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://i.ibb.co/23dGSyY/images.jpg" />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
+        {user ? (
+          <div className="dropdown dropdown-end z-10">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user?.photoURL} />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <button onClick={handleLogout}>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </button>
+            </ul>
+          </div>
+        ) : (
+          <Link title="login" to="/login">
+            <button>
+              <FiLogIn className="text-4xl text-white" />
+            </button>
+          </Link>
+        )}
 
         {/* get started button */}
         <div className="hidden lg:flex">
