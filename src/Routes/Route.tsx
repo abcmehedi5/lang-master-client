@@ -14,6 +14,7 @@ import Login from "../Pages/Login/Login";
 import Singup from "../Pages/Singup/Singup";
 import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
 import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
+import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: "user-manage",
         element: <UserManage></UserManage>,
+      },
+      {
+        path: "add-quize",
+        element: <AddQuizAdmin></AddQuizAdmin>,
       },
     ],
   },
