@@ -48,9 +48,8 @@ const LearnLesson = () => {
               <div key={lesson.lessonNumber} className="relative inline-block">
                 <div className="p-[6px] border-[6px] border-[#096379aa] rounded-full">
                   <button
-                    className={`bg-[#096279] text-white h-28 w-28 rounded-full shadow-2xl ${
-                      activeLesson === lesson.lessonNumber ? "bg-[#096279]" : ""
-                    }`}
+                    className={`bg-[#096279] text-white h-28 w-28 rounded-full shadow-2xl ${activeLesson === lesson.lessonNumber ? "bg-[#096279]" : ""
+                      }`}
                     onClick={() => handleLessonClick(lesson.lessonNumber)}
                   >
                     পাঠ - {lesson.lessonNumber}
@@ -59,11 +58,10 @@ const LearnLesson = () => {
                 {activeLesson === lesson.lessonNumber && (
                   <Link
                     to={`/learning/${id}/lesson/${lesson.lessonNumber}`}
-                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 px-6 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white rounded-lg shadow-md ${
-                      activeLesson === lesson.lessonNumber
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-90"
-                    } transition-all duration-300 ease-in-out hover:opacity-100 hover:scale-100`}
+                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 px-6 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white rounded-lg shadow-md ${activeLesson === lesson.lessonNumber
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-90"
+                      } transition-all duration-300 ease-in-out hover:opacity-100 hover:scale-100`}
                   >
                     শুরু করুন
                   </Link>
