@@ -52,11 +52,11 @@ const Navbar: React.FC = () => {
       </p>
       <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
-          to="/projects"
+          to="/about-us"
           title="Our Classs"
           className={({ isActive }) => (isActive ? " underline-cus" : "")}
         >
-          <p className="px-4 py-4">Our Class</p>
+          <p className="px-4 py-4">About Us</p>
         </NavLink>
       </p>
     </>
