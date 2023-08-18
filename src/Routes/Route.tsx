@@ -15,6 +15,7 @@ import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
 import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
 import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
+import Error from "../Error/Error";
 
 
 const router = createBrowserRouter([
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"/*",
+    element:<Error/>
+  }
 ]);
 
 export default router;

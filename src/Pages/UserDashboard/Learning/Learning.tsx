@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 import SingleUnitCard from "./SingleUnitCard";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
+import { Helmet } from "react-helmet-async";
 
 const Learning = () => {
   // const [unitData, setUnitData] = useState<LearnDataItem[]>([]);
@@ -25,6 +26,9 @@ const Learning = () => {
 
   return (
     <>
+     <Helmet>
+      <title> Lang Master | Dashboard | Leaning </title>
+    </Helmet>
       <div className="px-4 py-8 md:px-20 md:py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {allLearnData.map((singleUnit) => (
           <SingleUnitCard
