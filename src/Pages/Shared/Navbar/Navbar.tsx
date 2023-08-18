@@ -1,13 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { AiFillMessage } from "react-icons/ai";
-import { BiSolidBellRing } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FiLogIn } from "react-icons/fi";
+import Notification from "../../Home/notification/Notification";
 
 const Navbar: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { user, logOut }:any = useContext(AuthContext);
   console.log(user);
 
@@ -69,9 +70,10 @@ const Navbar: React.FC = () => {
         <AiFillMessage className="text-4xl " />
       </button>
       <span className="custom-divider"></span>
-      <button>
-        <BiSolidBellRing className="text-4xl " />
-      </button>
+     <Notification></Notification>
+   
+   
+   
       <span className="custom-divider"></span>
     </div>
   );
