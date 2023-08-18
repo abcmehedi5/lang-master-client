@@ -12,12 +12,12 @@ const Grammar: React.FC = () => {
 
     return (
         <div>
-          <Helmet>
+            <Helmet>
                 <title> Lang Master | Dashboard | GrammarSection </title>
             </Helmet>
             <GrammarCategory items={tense} title={"tense"} />
             <GrammarCategory items={parts_of_speech} title={"parts_of_speech"} />
-            <GrammarCategory items={genders} title={"genders" }/>
+            <GrammarCategory items={genders} title={"genders"} />
         </div>
     );
 };
