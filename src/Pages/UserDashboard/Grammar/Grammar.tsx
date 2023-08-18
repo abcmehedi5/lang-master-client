@@ -18,7 +18,7 @@ const Grammar: React.FC = () => {
   return (
     <div className="w-9/12 mx-auto">
       <Helmet>
-        <title> Lang Master | Dashboard | GrammarSection </title>
+        <title> Grammar | Lang Master </title>
       </Helmet>
       <GrammarCategory items={tense} title={"tense"} />
       <GrammarCategory items={parts_of_speech} title={"parts_of_speech"} />

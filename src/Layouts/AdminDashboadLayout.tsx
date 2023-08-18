@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FcHome } from "react-icons/fc";
 import { MdQuiz } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
@@ -5,6 +6,9 @@ import { Link, Outlet } from "react-router-dom";
 const AdminDashboadLayout = () => {
   return (
     <div className="drawer lg:drawer-open ">
+      <Helmet>
+        <title> Admin | Lang Master </title>
+      </Helmet>
       {/*background blur color */}
 
       <div className=" -inset-x-1 inset-y-16 md:-inset-x-2 md:-inset-y-6">
@@ -42,7 +46,7 @@ const AdminDashboadLayout = () => {
             </Link>
           </li>
           <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
-          <Link
+            <Link
               to="/admin-dashboard/add-quize"
               className="flex gap-2 items-center"
             >

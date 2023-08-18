@@ -14,7 +14,7 @@ interface FormData {
   confirmPassword: string;
   number: number;
   image: FileList;
-  phoneNumber:any
+  phoneNumber: any;
 }
 
 const Signup: React.FC = () => {
@@ -42,8 +42,9 @@ const Signup: React.FC = () => {
     const formData = new FormData();
     formData.append("image", image[0]);
 
-    const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY
-      }`;
+    const url = `https://api.imgbb.com/1/upload?key=${
+      import.meta.env.VITE_IMGBB_API_KEY
+    }`;
 
     try {
       const response = await fetch(url, {
@@ -56,7 +57,7 @@ const Signup: React.FC = () => {
       createUserEmail(email, password)
         .then((result: UserCredential) => {
           const userlogin = result.user;
-          console.log(userlogin)
+          console.log(userlogin);
           updateUserProfile(name, imageUrl)
             .then(() => {
               navigate(from, { replace: true });
@@ -79,7 +80,7 @@ const Signup: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title> Lang Master | Sign Up </title>
+        <title> Sign Up | Lang Master </title>
       </Helmet>
       <div className="my-10">
         <div className="hero-content flex-col md:flex-row gap-5">

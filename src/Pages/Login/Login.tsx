@@ -41,7 +41,7 @@ const Login: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title> Lang Master | Login </title>
+        <title> Login | Lang Master </title>
       </Helmet>
       <div className="my-10">
         <div className="hero-content flex-col md:flex-row-reverse">

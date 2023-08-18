@@ -25,7 +25,7 @@ const LeaderBoard = () => {
   return (
     <div className="w-9/12 mx-auto">
       <Helmet>
-        <title> Lang Master | Dashboard | LeaderBoard </title>
+        <title> Leader-board | Lang Master </title>
       </Helmet>
       <div className="w-full mx-auto md:flex mt-14">
         <div className="w-full md:mx-10 text-center">
