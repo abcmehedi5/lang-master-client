@@ -44,7 +44,8 @@ const AddQuizAdmin: React.FC = () => {
                 updatedOptions[index] = e.target.value;
                 setOptions(updatedOptions);
               }}
-              placeholder={`option ${index + 1}`}              className="w-full border rounded-md p-2 mt-2 input input-bordered"
+              placeholder={`option ${index + 1}`}             
+             className="w-full border rounded-md p-2 mt-2 input input-bordered"
               required
             />
           ))}
