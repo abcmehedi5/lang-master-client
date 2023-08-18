@@ -58,7 +58,6 @@ const QuestionsForLearn: React.FC<LessonsComponentType> = () => {
   if (!selectedLesson) {
     return <p>Lesson not found.</p>;
   }
-  console.log(selectedLesson.quiz);
   const questions = selectedLesson.quiz;
 
   // ! end

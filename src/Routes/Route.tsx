@@ -13,7 +13,8 @@ import Login from "../Pages/Login/Login";
 import Singup from "../Pages/Singup/Singup";
 import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
 import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
-
+import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
+import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 
 const router = createBrowserRouter([
   {
@@ -55,7 +56,6 @@ const router = createBrowserRouter([
       {
         path: "learning/:id",
         element: <LearnLesson></LearnLesson>,
-        loader: ({ params }: any) => fetch(`/learn.json/${params.id}`),
       },
       {
         path: "leader-board",

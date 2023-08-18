@@ -7,7 +7,7 @@ const useLearnData = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/learn.json`)
+    fetch(`${import.meta.env.VITE_API_URL}/learning-questions`)
       .then((response) => response.json())
       .then((data: LearnDataItem[]) => {
         setAllLearnData(data);
