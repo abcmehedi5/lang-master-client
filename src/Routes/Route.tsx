@@ -13,6 +13,8 @@ import Login from "../Pages/Login/Login";
 import Singup from "../Pages/Singup/Singup";
 import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
 import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
+import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
+import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 
 
 const router = createBrowserRouter([

@@ -1,25 +1,16 @@
-import { useState, useEffect } from "react";
-import { LearnDataItem } from "./LearnDataItem";
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 const useLearnData = () => {
-  const [allLearnData, setAllLearnData] = useState<LearnDataItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+    const { isLoading, data: allLearnData = [], refetch } = useQuery({
+        queryKey: ['learnData'],
+        queryFn: async () => {
+            const response = await axios.get('/learn.json');
+            return response.data;
+        },
+    });
 
-  useEffect(() => {
-    setLoading(true);
-    fetch(`/learn.json`)
-      .then((response) => response.json())
-      .then((data: LearnDataItem[]) => {
-        setAllLearnData(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  return { allLearnData, loading };
+    return { isLoading, refetch, allLearnData };
 };
 
 export default useLearnData;
