@@ -30,7 +30,7 @@ const LearnLesson = () => {
       <div className="flex justify-center min-h-screen items-center">
         <div>
           <div>
-            {/* <Lottie
+            <Lottie
               options={{
                 animationData: lessonAnimation,
                 loop: true,
@@ -38,7 +38,7 @@ const LearnLesson = () => {
               }}
               width={400}
               height={400}
-            /> */}
+            />
           </div>
 
           {/* lesson content here */}

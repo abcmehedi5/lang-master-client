@@ -58,7 +58,6 @@ const QuestionsForLearn = () => {
   if (!selectedLesson) {
     return <p>Lesson not found.</p>;
   }
-  console.log(selectedLesson.quiz);
   const questions = selectedLesson.quiz;
 
   // ! end
