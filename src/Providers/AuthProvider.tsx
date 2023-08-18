@@ -53,7 +53,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   // update user profile
   const updateUserProfile = (name: string, photo: any) => {
-    const currentUser = auth.currentUser;
+    const currentUser: any = auth.currentUser;
     return updateProfile(currentUser, {
       displayName: name,
       photoURL: photo,
@@ -62,7 +62,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   // current user save
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
       setUser(currentUser);
       console.log("current user", currentUser);
       setLoading(false);

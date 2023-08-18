@@ -8,7 +8,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { FiLogIn } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut }:any = useContext(AuthContext);
   console.log(user);
 
   const handleLogout = () => {
@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
       .then(() => {
         console.log("Logged out successfully");
       })
-      .catch((err) => {
+      .catch((err:any) => {
         console.log(err.message);
       });
   };
@@ -52,11 +52,11 @@ const Navbar: React.FC = () => {
       </p>
       <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
-          to="/projects"
+          to="/about-us"
           title="Our Classs"
           className={({ isActive }) => (isActive ? " underline-cus" : "")}
         >
-          <p className="px-4 py-4">Our Class</p>
+          <p className="px-4 py-4">About Us</p>
         </NavLink>
       </p>
     </>
