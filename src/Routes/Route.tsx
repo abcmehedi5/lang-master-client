@@ -16,6 +16,7 @@ import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
 import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 import Error from "../Error/Error";
+import Edit from "../Pages/UserDashboard/Profile/Edit";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile></Profile>,
       },
+      {
+        path: "edit",
+        element: <Edit></Edit>
+      }
     ],
   },
 
