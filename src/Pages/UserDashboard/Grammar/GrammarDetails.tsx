@@ -24,7 +24,7 @@ interface GrammarDetailsProps {
     item: GrammarItem;
 }
 
-const GrammarDetails: React.FC<GrammarDetailsProps> = ({ item }) => {
+const GrammarDetails: React.FC<GrammarDetailsProps> = ({ item }:any) => {
     const { name, definition, example, simple, continuous, perfect, perfect_continuous } = item;
 
     return (

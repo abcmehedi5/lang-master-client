@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Lottie from "lottie-react-web";
-import lessonAnimation from "./../../../assets/lessonAnimation.json";
 import { Link, useParams } from "react-router-dom";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import { LearnDataItem } from "../../../hooks/useLearnData/LearnDataItem";

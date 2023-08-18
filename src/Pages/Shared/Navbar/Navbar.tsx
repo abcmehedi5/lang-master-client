@@ -8,7 +8,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { FiLogIn } from "react-icons/fi";
 
 const Navbar: React.FC = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut }:any = useContext(AuthContext);
   console.log(user);
 
   const handleLogout = () => {
@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
       .then(() => {
         console.log("Logged out successfully");
       })
-      .catch((err) => {
+      .catch((err:any) => {
         console.log(err.message);
       });
   };

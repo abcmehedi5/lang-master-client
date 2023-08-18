@@ -3,15 +3,15 @@ import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 const GoogleFb = () => {
-  const { logingoogle } = useContext(AuthContext);
+  const { logingoogle }:any = useContext(AuthContext);
 
   const handleGoogle = () => {
     logingoogle()
-      .then((result) => {
+      .then((result:any) => {
         const userlogin = result.user;
         console.log(userlogin);
       })
-      .catch((err) => {
+      .catch((err:any) => {
         console.log(err.message);
       });
   };

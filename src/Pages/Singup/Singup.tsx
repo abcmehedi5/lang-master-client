@@ -14,6 +14,7 @@ interface FormData {
   confirmPassword: string;
   number: number;
   image: FileList;
+  phoneNumber:any
 }
 
 const Signup: React.FC = () => {
@@ -23,7 +24,7 @@ const Signup: React.FC = () => {
     formState: { errors },
     reset,
   } = useForm<FormData>();
-  const { createUserEmail, updateUserProfile } = useContext(AuthContext);
+  const { createUserEmail, updateUserProfile }: any = useContext(AuthContext);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -55,6 +56,7 @@ const Signup: React.FC = () => {
       createUserEmail(email, password)
         .then((result: UserCredential) => {
           const userlogin = result.user;
+          console.log(userlogin)
           updateUserProfile(name, imageUrl)
             .then(() => {
               navigate(from, { replace: true });
@@ -69,7 +71,7 @@ const Signup: React.FC = () => {
         .catch((err: any) => {
           setError(err.message);
         });
-    } catch (error) {
+    } catch (error: any) {
       console.log(error.message);
     }
   };

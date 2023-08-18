@@ -100,7 +100,7 @@ const Quizzes: React.FC = () => {
               option={option}
               index={index}
               handleAnswerClick={handleAnswerClick}
-              disabled={quizFinished}
+              // disabled={quizFinished}
             />
           ))}
         </div>

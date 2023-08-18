@@ -18,7 +18,7 @@ const Login: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser }: any = useContext(AuthContext);
   const [error, setError] = useState<string>("");
 
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Login: React.FC = () => {
         navigate(from, { replace: true });
         setError("");
       })
-      .catch((err) => {
+      .catch((err: any) => {
         setError(err.message);
       });
   };

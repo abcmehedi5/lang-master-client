@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import TotalScore from "./TotalScore";
@@ -15,13 +15,13 @@ interface Lesson {
   quiz: Question[];
 }
 
-interface LessonsComponentType {
-  selectedLesson: Lesson;
-}
+// interface LessonsComponentType {
+//   selectedLesson: Lesson;
+// }
 
 // ! Main code start
 
-const QuestionsForLearn: React.FC<LessonsComponentType> = () => {
+const QuestionsForLearn = () => {
   // ! state Data fetching by params
   const { id, lessonNumber } = useParams<{
     id: string;
@@ -148,13 +148,12 @@ const QuestionsForLearn: React.FC<LessonsComponentType> = () => {
                 <div className="w-full">
                   <button
                     key={index}
-                    className={`border border-b-2 shadow-md rounded-xl px-4 py-4 block w-full mb-3 hover:bg-base-200 transition duration-200 tran ${
-                      selectedOption === option
-                        ? option === questions[currentQuestion].correctAnswer
-                          ? "bg-green-200 border-green-400 shadow-lg"
-                          : "bg-red-400 border-red-200"
-                        : "hover:bg-red-200"
-                    }`}
+                    className={`border border-b-2 shadow-md rounded-xl px-4 py-4 block w-full mb-3 hover:bg-base-200 transition duration-200 tran ${selectedOption === option
+                      ? option === questions[currentQuestion].correctAnswer
+                        ? "bg-green-200 border-green-400 shadow-lg"
+                        : "bg-red-400 border-red-200"
+                      : "hover:bg-red-200"
+                      }`}
                     onClick={() => handleButtonClick(option, index)}
                     disabled={
                       clickedOptions[currentQuestion] !== undefined &&
@@ -181,9 +180,8 @@ const QuestionsForLearn: React.FC<LessonsComponentType> = () => {
             <div className="flex justify-center">
               <button
                 onClick={handleNext}
-                className={`defaultBtn mt-3 px-2 py-2 ${
-                  selectedOption === null ? "hidden" : ""
-                }`}
+                className={`defaultBtn mt-3 px-2 py-2 ${selectedOption === null ? "hidden" : ""
+                  }`}
               >
                 চালিয়ে যান
               </button>
