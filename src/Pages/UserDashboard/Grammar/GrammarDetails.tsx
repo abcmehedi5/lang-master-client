@@ -1,5 +1,4 @@
 
-
 import {
     Accordion,
     AccordionItem,
@@ -29,6 +28,7 @@ const GrammarDetails: React.FC<GrammarDetailsProps> = ({ item }:any) => {
 
     return (
         <div>
+            
             <Accordion>
                 <AccordionItem>
                     <AccordionItemHeading>

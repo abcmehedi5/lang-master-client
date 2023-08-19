@@ -31,15 +31,9 @@ const Cover: React.FC<CoverProps> = () => {
           knowledge
         </h2>
         <p className="tracking-normal my-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          <br />
-          Quia voluptates libero exercitationem, doloribus commodi hic
-          <br />
-          inventore soluta nemo quo deserunt laborum ut rerum fugiat
-          <br />
-          fuga aliquid. Suscipit placeat pariatur consequuntur!
+        "Welcome to Lang-Master, your interactive language learning platform! Immerse yourself in a world of languages as you embark on a fun and engaging journey to fluency. With personalized lessons, real-time feedback, and a vibrant community, Lang-Master makes mastering languages a breeze. Start your linguistic adventure today!"
         </p>
-        <button className="btn  defaultBtn ">Get Started</button>
+        <button className="btn defaultBtn ">Get Started</button>
       </div>
 
       <div>

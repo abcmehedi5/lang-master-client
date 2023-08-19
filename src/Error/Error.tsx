@@ -1,9 +1,21 @@
-import error from '../../src/assets/error.jpg'
+
+import Lottie from "lottie-react-web";
+import error from "../../public/error.json"
 const Error = () => {
     return (
-        <div className='my-20'>
-            <img className='mx-auto' src={error} alt="Not Found" />
-        </div>
+        
+        <div className="flex justify-center min-h-screen items-center">
+        
+            <Lottie
+              options={{
+                animationData: error,
+                loop: true,
+                autoplay: true,
+              }}
+              width={600}
+              height={600}
+            />
+          </div>
     );
 };
 
