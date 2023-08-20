@@ -91,7 +91,11 @@ const router = createBrowserRouter([
   // admin dashboard
   {
     path: "admin-dashboard",
-    element: <AdminDashboadLayout></AdminDashboadLayout>,
+    element: (
+      <PrivateRoute>
+        <AdminDashboadLayout></AdminDashboadLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "user-manage",

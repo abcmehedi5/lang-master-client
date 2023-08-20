@@ -9,7 +9,7 @@ import Notification from "../../Home/notification/Notification";
 
 const Navbar: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { user, logOut }:any = useContext(AuthContext);
+  const { user, logOut }: any = useContext(AuthContext);
   console.log(user);
 
   const handleLogout = () => {
@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
       .then(() => {
         console.log("Logged out successfully");
       })
-      .catch((err:any) => {
+      .catch((err: any) => {
         console.log(err.message);
       });
   };
@@ -60,6 +60,17 @@ const Navbar: React.FC = () => {
           <p className="px-4 py-4">About Us</p>
         </NavLink>
       </p>
+      {user && (
+        <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
+          <NavLink
+            to="/admin-dashboard"
+            title="Our Classs"
+            className={({ isActive }) => (isActive ? " underline-cus" : "")}
+          >
+            <p className="px-4 py-4">Admin</p>
+          </NavLink>
+        </p>
+      )}
     </>
   );
 
@@ -70,10 +81,8 @@ const Navbar: React.FC = () => {
         <AiFillMessage className="text-4xl " />
       </button>
       <span className="custom-divider"></span>
-     <Notification></Notification>
-   
-   
-   
+      <Notification></Notification>
+
       <span className="custom-divider"></span>
     </div>
   );
