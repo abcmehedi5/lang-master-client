@@ -16,6 +16,7 @@ interface GrammarCategoryProps {
 const GrammarCategory: React.FC<GrammarCategoryProps> = ({ items, title }: any) => {
     return (
         <div className="pt-8">
+            
             <h2 className='text-2xl uppercase font-semibold ps-4 flex gap-2 text-[#047e65]'>{title} <FaLeanpub className="text-slate-500" /> </h2>
             <div className="grid md:grid-cols-2 gap-4 py-4 my-4">
                 {items.map((item: any) => (
