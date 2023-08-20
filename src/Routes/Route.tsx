@@ -16,6 +16,7 @@ import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
 import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 import Error from "../Error/Error";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -52,7 +53,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "learning",
-        element: <Learning></Learning>,
+        element: (
+          <PrivateRoute>
+            <Learning></Learning>
+          </PrivateRoute>
+        ),
       },
       {
         path: "learning/:id",
