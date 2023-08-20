@@ -2,16 +2,21 @@ import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 const GoogleFb = () => {
-  const { logingoogle }:any = useContext(AuthContext);
+  const { logingoogle }: any = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.pathname || "/";
 
   const handleGoogle = () => {
     logingoogle()
-      .then((result:any) => {
+      .then((result: any) => {
         const userlogin = result.user;
         console.log(userlogin);
+        navigate(from, { replace: true });
       })
-      .catch((err:any) => {
+      .catch((err: any) => {
         console.log(err.message);
       });
   };

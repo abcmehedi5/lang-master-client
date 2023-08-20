@@ -24,6 +24,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  console.log(from);
 
   const onSubmit = (data: FormData) => {
     loginUser(data.email, data.password)
