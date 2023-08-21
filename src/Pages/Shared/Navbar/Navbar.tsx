@@ -1,6 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { AiFillMessage } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
@@ -77,13 +76,7 @@ const Navbar: React.FC = () => {
   // -------- navbar end--------
   const ResponsiveIconsSection = () => (
     <div className="flex">
-      <button>
-        <AiFillMessage className="text-4xl " />
-      </button>
-      <span className="custom-divider"></span>
-      {/* <Notification></Notification> */}
-
-      <span className="custom-divider"></span>
+     {/* message icon */}
     </div>
   );
 
@@ -98,7 +91,7 @@ const Navbar: React.FC = () => {
   );
 
   return (
-    <div className="navbar justify-between py-0 bg-gradient-to-r from-[#5e50ad] to-[#73539e] px-5">
+    <div className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5">
       <div className="navbar-start flex">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
