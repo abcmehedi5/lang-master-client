@@ -18,6 +18,7 @@ import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
+import AddTopics from "../Pages/AdminDashboard/AddTopics";
 
 const router = createBrowserRouter([
   {
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
       {
         path: "add-quize",
         element: <AddQuizAdmin></AddQuizAdmin>,
+      },
+      {
+        path: "add-topics",
+        element: <AddTopics></AddTopics>,
       },
     ],
   },

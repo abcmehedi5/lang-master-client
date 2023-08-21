@@ -22,6 +22,7 @@ const AddTopics: React.FC = () => {
       <Helmet>
         <title> Add Quiz | Lang Master </title>
       </Helmet>
+      hhhi
       <div className="p-4 lg:w-11/12">
         <form onSubmit={handleSubmit} className="space-y-4">
           <h1 className="text-2xl font-semibold">Add Question</h1>
