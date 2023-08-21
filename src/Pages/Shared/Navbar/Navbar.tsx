@@ -81,7 +81,7 @@ const Navbar: React.FC = () => {
         <AiFillMessage className="text-4xl " />
       </button>
       <span className="custom-divider"></span>
-      <Notification></Notification>
+      {/* <Notification></Notification> */}
 
       <span className="custom-divider"></span>
     </div>
@@ -136,6 +136,7 @@ const Navbar: React.FC = () => {
           <ResponsiveIconsSection />
         </div>
 
+        <Notification></Notification>
         {/* -------- user profile */}
         {user ? (
           <div className="dropdown dropdown-end z-10">

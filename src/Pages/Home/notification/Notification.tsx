@@ -57,12 +57,12 @@ const Notification = () => {
       <ul className="menu menu-sm dropdown-content mt-3 z-10 shadow bg-base-100 rounded-box w-72 absolute right-0">
         {notifications.map((_notification) => (
           <li
-            onClick={() => setOpen(false)}
+            onClick={() => setOpen(true)}
             className="text-green-500 flex font-serif"
             key={_notification._id}
           >
             <div className="flex gap-4 ">
-              <img className="w-4 bg-red-300  " src={bell} alt="" />
+              <img className="w-4 bg-slate-200" src={bell} alt="" />
               <span className="justify-between">{_notification.title}</span>
             </div>
             <a className="ml-8" href="">
