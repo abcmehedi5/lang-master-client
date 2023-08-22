@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import TotalScore from "./TotalScore";
 import { AiOutlineClose } from "react-icons/ai";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 interface Question {
   question: string;
@@ -17,6 +18,7 @@ interface Lesson {
 }
 
 const QuestionsForLearn = () => {
+  const { user }: any = useContext(AuthContext);
   const { id, lessonNumber } = useParams<{
     id: string;
     lessonNumber: string;
@@ -33,9 +35,64 @@ const QuestionsForLearn = () => {
     [key: number]: number;
   }>({});
 
+  const [quizCompleted, setQuizCompleted] = useState(false);
+
+  console.log(showScore);
+
   // -------------- sweet alert ----------------
 
   const [showAdditionalSection, setShowAdditionalSection] = useState(false);
+
+  // alert when want to refresh the page
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      event.returnValue =
+        "You have unsaved progress. Are you sure you want to leave?";
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, []);
+
+  const handleQuizCompleted = async () => {
+    console.log("quiz", quizCompleted);
+    if (quizCompleted) {
+      console.log("show score inside if", showScore);
+      try {
+        // const currentUser = user.user
+        if (user) {
+          const response = await fetch(
+            `http://localhost:5000/users/user/${user.email}`,
+            {
+              method: "PATCH",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify({
+                score: score,
+              }),
+            }
+          );
+
+          console.log("response from", response);
+
+          if (response.ok) {
+            console.log("Quiz score updated for the user");
+          } else {
+            console.error("Failed to update quiz score");
+          }
+        } else {
+          console.error("User not authenticated");
+        }
+      } catch (error) {
+        console.error("Error while storing quiz results", error);
+      }
+    }
+  };
 
   const handleRestart = () => {
     setCurrentQuestion(0);
@@ -62,13 +119,14 @@ const QuestionsForLearn = () => {
     }));
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     setSelectedOption(null);
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setCurrentQuestion(questions.length); // Set currentQuestion to questions.length
       setShowScore(true);
+      setQuizCompleted(true);
     }
     setIsCorrectAnswer(true);
   };
@@ -111,7 +169,11 @@ const QuestionsForLearn = () => {
       </div>
       <div className="max-w-2xl mx-auto px-4 py-8 ">
         {showScore ? (
-          <TotalScore totalScore={score} onRestart={handleRestart}></TotalScore>
+          <TotalScore
+            totalScore={score}
+            onRestart={handleRestart}
+            handleQuizCompleted={handleQuizCompleted}
+          ></TotalScore>
         ) : (
           <div>
             <div className="mb-8">
