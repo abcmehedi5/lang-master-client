@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import TotalScore from "./TotalScore";
 import { AiOutlineClose } from "react-icons/ai";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 interface Question {
   question: string;
@@ -19,6 +21,7 @@ interface Lesson {
 
 const QuestionsForLearn = () => {
   const { user }: any = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
   const { id, lessonNumber } = useParams<{
     id: string;
     lessonNumber: string;
@@ -37,7 +40,7 @@ const QuestionsForLearn = () => {
 
   const [quizCompleted, setQuizCompleted] = useState(false);
 
-  console.log(showScore);
+  const navigate = useNavigate();
 
   // -------------- sweet alert ----------------
 
@@ -58,30 +61,33 @@ const QuestionsForLearn = () => {
     };
   }, []);
 
+  // quiz complete button handler and update user points
   const handleQuizCompleted = async () => {
     console.log("quiz", quizCompleted);
     if (quizCompleted) {
-      console.log("show score inside if", showScore);
       try {
-        // const currentUser = user.user
         if (user) {
-          const response = await fetch(
+          const response = await axiosSecure.patch(
             `http://localhost:5000/users/user/${user.email}`,
             {
-              method: "PATCH",
+              score: score,
+            },
+            {
               headers: {
-                "content-type": "application/json",
+                "Content-Type": "application/json",
               },
-              body: JSON.stringify({
-                score: score,
-              }),
             }
           );
 
-          console.log("response from", response);
-
-          if (response.ok) {
-            console.log("Quiz score updated for the user");
+          if (response.status === 200) {
+            Swal.fire({
+              // title: "Good job!",
+              text: "আপনার পয়েন্ট সংগ্রহ হয়েছে",
+              icon: "success",
+            }).then(() => {
+              // Navigate to the homepage
+              navigate("/user-dashboard/learning");
+            });
           } else {
             console.error("Failed to update quiz score");
           }
