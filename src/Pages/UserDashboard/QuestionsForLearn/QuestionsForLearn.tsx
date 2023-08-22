@@ -21,7 +21,7 @@ const QuestionsForLearn = () => {
     id: string;
     lessonNumber: string;
   }>();
-  const { allLearnData, loading } = useLearnData();
+  const [allLearnData] = useLearnData();
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState<number>(0);
@@ -79,21 +79,13 @@ const QuestionsForLearn = () => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log("currentQuestion", currentQuestion);
-  // }, [currentQuestion]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  const selectedUnit = allLearnData.find((unit) => unit._id === id);
+  const selectedUnit = allLearnData.find((unit: any) => unit._id === id);
   if (!selectedUnit) {
     return <p>Unit not found.</p>;
   }
 
   const selectedLesson: Lesson | undefined = selectedUnit.lessons.find(
-    (lesson) => lesson.lessonNumber === lessonNumber
+    (lesson: any) => lesson.lessonNumber === lessonNumber
   );
 
   if (!selectedLesson) {

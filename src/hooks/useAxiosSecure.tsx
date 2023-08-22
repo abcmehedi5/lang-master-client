@@ -12,7 +12,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // request ------------------
+    //  request-----------------------
     axiosSecure.interceptors.request.use((config) => {
       const token = localStorage.getItem("access-token");
       if (token) {
@@ -21,21 +21,23 @@ const useAxiosSecure = () => {
       return config;
     });
 
-    //  response
+    //  response---------------------
+
     axiosSecure.interceptors.response.use(
       (response) => response,
       async (error) => {
         if (
-          (error.response && error.response.status === 4001) ||
+          (error.response && error.response.status === 401) ||
           error.response.status === 403
         ) {
           await logOut();
-          navigate("/login");
+          // navigate("/login");
         }
         return Promise.reject(error);
       }
     );
   }, [logOut, navigate]);
+
   return [axiosSecure];
 };
 export default useAxiosSecure;

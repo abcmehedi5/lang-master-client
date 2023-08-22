@@ -9,12 +9,10 @@ const LearnLesson = () => {
   const { id } = useParams<{ id: string }>();
   console.log("learn lession", id);
   const [activeLesson, setActiveLesson] = useState<string | null>(null);
-  const { allLearnData, loading } = useLearnData();
+  const [allLearnData] = useLearnData();
+
   // finding data by unit number
-  const selectedLesson = allLearnData.find((item) => item._id == id);
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  const selectedLesson = allLearnData.find((item: any) => item._id == id);
   if (!selectedLesson) {
     return <p>Unit not found.</p>;
   }
