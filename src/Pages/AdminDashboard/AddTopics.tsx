@@ -80,7 +80,7 @@ const AddTopics: React.FC = () => {
                 onChange={(e) => setPercent(e.target.value)}
                 placeholder="আপনার কাজের অগ্রগতি কত পার্সেন্ট?"
                 required
-              />
+              /> 
             </div>
             <div>
             <label className="block text-sm font-medium">আপনার কুইজের প্রশ্নটি লিখুনঃ</label>
