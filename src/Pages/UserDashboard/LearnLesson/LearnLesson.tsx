@@ -7,11 +7,14 @@ import lessonAnimation from "../../../assets/lessonAnimation.json";
 
 const LearnLesson = () => {
   const { id } = useParams<{ id: string }>();
+  console.log('learn lession',id)
   const [activeLesson, setActiveLesson] = useState<string | null>(null);
   const { allLearnData, loading } = useLearnData();
+  console.log(allLearnData)
 
   // finding data by unit number
-  const selectedLesson = allLearnData.find((item) => item._id === id);
+  const selectedLesson = allLearnData.find((item) => item._id == id);
+  console.log(selectedLesson)
   if (loading) {
     return <p>Loading...</p>;
   }

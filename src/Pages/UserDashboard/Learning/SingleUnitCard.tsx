@@ -7,6 +7,7 @@ interface singleUnitProps {
 }
 const SingleUnitCard: React.FC<singleUnitProps> = ({ singleUnit }) => {
   const { _id, unit, topic, points, progress, totalLessons } = singleUnit;
+  console.log(_id)
 
   // Convert Bengali numerals to English numerals
   const bengaliToEnglishMap: { [key: string]: string } = {
@@ -28,7 +29,9 @@ const SingleUnitCard: React.FC<singleUnitProps> = ({ singleUnit }) => {
       .map((digit) => bengaliToEnglishMap[digit] || digit)
       .join("");
 
-  const progressInEnglish = convertBengaliToEnglish(progress);
+  // const progressInEnglish = convertBengaliToEnglish(progress);
+  const progressInEnglish = progress ? convertBengaliToEnglish(progress) : "";
+
 
   return (
     <div
