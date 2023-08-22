@@ -40,7 +40,7 @@ const SingleUnitCard: React.FC<singleUnitProps> = ({ singleUnit }) => {
       }}
     >
       <h1 className="text-2xl font-bold mb-2">{unit}</h1>
-      <h4 className="text-xl font-semibold">{topic}</h4>
+      <h4 className="text-xl font-semibold text-gray-100">{topic}</h4>
       <div className="flex-grow"></div>
 
       {/* i want to take this div in the bottom of this div */}
