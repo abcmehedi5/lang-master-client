@@ -5,9 +5,22 @@ const AddTopics: React.FC = () => {
     const [lession, setLession] = useState<string>("");
     const [point, setPoint] = useState<string>(""); 
     const [percent, setPercent] = useState<string>("");
+    const [question, setQuestion] = useState<string>("");
+    const [options, setOptions] = useState<string[]>(["", "", "", ""]);
+    const [correctAnswer, setCorrectAnswer] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const quize = {
+      lession: lession,
+      point: point,
+      percent: percent,
+      question: question,
+      options: options,
+      correctAnswer: correctAnswer,
+    };
+    // Log form input values to console
+    console.log(quize);
    
   };
 
@@ -69,6 +82,48 @@ const AddTopics: React.FC = () => {
                 required
               />
             </div>
+            <div>
+            <label className="block text-sm font-medium">আপনার কুইজের প্রশ্নটি লিখুনঃ</label>
+            <input
+              type="text"
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+              className="w-full border rounded-md p-2 mt-2 input input-bordered"
+              placeholder="আপনার প্রশ্ন কী?"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">অপশন সিলেক্ট করুনঃ</label>
+            <div className="grid grid-cols-2 gap-2 mt-2">
+              {options.map((option, index) => (
+                <input
+                  key={index}
+                  type="text"
+                  value={option}
+                  onChange={(e) => {
+                    const updatedOptions = [...options];
+                    updatedOptions[index] = e.target.value;
+                    setOptions(updatedOptions);
+                  }}
+                  placeholder={`অপশন ${index + 1}`}
+                  className="w-full border rounded-md p-2 mt-2 input input-bordered"
+                  required
+                />
+              ))}
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium">সঠিক উত্তর দিনঃ</label>
+            <input
+              type="text"
+              value={correctAnswer}
+              onChange={(e) => setCorrectAnswer(e.target.value)}
+              className="w-full border rounded-md p-2 mt-2 input input-bordered"
+              placeholder="সঠিক উত্তরঃ"
+              required
+            />
+          </div>
           <button
             type="submit" 
             className="btn bg-[#088395] hover:bg-[#21bbd3] text-white w-full px-4 py-2 rounded-md font-semibold"
