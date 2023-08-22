@@ -19,6 +19,7 @@ import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
+import AddNotification from "../Pages/AdminDashboard/AddNotification";
 
 const router = createBrowserRouter([
   {
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
       {
         path: "add-topics",
         element: <AddTopics></AddTopics>,
+      },
+      {
+        path: "add-notification",
+        element: <AddNotification></AddNotification>,
       },
     ],
   },
