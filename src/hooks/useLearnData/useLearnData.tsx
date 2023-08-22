@@ -7,7 +7,8 @@ const useLearnData = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/learn.json`)
+    // fetch(`/learn.json`)
+    fetch(`http://localhost:5000/learning-questions/questions`)
       .then((response) => response.json())
       .then((data: LearnDataItem[]) => {
         setAllLearnData(data);
