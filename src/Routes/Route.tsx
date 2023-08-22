@@ -17,6 +17,7 @@ import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/Question
 import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/blog",
+        element: <Blogs></Blogs>,
       },
     ],
   },

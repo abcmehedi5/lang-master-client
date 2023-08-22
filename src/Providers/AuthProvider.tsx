@@ -9,6 +9,7 @@ import {
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { ReactNode, createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
+import axios from "axios";
 
 interface AuthInfo {
   user: any;
@@ -64,8 +65,14 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
       setUser(currentUser);
-      console.log("current user", currentUser);
-      setLoading(false);
+      if (currentUser) {
+        axios.post("http://localhost:5000/json-web-token/jwt").then((data) => {
+          localStorage.setItem("access-token", data.data.token);
+          setLoading(false);
+        });
+      } else {
+        localStorage.removeItem("access-token");
+      }
     });
     return () => {
       return unsubscribe();
