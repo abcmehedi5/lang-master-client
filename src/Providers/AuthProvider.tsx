@@ -72,6 +72,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
         });
       } else {
         localStorage.removeItem("access-token");
+        setLoading(false);
       }
     });
     return () => {

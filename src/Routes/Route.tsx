@@ -47,14 +47,22 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blogs></Blogs>,
+        element: (
+          <PrivateRoute>
+            <Blogs></Blogs>
+          </PrivateRoute>
+        ),
       },
     ],
   },
   // user dashboard
   {
     path: "user-dashboard",
-    element: <LearningLayout></LearningLayout>,
+    element: (
+      <PrivateRoute>
+        <LearningLayout></LearningLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "learning",
