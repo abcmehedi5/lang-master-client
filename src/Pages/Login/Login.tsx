@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import login from "../../../public/login.svg";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserCredential } from "firebase/auth";
 import GoogleFb from "../Shared/Google-Fb/GoogleFb";
 import { Helmet } from "react-helmet-async";
-
+import useToast from "../../hooks/useToast";
+import { Toaster } from "react-hot-toast";
 interface FormData {
   email: string;
   password: string;
@@ -19,10 +20,10 @@ const Login: React.FC = () => {
     formState: { errors },
   } = useForm<FormData>();
   const { loginUser }: any = useContext(AuthContext);
-  const [error, setError] = useState<string>("");
-
   const navigate = useNavigate();
   const location = useLocation();
+  // toaster message
+  const [successAlert, errorAlert] = useToast();
   const from = location.state?.from?.pathname || "/";
   console.log(from);
 
@@ -32,19 +33,19 @@ const Login: React.FC = () => {
         const userlogin = result.user;
         console.log(userlogin);
         navigate(from, { replace: true });
-        setError("");
+        successAlert("login successfull");
       })
       .catch((err: any) => {
-        setError(err.message);
+        errorAlert(err.message);
       });
   };
-
   return (
     <>
       <Helmet>
         <title> Login | Lang Master </title>
       </Helmet>
       <div className="my-10">
+        <Toaster />
         <div className="hero-content flex-col md:flex-row-reverse">
           <img className="md:w-1/2" src={login} alt="" />
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -90,7 +91,6 @@ const Login: React.FC = () => {
                 >
                   Login
                 </button>
-                {error && <span className="text-red-500 text-xs">{error}</span>}
               </div>
               <Link to="/signup">
                 <p className="text-[#407bff] text-sm underline">

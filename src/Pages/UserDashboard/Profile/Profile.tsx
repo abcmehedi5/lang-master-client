@@ -27,7 +27,7 @@ const Profile = () => {
   const [profiles, setProfiles] = useState<Profile[]>([]);
 
   useEffect(() => {
-    fetch("./../../../../public/users.json")
+    fetch("http://localhost:5000/users/user")
       .then((res) => res.json())
       .then((data) => setProfiles(data))
       .catch((error) => console.error(error));
