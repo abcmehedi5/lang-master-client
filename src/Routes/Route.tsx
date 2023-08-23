@@ -18,9 +18,7 @@ import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
-import AddTopics from "../Pages/AdminDashboard/AddTopics";
-import AddNotification from "../Pages/AdminDashboard/AddNotification";
-import Faq from "../Pages/Faq/Faq";
+
 
 const router = createBrowserRouter([
   {
@@ -59,6 +57,11 @@ const router = createBrowserRouter([
       {
         path: "/faq",
         element: <Faq></Faq>,
+      },
+      {
+        path: "/singleBlogCard/:id",
+        element: <SingleBlogCard/>,
+        loader:({params}) => fetch(`http://localhost:5000/blogs/blog/${params.id}`)
       },
     ],
   },
