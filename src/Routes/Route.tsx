@@ -20,6 +20,7 @@ import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
+import Faq from "../Pages/Faq/Faq";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
             <Blogs></Blogs>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
       },
     ],
   },
