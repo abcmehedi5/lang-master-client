@@ -6,6 +6,7 @@ import { UserCredential } from "firebase/auth";
 import login from "../../../public/login.svg";
 import GoogleFb from "../Shared/Google-Fb/GoogleFb";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 interface FormData {
   name: string;
@@ -28,10 +29,11 @@ const Signup: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const [axiosSecure] = useAxiosSecure();
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = async (data: FormData) => {
-    const { name, email, password, confirmPassword, image } = data;
+    const { name, email, password, confirmPassword, image, phoneNumber } = data;
     console.log(data);
 
     if (password !== confirmPassword) {
@@ -53,11 +55,32 @@ const Signup: React.FC = () => {
       });
       const result = await response.json();
       const imageUrl = result?.data?.display_url;
-
       createUserEmail(email, password)
         .then((result: UserCredential) => {
           const userlogin = result.user;
           console.log(userlogin);
+          // send user data on mongodb start.................
+
+          const saveUser = {
+            name: name,
+            email: email,
+            phoneNumber: phoneNumber,
+            image: imageUrl,
+            score: 0,
+            role: "user",
+          };
+
+          axiosSecure
+            .post("/users/user", saveUser)
+            .then(() => {
+              alert("account create successfull");
+              navigate("/login");
+            })
+            .catch((error) => {
+              alert(error);
+            });
+
+          // send user data on mongodb end.................
           updateUserProfile(name, imageUrl)
             .then(() => {
               navigate(from, { replace: true });
