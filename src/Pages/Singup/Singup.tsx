@@ -73,7 +73,7 @@ const Signup: React.FC = () => {
           axiosSecure
             .post("/users/user", saveUser)
             .then(() => {
-              alert("account create successfull");
+              alert("account create successfull!");
               navigate("/login");
             })
             .catch((error) => {
