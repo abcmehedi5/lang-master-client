@@ -18,7 +18,7 @@ import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
-import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
+
 
 const router = createBrowserRouter([
   {
@@ -48,7 +48,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blogs></Blogs>,
+        element: (
+          <PrivateRoute>
+            <Blogs></Blogs>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
       },
       {
         path: "/singleBlogCard/:id",
@@ -60,7 +68,11 @@ const router = createBrowserRouter([
   // user dashboard
   {
     path: "user-dashboard",
-    element: <LearningLayout></LearningLayout>,
+    element: (
+      <PrivateRoute>
+        <LearningLayout></LearningLayout>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "learning",
@@ -115,6 +127,14 @@ const router = createBrowserRouter([
       {
         path: "add-quize",
         element: <AddQuizAdmin></AddQuizAdmin>,
+      },
+      {
+        path: "add-topics",
+        element: <AddTopics></AddTopics>,
+      },
+      {
+        path: "add-notification",
+        element: <AddNotification></AddNotification>,
       },
     ],
   },

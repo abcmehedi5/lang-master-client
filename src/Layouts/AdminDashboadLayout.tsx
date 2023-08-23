@@ -54,6 +54,24 @@ const AdminDashboadLayout = () => {
               Add Quiz
             </Link>
           </li>
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+            <Link
+              to="/admin-dashboard/add-topics"
+              className="flex gap-2 items-center"
+            >
+              <MdQuiz style={{ fontSize: "30px" }} />
+              Add Topics
+            </Link>
+          </li>
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+            <Link
+              to="/admin-dashboard/add-notification"
+              className="flex gap-2 items-center"
+            >
+              <MdQuiz style={{ fontSize: "30px" }} />
+              Add Notification
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

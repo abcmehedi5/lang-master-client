@@ -7,14 +7,12 @@ import lessonAnimation from "../../../assets/lessonAnimation.json";
 
 const LearnLesson = () => {
   const { id } = useParams<{ id: string }>();
+  console.log("learn lession", id);
   const [activeLesson, setActiveLesson] = useState<string | null>(null);
-  const { allLearnData, loading } = useLearnData();
+  const [allLearnData] = useLearnData();
 
   // finding data by unit number
-  const selectedLesson = allLearnData.find((item) => item._id === id);
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  const selectedLesson = allLearnData.find((item: any) => item._id == id);
   if (!selectedLesson) {
     return <p>Unit not found.</p>;
   }
@@ -61,7 +59,7 @@ const LearnLesson = () => {
                 {activeLesson === lesson.lessonNumber && (
                   <Link
                     to={`/learning/${id}/lesson/${lesson.lessonNumber}`}
-                    className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-4 px-6 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white rounded-lg shadow-md ${
+                    className={`absolute top-full left-1/2 w-full transform -translate-x-1/2 mt-4 px-6 py-3 bg-gradient-to-r from-teal-400 to-green-500 text-white rounded-lg shadow-md ${
                       activeLesson === lesson.lessonNumber
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-90"
