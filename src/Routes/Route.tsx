@@ -20,6 +20,7 @@ import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
+import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 
 const router = createBrowserRouter([
   {
@@ -84,7 +85,12 @@ const router = createBrowserRouter([
       },
       {
         path: "quiz",
+        element: <QuizLevel></QuizLevel>,
+      },
+      {
+        path: "mainquiz/:id",
         element: <Quizzes></Quizzes>,
+        loader: ({params})=> fetch(`../../../public/quizzess.json/${params.id}`)
       },
       {
         path: "grammar",

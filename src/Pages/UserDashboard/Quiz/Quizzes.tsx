@@ -1,152 +1,140 @@
 import React, { useState } from "react";
 import Quiz from "./Quiz";
-import quizWaveImg from "./../../../assets/quizwave.svg";
+import useQuize from "../../../hooks/useQuize/useQuize";
+import { useParams } from "react-router-dom";
 
-interface QuizDataItem {
-  question: string;
-  options: string[];
-  correctAnswer: string;
+interface QuizData {
+  _id: string;
+  questionData: {
+    question: string;
+    options: string[];
+    correctAnswer: string;
+  }[];
 }
 
 const Quizzes: React.FC = () => {
-  const quizData: QuizDataItem[] = [
-    {
-      question: "Question 1: Which city serves as the capital of France?",
-      options: ["Paris", "London", "Berlin", "Madrid"],
-      correctAnswer: "Paris",
-    },
-    {
-      question: 'Question 2: Which planet is known as the "Red Planet"?',
-      options: ["Mars", "Venus", "Jupiter", "Saturn"],
-      correctAnswer: "Mars",
-    },
-    {
-      question: "Question 3: What's the largest mammal in the oceans?",
-      options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
-      correctAnswer: "Blue Whale",
-    },
-    {
-      question:
-        "Question 4: Which scientist developed the theory of relativity?",
-      options: [
-        "Isaac Newton",
-        "Albert Einstein",
-        "Galileo Galilei",
-        "Niels Bohr",
-      ],
-      correctAnswer: "Albert Einstein",
-    },
-    {
-      question:
-        "Question 5: Which gas do plants primarily use for photosynthesis?",
-      options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
-      correctAnswer: "Carbon Dioxide",
-    },
-    {
-      question:
-        "Question 6: What famous painting is known for its mysterious smile?",
-      options: [
-        "Starry Night",
-        "The Persistence of Memory",
-        "The Scream",
-        "Mona Lisa",
-      ],
-      correctAnswer: "Mona Lisa",
-    },
-  ];
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showResult, setShowResult] = useState(false);
 
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
-  const [score, setScore] = useState<number>(0);
-  const [quizFinished, setQuizFinished] = useState<boolean>(false);
+  const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
 
-  const handleAnswerClick = (answerIndex: number) => {
-    if (quizFinished) {
-      return; // Prevent scoring after the quiz is finished
+  const { id } = useParams<{ id: string }>();
+  console.log(id);
+
+  const { allQuizeData } = useQuize();
+  console.log(allQuizeData);
+
+  const quizData = allQuizeData.filter(
+    (quizdataa: QuizData) => quizdataa._id == id
+  )[0]?.questionData;
+
+  console.log("quizData", quizData);
+
+  if (!quizData || quizData.length == 0) {
+    return <div>No quiz data available.</div>;
+  }
+
+  const handleAnswerClick = (selectedAnswer: string) => {
+    if (selectedAnswer == quizData[currentQuestion].correctAnswer) {
+      setScore(score + 1);
     }
 
-    const selectedAnswer = quizData[currentQuestionIndex].options[answerIndex];
-    if (selectedAnswer === quizData[currentQuestionIndex].correctAnswer) {
-      setScore(score + 10);
-    }
-
-    const nextQuestion = currentQuestionIndex + 1;
-    if (nextQuestion < quizData.length) {
-      setCurrentQuestionIndex(nextQuestion);
+    if (currentQuestion + 1 < quizData?.length) {
+      setCurrentQuestion(currentQuestion + 1);
     } else {
-      setQuizFinished(true);
+      setShowResult(true);
     }
   };
 
-  const scorePercentage = (score / (quizData.length * 10)) * 100;
-  const isLastQuestion = currentQuestionIndex === quizData.length - 1;
+  const restartQuiz = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+  };
+
+  const totalQuestions = quizData?.length;
+  const scorePercentage = (score / totalQuestions) * 100;
+
+  let comment = "";
+  let commentClass = "";
+
+  if (scorePercentage < 40) {
+    comment = "Not Good Enough , Keep practicing!";
+    commentClass = "text-red-500";
+  } else if (scorePercentage >= 40 && scorePercentage <= 60) {
+    comment = "Good, keep practicing!";
+    commentClass = "text-yellow-500";
+  } else {
+    comment = "Great performance!";
+    commentClass = "text-green-500";
+  }
 
   return (
     <div
-      className="md:w-9/12 mx-auto my-20 py-36 px-4 md:px-24 shadow-2xl md:flex flex-col justify-center rounded-lg"
+      className="bg-[#a2dce5] rounded-lg md:w-9/12 mx-auto my-20 text-center"
       style={{
-        backgroundImage: `url(${quizWaveImg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        boxShadow:
+          "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
       }}
     >
       <div>
-        <h3 className="text-3xl font-bold text-center mb-10 text-gray-100">
-          {quizData[currentQuestionIndex].question}
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {quizData[currentQuestionIndex].options.map((option, index) => (
+        {showResult ? (
+          <div className="px-4 py-10">
+            <h3 className="text-3xl font-bold mb-4">Quiz Finished!</h3>
+            <p style={{"boxShadow": "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"}} 
+            className="text-2xl px-6 py-4 capitalize font-semibold mb-5 w-1/2 mx-auto text-white border-none cursor-pointer bg-[#088395] rounded-md">
+              Your score: {scorePercentage.toFixed(2)}%
+            </p>
+            <p className={`my-5 ${commentClass} text-2xl`}>{comment}</p>
+            <div className="flex justify-center gap-3">
+              <div>
+                <button
+                  className="btn"
+                  onClick={() => setShowCorrectAnswers(!showCorrectAnswers)}
+                >
+                  See Correct Answers
+                </button>
+                {showCorrectAnswers && (
+                  <div className="mt-5 text-left">
+                    <h3 className="text-xl font-semibold mb-2">
+                      Correct Answers:
+                    </h3>
+                    {quizData.map((question, index) => (
+                      <div key={index}>
+                        <p>
+                          {index + 1}. {question?.question}
+                        </p>
+                        <p className="mb-2">ans: {question?.correctAnswer}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <button className="btn" onClick={restartQuiz} >
+                Restart Quiz
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div>
+            {/* <h1 className="text-3xl font-semibold mb-3">Quizze</h1> */}
             <Quiz
-              key={index}
-              option={option}
-              index={index}
-              handleAnswerClick={handleAnswerClick}
-              // disabled={quizFinished}
+              question={quizData[currentQuestion].question}
+              options={quizData[currentQuestion].options}
+              onAnswerClick={handleAnswerClick}
             />
-          ))}
+          </div>
+        )}
+        <div className="text-center my-7 text-xl font-semibold">
+          {showResult ? (
+            ""
+          ) : (
+            <div className="text-white pb-14">
+              Your Score: {scorePercentage.toFixed(2)}%
+            </div>
+          )}
         </div>
-      </div>
-
-      <div className="flex justify-center gap-4 mt-12">
-        <button
-          className="w-40 bg-purple-500 text-white py-2 rounded text-xl font-semibold"
-          onClick={() =>
-            setCurrentQuestionIndex(Math.max(currentQuestionIndex - 1, 0))
-          }
-          disabled={currentQuestionIndex === 0 || quizFinished}
-        >
-          Previous
-        </button>
-        {isLastQuestion ? (
-          <div className="w-40 text-white my-4 text-xl font-semibold">
-            Finished
-          </div>
-        ) : (
-          <button
-            className="w-40 bg-blue-500 text-white py-2 px-4 rounded text-xl font-semibold"
-            onClick={() =>
-              setCurrentQuestionIndex(
-                Math.min(currentQuestionIndex + 1, quizData.length - 1)
-              )
-            }
-            disabled={quizFinished}
-          >
-            Next
-          </button>
-        )}
-      </div>
-
-      <div className="text-center mt-8 text-xl font-semibold">
-        {quizFinished ? (
-          <div className="text-white">
-            Your Score: {scorePercentage.toFixed(2)}%
-            <br />
-            Total Score: {score} out of {quizData.length * 10}
-          </div>
-        ) : (
-          <div className="text-white">
-            Your Score: {scorePercentage.toFixed(2)}%
-          </div>
-        )}
       </div>
     </div>
   );
