@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet-async";
 const AddTopics: React.FC = () => {
     const [lession, setLession] = useState<string>("");
     const [point, setPoint] = useState<string>(""); 
-    const [percent, setPercent] = useState<string>("");
     const [question, setQuestion] = useState<string>("");
     const [options, setOptions] = useState<string[]>(["", "", "", ""]);
     const [correctAnswer, setCorrectAnswer] = useState<string>("");
@@ -14,7 +13,6 @@ const AddTopics: React.FC = () => {
     const quize = {
       lession: lession,
       point: point,
-      percent: percent,
       question: question,
       options: options,
       correctAnswer: correctAnswer,
