@@ -90,7 +90,7 @@ const router = createBrowserRouter([
       {
         path: "mainquiz/:id",
         element: <Quizzes></Quizzes>,
-        loader: ({params})=> fetch(`../../../public/quizzess.json/${params.id}`)
+        loader: ({params})=> fetch(`../../../public/quizzess.jsonp/${params.id}`)
       },
       {
         path: "grammar",

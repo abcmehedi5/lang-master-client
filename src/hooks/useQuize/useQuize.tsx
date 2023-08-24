@@ -1,7 +1,7 @@
 // import { useQuery } from "@tanstack/react-query";
-// // import useAxiosSecure from "../useAxiosSecure";
+// import useAxiosSecure from "../useAxiosSecure";
 // const useQuize = () => {
-// //   const [axiosSecure] = useAxiosSecure();
+//   const [axiosSecure] = useAxiosSecure();
 //   const {
 //     data: allQuizeData = [],
 //     refetch,
@@ -9,16 +9,16 @@
 //   } = useQuery({
 //     queryKey: ["allQuizeData"],
 //     queryFn: async () => {
-//       const res = fetch('/public/quizzess.json');
-//     //   const res = await axiosSecure.get("/learning-questions/questions");
+//       const res = await axiosSecure.get("/quizzess");
 //       return res.data;
 //     },
 //   });
 
-//   return [allQuizeData, refetch, isLoading];
+//   return {allQuizeData, refetch, isLoading};
 // };
 
 // export default useQuize;
+
 
 
 import { useQuery } from "@tanstack/react-query";
