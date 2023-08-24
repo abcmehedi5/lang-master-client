@@ -28,13 +28,12 @@ const Footer = () => {
           <a>
             <FaLinkedinIn className="text-4xl rounded-full p-2 text-white bg-[#0375b3]" />
           </a>
-          <a>         
-        
+          <a>
             <AiFillYoutube className="text-4xl rounded-full p-2 text-white bg-[#f90304]" />
           </a>
         </div>
       </div>
-      <hr className="border-t-2 border-[#05bfdb]"/>
+      <hr className="border-t-2 border-[#05bfdb]" />
       <div className="footer justify-between  p-10 bg-[#0b4e69] text-white">
         <div>
           <span className="footer-title">Services</span>
@@ -47,7 +46,7 @@ const Footer = () => {
           <span className="footer-title">Company</span>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
+          <a className="link link-hover">Feedback</a>
           <a className="link link-hover">Press kit</a>
         </div>
         <div>
@@ -60,7 +59,9 @@ const Footer = () => {
           <span className="footer-title">Newsletter</span>
           <div className="form-control w-80">
             <label className="label">
-              <span className="label-text text-white">Enter your email address</span>
+              <span className="label-text text-white">
+                Enter your email address
+              </span>
             </label>
             <div className="relative">
               <input
@@ -75,7 +76,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <hr className="border-t-2 border-[#05bfdb]"/>
+      <hr className="border-t-2 border-[#05bfdb]" />
       <div className="flex items-center justify-between bg-[#0b4e69] py-4 px-8 text-white">
         <div className="flex">
           <p>copyrite &copy;2021</p>

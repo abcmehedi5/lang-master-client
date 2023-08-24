@@ -22,6 +22,7 @@ import Faq from "../Pages/Faq/Faq";
 import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
+import Review from "../Pages/Review/Review";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/faq",
-        element: <Faq/>,
+        element: <Faq></Faq>,
+      },
+      {
+        path: "/feedback",
+        element: <Review></Review>,
       },
       {
         path: "/singleBlogCard/:id",
@@ -134,11 +139,11 @@ const router = createBrowserRouter([
       },
       {
         path: "add-topics",
-        element: <AddTopics/>
+        element: <AddTopics />,
       },
       {
         path: "add-notification",
-        element: <AddNotification/>
+        element: <AddNotification />,
       },
     ],
   },
