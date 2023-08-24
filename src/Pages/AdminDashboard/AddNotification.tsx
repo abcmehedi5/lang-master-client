@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 const AddNotification: React.FC = () => {
   const [time, setTime] = useState<string>("");
   const [position, setPosition] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -11,6 +12,7 @@ const AddNotification: React.FC = () => {
     const quize = {
         time: time,
         position: position,
+        message: message,
       };
       // Log form input values to console
       console.log(quize);
@@ -38,13 +40,25 @@ const AddNotification: React.FC = () => {
           <div>
             <label className="block text-sm font-medium">Notification Time:</label>
             <input
-              type="text"
+              type="date"
               value={time}
               onChange={(e) => setTime(e.target.value)}
               className="w-full border rounded-md p-2 mt-2 input input-bordered"
               placeholder="Time?"
               required
             />
+          </div>
+          <div>
+            <label className="block text-sm font-medium" htmlFor="message">Description:</label>
+
+            <textarea
+              className="w-full rounded-lg border border-gray-300 p-3 mt-2 text-sm"
+              placeholder="Your Description"
+              rows={8}
+              id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
           </div>
           <button
             type="submit"

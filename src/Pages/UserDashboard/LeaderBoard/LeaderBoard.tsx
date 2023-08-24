@@ -1,21 +1,28 @@
 import { Helmet } from "react-helmet-async";
+import { BiCrown } from "react-icons/bi";
 
 const LeaderBoard = () => {
   const usersPoint = [
     {
-      username: "user1",
+      username: "Mahin Khan",
       useremail: "user1@example.com",
       userimg: "https://i.ibb.co/WVmdSf0/download-2.jpg",
       points: 150,
     },
     {
-      username: "user2",
+      username: "Mehedi hasan",
       useremail: "user2@example.com",
       userimg: "https://i.ibb.co/cxP39Bj/download-1.jpg",
       points: 200,
     },
     {
-      username: "user3",
+      username: "Arjuman Jhimi",
+      useremail: "user3@example.com",
+      userimg: "https://i.ibb.co/v1bY63z/download.jpg",
+      points: 75,
+    },
+    {
+      username: "Arjuman Jhimii",
       useremail: "user3@example.com",
       userimg: "https://i.ibb.co/v1bY63z/download.jpg",
       points: 75,
@@ -35,25 +42,30 @@ const LeaderBoard = () => {
               প্রতিযোগিতায় অংশ নিতে হলে আপনাকে আরও 7টি লেসন শেষ করতে হবে
             </p>
           </div>
-          <div className="">
+          <hr className="my-5 border" />
+          <div>
             {usersPoint
               .sort((a, b) => b.points - a.points)
               .map((userPoint, index) => (
                 <div
                   key={index}
-                  className="grid text-center grid-cols-2 w-full mb-4 bg-[#088395] py-2 px-5 items-center text-white"
+                  className={`grid grid-cols-2 text-center w-full mb-4 py-2 px-5 items-center text-lg`}
                 >
-                  {/* <p>{index + 1}</p> */}
                   <div>
-                    <p className="flex items-center space-x-3">
-                      <p>{index + 1}</p>
-                      <span
-                        style={{
-                          height: "40px",
-                          width: "1px",
-                          backgroundColor: "#e9f8fa",
-                        }}
-                      ></span>
+                    <p className="flex items-center space-x-5 font-semibold text-2xl">
+                      {index < 3 ? (
+                        // Use icons for the top three positions
+                        index === 0 ? (
+                          <BiCrown />
+                        ) : index === 1 ? (
+                          <BiCrown />
+                        ) : (
+                          <BiCrown />
+                        )
+                      ) : (
+                        // Display the index number for the rest
+                        <p className="pl-[9px]">{index + 1}</p>
+                      )}
                       <p className="avatar">
                         <div className="border rounded-lg w-12 h-12">
                           <img
@@ -64,14 +76,17 @@ const LeaderBoard = () => {
                         </div>
                       </p>
                       <div>
-                        <div className="font-bold">{userPoint?.username}</div>
+                        <p className="font-semibold px-3 text-xl">
+                          {userPoint?.username}
+                        </p>
                       </div>
                     </p>
                   </div>
-                  {/* <p>
-                  {userPoint?.useremail}
-                </p> */}
-                  <p>{userPoint?.points}</p>
+                  <div className="flex-grow flex justify-end">
+                    <p className="text-[#757575] left-div">
+                      {userPoint?.points} Points
+                    </p>
+                  </div>
                 </div>
               ))}
           </div>

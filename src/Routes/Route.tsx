@@ -18,9 +18,10 @@ import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
 import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
+import Faq from "../Pages/Faq/Faq";
+import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
-import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,20 @@ const router = createBrowserRouter([
             <Blogs></Blogs>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
+      },
+      {
+        path: "/feedback",
+        element: <Review></Review>,
+      },
+      {
+        path: "/singleBlogCard/:id",
+        element: <SingleBlogCard />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/blogs/blog/${params.id}`),
       },
     ],
   },
@@ -128,11 +143,11 @@ const router = createBrowserRouter([
       },
       {
         path: "add-topics",
-        element: <AddTopics></AddTopics>,
+        element: <AddTopics />,
       },
       {
         path: "add-notification",
-        element: <AddNotification></AddNotification>,
+        element: <AddNotification />,
       },
     ],
   },

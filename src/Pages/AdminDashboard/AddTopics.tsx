@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet-async";
 const AddTopics: React.FC = () => {
     const [lession, setLession] = useState<string>("");
     const [point, setPoint] = useState<string>(""); 
-    const [percent, setPercent] = useState<string>("");
     const [question, setQuestion] = useState<string>("");
     const [options, setOptions] = useState<string[]>(["", "", "", ""]);
     const [correctAnswer, setCorrectAnswer] = useState<string>("");
@@ -14,7 +13,6 @@ const AddTopics: React.FC = () => {
     const quize = {
       lession: lession,
       point: point,
-      percent: percent,
       question: question,
       options: options,
       correctAnswer: correctAnswer,
@@ -69,19 +67,7 @@ const AddTopics: React.FC = () => {
             />
           </div>
           </div>
-          <div className="w-full md:w-1/2">
-              <label className="block text-sm font-medium mb-2">
-                আপনার কাজের অগ্রগতি কতটুকু?
-              </label>
-              <input
-                className="appearance-none block w-full border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                type="text"
-                value={percent}
-                onChange={(e) => setPercent(e.target.value)}
-                placeholder="আপনার কাজের অগ্রগতি কত পার্সেন্ট?"
-                required
-              /> 
-            </div>
+
             <div>
             <label className="block text-sm font-medium">আপনার কুইজের প্রশ্নটি লিখুনঃ</label>
             <input
