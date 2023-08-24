@@ -92,7 +92,7 @@ const Quizzes: React.FC = () => {
               >
                 Your score: {scorePercentage.toFixed(2)}%
               </p>
-              <p className={`my-5 ${commentClass} text-2xl`}>{comment}</p>
+              <p className={`my-5 ${commentClass} text-3xl font-semibold`}>{comment}</p>
               <div className="flex justify-center gap-3">
                 <div>
                   <button
