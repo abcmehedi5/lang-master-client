@@ -1,0 +1,185 @@
+[
+  {
+    "_id": 86967581,
+    "Level": "easy",
+    "questionData": [
+      {
+        "question": "Question 1: Which city serves as the capital of France?",
+        "options": ["Paris", "London", "Berlin", "Madrid"],
+        "correctAnswer": "Paris"
+      },
+      {
+        "question": "Question 2: Which planet is known as the Red Planet?",
+        "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+        "correctAnswer": "Mars"
+      },
+      {
+        "question": "Question 3: What's the largest mammal in the oceans?",
+        "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+        "correctAnswer": "Blue Whale"
+      },
+      {
+        "question": "Question 4: Which scientist developed the theory of relativity?",
+        "options": [
+          "Isaac Newton",
+          "Albert Einstein",
+          "Galileo Galilei",
+          "Niels Bohr"
+        ],
+        "correctAnswer": "Albert Einstein"
+      },
+      {
+        "question": "Question 5: Which gas do plants primarily use for photosynthesis?",
+        "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "correctAnswer": "Carbon Dioxide"
+      },
+      {
+        "question": "Question 6: What famous painting is known for its mysterious smile?",
+        "options": [
+          "Starry Night",
+          "The Persistence of Memory",
+          "The Scream",
+          "Mona Lisa"
+        ],
+        "correctAnswer": "Mona Lisa"
+      },
+      {
+        "question": "Question 7: Which scientist developed the theory of relativity?",
+        "options": [
+          "Isaac Newton",
+          "Albert Einstein",
+          "Galileo Galilei",
+          "Niels Bohr"
+        ],
+        "correctAnswer": "Albert Einstein"
+      },
+      {
+        "question": "Question 8: Which city serves as the capital of France?",
+        "options": ["Paris", "London", "Berlin", "Madrid"],
+        "correctAnswer": "Paris"
+      }
+    ]
+  },
+  {
+    "_id": 2895475645,
+    "Level": "normal",
+    "questionData": [
+      {
+        "question": "Question 1: Which city serves as the capital of France?",
+        "options": ["Paris", "London", "Berlin", "Madrid"],
+        "correctAnswer": "Paris"
+      },
+      {
+        "question": "Question 2: Which planet is known as the Red Planet?",
+        "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+        "correctAnswer": "Mars"
+      },
+      {
+        "question": "Question 3: What's the largest mammal in the oceans?",
+        "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+        "correctAnswer": "Blue Whale"
+      },
+      {
+        "question": "Question 4: Which scientist developed the theory of relativity?",
+        "options": [
+          "Isaac Newton",
+          "Albert Einstein",
+          "Galileo Galilei",
+          "Niels Bohr"
+        ],
+        "correctAnswer": "Albert Einstein"
+      },
+      {
+        "question": "Question 5: Which gas do plants primarily use for photosynthesis?",
+        "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "correctAnswer": "Carbon Dioxide"
+      },
+      {
+        "question": "Question 6: What famous painting is known for its mysterious smile?",
+        "options": [
+          "Starry Night",
+          "The Persistence of Memory",
+          "The Scream",
+          "Mona Lisa"
+        ],
+        "correctAnswer": "Mona Lisa"
+      },
+      {
+        "question": "Question 7: Which scientist developed the theory of relativity?",
+        "options": [
+          "Isaac Newton",
+          "Albert Einstein",
+          "Galileo Galilei",
+          "Niels Bohr"
+        ],
+        "correctAnswer": "Albert Einstein"
+      },
+      {
+        "question": "Question 8: Which city serves as the capital of France?",
+        "options": ["Paris", "London", "Berlin", "Madrid"],
+        "correctAnswer": "Paris"
+      }
+    ]
+  },
+  {
+    "_id": 356876896,
+    "Level": "hard",
+    "questionData": [
+      {
+        "question": "Question 1: Which city serves as the capital of France?",
+        "options": ["Paris", "London", "Berlin", "Madrid"],
+        "correctAnswer": "Paris"
+      },
+      {
+        "question": "Question 2: Which planet is known as the Red Planet?",
+        "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+        "correctAnswer": "Mars"
+      },
+      {
+        "question": "Question 3: What's the largest mammal in the oceans?",
+        "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+        "correctAnswer": "Blue Whale"
+      },
+      {
+        "question": "Question 4: Which scientist developed the theory of relativity?",
+        "options": [
+          "Isaac Newton",
+          "Albert Einstein",
+          "Galileo Galilei",
+          "Niels Bohr"
+        ],
+        "correctAnswer": "Albert Einstein"
+      },
+      {
+        "question": "Question 5: Which gas do plants primarily use for photosynthesis?",
+        "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "correctAnswer": "Carbon Dioxide"
+      },
+      {
+        "question": "Question 6: What famous painting is known for its mysterious smile?",
+        "options": [
+          "Starry Night",
+          "The Persistence of Memory",
+          "The Scream",
+          "Mona Lisa"
+        ],
+        "correctAnswer": "Mona Lisa"
+      },
+      {
+        "question": "Question 7: Which scientist developed the theory of relativity?",
+        "options": [
+          "Isaac Newton",
+          "Albert Einstein",
+          "Galileo Galilei",
+          "Niels Bohr"
+        ],
+        "correctAnswer": "Albert Einstein"
+      },
+      {
+        "question": "Question 8: Which city serves as the capital of France?",
+        "options": ["Paris", "London", "Berlin", "Madrid"],
+        "correctAnswer": "Paris"
+      }
+    ]
+  }
+]
