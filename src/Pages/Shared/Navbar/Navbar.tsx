@@ -9,7 +9,6 @@ import Notification from "../../Home/notification/Notification";
 const Navbar: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { user, logOut }: any = useContext(AuthContext);
-  console.log(user);
 
   const handleLogout = () => {
     logOut()
@@ -75,9 +74,7 @@ const Navbar: React.FC = () => {
 
   // -------- navbar end--------
   const ResponsiveIconsSection = () => (
-    <div className="flex">
-     {/* message icon */}
-    </div>
+    <div className="flex">{/* message icon */}</div>
   );
 
   // ----------- get started button --------
