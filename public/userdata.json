@@ -1,0 +1,63 @@
+[
+    {
+      "_id": "1",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "join_date": "2022-06-10",
+      "total_quiz": 12,
+      "quiz_score": 950,
+      "average_score": 79.17,
+      "leaderboard_position": 2,
+      "role": "player",
+      "image": "https://example.com/images/alice.jpg"
+    },
+    {
+      "_id": "2",
+      "name": "Bob Smith",
+      "email": "bob@example.com",
+      "join_date": "2021-03-28",
+      "total_quiz": 7,
+      "quiz_score": 600,
+      "average_score": 85.71,
+      "leaderboard_position": 4,
+      "role": "player",
+      "image": "https://example.com/images/bob.jpg"
+    },
+    {
+      "_id": "3",
+      "name": "Eve Brown",
+      "email": "eve@example.com",
+      "join_date": "2023-01-02",
+      "total_quiz": 5,
+      "quiz_score": 400,
+      "average_score": 80,
+      "leaderboard_position": 7,
+      "role": "player",
+      "image": "https://example.com/images/eve.jpg"
+    },
+    {
+      "_id": "4",
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "join_date": "2020-05-10",
+      "total_quiz": 15,
+      "quiz_score": 1200,
+      "average_score": 80,
+      "leaderboard_position": 5,
+      "role": "admin",
+      "image": "https://example.com/images/admin.jpg"
+    },
+    {
+      "_id": "5",
+      "name": "Grace Wilson",
+      "email": "grace@example.com",
+      "join_date": "2023-02-18",
+      "total_quiz": 9,
+      "quiz_score": 800,
+      "average_score": 88.89,
+      "leaderboard_position": 1,
+      "role": "player",
+      "image": "https://example.com/images/grace.jpg"
+    }
+  ]
+  
