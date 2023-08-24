@@ -22,6 +22,8 @@ import Faq from "../Pages/Faq/Faq";
 import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
+import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
+import Review from "../Pages/Review/Review";
 
 const router = createBrowserRouter([
   {
@@ -105,7 +107,8 @@ const router = createBrowserRouter([
       {
         path: "mainquiz/:id",
         element: <Quizzes></Quizzes>,
-        loader: ({params})=> fetch(`../../../public/quizzess.jsonp/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`../../../public/quizzess.jsonp/${params.id}`),
       },
       {
         path: "grammar",
