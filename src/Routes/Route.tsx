@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/faq",
-        element: <Faq></Faq>,
+        element: <Faq/>,
       },
       {
         path: "/singleBlogCard/:id",
@@ -134,11 +134,11 @@ const router = createBrowserRouter([
       },
       {
         path: "add-topics",
-        element: <AddTopics></AddTopics>,
+        element: <AddTopics/>
       },
       {
         path: "add-notification",
-        element: <AddNotification></AddNotification>,
+        element: <AddNotification/>
       },
     ],
   },
