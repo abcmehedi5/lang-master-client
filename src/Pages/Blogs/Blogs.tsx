@@ -17,12 +17,10 @@ const Blogs = () => {
   const design = blog.filter(
     (item: { category: string }) => item.category === "design"
   );
-  
 
   return (
     <>
-
-      <div className="flex lg:flex-row gap-4 container px-4 my-6">
+      <div className="md:flex lg:flex-row gap-4 container px-4 my-6">
         <div className="basis-1/6">
           <BlogLeftSidebar items={healthcare} />
           <BlogLeftSidebar items={design} />
