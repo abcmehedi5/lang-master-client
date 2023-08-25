@@ -1,10 +1,19 @@
 import wave from "../../../../public/wave5.svg";
 import { BsInstagram, BsTwitter } from "react-icons/bs";
-import { AiFillYoutube } from "react-icons/ai";
+import { AiFillYoutube, AiOutlineClose } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useState } from "react";
+import Review from "../../Review/Review";
 
 const Footer = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <footer>
       <img src={wave} alt="bg" />
@@ -46,7 +55,34 @@ const Footer = () => {
           <span className="footer-title">Company</span>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Feedback</a>
+          {/* Open the modal */}
+          <a className="link link-hover" onClick={openModal}>
+            Feedback
+          </a>
+
+          {/* The DaisyUI modal */}
+          <>
+            {isModalOpen && (
+              <div className="fixed inset-0 z-40 flex items-center justify-center">
+                <div className="modal modal-open">
+                  <div className="modal-box">
+                    <div className="modal-action flex justify-center">
+                      <button
+                        onClick={closeModal}
+                        className="w-12 h-12 bg-red-300 rounded-full flex justify-center items-center"
+                      >
+                        <AiOutlineClose className="text-xl" />
+                      </button>
+                    </div>
+                    <div className="modal-body p-6">
+                      <Review /> {/* Your Review component */}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
+
           <a className="link link-hover">Press kit</a>
         </div>
         <div>

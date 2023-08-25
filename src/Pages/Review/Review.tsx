@@ -40,7 +40,7 @@ const Review: React.FC = () => {
           },
         }
       );
-      if (res.data.modifiedCount > 0) {
+      if (res.data.insertedId || res.data.modifiedCount > 0) {
         Swal.fire({
           icon: "success",
           title: "Great...",
@@ -53,16 +53,18 @@ const Review: React.FC = () => {
   };
 
   return (
-    <div className="w-9/12 mx-auto">
-      <div className="bg-gray-100 py-8 mt-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold mb-4">Leave a Review</h2>
+    <div className="w-full mx-auto">
+      <div className="bg-[#376E84] py-8 px-4 md:px-8 rounded-lg">
+        <div className="mx-auto px-2 md:px-4">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-gray-200">
+            Leave a Review
+          </h2>
           <form onSubmit={handleReviewSubmit} className="mb-4">
             <div className="flex flex-col mb-4">
               <StarRatings
                 rating={rating}
-                starHoverColor="purple"
-                starRatedColor="purple"
+                starHoverColor="yellowGreen"
+                starRatedColor="yellowGreen"
                 changeRating={(newRating: number) => setRating(newRating)}
                 numberOfStars={5}
                 name="rating"
@@ -71,7 +73,7 @@ const Review: React.FC = () => {
                 name="reviewText"
                 value={reviewText}
                 onChange={(e) => setReviewText(e.target.value)}
-                className="border rounded-lg px-4 py-2 mt-4 max-w-2xl"
+                className="border rounded-lg px-4 py-2 mt-4 max-w-2xl text-black"
                 rows={4}
                 required
               />
