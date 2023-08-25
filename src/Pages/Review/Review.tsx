@@ -7,9 +7,6 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Review: React.FC = () => {
   const { user }: any = useContext(AuthContext);
-  if (user) {
-    console.log(user.displayName, user.photoURL);
-  }
   const [axiosSecure] = useAxiosSecure();
   const [reviewText, setReviewText] = useState<string>("");
   const [rating, setRating] = useState<number>(0);
@@ -20,49 +17,46 @@ const Review: React.FC = () => {
     event.preventDefault();
     const currentDate = moment();
     const reviewDate = currentDate.format("MMMM D, YYYY");
-    const name = user.displayName;
-    const image = user.photoURL;
+    const name = user?.displayName;
+    const email = user?.email;
+    const image = user?.photoURL;
     const reviewData = {
       name,
+      email,
       image,
-      passion: "bro coder",
+      passion: "Front End Coder",
       rating,
       reviewDate,
       reviewText,
     };
 
-    console.log(reviewData);
-
-    // try {
-    //   const res = await axiosSecure.post(
-    //     `${import.meta.env.VITE_API_LINK}/reviews`,
-    //     reviewData,
-    //     {
-    //       headers: {
-    //         "content-type": "application/json",
-    //       },
-    //     }
-    //   );
-    //   console.log(res.data);
-    //   if (res.data.insertedId) {
-    //     Swal.fire({
-    //       icon: "success",
-    //       title: "Great...",
-    //       text: "Thanks for your review! Your review has been submitted.",
-    //     });
-    //   }
-    // } catch (error) {
-    //   console.error("Error submitting review:", error);
-    // }
+    try {
+      const res = await axiosSecure.patch(
+        `/reviews/review/${user?.email}`,
+        reviewData,
+        {
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+          icon: "success",
+          title: "Great...",
+          text: "Thanks for your review! Your review has been submitted.",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting review:", error);
+    }
   };
 
   return (
     <div className="w-9/12 mx-auto">
       <div className="bg-gray-100 py-8 mt-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold mb-4">
-            Leave a Review About Your College
-          </h2>
+          <h2 className="text-3xl font-semibold mb-4">Leave a Review</h2>
           <form onSubmit={handleReviewSubmit} className="mb-4">
             <div className="flex flex-col mb-4">
               <StarRatings
