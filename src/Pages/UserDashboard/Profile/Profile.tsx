@@ -25,6 +25,7 @@ interface Profile {
 
 const Profile = () => {
   const [profiles, setProfiles] = useState<Profile[]>([]);
+console.log(profiles);
 
   useEffect(() => {
     fetch("http://localhost:5000/users/user")

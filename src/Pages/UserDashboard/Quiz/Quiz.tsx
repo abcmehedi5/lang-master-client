@@ -1,5 +1,3 @@
-import React from "react";
-
 interface QuestionProps {
   question: string;
   options: string[];
@@ -8,11 +6,7 @@ interface QuestionProps {
   onPreviousClick: () => void;
 }
 
-const Quiz: React.FC<QuestionProps> = ({
-  question,
-  options,
-  onAnswerClick,
-}) => {
+const Quiz = ({ question, options, onAnswerClick }: QuestionProps | any) => {
   return (
     <div>
       {/* <h2 className="text-2xl mb-3">{question}</h2> */}
@@ -21,7 +15,7 @@ const Quiz: React.FC<QuestionProps> = ({
       </h2>
 
       <div className="grid md:grid-cols-2 grid-cols-1 px-10 py-8 gap-6">
-        {options.map((option, index) => (
+        {options.map((option: string, index: number) => (
           <button
             style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
             className="bg-base-100 text-2xl px-1 py-4 capitalize font-semibold w-full  hover:text-white border-none cursor-pointer hover:bg-[#088395] rounded-md"

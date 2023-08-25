@@ -1,23 +1,23 @@
 import { useLoaderData } from "react-router-dom";
 
-interface Comment {
-  user: string;
-  text: string;
-  timestamp: string;
-}
+// interface Comment {
+//   user: string;
+//   text: string;
+//   timestamp: string;
+// }
 
-interface BlogData {
-  image: string;
-  name: string;
-  like: number;
-  description: string;
-  title: string;
-  category: string;
-  comment: Comment[];
-}
+// interface BlogData {
+//   image: string;
+//   name: string;
+//   like: number;
+//   description: string;
+//   title: string;
+//   category: string;
+//   comment: Comment[];
+// }
 
 const SingleBlogCard = () => {
-  const data: BlogData = useLoaderData();
+  const data:any = useLoaderData();
 
   return (
     <div className="card px-8 lg:w-2/3 mx-auto glass my-8 lg:my-12">
@@ -34,7 +34,7 @@ const SingleBlogCard = () => {
         {/* Check if comments exist and if it's an array before mapping */}
         <div className="text-lg">
           {Array.isArray(data.comment) &&
-            data.comment.map((singleComment, index) => (
+            data.comment.map((singleComment:any, index:number) => (
               <div key={index}>
                 <p className="indicator-item badge badge-primary">
                   User: {singleComment.user}

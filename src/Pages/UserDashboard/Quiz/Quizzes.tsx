@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Quiz from "./Quiz";
 import useQuize from "../../../hooks/useQuize/useQuize";
 import { useParams } from "react-router-dom";
@@ -12,7 +12,7 @@ interface QuizData {
   }[];
 }
 
-const Quizzes: React.FC = () => {
+const Quizzes = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -92,7 +92,9 @@ const Quizzes: React.FC = () => {
               >
                 Your score: {scorePercentage.toFixed(2)}%
               </p>
-              <p className={`my-5 ${commentClass} text-3xl font-semibold`}>{comment}</p>
+              <p className={`my-5 ${commentClass} text-3xl font-semibold`}>
+                {comment}
+              </p>
               <div className="flex justify-center gap-3">
                 <div>
                   <button
@@ -106,7 +108,7 @@ const Quizzes: React.FC = () => {
                       <h3 className="text-xl font-semibold mb-2">
                         Correct Answers:
                       </h3>
-                      {quizData.map((question, index) => (
+                      {quizData.map((question: any, index: number) => (
                         <div key={index}>
                           <p>
                             {index + 1}. {question?.question}

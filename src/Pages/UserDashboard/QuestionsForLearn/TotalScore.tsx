@@ -10,7 +10,6 @@ interface ResultItemType {
 
 const TotalScore: React.FC<ResultItemType> = ({
   totalScore,
-  onRestart,
   handleQuizCompleted,
 }) => {
   const numberFormatter = new Intl.NumberFormat("bn-BD");
