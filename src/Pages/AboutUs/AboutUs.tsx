@@ -2,7 +2,12 @@ import img1 from "../../assets/about-us-image/young-executive-with-black-briefca
 import img2 from "../../assets/about-us-image/proud-young-lady-sitting-table-holding-document-showing-her-strength-office 1 (1).png";
 import img3 from "../../assets/about-us-image/playing-fool-spacious-terrace 1.png";
 import img4 from "../../assets/about-us-image/multiracial-group-people-waiting-job-interview-grey-background 1 (1).png";
-import img5 from "../../assets/about-us-image/man.png";
+import akash from "../../assets/about-us-image/team/akash.jpg";
+import jhimi from "../../assets/about-us-image/team/jhimi.jpg";
+import mehedi from "../../assets/about-us-image/team/mehedi.jpg";
+import mostakim from "../../assets/about-us-image/team/mostakim.jpg";
+import nazmul from "../../assets/about-us-image/team/nazmul.jpg";
+import  arjuman from "../../assets/about-us-image/team/arjuman.jpg";
 const AboutUs = () => {
   return (
     <div className="container mx-auto mt-10">
@@ -120,21 +125,39 @@ const AboutUs = () => {
 
       {/* about us card section */}
       <div className="mt-16 grid md:grid-cols-3 grid-cols-1 gap-4 mx-3">
-        <div className="text-center shadow-2xl   bg-white-300 p-3 rounded-md">
-          <img className="rounded-full mx-auto w-[100px]" src={img5} alt="" />
+        <div className="text-center shadow-2xl bg-white-300 p-3 rounded-md">
+          <img className="rounded-full mx-auto w-[100px]" src={mehedi} alt="" />
           <h4 className="text-md font-bold mt-3">Md: Mehedi Hassan</h4>
           <p className="text-sm">Full stack web developer</p>
         </div>
         <div className="text-center shadow-2xl   bg-white-300 p-3 rounded-md">
-          <img className="rounded-full mx-auto  w-[100px]" src={img5} alt="" />
-          <h4 className="text-md font-bold mt-3">Md: Mehedi Hassan</h4>
+          <img className="rounded-full mx-auto  w-[100px]" src={nazmul} alt="" />
+          <h4 className="text-md font-bold mt-3">Md: Nazmul Hossain</h4>
           <p className="text-sm">Full stack web developer</p>
         </div>
 
         <div className="text-center shadow-2xl   bg-white-300 p-3 rounded-md">
-          <img className="rounded-full mx-auto w-[100px]" src={img5} alt="" />
-          <h4 className="text-md font-bold mt-3">Md: Mehedi Hassan</h4>
+          <img className="rounded-full mx-auto w-[100px]" src={jhimi} alt="" />
+          <h4 className="text-md font-bold mt-3">Ummay Khulsum Jhimi</h4>
           <p className="text-sm">Full stack web developer</p>
+        </div>
+
+        <div className="text-center shadow-2xl   bg-white-300 p-3 rounded-md">
+          <img className="rounded-full mx-auto w-[100px]" src={mostakim} alt="" />
+          <h4 className="text-md font-bold mt-3">Md. Mostakim Ahamed</h4>
+          <p className="text-sm">Full stack web developer</p>
+        </div>
+
+        <div className="text-center shadow-2xl   bg-white-300 p-3 rounded-md">
+          <img className="rounded-full mx-auto w-[100px]" src={akash} alt="" />
+          <h4 className="text-md font-bold mt-3">Akas Datta</h4>
+          <p className="text-sm">Full stack web developer</p>
+        </div>
+
+        <div className="text-center shadow-2xl  bg-white-300 p-3 rounded-md">
+          <img className="rounded-full mx-auto w-[100px]" src={arjuman} alt="" />
+          <h4 className="text-md font-bold mt-3">Most. Arjuman Jesmin</h4>
+          <p className="text-sm">MERN stack developer</p>
         </div>
       </div>
     </div>
