@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { BiComment, BiLike } from 'react-icons/bi';
+import { BiComment, BiLike} from 'react-icons/bi';
 import { PiShareFatThin } from 'react-icons/pi';
 import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import Comments from './Comments/Comments';
+
+
 
 interface BlogMainContainProps {
     items: {
@@ -29,10 +31,8 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
         const newLiked = [...liked];
 
         if (!liked[index]) {
-            // User is liking the item for the first time
             newLikes[index]++;
         } else {
-            // User is unliking the item
             newLikes[index]--;
         }
 
@@ -43,12 +43,6 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
         setLiked(newLiked);
     };
 
-
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data: unknown) => {
-        // Handle form submission here
-        console.log(data);
-    };
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function handleShareClick(_title: string): void {
@@ -72,7 +66,7 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
                                 </Link>
                             </div>
                         </div>
-                    </div>
+                 </div>
                     <div className="card-actions justify-between m-4 font-semibold">
                         {/* Like  */}
                         <button
@@ -95,14 +89,7 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
                         </button>
                     </div>
                     {showCommentInput && (
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <input
-                                {...register('comment')}
-                                placeholder="Add a comment"
-                                className="w-full bg-slate-100 outline-none border rounded-lg py-3"
-                            />
-                            <input type="submit" />
-                        </form>
+                        <Comments/>
                     )}
                     {sharedData && (
                         <div>
