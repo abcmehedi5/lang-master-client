@@ -5,8 +5,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FiLogIn } from "react-icons/fi";
 import Notification from "../../Home/notification/Notification";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar: React.FC = () => {
+  // check admin
+
+  const [isAdmin] = useAdmin();
+  console.log(isAdmin);
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { user, logOut }: any = useContext(AuthContext);
 
