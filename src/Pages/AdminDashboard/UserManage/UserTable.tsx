@@ -61,6 +61,8 @@ const UserTable = () => {
                 <th>Name</th>
                 <th>Email</th>
                 <th>role</th>
+                <th>Select</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -71,6 +73,14 @@ const UserTable = () => {
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.role}</td>
+                  <td>
+                    <select className="select select-bordered w-full max-w-xs">
+                    <option disabled selected>Make uer or admin?</option>
+                    <option>User</option>
+                    <option>Admin</option>
+                    </select>
+                  </td>
+                  <td><button className="btn btn-primary">Delete</button></td>
                 </tr>
               ))}
             </tbody>
