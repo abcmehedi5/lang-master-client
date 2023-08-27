@@ -23,8 +23,7 @@ import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
-import Review from "../Pages/Review/Review";
-import AdminRoute from "./AdminRoute";
+
 
 const router = createBrowserRouter([
   {
@@ -66,7 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/feedback",
-        element: <Review></Review>,
+        // element: <Review></Review>,
       },
       {
         path: "/singleBlogCard/:id",
