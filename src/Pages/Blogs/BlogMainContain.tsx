@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BiComment, BiLike} from 'react-icons/bi';
-import { PiShareFatThin } from 'react-icons/pi';
 import { Link } from 'react-router-dom';
 import Comments from './Comments/Comments';
+import Share from './Share/Share';
 
 
 
@@ -44,10 +44,7 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
     };
 
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function handleShareClick(_title: string): void {
-        throw new Error('Function not implemented.');
-    }
+   
 
     return (
         <>
@@ -84,8 +81,8 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
                         </button>
 
                         {/* Share */}
-                        <button onClick={() => handleShareClick(item.title)} className="flex items-center">
-                            <PiShareFatThin /> Share
+                        <button  className="flex items-center">
+                            <Share/> Share
                         </button>
                     </div>
                     {showCommentInput && (
