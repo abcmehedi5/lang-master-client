@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { BiComment, BiLike} from 'react-icons/bi';
+import { BiComment} from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import Comments from './Comments/Comments';
 import Share from './Share/Share';
+import Like from './Like/Like';
 
 
 
@@ -20,35 +21,11 @@ interface BlogMainContainProps {
 const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
     const [showCommentInput, setShowCommentInput] = useState(false);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [sharedData] = useState<string | null>(null);
-
-    // Track the likes and whether the user has liked each item
-    const [likes, setLikes] = useState<number[]>(items.map(() => 0));
-    const [liked, setLiked] = useState<boolean[]>(items.map(() => false));
-
-    const handleLikeClick = (index: number) => {
-        const newLikes = [...likes];
-        const newLiked = [...liked];
-
-        if (!liked[index]) {
-            newLikes[index]++;
-        } else {
-            newLikes[index]--;
-        }
-
-        // Toggle the liked state
-        newLiked[index] = !liked[index];
-
-        setLikes(newLikes);
-        setLiked(newLiked);
-    };
-
-
-   
+    const [sharedData] = useState<string | null>(null);   
 
     return (
         <>
-            {items.map((item, index) => (
+            {items.map((item) => (
                 <div key={item._id} className="p-4 rounded-lg border my-4">
                     <div className="card glass">
                         <figure>
@@ -66,12 +43,7 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
                  </div>
                     <div className="card-actions justify-between m-4 font-semibold">
                         {/* Like  */}
-                        <button
-                            onClick={() => handleLikeClick(index)}
-                            className={`flex items-center ${liked[index] ? 'text-yellow-600' : 'text-black'}`}
-                        >
-                            <BiLike /> Like ({likes[index]})
-                        </button>
+                        <Like/>
                         {/* Comment */}
                         <button
                             onClick={() => setShowCommentInput(!showCommentInput)}
@@ -82,7 +54,7 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
 
                         {/* Share */}
                         <button  className="flex items-center">
-                            <Share/> Share
+                            <Share/>Share
                         </button>
                     </div>
                     {showCommentInput && (
