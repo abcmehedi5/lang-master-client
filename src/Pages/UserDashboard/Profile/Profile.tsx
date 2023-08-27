@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdFindReplace, MdLocationPin } from "react-icons/md";
 import { TbBuildingEstate } from "react-icons/tb";
 import "./Profile.css";
 import { FaEdit, FaFacebook } from "react-icons/fa";
 import { BsPersonFillAdd } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 interface Profile {
   _id: string;
@@ -19,14 +20,15 @@ interface Profile {
   email: string;
   following: number;
   followers: number;
-  mobileNumber: number;
+  phoneNumber: number;
+  score: number;
+  role: string;
   state: string;
 }
 
 const Profile = () => {
   const [profiles, setProfiles] = useState<Profile[]>([]);
-console.log(profiles);
-
+  const { user } = useContext(AuthContext);
   useEffect(() => {
     fetch("http://localhost:5000/users/user")
       .then((res) => res.json())
@@ -34,37 +36,42 @@ console.log(profiles);
       .catch((error) => console.error(error));
   }, []);
 
-  const slicedProfiles = profiles.slice(0, 1);
+  const userProfile = profiles.filter(
+    (profile) => profile.email === user.email
+  );
+  console.log(userProfile);
+
   return (
     <div className="profile">
       <Helmet>
         <title> Profile | Lang Master </title>
       </Helmet>
-      {slicedProfiles.map((profile) => (
+      {userProfile.map((profile) => (
         <div
           key={profile._id}
           className="mx-auto md:max-w-none px-4 max-w-7xl sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20"
         >
           <section className="text-center">
-            <div className="p-4 bg-image text-white">
+            <div className="px-4 py-7 bg-image text-white">
               <div className="flex justify-between items-center">
-                <div className="grid grid-cols-1 md:grid-cols-2 items-center text-left">
-                  <div>
+                <div className="flex gap-10 items-center">
+                  <div className="indicator">
+                    <span className="indicator-item badge badge-success"></span>
                     <img
-                      className="object-cover rounded-full w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 md:ml-12"
-                      src={profile.image}
-                      alt=""
-                    ></img>
+                      className="place-items-center object-cover rounded-xl border-4 w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 md:ml-12"
+                      src={user?.photoURL}
+                      alt="profile picture"
+                    />
                   </div>
                   <div className="mt-2 md:mt-6 lg:mt-6">
-                    <p className="font-bold text-white font-pj text-md md:text-3xl lg:text-3xl mb-2">
-                      {profile.name}
+                    <p className="font-bold text-white text-md md:text-3xl lg:text-3xl mb-2">
+                      {user?.displayName}
                     </p>
                     <p className="mt-0.5 text-[11px] md:text-sm lg:text-sm font-pj text-white">
-                      {profile.passion}
+                      {profile?.passion}
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-                      <span className="mt-0.5 text-sm font-pj me-5 flex text-white">
+                      {/* <span className="mt-0.5 text-sm font-pj me-5 flex text-white">
                         <span className="my-1 me-1">
                           <TbBuildingEstate />
                         </span>
@@ -75,22 +82,22 @@ console.log(profiles);
                           <MdLocationPin />
                         </span>
                         {profile.location}
-                      </span>
+                      </span> */}
                     </div>
-                    <div className="flex text-center mt-2">
+                    {/* <div className="flex text-center mt-2">
                       <span className="font-pj me-5">
                         <span className="text-lg font-bold">
-                          {profile.followers}
+                        {profile?.role}
                         </span>
-                        <p className="text-sm">Followers</p>
+                        <p className="text-sm">Role</p>
                       </span>
                       <span className="font-pj">
                         <span className="text-lg font-bold">
-                          {profile.following}
+                        {profile?.score}
                         </span>
-                        <p className="text-sm">Followings</p>
+                        <p className="text-sm">Score</p>
                       </span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="mx-4">
@@ -107,7 +114,7 @@ console.log(profiles);
               <div
                 className="card mx-md-5 shadow-5-strong mx-4 md:mx-8 lg:mx-12 rounded-md"
                 style={{
-                  marginTop: "-100px",
+                  marginTop: "-150px",
                   background: "hsla(0, 0%, 100%, 0.8)",
                   backdropFilter: "blur(30px)",
                 }}
@@ -120,7 +127,7 @@ console.log(profiles);
 
                       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
                         {/* started card  */}
-                        <div className="card w-auto border border-gray-400 hover:border-blue-600 cursor-pointer bg-white my-6">
+                        <div className="card w-auto border border-gray-400 hover:border-blue-600 cursor-pointer bg-white my-3">
                           <div className="card-body">
                             <div className="grid grid-cols-2">
                               <div>
@@ -139,7 +146,9 @@ console.log(profiles);
                                 <h1 className="font-bold">Full Name:</h1>
                               </div>
                               <div>
-                                <h1>{profile.name}</h1>
+                                <h1 className="text-[#2196f7]">
+                                  {profile.name}
+                                </h1>
                               </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
@@ -147,7 +156,9 @@ console.log(profiles);
                                 <h1 className="font-bold">Mobile Number:</h1>
                               </div>
                               <div>
-                                <h1>{profile.mobileNumber}</h1>
+                                <h1 className="text-[#2196f7]">
+                                  {profile?.phoneNumber}
+                                </h1>
                               </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
@@ -155,16 +166,18 @@ console.log(profiles);
                                 <h1 className="font-bold">Email:</h1>
                               </div>
                               <div>
-                                <h1>{profile.email}</h1>
+                                <h1 className="text-[#2196f7]">
+                                  {profile?.email}
+                                </h1>
                               </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-                              <div>
+                              {/* <div>
                                 <h1 className="font-bold">Location:</h1>
                               </div>
                               <div>
                                 <h1>{profile.location}</h1>
-                              </div>
+                              </div> */}
                             </div>
                           </div>
                         </div>
@@ -173,35 +186,36 @@ console.log(profiles);
                           <h2 className="font-bold">Statistics</h2>
                           <ul className="mt-4 space-y-2">
                             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
+                              {/* -------- score --------- */}
                               <li>
                                 <a
                                   href="#"
                                   className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
                                 >
                                   <strong className="font-medium text-black">
-                                    0
+                                    {profile?.score}
                                   </strong>
-
                                   <p className="mt-1 text-xs font-medium text-black">
-                                    Day streak
+                                    Score
                                   </p>
                                 </a>
                               </li>
+                              {/* -------- role --------- */}
                               <li>
                                 <a
                                   href="#"
                                   className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
                                 >
                                   <strong className="font-medium text-black">
-                                    0
+                                    {profile?.role}
                                   </strong>
 
                                   <p className="mt-1 text-xs font-medium text-black">
-                                    Total xp
+                                    Role
                                   </p>
                                 </a>
                               </li>
-                              <li>
+                              {/* <li>
                                 <a
                                   href="#"
                                   className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
@@ -228,7 +242,7 @@ console.log(profiles);
                                     Top 3 finishes
                                   </p>
                                 </a>
-                              </li>
+                              </li> */}
                             </div>
                           </ul>
                         </article>
