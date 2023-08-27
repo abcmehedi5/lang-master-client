@@ -9,12 +9,12 @@ const useLeaderBoard = () => {
   } = useQuery({
     queryKey: ["allLeaderBoardData"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/leaderboard");
+      const res = await axiosSecure.get("/users/user");
       return res.data;
     },
   });
 
-  return [allLeaderBoardData, refetch, isLoading];
+  return {allLeaderBoardData, refetch, isLoading};
 };
 
 export default useLeaderBoard;

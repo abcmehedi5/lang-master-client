@@ -1,36 +1,21 @@
+import { FC } from "react";
 import { Helmet } from "react-helmet-async";
 import { BiCrown } from "react-icons/bi";
+import useLeaderBoard from "../../../hooks/useLeaderBoardData/useLeaderBoard";
 
-const LeaderBoard = () => {
-  const usersPoint = [
-    {
-      username: "Mahin Khan",
-      useremail: "user1@example.com",
-      userimg: "https://i.ibb.co/WVmdSf0/download-2.jpg",
-      points: 150,
-    },
-    {
-      username: "Mehedi hasan",
-      useremail: "user2@example.com",
-      userimg: "https://i.ibb.co/cxP39Bj/download-1.jpg",
-      points: 200,
-    },
-    {
-      username: "Arjuman Jhimi",
-      useremail: "user3@example.com",
-      userimg: "https://i.ibb.co/v1bY63z/download.jpg",
-      points: 75,
-    },
-    {
-      username: "Arjuman Jhimii",
-      useremail: "user3@example.com",
-      userimg: "https://i.ibb.co/v1bY63z/download.jpg",
-      points: 75,
-    },
-  ];
+interface UserPoint {
+  name: string;
+  useremail: string;
+  userimg: string;
+  score: number;
+}
+
+const LeaderBoard: FC = () => {
+  const { allLeaderBoardData: usersPoint } = useLeaderBoard();
+  console.log(usersPoint);
 
   return (
-    <div className="w-9/12 mx-auto">
+    <div className="md:w-9/12 mx-auto px-4 md:px-0">
       <Helmet>
         <title> Leader-board | Lang Master </title>
       </Helmet>
@@ -45,23 +30,23 @@ const LeaderBoard = () => {
           <hr className="my-5 border" />
           <div>
             {usersPoint
-              .sort((a, b) => b.points - a.points)
-              .map((userPoint, index) => (
+              .sort((a: UserPoint, b: UserPoint) => b.score - a.score)
+              .map((userPoint: UserPoint, index: number) => (
                 <div
                   key={index}
-                  className={`grid grid-cols-2 text-center w-full mb-4 py-2 px-5 items-center text-lg`}
+                  style={{
+                    boxShadow:
+                      "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
+                  }}
+                  className={`grid grid-cols-2 text-center w-full mb-5 py-2 px-5 items-center text-lg ${
+                    index < 3 ? "bg-[#eabb75]" : "bg-base-300"
+                  }`}
                 >
                   <div>
                     <p className="flex items-center space-x-5 font-semibold text-2xl">
                       {index < 3 ? (
                         // Use icons for the top three positions
-                        index === 0 ? (
-                          <BiCrown />
-                        ) : index === 1 ? (
-                          <BiCrown />
-                        ) : (
-                          <BiCrown />
-                        )
+                        <BiCrown />
                       ) : (
                         // Display the index number for the rest
                         <p className="pl-[9px]">{index + 1}</p>
@@ -77,21 +62,21 @@ const LeaderBoard = () => {
                       </p>
                       <div>
                         <p className="font-semibold px-3 text-xl">
-                          {userPoint?.username}
+                          {userPoint?.name}
                         </p>
                       </div>
                     </p>
                   </div>
                   <div className="flex-grow flex justify-end">
                     <p className="text-[#757575] left-div">
-                      {userPoint?.points} Points
+                      {userPoint?.score} Points
                     </p>
                   </div>
                 </div>
               ))}
           </div>
         </div>
-        <div className="md:w-[400px] w-full h-full mx-auto border-2 px-3 py-4 md:mr-10 rounded-lg">
+        {/* <div className="md:w-[400px] w-full h-full mx-auto border-2 px-3 py-4 md:mr-10 rounded-lg">
           <h5 className="text-gray-500 text-xl">লিডারবোর্ড কী?</h5>
           <p className="text-2xl">
             লেসন প্র্যাকটিস করুন। পয়েন্ট জিতুন। প্রতিযোগিতায় মেতে উঠুন।
@@ -100,7 +85,7 @@ const LeaderBoard = () => {
             লেসন প্র্যাকটিস করে পয়েন্ট জিতুন, এবং মেতে উঠুন সাপ্তাহিক
             লিডারবোর্ডের প্রতিযোগিতায়
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
