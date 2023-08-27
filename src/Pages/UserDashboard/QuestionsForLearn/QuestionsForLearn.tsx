@@ -27,7 +27,6 @@ const QuestionsForLearn = () => {
     lessonNumber: string;
   }>();
   const [allLearnData] = useLearnData();
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -37,6 +36,9 @@ const QuestionsForLearn = () => {
   const [clickedOptions, setClickedOptions] = useState<{
     [key: number]: number;
   }>({});
+
+  // show the last part compelte
+  // const [showUnitComplete, setShowUnitComplete] = useState(false);
 
   const [quizCompleted, setQuizCompleted] = useState(false);
 

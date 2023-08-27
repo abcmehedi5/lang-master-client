@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import cardBg from "./../../../assets/learningCardBg2.svg";
 import { LearnDataItem } from "../../../hooks/useLearnData/LearnDataItem";
+import { FaLock, FaUnlock } from "react-icons/fa";
 
 interface singleUnitProps {
   singleUnit: LearnDataItem;
 }
-const SingleUnitCard: React.FC<singleUnitProps> = ({ singleUnit }) => {
+const SingleUnitCard: React.FC<singleUnitProps> = ({
+  singleUnit,
+  singleUser,
+}: any) => {
   const { _id, unit, topic, points, progress, totalLessons } = singleUnit;
-  console.log(_id)
-
   // Convert Bengali numerals to English numerals
   const bengaliToEnglishMap: { [key: string]: string } = {
     "০": "0",
@@ -32,10 +34,14 @@ const SingleUnitCard: React.FC<singleUnitProps> = ({ singleUnit }) => {
   // const progressInEnglish = convertBengaliToEnglish(progress);
   const progressInEnglish = progress ? convertBengaliToEnglish(progress) : "";
 
+  // is unit card active
 
+  const isDisabled = singleUser.unit?.includes(unit);
   return (
     <div
-      className="w-full rounded-md p-6 text-gray-300 relative flex flex-col"
+      className={`w-full rounded-md p-6 text-gray-300 relative flex flex-col ${
+        isDisabled ? "opacity-100" : "opacity-50"
+      }`}
       style={{
         backgroundImage: `url(${cardBg})`,
         backgroundRepeat: "no-repeat",
@@ -70,7 +76,17 @@ const SingleUnitCard: React.FC<singleUnitProps> = ({ singleUnit }) => {
         </div>
         <div className="flex justify-center mt-8">
           <Link to={`/user-dashboard/learning/${_id}`}>
-            <button className="defaultBtn">শুরু করুন</button>
+            <button
+              disabled={!isDisabled}
+              className={"defaultBtn flex items-center"}
+            >
+              শুরু করুন
+              {isDisabled ? (
+                <FaUnlock style={{ fontSize: "20px" }} />
+              ) : (
+                <FaLock style={{ fontSize: "20px", color: "#00FFCA" }} />
+              )}
+            </button>
           </Link>
         </div>
       </div>

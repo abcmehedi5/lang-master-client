@@ -107,7 +107,8 @@ const router = createBrowserRouter([
       {
         path: "mainquiz/:id",
         element: <Quizzes></Quizzes>,
-        loader: ({params})=> fetch(`../../../public/quizzess.jsonp/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`../../../public/quizzess.jsonp/${params.id}`),
       },
       {
         path: "grammar",
@@ -131,7 +132,9 @@ const router = createBrowserRouter([
     path: "admin-dashboard",
     element: (
       <PrivateRoute>
-        <AdminDashboadLayout></AdminDashboadLayout>
+        <AdminRoute>
+          <AdminDashboadLayout></AdminDashboadLayout>
+        </AdminRoute>
       </PrivateRoute>
     ),
     children: [

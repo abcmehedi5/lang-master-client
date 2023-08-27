@@ -19,8 +19,6 @@
 
 // export default useQuize;
 
-
-
 import { useQuery } from "@tanstack/react-query";
 
 const useQuize = () => {
@@ -29,12 +27,12 @@ const useQuize = () => {
     refetch,
     isLoading,
   } = useQuery(["allQuizeData"], async () => {
-    const res = await fetch('../../../public/quizzess.json');
+    const res = await fetch("http://localhost:5000/quizs/quiz");
     const data = await res.json();
     return data;
   });
 
-  return {allQuizeData, refetch, isLoading};
+  return { allQuizeData, refetch, isLoading };
 };
 
 export default useQuize;
