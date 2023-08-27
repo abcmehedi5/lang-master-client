@@ -24,6 +24,7 @@ import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {

@@ -12,8 +12,6 @@ interface UserPoint {
 
 const LeaderBoard: FC = () => {
   const { allLeaderBoardData: usersPoint } = useLeaderBoard();
-  console.log(usersPoint);
-
   return (
     <div className="md:w-9/12 mx-auto px-4 md:px-0">
       <Helmet>
@@ -31,7 +29,7 @@ const LeaderBoard: FC = () => {
           <div>
             {usersPoint
               .sort((a: UserPoint, b: UserPoint) => b.score - a.score)
-              .map((userPoint: UserPoint, index: number) => (
+              .map((userPoint: any, index: number) => (
                 <div
                   key={index}
                   style={{
@@ -54,7 +52,7 @@ const LeaderBoard: FC = () => {
                       <p className="avatar">
                         <div className="border rounded-lg w-12 h-12">
                           <img
-                            src={userPoint?.userimg}
+                            src={userPoint?.image}
                             alt="Avatar Tailwind CSS Component"
                             className="rounded-lg"
                           />
