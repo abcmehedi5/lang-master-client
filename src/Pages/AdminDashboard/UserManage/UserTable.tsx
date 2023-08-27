@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
-const UserTable = () => {
-  const [users, setUsers] = useState([]);
-  const [searchText, setSearchText] = useState('');
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
+const UserTable: React.FC = () => {
+  const [users, setUsers] = useState<User[]>([]);
+  const [searchText, setSearchText] = useState<string>("");
 
   useEffect(() => {
     fetch("http://localhost:5000/users/user")
@@ -16,7 +24,7 @@ const UserTable = () => {
   }, []);
 
   const handleSearch = () => {
-    if (searchText !== '') {
+    if (searchText !== "") {
       fetch(`http://localhost:5000/users/user/${searchText}`)
         .then((res) => res.json())
         .then((data) => {
@@ -28,9 +36,46 @@ const UserTable = () => {
     }
   };
 
-  const handleDelete = (userId) => {
-    console.log("Deleting user with ID:", userId);
-    // Perform delete operation using the user ID
+  const handleDelete = (id: string) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/users/user?email=${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              // Refresh users after deletion
+              fetch("http://localhost:5000/users/user")
+                .then((res) => res.json())
+                .then((data) => {
+                  setUsers(data);
+                })
+                .catch((error) => {
+                  console.error("Error fetching users:", error);
+                });
+            }
+          })
+          .catch((error) => {
+            console.error("Error deleting user:", error);
+          });
+      }
+    });
   };
 
   return (
