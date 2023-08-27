@@ -2,24 +2,35 @@ import { useEffect, useState } from "react";
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
-  const [searchText, setSearchText] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     fetch("http://localhost:5000/users/user")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUsers(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
       });
   }, []);
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/users/user/${searchText}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setUsers(data);
-      });
+    if (searchText !== '') {
+      fetch(`http://localhost:5000/users/user/${searchText}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setUsers(data);
+        })
+        .catch((error) => {
+          console.error("Error searching users:", error);
+        });
+    }
+  };
+
+  const handleDelete = (userId) => {
+    console.log("Deleting user with ID:", userId);
+    // Perform delete operation using the user ID
   };
 
   return (
@@ -67,20 +78,27 @@ const UserTable = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {users.map((user: any, index) => (
-                <tr key={index} className="bg-sky-200">
+              {users.map((user, index) => (
+                <tr key={user._id} className="bg-sky-200">
                   <th>{index + 1}</th>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.role}</td>
                   <td>
                     <select className="select select-bordered w-full max-w-xs">
-                    <option disabled selected>Make uer or admin?</option>
-                    <option>User</option>
-                    <option>Admin</option>
+                      <option value="" disabled>Make user or admin?</option>
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
                     </select>
                   </td>
-                  <td><button className="btn btn-primary">Delete</button></td>
+                  <td>
+                    <button
+                      onClick={() => handleDelete(user._id)}
+                      className="btn btn-primary"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
