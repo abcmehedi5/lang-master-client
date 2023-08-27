@@ -82,14 +82,30 @@ const QuestionsForLearn = () => {
           );
 
           if (response.status === 200) {
-            Swal.fire({
-              // title: "Good job!",
-              text: "আপনার পয়েন্ট সংগ্রহ হয়েছে",
-              icon: "success",
-            }).then(() => {
-              // Navigate to the homepage
-              navigate("/user-dashboard/learning");
-            });
+            // notification -----------------start
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString("en-US"); // 'en-US' represents the locale for USA, adjust as needed
+            const notificationData = {
+              title: `Congratulations, you have got: ${score}`,
+              date: formattedDate,
+              email: user?.email,
+            };
+
+            await axiosSecure
+              .post("/notifications/notification", notificationData)
+              .then((result) => {
+                console.log(result);
+                Swal.fire({
+                  // title: "Good job!",
+                  text: "আপনার পয়েন্ট সংগ্রহ হয়েছে",
+                  icon: "success",
+                }).then(() => {
+                  // Navigate to the homepage
+                  navigate("/user-dashboard/learning");
+                });
+              });
+
+            // notification -------------------end
           } else {
             console.error("Failed to update quiz score");
           }
