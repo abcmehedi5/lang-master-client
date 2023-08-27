@@ -85,8 +85,8 @@ const UserTable = () => {
                   <td>{user.email}</td>
                   <td>{user.role}</td>
                   <td>
-                    <select className="select select-bordered w-full max-w-xs">
-                      <option value="" disabled>Make user or admin?</option>
+                    <select className="select select-bordered w-25 max-w-xs">
+                      <option value="">Select</option>
                       <option value="user">User</option>
                       <option value="admin">Admin</option>
                     </select>
