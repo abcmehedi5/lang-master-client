@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 interface User {
   _id: string;
@@ -9,6 +10,7 @@ interface User {
 }
 
 const UserTable: React.FC = () => {
+  const {user} = useContext(AuthContext);
   const [users, setUsers] = useState<User[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
@@ -36,7 +38,8 @@ const UserTable: React.FC = () => {
     }
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (_id: string) => {
+    console.log(user);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -47,7 +50,7 @@ const UserTable: React.FC = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/user?email=${id}`, {
+        fetch(`http://localhost:5000/users/user/${_id}`, {
           method: "DELETE",
         })
           .then((res) => {
@@ -124,11 +127,11 @@ const UserTable: React.FC = () => {
             <tbody>
               {/* row 1 */}
               {users.map((user, index) => (
-                <tr key={user._id} className="bg-sky-200">
+                <tr key={user?._id} className="bg-sky-200">
                   <th>{index + 1}</th>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.role}</td>
+                  <td>{user?.name}</td>
+                  <td>{user?.email}</td>
+                  <td>{user?.role}</td>
                   <td>
                     <select className="select select-bordered w-25 max-w-xs">
                       <option value="">Select</option>
