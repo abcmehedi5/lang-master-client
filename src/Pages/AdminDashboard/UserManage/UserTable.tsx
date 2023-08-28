@@ -73,6 +73,12 @@ const UserTable: React.FC = () => {
     });
   };
   
+  // admin created
+  const handleMakeAdmin = (_id: string) => {
+
+  }
+
+  
   return (
     <div>
       <div className="form-control p-6">
@@ -128,7 +134,7 @@ const UserTable: React.FC = () => {
                     <select className="select select-bordered w-25 max-w-xs">
                       <option value="">Select</option>
                       <option value="user">User</option>
-                      <option value="admin">Admin</option>
+                      <option onClick={() => handleMakeAdmin(user._id)} value="admin">Admin</option>
                     </select>
                   </td>
                   <td>
