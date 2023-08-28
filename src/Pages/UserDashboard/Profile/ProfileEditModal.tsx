@@ -47,7 +47,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-black opacity-70"></div>
-      <div className="bg-white p-6 rounded-lg shadow-md relative w-1/2">
+      <div className="bg-white p-6 rounded-lg shadow-md relative md:w-1/2">
         <h2 className="text-lg font-semibold mb-4">Update Profile Info</h2>
         <div className="space-y-4">
           <input
@@ -72,17 +72,34 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
             className="w-full border rounded p-2"
           />
           <input
-            type="text"
+            type="date"
             placeholder="Birthday"
             value={birthday}
             onChange={(e) => setBirthday(e.target.value)}
             className="w-full border rounded p-2"
           />
-          <div className="flex items-center space-x-4">
+        
+          <div className="space-y-2">
+            <label>
+              Gender Level:
+              <select
+                value={genderLevel}
+                onChange={(e) => setGenderLevel(e.target.value)}
+                className="border rounded p-2 w-full"
+              >
+                <option value="">English proficiency</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </label>
+          </div>
+          <div className="flex items-center space-x-4 text-xl">
             <label>
               <input
                 type="radio"
                 value="Male"
+                className="mr-2"
                 checked={gender === "Male"}
                 onChange={(e) => setGender(e.target.value)}
               />
@@ -92,6 +109,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
               <input
                 type="radio"
                 value="Female"
+                className="mr-2"
                 checked={gender === "Female"}
                 onChange={(e) => setGender(e.target.value)}
               />
@@ -101,25 +119,11 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
               <input
                 type="radio"
                 value="Other"
+                className="mr-2"
                 checked={gender === "Other"}
                 onChange={(e) => setGender(e.target.value)}
               />
               Other
-            </label>
-          </div>
-          <div className="space-y-2">
-            <label>
-              Gender Level:
-              <select
-                value={genderLevel}
-                onChange={(e) => setGenderLevel(e.target.value)}
-                className="border rounded p-2 w-full"
-              >
-                <option value="">Select Gender Level</option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-              </select>
             </label>
           </div>
         </div>

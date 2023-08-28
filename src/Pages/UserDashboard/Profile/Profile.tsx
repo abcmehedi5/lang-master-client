@@ -91,9 +91,8 @@ const Profile: React.FC = () => {
           </div>
           <div className="dark-overlay">
             <div
-              className="card mx-md-5 shadow-5-strong mx-4 md:mx-8 lg:mx-12 rounded-md"
+              className="card mx-md-5 shadow-5-strong mx-4 md:mx-8 lg:mx-12 rounded-md md:-mt-20 -mt-52"
               style={{
-                marginTop: "-150px",
                 background: "hsla(0, 0%, 100%, 0.8)",
                 backdropFilter: "blur(30px)",
               }}
