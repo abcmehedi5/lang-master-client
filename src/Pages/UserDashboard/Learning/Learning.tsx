@@ -1,33 +1,22 @@
 // import { useEffect, useState } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import SingleUnitCard from "./SingleUnitCard";
-// import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import { Helmet } from "react-helmet-async";
-
+import { useContext, useEffect, useState } from "react";
 const Learning = () => {
-  // const [unitData, setUnitData] = useState<LearnDataItem[]>([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch("/learn.json");
-  //       const learnData = await response.json();
-  //       setUnitData(learnData);
-  //     } catch (error) {
-  //       console.error("error fetching learning data", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-  // console.log(unitData);
-
-  // const { allLearnData } = useLearnData();
-  // console.log(allLearnData);
-
   const [allLearnData] = useLearnData();
-  console.log("learning page console;" , allLearnData);
-  
+  const [axiosSecure] = useAxiosSecure();
+  const { user }: any = useContext(AuthContext);
+  const [singleUser, setSingleUser]: any = useState({});
+
+  useEffect(() => {
+    axiosSecure.get(`/users/singleUser?email=${user.email}`).then((result) => {
+      setSingleUser(result.data);
+    });
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -38,6 +27,7 @@ const Learning = () => {
           <SingleUnitCard
             key={singleUnit._id}
             singleUnit={singleUnit}
+            singleUser={singleUser}
           ></SingleUnitCard>
         ))}
       </div>

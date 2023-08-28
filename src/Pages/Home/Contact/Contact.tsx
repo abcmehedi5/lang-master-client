@@ -22,7 +22,7 @@ const Contact = () => {
           <h4 className="text-xl flex items-center">
             <AiTwotoneMail /> &nbsp; Email
           </h4>
-          <p>exaple@gmail.com</p>
+          <p>example@gmail.com</p>
         </div>
         <div>
           <h4 className="text-xl flex items-center">
@@ -34,7 +34,8 @@ const Contact = () => {
       {/* --- form section --- */}
       <div className="w-full">
         <div className=" shadow-2xl bg-base-100 rounded-md">
-          <form className="card-body">
+
+          <form className="card-body" action="https://getform.io/f/8df9c731-aceb-4ca8-bde5-927f97ba1b59" method="POST">
             <h1 className="text-2xl font-semibold">CONTACT US</h1>
             <div className="form-control">
               <input
@@ -67,6 +68,7 @@ const Contact = () => {
               <button className="defaultBtn">Submit</button>
             </div>
           </form>
+
         </div>
       </div>
     </div>

@@ -5,8 +5,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { FiLogIn } from "react-icons/fi";
 import Notification from "../../Home/notification/Notification";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar: React.FC = () => {
+  // check admin
+
+  const [isAdmin] = useAdmin();
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { user, logOut }: any = useContext(AuthContext);
 
@@ -58,7 +63,7 @@ const Navbar: React.FC = () => {
           <p className="px-4 py-4">About Us</p>
         </NavLink>
       </p>
-      {user && (
+      {user && isAdmin && (
         <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
           <NavLink
             to="/admin-dashboard"
