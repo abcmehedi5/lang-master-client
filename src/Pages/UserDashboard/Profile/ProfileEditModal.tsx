@@ -50,42 +50,52 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
       <div className="bg-white p-6 rounded-lg shadow-md relative md:w-1/2">
         <h2 className="text-lg font-semibold mb-4">Update Profile Info</h2>
         <div className="space-y-4">
-          <input
-            type="text"
-            placeholder="Address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            className="w-full border rounded p-2"
-          />
-          <input
-            type="text"
-            placeholder="Location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="w-full border rounded p-2"
-          />
-          <input
-            type="text"
-            placeholder="Your website"
-            value={site}
-            onChange={(e) => setSite(e.target.value)}
-            className="w-full border rounded p-2"
-          />
-          <input
-            type="date"
-            placeholder="Birthday"
-            value={birthday}
-            onChange={(e) => setBirthday(e.target.value)}
-            className="w-full border rounded p-2"
-          />
-        
-          <div className="space-y-2">
+          <label>
+            <span className="block mt-3 px-2">Birthday</span>
+            <input
+              type="date"
+              value={birthday}
+              onChange={(e) => setBirthday(e.target.value)}
+              className="w-full border rounded p-4"
+            />
+          </label>
+          <label>
+            <span className="block mt-3 px-2">Address</span>
+            <input
+              type="text"
+              placeholder="Address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="w-full border rounded p-4"
+            />
+          </label>
+          <label>
+            <span className="block mt-3 px-2">Location</span>
+            <input
+              type="text"
+              placeholder="Location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="w-full border rounded p-4"
+            />
+          </label>
+          <label>
+            <span className="block mt-3 px-2">Your website</span>
+            <input
+              type="text"
+              placeholder="Your website link"
+              value={site}
+              onChange={(e) => setSite(e.target.value)}
+              className="w-full border rounded p-4"
+            />
+          </label>
+
+          <div className="my-3">
             <label>
-              Gender Level:
               <select
                 value={genderLevel}
                 onChange={(e) => setGenderLevel(e.target.value)}
-                className="border rounded p-2 w-full"
+                className="border rounded p-4 w-full"
               >
                 <option value="">English proficiency</option>
                 <option value="Beginner">Beginner</option>
@@ -134,10 +144,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
           >
             Save
           </button>
-          <button
-            className="px-4 py-2 ml-4 border rounded"
-            onClick={onClose}
-          >
+          <button className="px-4 py-2 ml-4 border rounded" onClick={onClose}>
             Cancel
           </button>
         </div>
