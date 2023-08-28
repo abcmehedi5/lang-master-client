@@ -26,7 +26,10 @@ const QuizLevel: React.FC = () => {
         </h1>
         <div className="px-9 py-10 space-y-4">
           {allQuizeData.map((quizedata: QuizData) => (
-            <Link to={`/user-dashboard/mainquiz/${quizedata._id}`} key={quizedata._id}>
+            <Link
+              to={`/user-dashboard/mainquiz/${quizedata._id}`}
+              key={quizedata._id}
+            >
               <button
                 // style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
                 style={{
@@ -35,7 +38,7 @@ const QuizLevel: React.FC = () => {
                 }}
                 className="bg-base-100 text-2xl px-6 py-4 capitalize font-semibold mb-5 w-full  hover:text-white border-none cursor-pointer hover:bg-[#088395] rounded-md"
               >
-                <p>{quizedata?.Level} Quize</p>
+                <p>{quizedata?.Level} Quiz</p>
               </button>
             </Link>
           ))}
