@@ -10,7 +10,7 @@ interface User {
 }
 
 const UserTable: React.FC = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [users, setUsers] = useState<User[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
@@ -39,7 +39,6 @@ const UserTable: React.FC = () => {
   };
 
   const handleDelete = (_id: string) => {
-    console.log(user);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -50,6 +49,8 @@ const UserTable: React.FC = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        setUsers(users.filter(user => user._id !== _id));
+  
         fetch(`http://localhost:5000/users/user/${_id}`, {
           method: "DELETE",
         })
@@ -63,15 +64,6 @@ const UserTable: React.FC = () => {
             console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
-              // Refresh users after deletion
-              fetch("http://localhost:5000/users/user")
-                .then((res) => res.json())
-                .then((data) => {
-                  setUsers(data);
-                })
-                .catch((error) => {
-                  console.error("Error fetching users:", error);
-                });
             }
           })
           .catch((error) => {
@@ -80,7 +72,7 @@ const UserTable: React.FC = () => {
       }
     });
   };
-
+  
   return (
     <div>
       <div className="form-control p-6">
