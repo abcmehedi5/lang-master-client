@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import {useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
@@ -10,20 +10,11 @@ interface User {
 }
 
 const UserTable: React.FC = () => {
-  const { user } = useContext(AuthContext);
+  const {user} = useContext(AuthContext);
   const [users, setUsers] = useState<User[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
-  useEffect(() => {
-    fetch("http://localhost:5000/users/user")
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching users:", error);
-      });
-  }, []);
+
 
   const handleSearch = () => {
     if (searchText !== "") {
@@ -74,11 +65,36 @@ const UserTable: React.FC = () => {
   };
   
   // admin created
-  const handleMakeAdmin = (_id: string) => {
-
+  const handleMakeAdmin = (user: string) => {
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      method: 'PATCH'
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.modifiedCount){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: `${user.name} is an Admin Now!`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    })
   }
 
-  
+  useEffect(() => {
+    fetch("http://localhost:5000/users/user")
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+      });
+  }, []);
+
   return (
     <div>
       <div className="form-control p-6">
@@ -131,10 +147,10 @@ const UserTable: React.FC = () => {
                   <td>{user?.email}</td>
                   <td>{user?.role}</td>
                   <td>
-                    <select className="select select-bordered w-25 max-w-xs">
+                    <select onChange={() => handleMakeAdmin(user)} className="select select-bordered w-25 max-w-xs">
                       <option value="">Select</option>
                       <option value="user">User</option>
-                      <option onClick={() => handleMakeAdmin(user._id)} value="admin">Admin</option>
+                      <option value="admin">Admin</option>
                     </select>
                   </td>
                   <td>
