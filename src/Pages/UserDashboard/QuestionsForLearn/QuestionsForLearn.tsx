@@ -65,12 +65,11 @@ const QuestionsForLearn = () => {
 
   // quiz complete button handler and update user points
   const handleQuizCompleted = async () => {
-    console.log("quiz", quizCompleted);
     if (quizCompleted) {
       try {
         if (user) {
           const response = await axiosSecure.patch(
-            `http://localhost:5000/users/user/${user.email}`,
+            `http://localhost:5000/users/user/${user?.email}`,
             {
               score: score,
             },

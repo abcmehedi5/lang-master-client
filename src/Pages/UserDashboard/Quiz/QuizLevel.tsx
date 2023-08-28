@@ -10,7 +10,6 @@ interface QuizData {
 
 const QuizLevel: React.FC = () => {
   const { allQuizeData } = useQuize();
-  console.log(allQuizeData);
 
   return (
     <div className="flex items-center flex-col justify-center h-full">
@@ -25,10 +24,10 @@ const QuizLevel: React.FC = () => {
           Choose your Level
         </h1>
         <div className="px-9 py-10 space-y-4">
-          {allQuizeData.map((quizedata: QuizData) => (
+          {allQuizeData.map((quizdata: QuizData) => (
             <Link
-              to={`/user-dashboard/mainquiz/${quizedata._id}`}
-              key={quizedata._id}
+              to={`/user-dashboard/mainquiz/${quizdata._id}`}
+              key={quizdata._id}
             >
               <button
                 // style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
@@ -38,7 +37,7 @@ const QuizLevel: React.FC = () => {
                 }}
                 className="bg-base-100 text-2xl px-6 py-4 capitalize font-semibold mb-5 w-full  hover:text-white border-none cursor-pointer hover:bg-[#088395] rounded-md"
               >
-                <p>{quizedata?.Level} Quiz</p>
+                <p>{quizdata?.Level} Quiz</p>
               </button>
             </Link>
           ))}

@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Quiz from "./Quiz";
 import useQuize from "../../../hooks/useQuize/useQuize";
-import { useParams } from "react-router-dom";
+import { ImSpinner9 } from "react-icons/im";
+import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 interface QuizData {
   _id: string;
@@ -13,23 +17,24 @@ interface QuizData {
 }
 
 const Quizzes = () => {
+  const { user }: any = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [pointCollectionProcessing, setPointCollectionProcessing] =
+    useState(false);
 
   const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
 
   const { id } = useParams<{ id: string }>();
-  console.log(id);
 
   const { allQuizeData } = useQuize();
-  console.log(allQuizeData);
 
   const quizData = allQuizeData.filter(
     (quizdataa: QuizData) => quizdataa._id == id
   )[0]?.questionData;
-
-  console.log("quizData", quizData);
 
   if (!quizData || quizData.length == 0) {
     return <div>No quiz data available.</div>;
@@ -44,6 +49,43 @@ const Quizzes = () => {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResult(true);
+    }
+  };
+
+  // quiz complete handler and point store in db
+  const handleQuizCompleted = async () => {
+    try {
+      if (user) {
+        setPointCollectionProcessing(true);
+        const response = await axiosSecure.patch(
+          `/users/user/${user?.email}`,
+          {
+            score: 2,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        setPointCollectionProcessing(false);
+        if (response.data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Good job!",
+            text: "আপনি ২ পয়েন্ট পেয়েছেন",
+            icon: "success",
+          }).then(() => {
+            // Navigate to the homepage
+            navigate("/user-dashboard/quiz");
+          });
+        }
+      } else {
+        console.error("failed to update quiz points");
+        setPointCollectionProcessing(false);
+      }
+    } catch (error) {
+      console.error("Error while storing quiz results", error);
+      setPointCollectionProcessing(false);
     }
   };
 
@@ -62,7 +104,7 @@ const Quizzes = () => {
   if (scorePercentage < 40) {
     comment = "Not Good Enough , Keep practicing!";
     commentClass = "text-red-500";
-  } else if (scorePercentage >= 40 && scorePercentage <= 60) {
+  } else if (scorePercentage >= 40 && scorePercentage <= 70) {
     comment = "Good, keep practicing!";
     commentClass = "text-yellow-500";
   } else {
@@ -95,6 +137,25 @@ const Quizzes = () => {
               <p className={`my-5 ${commentClass} text-3xl font-semibold`}>
                 {comment}
               </p>
+
+              {scorePercentage < 70 ? (
+                <p className="mb-4 text-red-400">
+                  You are not able to get coin
+                </p>
+              ) : (
+                <button
+                  className="defaultBtn mb-4"
+                  onClick={handleQuizCompleted}
+                  disabled={pointCollectionProcessing}
+                >
+                  {pointCollectionProcessing ? (
+                    <ImSpinner9 className="mx-auto animate-spin"></ImSpinner9>
+                  ) : (
+                    "Collect Points"
+                  )}
+                </button>
+              )}
+
               <div className="flex justify-center gap-3">
                 <div>
                   <button
@@ -113,7 +174,9 @@ const Quizzes = () => {
                           <p>
                             {index + 1}. {question?.question}
                           </p>
-                          <p className="mb-2">ans: {question?.correctAnswer}</p>
+                          <p className="mb-2 text-red-500">
+                            Answer: {question?.correctAnswer}
+                          </p>
                         </div>
                       ))}
                     </div>
