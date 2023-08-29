@@ -52,7 +52,7 @@ const Cover: React.FC<CoverProps> = () => {
           src={imagePath}
           alt={`Slide ${index + 1}`}
           className="w-full rounded-xl"
-          style={{ height: 'auto', maxHeight: '300px' }} // Adjust the maximum height as needed
+          style={{ height: 'auto', maxHeight: '1000px' }} // Adjust the maximum height as needed
         />
       </SwiperSlide>
     ))}
