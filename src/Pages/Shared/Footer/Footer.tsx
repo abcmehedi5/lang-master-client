@@ -17,31 +17,32 @@ const Footer = () => {
   return (
     <footer>
       <img src={wave} alt="bg" />
-      <div className="bg-[#0b4e69] flex items-center justify-between py-2 px-5">
-        <div>
-          <h2 className="btn btn-ghost normal-case text-xl text-white">
-            Lang-Master
-          </h2>
-        </div>
-        {/* -- icons--- */}
-        <div className="flex items-center gap-3">
-          <a>
-            <BiLogoFacebook className="text-4xl rounded-full p-2 text-white bg-[#4268b2]" />
-          </a>
-          <a>
-            <BsTwitter className="text-4xl rounded-full p-2 text-white bg-[#1f9fef]" />
-          </a>
-          <a>
-            <BsInstagram className="text-4xl rounded-full p-2 text-white bg-[#db316d]" />
-          </a>
-          <a>
-            <FaLinkedinIn className="text-4xl rounded-full p-2 text-white bg-[#0375b3]" />
-          </a>
-          <a>
-            <AiFillYoutube className="text-4xl rounded-full p-2 text-white bg-[#f90304]" />
-          </a>
-        </div>
-      </div>
+      <div className="bg-[#0b4e69] grid grid-cols-1 md:grid-cols-2 py-2 px-5">
+  <div>
+    <h2 className="btn btn-ghost normal-case text-xl text-white">
+      Lang-Master
+    </h2>
+  </div>
+  {/* -- icons--- */}
+  <div className="flex items-center justify-center md:justify-end gap-3"> {/* Added 'md:justify-start' */}
+    <a>
+      <BiLogoFacebook className="text-4xl rounded-full p-2 text-white bg-[#4268b2]" />
+    </a>
+    <a>
+      <BsTwitter className="text-4xl rounded-full p-2 text-white bg-[#1f9fef]" />
+    </a>
+    <a>
+      <BsInstagram className="text-4xl rounded-full p-2 text-white bg-[#db316d]" />
+    </a>
+    <a>
+      <FaLinkedinIn className="text-4xl rounded-full p-2 text-white bg-[#0375b3]" />
+    </a>
+    <a>
+      <AiFillYoutube className="text-4xl rounded-full p-2 text-white bg-[#f90304]" />
+    </a>
+  </div>
+</div>
+
       <hr className="border-t-2 border-[#05bfdb]" />
       <div className="footer justify-between  p-10 bg-[#0b4e69] text-white">
         <div>
