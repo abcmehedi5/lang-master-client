@@ -70,7 +70,7 @@ const Testimonial = () => {
               {displayReviews.map((review) => (
                 <div
                   key={review._id}
-                  className="flex flex-col overflow-hidden shadow-xl"
+                  className="flex flex-col overflow-hidden shadow-xl rounded-md"
                 >
                   <div className="flex flex-col justify-between flex-1 p-6 bg-white lg:py-8 lg:px-7">
                     <div className="flex-1">
