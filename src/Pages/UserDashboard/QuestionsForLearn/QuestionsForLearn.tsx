@@ -320,20 +320,27 @@ const QuestionsForLearn = () => {
 
       {/* finished button ----------------------------------- start */}
 
-      <div className="flex justify-center">
+      <div className="flex justify-center text-center font-bold">
         {isLastLesson && isLastQuestion && !showScore && (
-          <button
-            onClick={handleUnitFinished}
-            className={`defaultBtn mt-3 px-2 py-2 ${
-              selectedOption === null ? "hidden" : ""
-            }`}
-          >
-            Finish Unit
-          </button>
+          <div className={`${selectedOption == null ? "hidden" : " "}`}>
+            <button
+              onClick={handleUnitFinished}
+              className={`defaultBtn px-2 py-2 ${
+                selectedOption === null ? "hidden" : ""
+              }`}
+            >
+              Finish Unit
+            </button>
+
+            {loading && <Loading></Loading>}
+            <h1 className=" mt-3 md:w-96 w-full bg-yellow-400 p-3 rounded text-justify">
+              Congratulation তুমি এই Unit টি প্রায় শেষ করতে চলেছো । Finish Unit
+              বাটনে ক্লিক করে Unit Fnish করো এবং Next বাটনে ক্লিক করে পয়েন্ট
+              সংগ্রাহ কর ।
+            </h1>
+          </div>
         )}
       </div>
-
-      {loading && <Loading></Loading>}
 
       {/* finished button ----------------------------------- end */}
     </div>
