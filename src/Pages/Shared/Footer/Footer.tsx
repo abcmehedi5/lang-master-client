@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
         <div>
           <span className="footer-title">Newsletter</span>
-          <div className="form-control w-80">
+          <div className="form-control w-full sm:w-80">
             <label className="label">
               <span className="label-text text-white">
                 Enter your email address
@@ -104,14 +104,15 @@ const Footer = () => {
               <input
                 type="text"
                 placeholder="username@site.com"
-                className="input input-bordered w-full pr-16 text-black"
+                className="input input-bordered w-full pr-16 text-black sm:text-sm"
               />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none ">
+              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none sm:text-sm">
                 Subscribe
               </button>
             </div>
           </div>
         </div>
+
       </div>
       <hr className="border-t-2 border-[#05bfdb]" />
       <div className="flex items-center justify-between bg-[#0b4e69] py-4 px-8 text-white">
