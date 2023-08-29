@@ -7,9 +7,10 @@ interface Review {
   name: string;
   rating: number;
   details: string;
-  description: string;
+  reviewText: string;
   image: string;
   passion: string;
+  reviewDate: string;
 }
 
 const Testimonial = () => {
@@ -65,7 +66,7 @@ const Testimonial = () => {
               ></div>
             </div>
 
-            <div className="relative grid max-w-lg grid-cols-1 gap-6 mx-auto md:max-w-none lg:gap-10 md:grid-cols-3">
+            <div className="relative grid max-w-lg grid-cols-1 gap-6 mx-auto md:max-w-none lg:gap-10 md:grid-cols-2 lg:grid-cols-3">
               {displayReviews.map((review) => (
                 <div
                   key={review._id}
@@ -73,24 +74,27 @@ const Testimonial = () => {
                 >
                   <div className="flex flex-col justify-between flex-1 p-6 bg-white lg:py-8 lg:px-7">
                     <div className="flex-1">
-                      <div className="flex items-center">
-                        <p>
-                          {" "}
-                          {/* @ts-expect-error Server Component */}
-                          <Rating
-                            placeholderRating={review.rating}
-                            readonly
-                            emptySymbol={<FaRegStar />}
-                            placeholderSymbol={
-                              <FaStar className="text-yellow-500" />
-                            }
-                            fullSymbol={<FaStar />}
-                          />{" "}
-                          {review.rating}
-                        </p>
+                      <div className="flex items-end">
+                          <div className="flex items-center">
+                              <p>
+                                  {/* @ts-expect-error Server Component */}
+                                  <Rating
+                                      placeholderRating={review.rating}
+                                      readonly
+                                      emptySymbol={<FaRegStar />}
+                                      placeholderSymbol={<FaStar className="text-yellow-500" />}
+                                      fullSymbol={<FaStar />}
+                                  />{" "}
+                                  {review.rating}
+                              </p>
+                              <div>
+                                  <h2 style={{ marginLeft: "1rem" }}>{review.reviewDate}</h2>
+                              </div>
+                          </div>
                       </div>
+
                       <div className="text-black mt-6 text-5xl">
-                        <p className="text-lg">{review.description}</p>
+                        <p className="text-lg">{review.reviewText}</p>
                       </div>
                       <div className="flex items-center mt-8">
                         <img
