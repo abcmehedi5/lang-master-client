@@ -1,131 +1,181 @@
+import React, { useContext, useRef, useState } from "react";
+import { IoClose } from "react-icons/io5";
+import { FcGallery } from "react-icons/fc";
+import Swal from "sweetalert2";
+import axios from "axios";
+import { AuthContext } from "../../Providers/AuthProvider";
+import useBlogData from "../../hooks/useBlogData";
 
-import { useContext, useRef, useState } from 'react';
-import { IoClose } from 'react-icons/io5';
-import { FcGallery } from 'react-icons/fc';
-import Swal from 'sweetalert2';
-import axios from 'axios';
-// import usePsots from '../../hooks/usePsots';
-import { AuthContext } from '../../Providers/AuthProvider';
-
-const BlogPostModal = ({setOpenPostModal}) => {
-    const { user } = useContext(AuthContext);
-    // const {refetch} = usePsots()
-  const fileInputRef = useRef(null);
-  const [loading, setLoading] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null); // State to store the selected file
-
-
-  // Move handleFileUpload outside handleSubmit
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    setSelectedFile(file); // Store the selected file in state
-   // Handle the selected file here (e.g., upload to server, process, etc.)
-  };
-
-
-const convertTimestamp = (timestamp) => {
-    const date = new Date(timestamp);
-    return date.toLocaleString(); // Convert timestamp to a human-readable format
+// Define the type for the user
+interface User {
+  photoURL: string;
+  displayName: string;
+  email: string;
 }
 
-const handleSubmit = async (e) => {
+interface AuthContextType {
+  user: User | null;
+}
+
+const BlogPostModal: React.FC<{
+  setOpenPostModal: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ setOpenPostModal }) => {
+  const { user } = useContext<AuthContextType>(AuthContext);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const { refetch } = useBlogData();
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    setSelectedFile(file || null);
+  };
+
+  const convertTimestamp = (timestamp) => {
+    const date = new Date(timestamp);
+    return date.toLocaleString();
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const status = form.status.value;
+    const title = form.title.value;
 
     try {
       setLoading(true);
       const formData = new FormData();
-      formData.append('image', fileInputRef.current.files[0]);
-      const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`;
+      formData.append("image", fileInputRef.current.files[0]);
+      const url = `https://api.imgbb.com/1/upload?key=${
+        import.meta.env.VITE_IMGBB_API_KEY
+      }`;
       const response = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         body: formData,
       });
       const result = await response.json();
       const imageUrl = result?.data?.display_url;
 
-
-    //   send data to the server----------------
+      //   send data to the server----------------
       const postData = {
-
         authorImage: user?.photoURL,
-        img:imageUrl,
-        authorName: user?.displayName,
+        image: imageUrl,
+        name: user?.displayName,
         email: user?.email,
-        status: status,
+        description: status,
+        title,
         uploadedtime: convertTimestamp(new Date().getTime()),
-        likes:0,
-        comments:[]
-
-      }
-      axios.post('https://facebook-server-phi.vercel.app/posts', postData )
-              .then((res)=>{
-                  console.log('post', res.data)
-                  setOpenPostModal(false);
-                  Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'uploaded',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                  refetch()
-              }) .catch((error) => {
-                  console.error('Post request failed:', error);
-                  // Handle error if the post request fails
-                });
+        like: 0,
+        comment: [],
+      };
+      console.log(postData);
+      axios
+        .post("http://localhost:5000/blogs/blog", postData)
+        .then((res) => {
+          console.log("post", res.data);
+          setOpenPostModal(false);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "uploaded",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          refetch();
+        })
+        .catch((error) => {
+          console.error("Post request failed:", error);
+        });
       setLoading(false);
     } catch (error) {
       setLoading(false);
       console.log(error.message);
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong!',
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
       });
     }
   };
 
-    return (
-       <div className="fixed inset-0 flex items-center justify-center z-50">
-         <div className="fixed inset-0 bg-black opacity-70"></div>
-        <div className="bg-white p-6 rounded-lg shadow-md relative">
-        <form onSubmit={handleSubmit} className='w-[500px] '>
-       <div className='flex items-center my-3 justify-around'>
-       <h1 className='text-center text-xl font-semibold'>Create Blog Post</h1>
-        <button onClick={()=>setOpenPostModal(false)} className='bg-base-200 rounded-full p-3 text-xl text-start'><IoClose /></button>
-       </div>
-        <hr />
-        <div className='flex items-center gap-2 m-3'>
-            <img className='w-14 rounded-full h-14 object-cover' src={user?.photoURL} alt="user photo" />
-            <h3 className='text-sm font-bold'>{user?.displayName}</h3>
-        </div>
-        <div className='h-[100px]'>
-        {/* <input type="text" placeholder="Type here" className="input w-full" /> */}
-        <textarea name='status' className="textarea text-2xl w-full" placeholder={`What's on your mind, ${user?.displayName.split(' ')[0]} ?`}></textarea>
-        </div>
+  return (
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-black opacity-70"></div>
+      <div className="bg-white p-6 rounded-lg shadow-md relative">
+        <form onSubmit={handleSubmit} className="">
+          <div className="flex items-center my-3 justify-around">
+            <h1 className="text-center text-xl font-semibold">
+              Create Blog Post
+            </h1>
+            <button
+              onClick={() => setOpenPostModal(false)}
+              className="bg-base-200 rounded-full p-3 text-xl text-start"
+            >
+              <IoClose />
+            </button>
+          </div>
+          <hr />
+          <div className="flex items-center gap-2 m-3">
+            <img
+              className="w-14 rounded-full h-14 object-cover"
+              src={user?.photoURL}
+              alt="user photo"
+            />
+            <h3 className="text-sm font-bold">{user?.displayName}</h3>
+          </div>
+          <div className="space-y-4">
             <input
-        ref={fileInputRef}
-        type='file'
-        className='hidden' // Hide the actual input element
-        // Add the necessary event handlers for file upload
-        onChange={handleFileUpload}
-      />
-      <label
-        className='input border-gray-300 border-2 flex items-center justify-between px-10 cursor-pointer'
-        onClick={() => fileInputRef.current.click()} // Trigger file input click
-      >
-        <h1 className='text-'>{selectedFile ? selectedFile.name : 'Add to your post'}</h1>
-        <FcGallery className='text-2xl' />
-      </label>
-      <button type='submit' className='btn btn-secondary w-full mt-3' disabled={loading}>
-        {loading ? 'Posting...' : 'Post'}
-      </button>
+              type="text"
+              placeholder="Title"
+              name="title"
+              className="input input-bordered w-full text-2xl"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Category"
+              name="category"
+              className="input input-bordered w-full text-2xl"
+              required
+            />
+            <label
+              className="input border-gray-300 border-2 flex items-center justify-between text-2xl text-gray-400 cursor-pointer mt-3"
+              onClick={() => fileInputRef.current.click()}
+              aria-required
+            >
+              <h1 className="text-">
+                {selectedFile ? selectedFile.name : "Add image to your post"}
+              </h1>
+              <FcGallery className="text-2xl" />
+            </label>
+            <textarea
+              name="status"
+              className="textarea text-2xl w-full input-bordered"
+              placeholder={`What's on your mind, ${
+                user?.displayName.split(" ")[0]
+              } ?`}
+              required
+            ></textarea>
+          </div>
+          <input
+            ref={fileInputRef}
+            type="file"
+            className="hidden"
+            onChange={handleFileUpload}
+            required
+          />
+
+          <button
+            type="submit"
+            className="btn bg-[#3b82f6] text-white text-xl w-full mt-3"
+            disabled={loading}
+          >
+            {loading ? "Posting..." : "Post"}
+          </button>
         </form>
-        </div>
-       </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default BlogPostModal;

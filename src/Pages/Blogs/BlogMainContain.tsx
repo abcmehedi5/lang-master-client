@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Comments from './Comments/Comments';
 import Share from './Share/Share';
 import Like from './Like/Like';
+import useBlogData from '../../hooks/useBlogData';
 
 
 
@@ -18,18 +19,21 @@ interface BlogMainContainProps {
     }[];
 }
 
-const BlogMainContain: React.FC<BlogMainContainProps> = ({ items }) => {
+const BlogMainContain: React.FC<BlogMainContainProps> = () => {
     const [showCommentInput, setShowCommentInput] = useState(false);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [sharedData] = useState<string | null>(null);   
+    const [sharedData] = useState<string | null>(null); 
+
+
+    const { blog } = useBlogData()
+    console.log(blog)
 
     return (
         <>
-            {items.map((item) => (
+            {blog.map((item) => (
                 <div key={item._id} className="p-4 rounded-lg border my-4">
                     <div className="card glass">
                         <figure>
-                            <img src={item.image} alt="car!" />
+                            <img className='w-full object-cover' src={item.image} alt="car!" />
                         </figure>
                         <div className="card-body">
                             <h2 className="card-title">{item.title}</h2>
