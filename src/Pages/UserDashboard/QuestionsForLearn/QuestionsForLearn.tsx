@@ -6,6 +6,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useUser from "../../../hooks/useUser";
+import useToast from "../../../hooks/useToast";
 
 interface Question {
   question: string;
@@ -22,6 +24,8 @@ interface Lesson {
 const QuestionsForLearn = () => {
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
+  const [singleUser] = useUser();
+  const [successAlert, errorAlert] = useToast();
   const { id, lessonNumber } = useParams<{
     id: string;
     lessonNumber: string;
@@ -65,7 +69,6 @@ const QuestionsForLearn = () => {
 
   // quiz complete button handler and update user points
   const handleQuizCompleted = async () => {
-    console.log("quiz", quizCompleted);
     if (quizCompleted) {
       try {
         if (user) {
@@ -175,6 +178,34 @@ const QuestionsForLearn = () => {
   }
   const questions = selectedLesson.quiz;
 
+  // after finished unit ----------------------------------------start
+
+  const isLastLesson =
+    selectedUnit.lessons.findIndex(
+      (lesson: any) => lesson.lessonNumber == lessonNumber
+    ) ==
+    selectedUnit.lessons.length - 1;
+
+  const isLastQuestion = currentQuestion == questions.length - 1;
+
+  // handle finished button
+  const handleUnitFinished = async () => {
+    try {
+      const unitNumber = selectedUnit.unit;
+      const userId = singleUser._id;
+      const res = await axiosSecure.post(
+        "/learning-questions/unitfinished/" + userId,
+        { unitNumber: unitNumber }
+      );
+      
+      successAlert(res.data.message)
+    } catch (error) {
+      errorAlert(error)
+    }
+  };
+
+  // after finished unit ----------------------------------------end
+
   return (
     <div className="flex justify-center items-center flex-col h-screen">
       <div className="w-full md:px-0 px-3 flex items-center justify-center gap-3 text-2xl">
@@ -281,6 +312,23 @@ const QuestionsForLearn = () => {
           </div>
         </div>
       )}
+
+      {/* finished button ----------------------------------- start */}
+
+      <div className="flex justify-center">
+        {isLastLesson && isLastQuestion && !showScore && (
+          <button
+            onClick={handleUnitFinished}
+            className={`defaultBtn mt-3 px-2 py-2 ${
+              selectedOption === null ? "hidden" : ""
+            }`}
+          >
+            Finish Unit
+          </button>
+        )}
+      </div>
+
+      {/* finished button ----------------------------------- end */}
     </div>
   );
 };
