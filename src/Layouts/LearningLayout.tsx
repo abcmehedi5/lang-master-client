@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FcHome, FcReadingEbook, FcBusinessman } from "react-icons/fc";
 import { MdLeaderboard, MdList } from "react-icons/md";
+import DashboardTop from "../Pages/Shared/DashboardTop/DashboardTop";
 
 const LearningLayout = () => {
   return (
@@ -31,7 +32,8 @@ const LearningLayout = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}{/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}
-        <ul className="w-64 bg-gradient-to-b h-screen text-black bg-gray-100 py-3">
+        <ul className="w-64 bg-gradient-to-b h-screen text-black bg-gray-100 ">
+          <DashboardTop></DashboardTop>
           <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
             <NavLink
               to="/user-dashboard/learning"

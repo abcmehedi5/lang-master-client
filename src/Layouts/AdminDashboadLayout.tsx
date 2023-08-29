@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { FcHome } from "react-icons/fc";
 import { MdQuiz } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
+import DashboardTop from "../Pages/Shared/DashboardTop/DashboardTop";
 
 const AdminDashboadLayout = () => {
   return (
@@ -34,8 +35,10 @@ const AdminDashboadLayout = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3 space-y-2"> */}
-        <ul className="w-64 bg-gradient-to-b h-screen bg-gray-100 py-3 space-y-2">
+
+        <ul className="w-64 bg-gradient-to-b h-screen bg-gray-100  space-y-2">
+          {/* dashboard  nav top */}
+          <DashboardTop></DashboardTop>
           <li className="px-5 py-2 transition duration-300 hover:bg-blue-600 hover:text-white">
             <Link
               to="/admin-dashboard/user-manage"
