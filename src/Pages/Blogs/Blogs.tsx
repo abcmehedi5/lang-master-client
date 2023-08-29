@@ -2,6 +2,7 @@ import BlogMainContain from "./BlogMainContain";
 import BlogRightSidebar from "./BlogRightSidebar";
 import useBlogData from "../../hooks/useBlogData";
 import BlogLeftSidebar from "./BlogLeftSidebar";
+import BlogPost from "./BlogPost";
 
 const Blogs = () => {
   const [blog] = useBlogData();
@@ -26,6 +27,7 @@ const Blogs = () => {
           <BlogLeftSidebar items={design} />
         </div>
         <div className="basis-2/3">
+          <BlogPost></BlogPost>
           <BlogMainContain items={business} />
         </div>
         <div className="basis-1/4">
