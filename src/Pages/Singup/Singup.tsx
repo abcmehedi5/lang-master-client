@@ -68,6 +68,7 @@ const Signup: React.FC = () => {
             image: imageUrl,
             score: 0,
             role: "user",
+            unit: ["1"],
           };
 
           axiosSecure

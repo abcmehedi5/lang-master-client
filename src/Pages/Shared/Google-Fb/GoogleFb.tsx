@@ -24,6 +24,7 @@ const GoogleFb = () => {
           image: loggedInUser.photoURL,
           score:0,
           role: "user",
+          unit: ["1"],
         };
         axiosSecure
           .post("/users/user", saveUser)
