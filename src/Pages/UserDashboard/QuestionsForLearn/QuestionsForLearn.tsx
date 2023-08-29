@@ -75,7 +75,7 @@ const QuestionsForLearn = () => {
       try {
         if (user) {
           const response = await axiosSecure.patch(
-            `http://localhost:5000/users/user/${user.email}`,
+            `http://localhost:5000/users/user/${user?.email}`,
             {
               score: score,
             },
