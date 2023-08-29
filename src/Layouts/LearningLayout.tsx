@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FcHome, FcReadingEbook, FcBusinessman } from "react-icons/fc";
-import { MdLeaderboard } from "react-icons/md";
+import { MdLeaderboard, MdList } from "react-icons/md";
 
 const LearningLayout = () => {
   return (
@@ -24,14 +24,14 @@ const LearningLayout = () => {
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
         >
-          Open drawer
+          Dashboard
         </label>
         <Outlet></Outlet>
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}
-        <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3">
+        {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}{/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}
+        <ul className="w-64 bg-gradient-to-b h-screen text-black bg-gray-100 py-3">
           <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
             <NavLink
               to="/user-dashboard/learning"
@@ -55,7 +55,7 @@ const LearningLayout = () => {
               to="/user-dashboard/quiz"
               className="hover:text-white flex gap-2 items-center"
             >
-              <MdLeaderboard style={{ fontSize: "30px" }} />
+              <MdList style={{ fontSize: "30px" }} />
               কুইজ
             </NavLink>
           </li>
@@ -75,6 +75,16 @@ const LearningLayout = () => {
             >
               <FcBusinessman style={{ fontSize: "30px" }} />
               প্রোফাইল
+            </NavLink>
+          </li>
+
+          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
+            <NavLink
+              to="/user-dashboard/books"
+              className="hover:text-white flex gap-2 items-center"
+            >
+              <FcReadingEbook style={{ fontSize: "30px" }} />
+              বই কিনুন
             </NavLink>
           </li>
         </ul>

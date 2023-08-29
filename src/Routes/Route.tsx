@@ -25,6 +25,7 @@ import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 
 import AdminRoute from "./AdminRoute";
+import Books from "../Pages/UserDashboard/Books/Books";
 
 const router = createBrowserRouter([
   {
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+      },
+      {
+        path: "books",
+        element: <Books></Books>,
       },
     ],
   },
