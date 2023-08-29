@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useUser from "../../../hooks/useUser";
 import useToast from "../../../hooks/useToast";
+import Loading from "../../../Components/Loading";
 
 interface Question {
   question: string;
@@ -26,6 +27,7 @@ const QuestionsForLearn = () => {
   const [axiosSecure] = useAxiosSecure();
   const [singleUser] = useUser();
   const [successAlert, errorAlert] = useToast();
+  const [loading, setLoading] = useState(false);
   const { id, lessonNumber } = useParams<{
     id: string;
     lessonNumber: string;
@@ -190,6 +192,7 @@ const QuestionsForLearn = () => {
 
   // handle finished button
   const handleUnitFinished = async () => {
+    setLoading(true);
     try {
       const unitNumber = selectedUnit.unit;
       const userId = singleUser._id;
@@ -197,10 +200,12 @@ const QuestionsForLearn = () => {
         "/learning-questions/unitfinished/" + userId,
         { unitNumber: unitNumber }
       );
-      
-      successAlert(res.data.message)
+
+      setLoading(false);
+      successAlert(res.data.message);
     } catch (error) {
-      errorAlert(error)
+      errorAlert(error);
+      setLoading(false);
     }
   };
 
@@ -327,6 +332,8 @@ const QuestionsForLearn = () => {
           </button>
         )}
       </div>
+
+      {loading && <Loading></Loading>}
 
       {/* finished button ----------------------------------- end */}
     </div>

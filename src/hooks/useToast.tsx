@@ -5,8 +5,8 @@ const useToast: any = () => {
     Swal.fire({
       icon: "success",
       title: message,
-      showConfirmButton: false,
-      timer: 1500,
+      showConfirmButton: true,
+      timer: 3500,
     });
   };
 
@@ -15,8 +15,8 @@ const useToast: any = () => {
     Swal.fire({
       icon: "error",
       title: message,
-      showConfirmButton: false,
-      timer: 1500,
+      showConfirmButton: true,
+      timer: 3500,
     });
   };
   return [successAlert, errorAlert];
