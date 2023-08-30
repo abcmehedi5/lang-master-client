@@ -97,24 +97,25 @@ const AddCategoryQuiz: React.FC = () => {
             </div>
 
             {/* Options */}
-            {question.options.map((_, optionIndex) => (
-              <div key={optionIndex} className=" flex gap-3">
-                <div className="  w-1/3">
-                  <label
-                    htmlFor={`questionData.${questionIndex}.options.${optionIndex}`}
-                    className="block form-control text-sm font-medium"
-                  >
-                    Option {optionIndex + 1}
-                  </label>
-                  <input
-                    className="w-full border rounded-md p-2 mt-2 input input-bordered "
-                    id={`questionData.${questionIndex}.options.${optionIndex}`}
-                    {...register(`questionData.${questionIndex}.options.${optionIndex}`)}
-                  />
+            <div className="flex gap-3">
+              {question.options.map((_, optionIndex) => (
+                <div key={optionIndex} className="w-1/3 ">
+                  <div>
+                    <label
+                      htmlFor={`questionData.${questionIndex}.options.${optionIndex}`}
+                      className="block form-control text-sm font-medium"
+                    >
+                      Option {optionIndex + 1}
+                    </label>
+                    <input
+                      className="w-full border rounded-md p-2 mt-2 input input-bordered "
+                      id={`questionData.${questionIndex}.options.${optionIndex}`}
+                      {...register(`questionData.${questionIndex}.options.${optionIndex}`)}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-
+              ))}
+            </div>
             {/* Correct Answer */}
             <div>
               <label htmlFor={`questionData.${questionIndex}.correctAnswer`} className="block form-control text-sm font-medium">
@@ -133,7 +134,7 @@ const AddCategoryQuiz: React.FC = () => {
         <button
           type="button"
           onClick={addQuestion}
-          className="btn bg-[#088395] hover:bg-[#21bbd3] text-white w-full px-4 py-2 rounded-md font-semibold"
+          className="btn hover:bg-[#088395] bg-slate-600 text-white w-full px-4 py-2 rounded-md font-semibold"
         >
           Add Question
         </button>
