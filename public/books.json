@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "bookname": "The Catcher in the Rye",
+        "bookimage": "https://example.com/book1.jpg",
+        "writer": "J.D. Salinger",
+        "price": 15.99,
+        "rating": 4.5
+    },
+    {
+        "id": 2,
+        "bookname": "To Kill a Mockingbird",
+        "bookimage": "https://example.com/book2.jpg",
+        "writer": "Harper Lee",
+        "price": 12.95,
+        "rating": 4.8
+    },
+    {
+        "id": 3,
+        "bookname": "1984",
+        "bookimage": "https://example.com/book3.jpg",
+        "writer": "George Orwell",
+        "price": 10.75,
+        "rating": 4.7
+    },
+    {
+        "id": 4,
+        "bookname": "Pride and Prejudice",
+        "bookimage": "https://example.com/book4.jpg",
+        "writer": "Jane Austen",
+        "price": 9.99,
+        "rating": 4.6
+    },
+    {
+        "id": 5,
+        "bookname": "The Great Gatsby",
+        "bookimage": "https://example.com/book5.jpg",
+        "writer": "F. Scott Fitzgerald",
+        "price": 11.25,
+        "rating": 4.4
+    },
+    {
+        "id": 6,
+        "bookname": "Moby-Dick",
+        "bookimage": "https://example.com/book6.jpg",
+        "writer": "Herman Melville",
+        "price": 13.50,
+        "rating": 4.2
+    },
+    {
+        "id": 7,
+        "bookname": "Jane Eyre",
+        "bookimage": "https://example.com/book7.jpg",
+        "writer": "Charlotte Brontë",
+        "price": 8.75,
+        "rating": 4.9
+    },
+    {
+        "id": 8,
+        "bookname": "The Hobbit",
+        "bookimage": "https://example.com/book8.jpg",
+        "writer": "J.R.R. Tolkien",
+        "price": 14.99,
+        "rating": 4.7
+    }
+]
