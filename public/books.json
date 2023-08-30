@@ -5,7 +5,8 @@
         "bookimage": "https://images.unsplash.com/photo-1629992101753-56d196c8aabb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1890&q=80",
         "writer": "J.D. Salinger",
         "price": 15.99,
-        "rating": 4.5
+        "rating": 4.5,
+        "role": "New"
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "bookimage": "https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80",
         "writer": "Harper Lee",
         "price": 12.95,
-        "rating": 4.8
+        "rating": 4.8,
+        "role": "New"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "bookimage": "https://images.unsplash.com/photo-1641154748135-8032a61a3f80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1015&q=80",
         "writer": "George Orwell",
         "price": 10.75,
-        "rating": 4.7
+        "rating": 4.7,
+        "role": "Old"
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "bookimage": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
         "writer": "Jane Austen",
         "price": 9.99,
-        "rating": 4.6
+        "rating": 4.6,
+        "role": "New"
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "bookimage": "https://images.unsplash.com/photo-1633477189729-9290b3261d0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1022&q=80",
         "writer": "F. Scott Fitzgerald",
         "price": 11.25,
-        "rating": 4.4
+        "rating": 4.4,
+        "role": "New"
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "bookimage": "https://images.unsplash.com/photo-1554602530-f415ffd0294a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1026&q=80",
         "writer": "Herman Melville",
         "price": 13.50,
-        "rating": 4.2
+        "rating": 4.2,
+        "role": "Old"
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "bookimage": "https://images.unsplash.com/photo-1571167530149-c1105da4c2c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80",
         "writer": "Charlotte Brontë",
         "price": 8.75,
-        "rating": 4.9
+        "rating": 4.9,
+        "role": "Old"
     },
     {
         "id": 8,
@@ -61,6 +68,7 @@
         "bookimage": "https://images.unsplash.com/photo-1610882648335-ced8fc8fa6b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
         "writer": "J.R.R. Tolkien",
         "price": 14.99,
-        "rating": 4.7
+        "rating": 4.7,
+        "role": "New"
     }
 ]

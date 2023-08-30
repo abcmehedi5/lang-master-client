@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import CartModal from "./CartModal";
 
 type Book = {
   id: number;
@@ -13,6 +14,20 @@ type Book = {
 
 const Books: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleEditButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalSubmit = (data: Profile) => {
+    // Handle the data submitted from the modal (e.g., update the state or send to server)
+    console.log(data);
+  };
 
   useEffect(() => {
     fetch("/books.json") // Make sure the path is correct
@@ -24,10 +39,10 @@ const Books: React.FC = () => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 p-14">
       {books.map((book) => (
-        <a
+        <p
           key={book.id}
           href="#"
-          className="group relative block overflow-hidden"
+          className="group relative block overflow-hidden cursor-pointer"
         >
           <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
             <span className="sr-only">Wishlist</span>
@@ -40,7 +55,7 @@ const Books: React.FC = () => {
           />
           <div className="relative border border-gray-100 bg-white p-6">
             <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium">
-              New
+              {book.role}
             </span>
             <h3 className="mt-4 text-lg font-medium text-gray-900">
               {book.bookname}
@@ -62,13 +77,18 @@ const Books: React.FC = () => {
             </div>
             <p className="mt-1.5 text-sm text-gray-700">${book.price}</p>
             <form className="mt-4">
-              <button className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
+              <button  onClick={handleEditButtonClick} className="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
                 Add to Cart
               </button>
             </form>
           </div>
-        </a>
+        </p>
       ))}
+        <CartModal
+        isOpen={isModalOpen}
+        onClose={handleModalClose}
+        onSubmit={handleModalSubmit}
+      />
     </div>
   );
 };
