@@ -60,7 +60,7 @@ const Books: React.FC = () => {
             <h3 className="mt-4 text-lg font-medium text-gray-900">
               {book.bookname}
             </h3>
-            <h3 className="mt-4 font-medium">{book.writer}</h3>
+            <h3 className="mt-4 font-medium">Writter: {book.writer}</h3>
             <div className="flex items-center">
               <p>
                 <Rating
@@ -73,7 +73,7 @@ const Books: React.FC = () => {
                 {book.rating}
               </p>
             </div>
-            <p className="mt-1.5 text-sm text-gray-700">${book.price}</p>
+            <p className="mt-1.5 text-sm text-gray-700"><b>Price:</b> ${book.price}</p>
             <form className="mt-4">
               <button
                 onClick={(e) => {
