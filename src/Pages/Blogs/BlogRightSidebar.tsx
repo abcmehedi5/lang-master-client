@@ -26,9 +26,9 @@ const BlogRightSidebar: React.FC<BlogRightSidebarProps> = ({ items }) => {
                 <img src={item.image} alt="Shoes" />
               </figure>
               <div className="card-body">
+                  <div className="badge badge-secondary">{item.name}</div>
                 <h2 className="card-title">
                   {item.title}
-                  <div className="badge badge-secondary">{item.name}</div>
                 </h2>
                 <p>{item.description}</p>
                 <div className="card-actions justify-end">

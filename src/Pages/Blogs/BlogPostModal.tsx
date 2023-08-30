@@ -101,8 +101,8 @@ const BlogPostModal: React.FC<{
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-black opacity-70"></div>
-      <div className="bg-white p-6 rounded-lg shadow-md relative">
-        <form onSubmit={handleSubmit} className="">
+      <div className="bg-white p-6 md:w-1/2 rounded-lg shadow-md relative">
+        <form onSubmit={handleSubmit}>
           <div className="flex items-center my-3 justify-around">
             <h1 className="text-center text-xl font-semibold">
               Create Blog Post
@@ -131,13 +131,13 @@ const BlogPostModal: React.FC<{
               className="input input-bordered w-full text-2xl"
               required
             />
-            <input
+            {/* <input
               type="text"
               placeholder="Category"
               name="category"
               className="input input-bordered w-full text-2xl"
               required
-            />
+            /> */}
             <label
               className="input border-gray-300 border-2 flex items-center justify-between text-2xl text-gray-400 cursor-pointer mt-3"
               onClick={() => fileInputRef.current.click()}
