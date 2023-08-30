@@ -1,56 +1,50 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
+interface Question {
+  id: number;
+  question: string;
+  correctAnswer: string;
+}
 
+const UpdateQuestion: React.FC = () => {
+  const [questions, setQuestions] = useState<Question[]>([]);
 
-const UpdateQuestion = () => {
-    const [reviews, setReviews] = useState<Review[]>([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/learning-questions/questions")
+      .then((res) => res.json())
+      .then((data) => setQuestions(data))
+      .catch((error) => console.error(error));
+      
+  }, []);
 
-    useEffect(() => {
-        fetch("http://localhost:5000/learning-questions/questions")
-          .then((res) => res.json())
-          .then((data) => setReviews(data))
-          .catch((error) => console.error(error));
-      }, []);
-    return (
-        <div>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Question</th>
-                        <th>Correct Answer</th>
-                        <th>Update</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {/* row 1 */}
-                    <tr>
-                        <th>1</th>
-                 <td></td>
-                        <td>Quality Control Specialist</td>
-                        <button className="btn btn-primary btn-sm">Update</button>
-                    </tr>
-                    {/* row 2 */}
-                    <tr>
-                        <th>2</th>
-             <td></td>
-                        <td>Desktop Support Technician</td>
-                        <button className="btn btn-primary btn-sm">Update</button>
-                    </tr>
-                    {/* row 3 */}
-                    <tr>
-                        <th>3</th>
-           <td></td>
-                        <td>Tax Accountant</td>
-                        <button className="btn btn-primary btn-sm">Update</button>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <div className="overflow-x-auto">
+        <table className="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Question</th>
+              <th>Correct Answer</th>
+              <th>Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            {questions.map((question, index) => (
+              <tr key={question.id}>
+                <th>{index + 1}</th>
+                <td>{question.topic}</td>
+                <td>{question.correctAnswer}</td>
+                <td>
+                  <button className="btn btn-primary btn-sm">Update</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default UpdateQuestion;
