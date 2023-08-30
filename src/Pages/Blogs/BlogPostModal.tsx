@@ -6,7 +6,6 @@ import axios from "axios";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useBlogData from "../../hooks/useBlogData";
 
-// Define the type for the user
 interface User {
   photoURL: string;
   displayName: string;
@@ -31,7 +30,7 @@ const BlogPostModal: React.FC<{
     setSelectedFile(file || null);
   };
 
-  const convertTimestamp = (timestamp) => {
+  const convertTimestamp = (timestamp: any) => {
     const date = new Date(timestamp);
     return date.toLocaleString();
   };
@@ -131,15 +130,8 @@ const BlogPostModal: React.FC<{
               className="input input-bordered w-full text-2xl"
               required
             />
-            {/* <input
-              type="text"
-              placeholder="Category"
-              name="category"
-              className="input input-bordered w-full text-2xl"
-              required
-            /> */}
             <label
-              className="input border-gray-300 border-2 flex items-center justify-between text-2xl text-gray-400 cursor-pointer mt-3"
+              className="input border-gray-300 border-2 flex items-center justify-between text-xl text-gray-400 cursor-pointer mt-3"
               onClick={() => fileInputRef.current.click()}
               aria-required
             >

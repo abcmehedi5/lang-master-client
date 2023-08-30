@@ -14,12 +14,12 @@ const Blogs = () => {
 
   return (
     <>
-      <div className="md:flex gap-4 px-4 md:px-10 my-3">
-        <div className="md:w-[70%]">
+      <div className="md:flex gap-6 px-4 md:px-6 my-3">
+        <div className="md:w-[70%] scroll">
           <BlogPost></BlogPost>
           <BlogMainContain />
         </div>
-        <div className="md:w-[30%] mx-auto md:sticky top-0 h-full">
+        <div className="BlogRightSidebar md:w-[30%] mx-auto md:scroll top-0 h-[130vh] overflow-auto">
           <h1 className="text-center text-4xl font-semibold mt-6 rounded-xl py-5 bg-base-300">My Blogs</h1>
           <BlogRightSidebar items={myBlogs} />
         </div>
