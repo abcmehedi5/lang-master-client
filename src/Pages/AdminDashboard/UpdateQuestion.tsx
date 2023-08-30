@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 interface Question {
   id: number;
@@ -11,14 +12,6 @@ interface Lesson {
   lessonTitle: string;
   points: string;
   quiz: Question[];
-}
-
-interface Topic {
-  points: string;
-  topic: string;
-  totalLessons: string;
-  unit: string;
-  lessons: Lesson[];
 }
 
 interface FetchedData {
@@ -34,11 +27,43 @@ interface FetchedData {
 const UpdateQuestion: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
 
+  const handleDelete = (id: number) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setQuestions(questions.filter(question => question.id !== id));
+
+        fetch(`http://localhost:5000/users/user/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          })
+          .catch((error) => {
+            console.error("Error deleting user:", error);
+          });
+      }
+    });
+  };
+
   useEffect(() => {
     fetch("http://localhost:5000/learning-questions/questions")
       .then((res) => res.json())
       .then((data: FetchedData[]) => {
-        // Extract questions and answers from the nested structure
         const extractedQuestions: Question[] = [];
         data.forEach((topic) => {
           topic.lessons.forEach((lesson) => {
@@ -79,7 +104,12 @@ const UpdateQuestion: React.FC = () => {
                   <button className="btn btn-primary btn-sm">Update</button>
                 </td>
                 <td>
-                  <button className="btn bg-red-500 hover:bg-red-600 text-white btn-sm">Delete</button>
+                  <button
+                    onClick={() => handleDelete(question.id)}
+                    className="btn bg-red-500 hover:bg-red-600 text-white btn-sm"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
