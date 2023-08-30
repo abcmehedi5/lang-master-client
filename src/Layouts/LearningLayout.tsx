@@ -70,6 +70,15 @@ const LearningLayout = () => {
           </li>
           <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
             <NavLink
+              to="/user-dashboard/shop"
+              className="hover:text-white flex gap-2 items-center"
+            >
+              <FcReadingEbook style={{ fontSize: "30px" }} />
+              শপ
+            </NavLink>
+          </li>
+          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
+            <NavLink
               to="/user-dashboard/profile"
               className="hover:text-white flex gap-2 items-center"
             >

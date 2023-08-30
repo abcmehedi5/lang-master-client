@@ -9,7 +9,7 @@ interface QuizData {
 }
 
 const QuizLevel: React.FC = () => {
-  const { allQuizeData } = useQuize();
+  const [allQuizeData] = useQuize();
 
   return (
     <div className="flex items-center flex-col justify-center h-full">

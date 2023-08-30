@@ -23,8 +23,8 @@ import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
-
 import AdminRoute from "./AdminRoute";
+import Shop from "./../Pages/UserDashboard/Shop/Shop";
 
 const router = createBrowserRouter([
   {
@@ -114,6 +114,10 @@ const router = createBrowserRouter([
       {
         path: "grammar",
         element: <Grammar></Grammar>,
+      },
+      {
+        path: "shop",
+        element: <Shop></Shop>,
       },
       {
         path: "profile",
