@@ -1,6 +1,6 @@
 [
   {
-      "_id": 1,
+      
       "image": "https://images.unsplash.com/profile-1619796074146-69e1b29e66adimage?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
       "name": "John Dallas",
       "passion": "Language Enthusiast",
@@ -8,7 +8,7 @@
       "rating": 5
   },
   {
-      "_id": 2,
+      
       "image": "https://images.unsplash.com/profile-1514561552931-d49cebe2d717?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
       "name": "Aimee Irving",
       "passion": "Culture Explorer",
@@ -16,7 +16,7 @@
       "rating": 4
   },
   {
-      "_id": 3,
+      
       "image": "https://images.unsplash.com/profile-1650369319777-484509df5494image?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
       "name": "John Destin",
       "passion": "Global Communicator",
@@ -24,7 +24,7 @@
       "rating": 4.5
   },
   {
-      "_id": 4,
+      
       "image": "https://images.unsplash.com/profile-1642220767942-c4150c25e42eimage?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
       "name": "Emily Smith",
       "passion": "Family Connecter",
@@ -32,7 +32,7 @@
       "rating": 5
   },
   {
-      "_id": 5,
+      
       "image": "https://images.unsplash.com/profile-fb-1631234027-71839941972f.jpg?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
       "name": "Michael Johnson",
       "passion": "Business Communicator",
@@ -40,7 +40,7 @@
       "rating": 4.7
   },
   {
-      "_id": 6,
+      
       "image": "https://images.unsplash.com/profile-1517962614310-0be74ebf2651?dpr=1&auto=format&fit=crop&w=150&h=150&q=60&crop=faces&bg=fff",
       "name": "Sophia Williams",
       "passion": "Future Professional",

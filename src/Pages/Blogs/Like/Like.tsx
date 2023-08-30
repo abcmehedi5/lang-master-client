@@ -11,12 +11,12 @@ const Like: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className="text-2xl">
             <button
                 className={` flex items-center font-semibold text-xl ${likeActive ? 'text-yellow-600' : 'text-black'}`}
                 onClick={likeData}
             >
-                <BiLike />{like}
+               <span className="text-3xl gap-1 items-center flex"> <BiLike />{like}</span>
             </button>
         </div>
     );

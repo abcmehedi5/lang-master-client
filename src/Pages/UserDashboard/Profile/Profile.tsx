@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { MdFindReplace } from "react-icons/md";
 import "./Profile.css";
 import { FaCoins, FaEdit, FaFacebook } from "react-icons/fa";
 import { BsPersonFillAdd } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
-import { AuthContext } from "../../../Providers/AuthProvider";
 import ProfileEditModal from "./ProfileEditModal";
+import useUser from "../../../hooks/useUser";
 
 interface Profile {
   _id: string;
@@ -27,17 +27,9 @@ interface Profile {
 }
 
 const Profile: React.FC = () => {
-  const { user } = useContext(AuthContext);
-  const [profile, setProfile] = useState<Profile | undefined>();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/users/singleUser?email=${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setProfile(data))
-      .catch((error) => console.error(error));
-  }, []);
-  console.log(profile);
+  // fetch single user
+  const [singleUser] = useUser();
 
   const handleEditButtonClick = () => {
     setIsModalOpen(true);
@@ -66,13 +58,13 @@ const Profile: React.FC = () => {
                   <span className="indicator-item indicator-bottom badge badge-success"></span>
                   <img
                     className="place-items-center object-cover rounded-xl border-4 w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 md:ml-12"
-                    src={profile?.image}
+                    src={singleUser?.image}
                     alt="profile picture"
                   />
                 </div>
                 <div className="mt-2 md:mt-6 lg:mt-6">
                   <p className="font-bold text-white text-md md:text-3xl lg:text-3xl mb-2">
-                    {profile?.name}
+                    {singleUser?.name}
                   </p>
                   {/* <p className="mt-0.5 text-[11px] md:text-sm lg:text-sm font-pj text-white">
                     {profile?.passion}
@@ -127,7 +119,7 @@ const Profile: React.FC = () => {
                             </div>
                             <div>
                               <h1 className="text-[#2196f7]">
-                                {profile?.name}
+                                {singleUser?.name}
                               </h1>
                             </div>
                           </div>
@@ -137,7 +129,7 @@ const Profile: React.FC = () => {
                             </div>
                             <div>
                               <h1 className="text-[#2196f7]">
-                                {profile?.phoneNumber}
+                                {singleUser?.phoneNumber}
                               </h1>
                             </div>
                           </div>
@@ -147,7 +139,7 @@ const Profile: React.FC = () => {
                             </div>
                             <div>
                               <h1 className="text-[#2196f7]">
-                                {profile?.email}
+                                {singleUser?.email}
                               </h1>
                             </div>
                           </div>
@@ -177,7 +169,7 @@ const Profile: React.FC = () => {
                                   <FaCoins className="text-yellow-500 text-2xl" />
                                 </p>
                                 <strong className="font-medium text-black">
-                                  {profile?.score}
+                                  {singleUser?.score}
                                 </strong>
                               </a>
                             </li>
@@ -191,7 +183,7 @@ const Profile: React.FC = () => {
                                   Role
                                 </p>
                                 <strong className="font-medium text-black">
-                                  {profile?.role}
+                                  {singleUser?.role}
                                 </strong>
                               </a>
                             </li>

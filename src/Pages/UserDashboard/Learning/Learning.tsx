@@ -12,10 +12,10 @@ const Learning = () => {
   const [singleUser, setSingleUser]: any = useState({});
 
   useEffect(() => {
-    axiosSecure.get(`/users/singleUser?email=${user.email}`).then((result) => {
+    axiosSecure.get(`/users/singleUser?email=${user?.email}`).then((result) => {
       setSingleUser(result.data);
     });
-  }, []);
+  }, [user.email, axiosSecure]);
 
   return (
     <>
