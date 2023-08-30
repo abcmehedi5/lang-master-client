@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
       </p>
       <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
-          to="/contact"
+          to="/"
           title="contact us"
           className={({ isActive }) => (isActive ? " underline-cus" : "")}
         >
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
     <div>
       <Link to="/user-dashboard/learning">
         {" "}
-        <button className="defaultBtn">GET STARTED</button>
+        <button className="defaultBtn btn-md">GET STARTED</button>
       </Link>
     </div>
   );

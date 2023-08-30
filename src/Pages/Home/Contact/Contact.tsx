@@ -3,7 +3,7 @@ import { HiLocationMarker } from "react-icons/hi";
 
 const Contact = () => {
   return (
-    <div className="md:flex items-center justify-center my-20 w-[90%] mx-auto bg-[#0a4d68] rounded-md p-3 md:p-6 gap-20">
+    <div className="md:flex items-center justify-center my-20 px-4 max-w-7xl sm:px-6 lg:px-8 mx-auto bg-[#0a4d68] rounded-md p-3 md:p-6 gap-20">
       {/* ---content--- */}
       <div className="text-white p-4 ">
         <h1 className="text-2xl font-semibold">Get In Toch</h1>
