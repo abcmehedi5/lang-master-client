@@ -11,6 +11,7 @@ type Book = {
   price: number;
   rating: number;
   description: string;
+  status: string;
 };
 
 const Books: React.FC = () => {
@@ -57,6 +58,11 @@ const Books: React.FC = () => {
             className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
           />
           <div className="relative border border-gray-100 bg-white p-6">
+          <span
+            className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"
+          >
+            {book.status}
+          </span>
             <h3 className="mt-4 text-lg font-medium text-gray-900">
               {book.bookname}
             </h3>
