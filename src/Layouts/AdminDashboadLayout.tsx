@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { FcHome } from "react-icons/fc";
 import { MdQuiz } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
+import DashboardTop from "../Pages/Shared/DashboardTop/DashboardTop";
 
 const AdminDashboadLayout = () => {
   return (
@@ -34,9 +35,11 @@ const AdminDashboadLayout = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}
-        <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3 space-y-2">
-          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+
+        <ul className="w-64 bg-gradient-to-b h-screen bg-gray-100  space-y-2">
+          {/* dashboard  nav top */}
+          <DashboardTop></DashboardTop>
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600 hover:text-white">
             <Link
               to="/admin-dashboard/user-manage"
               className=" flex gap-2 items-center"
@@ -45,7 +48,7 @@ const AdminDashboadLayout = () => {
               User Manage
             </Link>
           </li>
-          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600 hover:text-white">
             <Link
               to="/admin-dashboard/add-quize"
               className="flex gap-2 items-center"
@@ -54,7 +57,7 @@ const AdminDashboadLayout = () => {
               Add Quiz
             </Link>
           </li>
-          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600 hover:text-white">
             <Link
               to="/admin-dashboard/add-topics"
               className="flex gap-2 items-center"
@@ -63,13 +66,22 @@ const AdminDashboadLayout = () => {
               Add Topics
             </Link>
           </li>
-          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600 hover:text-white">
             <Link
               to="/admin-dashboard/add-notification"
               className="flex gap-2 items-center"
             >
               <MdQuiz style={{ fontSize: "30px" }} />
               Add Notification
+            </Link>
+          </li>
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+            <Link
+              to="/admin-dashboard/update-question"
+              className="flex gap-2 items-center"
+            >
+              <MdQuiz style={{ fontSize: "30px" }} />
+              Update Question
             </Link>
           </li>
         </ul>

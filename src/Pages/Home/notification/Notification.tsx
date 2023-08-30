@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import bell from "../../../assets/img/notification-2.png";
 import { MdCircleNotifications } from "react-icons/md";
 import { TiDeleteOutline } from "react-icons/ti";
@@ -7,20 +7,6 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useToast from "../../../hooks/useToast";
-// interface Review {
-//   _id: string;
-//   name: string;
-//   rating: number;
-//   details: string;
-//   description: string;
-//   image: string;
-//   passion: string;
-//   title: string;
-//   notification: string;
-//   date: string;
-//   isLoading:boolean
-// }
-
 const Notification = () => {
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
@@ -29,7 +15,7 @@ const Notification = () => {
   // load notification data
   const {
     data: notifications = [],
-    isLoading,
+    // isLoading,
     refetch,
   }: any = useQuery({
     queryKey: ["notification"],
@@ -47,7 +33,7 @@ const Notification = () => {
     try {
       const res = await axiosSecure.delete("/notifications/notification/" + id);
       console.log(res);
-      
+
       successAlert(res.data.message);
       refetch();
     } catch (error) {

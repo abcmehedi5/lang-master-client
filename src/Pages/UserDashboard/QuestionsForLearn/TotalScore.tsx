@@ -16,11 +16,13 @@ const TotalScore: React.FC<ResultItemType> = ({
 
   // Format the total score using the number formatter
   const formattedTotalScore = numberFormatter.format(totalScore);
+
   return (
     <div>
       <Helmet>
         <title> Lang Master | Dashboard | TotalScore </title>
       </Helmet>
+
       <div className="w-80 h-80 flex flex-col justify-center items-center border-2 rounded-md shadow-md">
         <p className="py-4 text-2xl font-semibold text-center flex justify-center items-center gap-3">
           অর্জিত পয়েন্ট: {formattedTotalScore}{" "}

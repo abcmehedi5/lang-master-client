@@ -1,3 +1,4 @@
+import Books from "../../UserDashboard/Books/Books";
 import Contact from "../Contact/Contact";
 import Cover from "../Cover/Cover";
 import Faq from "../Faq/Faq";
@@ -13,6 +14,7 @@ const Home = () => {
       <Lessons></Lessons>
       <LearnLanguage></LearnLanguage>
       <HomepageBlog></HomepageBlog>
+      <Books></Books>
       <Faq></Faq>
       <Testimonial></Testimonial>
       <Contact></Contact>

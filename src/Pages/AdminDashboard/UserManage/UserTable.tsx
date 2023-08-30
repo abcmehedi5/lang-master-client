@@ -1,26 +1,99 @@
-import { useEffect, useState } from "react";
+import {useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
-const UserTable = () => {
-  const [users, setUsers] = useState([]);
-  const [searchText, setSearchText] = useState([]);
+interface User {
+  _id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
+const UserTable: React.FC = () => {
+  const {user} = useContext(AuthContext);
+  const [users, setUsers] = useState<User[]>([]);
+  const [searchText, setSearchText] = useState<string>("");
+
+
+
+  const handleSearch = () => {
+    if (searchText !== "") {
+      fetch(`http://localhost:5000/users/user/${searchText}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setUsers(data);
+        })
+        .catch((error) => {
+          console.error("Error searching users:", error);
+        });
+    }
+  };
+
+  const handleDelete = (_id: string) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setUsers(users.filter(user => user._id !== _id));
+  
+        fetch(`http://localhost:5000/users/user/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          })
+          .catch((error) => {
+            console.error("Error deleting user:", error);
+          });
+      }
+    });
+  };
+  
+  // admin created
+  const handleMakeAdmin = (user: string) => {
+    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+      method: 'PATCH'
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      if(data.modifiedCount){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: `${user.name} is an Admin Now!`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    })
+  }
 
   useEffect(() => {
     fetch("http://localhost:5000/users/user")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setUsers(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
       });
   }, []);
-
-  const handleSearch = () => {
-    fetch(`http://localhost:5000/users/user/${searchText}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setUsers(data);
-      });
-  };
 
   return (
     <div>
@@ -61,16 +134,33 @@ const UserTable = () => {
                 <th>Name</th>
                 <th>Email</th>
                 <th>role</th>
+                <th>Select</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
               {/* row 1 */}
-              {users.map((user: any, index) => (
-                <tr key={index} className="bg-sky-200">
+              {users.map((user, index) => (
+                <tr key={user?._id} className="bg-sky-200">
                   <th>{index + 1}</th>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.role}</td>
+                  <td>{user?.name}</td>
+                  <td>{user?.email}</td>
+                  <td>{user?.role}</td>
+                  <td>
+                    <select onChange={() => handleMakeAdmin(user)} className="select select-bordered w-25 max-w-xs">
+                      <option value="">Select</option>
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => handleDelete(user._id)}
+                      className="btn btn-primary"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

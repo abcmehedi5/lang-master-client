@@ -24,7 +24,7 @@ import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 import AdminRoute from "./AdminRoute";
-import Shop from "./../Pages/UserDashboard/Shop/Shop";
+
 
 const router = createBrowserRouter([
   {
@@ -123,6 +123,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile></Profile>,
       },
+      {
+        path: "books",
+        element: <Books></Books>,
+      },
     ],
   },
 
@@ -158,6 +162,10 @@ const router = createBrowserRouter([
       {
         path: "add-notification",
         element: <AddNotification />,
+      },
+      {
+        path: "update-question",
+        element: <UpdateQuestion/>,
       },
     ],
   },

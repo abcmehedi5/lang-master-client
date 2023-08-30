@@ -6,6 +6,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useUser from "../../../hooks/useUser";
+import useToast from "../../../hooks/useToast";
+import Loading from "../../../Components/Loading";
 
 interface Question {
   question: string;
@@ -22,6 +25,9 @@ interface Lesson {
 const QuestionsForLearn = () => {
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
+  const [singleUser] = useUser();
+  const [successAlert, errorAlert] = useToast();
+  const [loading, setLoading] = useState(false);
   const { id, lessonNumber } = useParams<{
     id: string;
     lessonNumber: string;
@@ -174,6 +180,37 @@ const QuestionsForLearn = () => {
   }
   const questions = selectedLesson.quiz;
 
+  // after finished unit ----------------------------------------start
+
+  const isLastLesson =
+    selectedUnit.lessons.findIndex(
+      (lesson: any) => lesson.lessonNumber == lessonNumber
+    ) ==
+    selectedUnit.lessons.length - 1;
+
+  const isLastQuestion = currentQuestion == questions.length - 1;
+
+  // handle finished button
+  const handleUnitFinished = async () => {
+    setLoading(true);
+    try {
+      const unitNumber = selectedUnit.unit;
+      const userId = singleUser._id;
+      const res = await axiosSecure.post(
+        "/learning-questions/unitfinished/" + userId,
+        { unitNumber: unitNumber }
+      );
+
+      setLoading(false);
+      successAlert(res.data.message);
+    } catch (error) {
+      errorAlert(error);
+      setLoading(false);
+    }
+  };
+
+  // after finished unit ----------------------------------------end
+
   return (
     <div className="flex justify-center items-center flex-col h-screen">
       <div className="w-full md:px-0 px-3 flex items-center justify-center gap-3 text-2xl">
@@ -280,6 +317,32 @@ const QuestionsForLearn = () => {
           </div>
         </div>
       )}
+
+      {/* finished button ----------------------------------- start */}
+
+      <div className="flex justify-center text-center font-bold">
+        {isLastLesson && isLastQuestion && !showScore && (
+          <div className={`${selectedOption == null ? "hidden" : " "}`}>
+            <button
+              onClick={handleUnitFinished}
+              className={`defaultBtn px-2 py-2 ${
+                selectedOption === null ? "hidden" : ""
+              }`}
+            >
+              Finish Unit
+            </button>
+
+            {loading && <Loading></Loading>}
+            <h1 className=" mt-3 md:w-96 w-full bg-yellow-400 p-3 rounded text-justify">
+              Congratulation তুমি এই Unit টি প্রায় শেষ করতে চলেছো । Finish Unit
+              বাটনে ক্লিক করে Unit Fnish করো এবং Next বাটনে ক্লিক করে পয়েন্ট
+              সংগ্রাহ কর ।
+            </h1>
+          </div>
+        )}
+      </div>
+
+      {/* finished button ----------------------------------- end */}
     </div>
   );
 };

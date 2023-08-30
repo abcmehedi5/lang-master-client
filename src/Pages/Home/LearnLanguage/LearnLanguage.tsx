@@ -38,9 +38,11 @@ function LearnLanguage() {
       </h2>
 
       {/* search bar */}
-      <SearchBar />
+      <div className="mx-10">
+        <SearchBar></SearchBar>
+      </div>
 
-      <div className="grid lg:grid-cols-4 lg:gap-4 ">
+      <div className="grid gris-cols-1 md:grid-cols-2 lg:grid-cols-4  lg:gap-4 ">
         {learning.map((learn, index) => (
           <div className=" mt-4 " key={index}>
             <Lottie
