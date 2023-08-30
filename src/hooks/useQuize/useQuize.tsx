@@ -32,7 +32,7 @@ const useQuize = () => {
     return data;
   });
 
-  return { allQuizeData, refetch, isLoading };
+  return [allQuizeData, refetch, isLoading];
 };
 
 export default useQuize;

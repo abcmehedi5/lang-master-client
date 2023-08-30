@@ -24,8 +24,7 @@ import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 import AdminRoute from "./AdminRoute";
-import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
-import Books from "../Pages/UserDashboard/Books/Books";
+
 
 const router = createBrowserRouter([
   {
@@ -115,6 +114,10 @@ const router = createBrowserRouter([
       {
         path: "grammar",
         element: <Grammar></Grammar>,
+      },
+      {
+        path: "shop",
+        element: <Shop></Shop>,
       },
       {
         path: "profile",

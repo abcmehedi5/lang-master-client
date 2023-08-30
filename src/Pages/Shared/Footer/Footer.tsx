@@ -76,7 +76,7 @@ const Footer = () => {
                       </button>
                     </div>
                     <div className="modal-body p-6">
-                      <Review /> {/* Your Review component */}
+                      <Review />
                     </div>
                   </div>
                 </div>
