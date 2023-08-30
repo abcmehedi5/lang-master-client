@@ -6,7 +6,8 @@
         "writer": "J.D. Salinger",
         "price": 15.99,
         "rating": 4.5,
-        "role": "New"
+        "status": "New",
+        "description": "A classic novel following the struggles of Holden Caulfield, a disenchanted teenager navigating the challenges of adulthood and society."
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "writer": "Harper Lee",
         "price": 12.95,
         "rating": 4.8,
-        "role": "New"
+        "status": "New",
+        "description": "A powerful story addressing issues of racial injustice and moral growth in a Southern town during the Great Depression."
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "writer": "George Orwell",
         "price": 10.75,
         "rating": 4.7,
-        "role": "Old"
+        "status": "Old",
+        "description": "A dystopian novel portraying a totalitarian regime's control over truth, individuality, and freedom, and one man's struggle against it."
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "writer": "Jane Austen",
         "price": 9.99,
         "rating": 4.6,
-        "role": "New"
+        "status": "New",
+        "description": "A classic romantic novel exploring the complexities of societal norms, love, and misunderstandings in 19th-century England."
     },
     {
         "id": 5,
@@ -42,7 +46,8 @@
         "writer": "F. Scott Fitzgerald",
         "price": 11.25,
         "rating": 4.4,
-        "role": "New"
+        "status": "New",
+        "description": "A tale of opulence, love, and tragedy set in the Roaring Twenties, depicting the American Dream's pursuit and its illusions."
     },
     {
         "id": 6,
@@ -51,7 +56,8 @@
         "writer": "Herman Melville",
         "price": 13.50,
         "rating": 4.2,
-        "role": "Old"
+        "status": "Old",
+        "description": "An adventurous novel centered around Captain Ahab's obsessive pursuit of the great white whale, Moby-Dick, exploring themes of vengeance and human nature."
     },
     {
         "id": 7,
@@ -60,7 +66,8 @@
         "writer": "Charlotte Brontë",
         "price": 8.75,
         "rating": 4.9,
-        "role": "Old"
+        "status": "Old",
+        "description": "A bildungsroman following the life of Jane Eyre, an orphaned governess, as she navigates societal expectations, love, and her own identity."
     },
     {
         "id": 8,
@@ -69,6 +76,7 @@
         "writer": "J.R.R. Tolkien",
         "price": 14.99,
         "rating": 4.7,
-        "role": "New"
+        "status": "New",
+        "description": "An enchanting fantasy novel recounting the adventures of Bilbo Baggins as he accompanies a group of dwarves on a journey to reclaim their homeland."
     }
 ]
