@@ -4,7 +4,6 @@ import CheckoutForm from "./CheckoutForm";
 
 const stripePromise = loadStripe(`${import.meta.env.VITE_PAYMENT_GATEWAY_PK}`);
 const BuyingAmount = ({ totalAmountToBePaid, coinAmount, closeModal }: any) => {
-  console.log(coinAmount);
   return (
     <div>
       <p>
@@ -15,6 +14,7 @@ const BuyingAmount = ({ totalAmountToBePaid, coinAmount, closeModal }: any) => {
         <CheckoutForm
           closeModal={closeModal}
           totalAmountToBePaid={totalAmountToBePaid}
+          coinAmount={coinAmount}
         ></CheckoutForm>
       </Elements>
     </div>
