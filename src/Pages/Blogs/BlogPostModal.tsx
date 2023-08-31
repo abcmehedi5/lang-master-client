@@ -6,23 +6,13 @@ import axios from "axios";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useBlogData from "../../hooks/useBlogData";
 
-interface User {
-  photoURL: string;
-  displayName: string;
-  email: string;
-}
-
-interface AuthContextType {
-  user: User | null;
-}
-
 const BlogPostModal: React.FC<{
   setOpenPostModal: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setOpenPostModal }) => {
-  const { user } = useContext<AuthContextType>(AuthContext);
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const { user }: any = useContext(AuthContext);
+  const fileInputRef: any = useRef(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedFile, setSelectedFile]: any = useState(null);
   const { refetch } = useBlogData();
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +25,7 @@ const BlogPostModal: React.FC<{
     return date.toLocaleString();
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const form = e.target;
     const status = form.status.value;
@@ -67,7 +57,6 @@ const BlogPostModal: React.FC<{
         like: 0,
         comment: [],
       };
-      console.log(postData);
       axios
         .post("http://localhost:5000/blogs/blog", postData)
         .then((res) => {
@@ -88,7 +77,6 @@ const BlogPostModal: React.FC<{
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.log(error.message);
       Swal.fire({
         icon: "error",
         title: "Oops...",

@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
@@ -10,11 +10,11 @@ interface User {
 }
 
 const UserTable: React.FC = () => {
-  const {user} = useContext(AuthContext);
+  const { user }: any = useContext(AuthContext);
+  console.log(user);
+
   const [users, setUsers] = useState<User[]>([]);
   const [searchText, setSearchText] = useState<string>("");
-
-
 
   const handleSearch = () => {
     if (searchText !== "") {
@@ -40,8 +40,8 @@ const UserTable: React.FC = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        setUsers(users.filter(user => user._id !== _id));
-  
+        setUsers(users.filter((user) => user._id !== _id));
+
         fetch(`http://localhost:5000/users/user/${_id}`, {
           method: "DELETE",
         })
@@ -63,26 +63,26 @@ const UserTable: React.FC = () => {
       }
     });
   };
-  
+
   // admin created
-  const handleMakeAdmin = (user: string) => {
+  const handleMakeAdmin = (user: any) => {
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: 'PATCH'
+      method: "PATCH",
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      if(data.modifiedCount){
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: `${user.name} is an Admin Now!`,
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
-    })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is an Admin Now!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
 
   useEffect(() => {
     fetch("http://localhost:5000/users/user")
@@ -147,7 +147,10 @@ const UserTable: React.FC = () => {
                   <td>{user?.email}</td>
                   <td>{user?.role}</td>
                   <td>
-                    <select onChange={() => handleMakeAdmin(user)} className="select select-bordered w-25 max-w-xs">
+                    <select
+                      onChange={() => handleMakeAdmin(user)}
+                      className="select select-bordered w-25 max-w-xs"
+                    >
                       <option value="">Select</option>
                       <option value="user">User</option>
                       <option value="admin">Admin</option>

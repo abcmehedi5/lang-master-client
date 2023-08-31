@@ -39,7 +39,7 @@ const Profile: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const handleModalSubmit = (data: Profile) => {
+  const handleModalSubmit = (data: any) => {
     // Handle the data submitted from the modal (e.g., update the state or send to server)
     console.log(data);
   };

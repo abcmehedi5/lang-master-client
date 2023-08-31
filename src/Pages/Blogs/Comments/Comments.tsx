@@ -11,7 +11,7 @@ interface Comment {
 const Comments = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
-  const handleCommentSubmit = (newComment: Comment) => {
+  const handleCommentSubmit = (newComment: any) => {
     setComments((prevComments) => [newComment, ...prevComments]);
   };
 

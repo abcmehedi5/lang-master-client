@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
 // import Select from "react-select";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
 
 type QuizQuestion = {
@@ -29,8 +28,6 @@ const AddTopicData: React.FC = () => {
   const {
     register,
     handleSubmit,
-    control,
-    formState: { errors },
     getValues, 
     setValue, 
   } = useForm<FormValue>({

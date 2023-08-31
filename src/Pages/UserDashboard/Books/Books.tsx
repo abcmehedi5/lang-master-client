@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { FaRegStar, FaStar } from "react-icons/fa";
-import Rating from "react-rating";
+// import { FaRegStar, FaStar } from "react-icons/fa";
+// import Rating from "react-rating";
 
 type Book = {
   id: number;
@@ -14,7 +14,7 @@ type Book = {
   status: string;
 };
 
-const Books: React.FC = () => {
+const Books: any = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -47,7 +47,7 @@ const Books: React.FC = () => {
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 p-14">
-      {books.map((book) => (
+      {books.map((book: any) => (
         <div
           key={book.id}
           className="group relative block overflow-hidden cursor-pointer"
@@ -58,17 +58,15 @@ const Books: React.FC = () => {
             className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
           />
           <div className="relative border border-gray-100 bg-white p-6">
-          <span
-            className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"
-          >
-            {book.status}
-          </span>
+            <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium">
+              {book.status}
+            </span>
             <h3 className="mt-4 text-lg font-medium text-gray-900">
               {book.bookname}
             </h3>
             <h3 className="mt-4 font-medium">Writter: {book.writer}</h3>
             <div className="flex items-center">
-              <p>
+              {/* <p>
                 <Rating
                   placeholderRating={book.rating}
                   readonly
@@ -77,9 +75,11 @@ const Books: React.FC = () => {
                   fullSymbol={<FaStar />}
                 />{" "}
                 {book.rating}
-              </p>
+              </p> */}
             </div>
-            <p className="mt-1.5 text-sm text-gray-700"><b>Price:</b> ${book.price}</p>
+            <p className="mt-1.5 text-sm text-gray-700">
+              <b>Price:</b> ${book.price}
+            </p>
             <form className="mt-4">
               <button
                 onClick={(e) => {
@@ -107,7 +107,6 @@ const Books: React.FC = () => {
               </div>
             </div>
             <div>
-
               <div className="group block">
                 <img
                   src={selectedBook.bookimage}
@@ -117,9 +116,7 @@ const Books: React.FC = () => {
 
                 <div className="mt-3 flex justify-between text-sm">
                   <div>
-                    <h3
-                      className="text-gray-900 group-hover:underline group-hover:underline-offset-4 font-bold text-xl"
-                    >
+                    <h3 className="text-gray-900 group-hover:underline group-hover:underline-offset-4 font-bold text-xl">
                       {selectedBook.bookname}
                     </h3>
 
@@ -131,8 +128,6 @@ const Books: React.FC = () => {
                   <p className="text-gray-900">${selectedBook.price}</p>
                 </div>
               </div>
-
-
 
               <div className="flex justify-end mt-4">
                 <button

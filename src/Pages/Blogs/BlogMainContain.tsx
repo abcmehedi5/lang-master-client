@@ -15,10 +15,9 @@ import "swiper/css/pagination";
 
 const BlogMainContain = () => {
   const [showCommentInput, setShowCommentInput] = useState(false);
-  const [sharedData] = useState<string | null>(null);
+  const [sharedData]: any = useState(null);
 
   const { blog } = useBlogData();
-  console.log(blog);
 
   const itemsPerPage = 2;
   const maxDescriptionWords = 10;
@@ -28,7 +27,7 @@ const BlogMainContain = () => {
 
   const pagination = {
     clickable: true,
-    renderBullet: function (index: number, className: string) {
+    renderBullet: function (index: number, className: any) {
       return `<span class="${className} custom-pagination-bullet">${
         index + 1
       }</span>`;
@@ -36,8 +35,11 @@ const BlogMainContain = () => {
   };
 
   // Sort the blog array by uploadedtime in descending order
+  // const sortedBlog = [...blog].sort((a: any, b: any) => new Date(b.uploadedtime) - new Date(a.uploadedtime));
+  // Sort the blog array by uploadedtime in descending order
   const sortedBlog = [...blog].sort(
-    (a, b) => new Date(b.uploadedtime) - new Date(a.uploadedtime)
+    (a: any, b: any) =>
+      new Date(b.uploadedtime).getTime() - new Date(a.uploadedtime).getTime()
   );
 
   const truncateDescription = (description: string) => {
