@@ -7,7 +7,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { ImSpinner9 } from "react-icons/im";
 import { toast } from "react-hot-toast";
 
-const CheckoutForm = ({ closeModal, totalAmountToBePaid }: any) => {
+const CheckoutForm = ({ closeModal, totalAmountToBePaid, coinAmount }: any) => {
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
   const stripe = useStripe();
@@ -82,6 +82,9 @@ const CheckoutForm = ({ closeModal, totalAmountToBePaid }: any) => {
           .post("/payment/payment-info", { paymentInfo })
           .then((res) => {
             if (res.data.insertedId) {
+              axiosSecure.patch(`/users/user/${user?.email}`, {
+                score: coinAmount,
+              });
               toast.success("Payment Success");
               setProcessing(false);
               closeModal();
