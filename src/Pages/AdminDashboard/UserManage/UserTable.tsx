@@ -1,20 +1,38 @@
-import { useContext, useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/rules-of-hooks */
+
+
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../../Providers/AuthProvider";
+import { FaUserShield, FaUserAlt } from "react-icons/fa";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useUser from "../../../hooks/useUser";
+
 
 interface User {
   _id: string;
   name: string;
   email: string;
   role: string;
+  user : string
 }
 
 const UserTable: React.FC = () => {
-  const { user }: any = useContext(AuthContext);
-  console.log(user);
-
   const [users, setUsers] = useState<User[]>([]);
   const [searchText, setSearchText] = useState<string>("");
+  const [axiosSecure] = useAxiosSecure()
+ const  [singleUser, isLoading, refetch] = useUser()
+  
+
+
+  // const  {data:user=[] , isLoading , refetch} = useQuery({
+  //   queryKey:["user"],
+  //   queryFn: async () =>{
+  //     const res = axiosSecure.get("/users/user")
+  //     return (await res).data
+  //   }
+  // })
+
 
   const handleSearch = () => {
     if (searchText !== "") {
@@ -40,8 +58,8 @@ const UserTable: React.FC = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        setUsers(users.filter((user) => user._id !== _id));
-
+        setUsers(users.filter(user => user._id !== _id));
+  
         fetch(`http://localhost:5000/users/user/${_id}`, {
           method: "DELETE",
         })
@@ -63,26 +81,70 @@ const UserTable: React.FC = () => {
       }
     });
   };
-
+  
   // admin created
-  const handleMakeAdmin = (user: any) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${user.name} is an Admin Now!`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
-  };
+  const handleMakeAdmin =async (user : User) => {
+    console.log('btn  is click')
+    const response = await axiosSecure.patch(`/admins/user/admin/${user?._id}`);
+    const updatedUser = response.data;
+   
+      if(updatedUser.modifiedCount){
+       refetch()
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: `${user.name} is an Admin Now!`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+  
+  
+  
+    const handleMakeUser =async (user : User) => {
+      // const { data: updatedUser = {}, isLoading, refetch } = useQuery({
+      //   queryKey: ['user'],
+      //   queryFn: async () => {
+      //     try {
+      //       const res = await axiosSecure.patch(`/users/user/${user?._id}`); // Replace userId with the specific user's ID
+      //       const updatedUserData = res.data;
+    
+      //       if (updatedUserData.modifiedCount) {
+      //         refetch();
+      //         Swal.fire({
+      //           position: 'top-end',
+      //           icon: 'success',
+      //           title: `${updatedUser.name} is a User Now!`,
+      //           showConfirmButton: false,
+      //           timer: 1500,
+      //         });
+      //       }
+      //     } catch (error) {
+      //       // Handle errors
+      //       console.error('Error updating user:', error);
+      //     }
+      //   },
+      // });
+  
+  
+  
+      console.log('btn  is click')
+    const response = await axiosSecure.patch(`/makeUsers/user/makeUser/${user?._id}`);
+    const updatedUser = response.data;
+   
+      if(updatedUser.modifiedCount){
+       refetch()
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: `${user.name} is an User Now!`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }
+    }
+  
 
   useEffect(() => {
     fetch("http://localhost:5000/users/user")
@@ -133,8 +195,8 @@ const UserTable: React.FC = () => {
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>role</th>
-                <th>Select</th>
+               
+                <th>Role</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -145,16 +207,11 @@ const UserTable: React.FC = () => {
                   <th>{index + 1}</th>
                   <td>{user?.name}</td>
                   <td>{user?.email}</td>
-                  <td>{user?.role}</td>
+                 
                   <td>
-                    <select
-                      onChange={() => handleMakeAdmin(user)}
-                      className="select select-bordered w-25 max-w-xs"
-                    >
-                      <option value="">Select</option>
-                      <option value="user">User</option>
-                      <option value="admin">Admin</option>
-                    </select>
+                   {
+                    user.role  === 'admin' ? <span onClick={()=>handleMakeUser(user)}><FaUserShield className="text-2xl text-red-500 hover:cursor-pointer"></FaUserShield></span> : <span onClick={()=> handleMakeAdmin(user)}> <FaUserAlt className="text-2xl text-red-500 hover:cursor-pointer" > </FaUserAlt></span>   
+                   }
                   </td>
                   <td>
                     <button
