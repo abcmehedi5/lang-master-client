@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 interface Question {
@@ -59,6 +60,7 @@ const UpdateQuestion: React.FC = () => {
       }
     });
   };
+  
 
   useEffect(() => {
     fetch("http://localhost:5000/learning-questions/questions")
@@ -101,7 +103,9 @@ const UpdateQuestion: React.FC = () => {
                 <td>{question.question}</td>
                 <td>{question.correctAnswer}</td>
                 <td>
-                  <button className="btn btn-primary btn-sm">Update</button>
+                  <Link to={`/updatemodal/${question.id}`}>
+                    <button className="btn btn-primary btn-sm">Update</button>
+                  </Link>
                 </td>
                 <td>
                   <button

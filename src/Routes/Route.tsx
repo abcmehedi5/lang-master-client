@@ -26,6 +26,7 @@ import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 
 import AdminRoute from "./AdminRoute";
 import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
+import UpdateModal from "../Pages/AdminDashboard/updateModal";
 
 const router = createBrowserRouter([
   {
@@ -159,7 +160,7 @@ const router = createBrowserRouter([
       {
         path: "update-question",
         element: <UpdateQuestion/>,
-      },
+      }
     ],
   },
   {
