@@ -21,7 +21,9 @@ const AddCategoryQuiz: React.FC = () => {
   } = useForm<FormValue>({
     defaultValues: {
       Level: "easy",
-      questionData: [{ question: "", options: ["", "", ""], correctAnswer: "" }],
+      questionData: [
+        { question: "", options: ["", "", ""], correctAnswer: "" },
+      ],
     },
   });
 
@@ -32,7 +34,10 @@ const AddCategoryQuiz: React.FC = () => {
   const onSubmit: SubmitHandler<FormValue> = async (data) => {
     try {
       // Send data to the server using axios or your preferred HTTP library
-      const response = await axios.post("http://localhost:5000/quizs/quiz", data);
+      const response = await axios.post(
+        "http://localhost:5000/quizs/quiz",
+        data
+      );
       if (response.status === 200) {
         // Successfully saved data
         console.log("Data saved successfully!");
@@ -62,7 +67,10 @@ const AddCategoryQuiz: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* level */}
         <div>
-          <label htmlFor="question" className="block form-control text-sm font-medium">
+          <label
+            htmlFor="question"
+            className="block form-control text-sm font-medium"
+          >
             Level
           </label>
           <Controller
@@ -84,9 +92,14 @@ const AddCategoryQuiz: React.FC = () => {
         {/* questionData */}
         {questionData.map((question, questionIndex) => (
           <div key={questionIndex}>
-            <h3 className="text-sm font-medium">Question {questionIndex + 1}</h3>
+            <h3 className="text-sm font-medium">
+              Question {questionIndex + 1}
+            </h3>
             <div>
-              <label htmlFor={`questionData.${questionIndex}.question`} className="block form-control text-sm font-medium">
+              <label
+                htmlFor={`questionData.${questionIndex}.question`}
+                className="block form-control text-sm font-medium"
+              >
                 Question
               </label>
               <input
@@ -110,7 +123,9 @@ const AddCategoryQuiz: React.FC = () => {
                     <input
                       className="w-full border rounded-md p-2 mt-2 input input-bordered "
                       id={`questionData.${questionIndex}.options.${optionIndex}`}
-                      {...register(`questionData.${questionIndex}.options.${optionIndex}`)}
+                      {...register(
+                        `questionData.${questionIndex}.options.${optionIndex}`
+                      )}
                     />
                   </div>
                 </div>
@@ -118,7 +133,10 @@ const AddCategoryQuiz: React.FC = () => {
             </div>
             {/* Correct Answer */}
             <div>
-              <label htmlFor={`questionData.${questionIndex}.correctAnswer`} className="block form-control text-sm font-medium">
+              <label
+                htmlFor={`questionData.${questionIndex}.correctAnswer`}
+                className="block form-control text-sm font-medium"
+              >
                 Correct Answer
               </label>
               <input

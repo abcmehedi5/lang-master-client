@@ -82,6 +82,7 @@ const CheckoutForm = ({ closeModal, totalAmountToBePaid, coinAmount }: any) => {
           .post("/payment/payment-info", { paymentInfo })
           .then((res) => {
             if (res.data.insertedId) {
+              //user score update on db
               axiosSecure.patch(`/users/user/${user?.email}`, {
                 score: coinAmount,
               });
