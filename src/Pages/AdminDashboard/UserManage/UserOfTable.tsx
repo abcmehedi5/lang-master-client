@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { FaUserShield, FaUserAlt } from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import useUser from "../../../hooks/useUser";
+// import useUser from "../../../hooks/useUser";
 
 interface User {
   _id: string;
@@ -19,7 +19,7 @@ const UserOfTable: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [searchText, setSearchText] = useState<string>("");
   const [axiosSecure] = useAxiosSecure();
-  const [singleUser, isLoading, refetch] = useUser();
+  //   const [singleUser, isLoading, refetch] = useUser();
 
   // const  {data:user=[] , isLoading , refetch} = useQuery({
   //   queryKey:["user"],
@@ -84,7 +84,7 @@ const UserOfTable: React.FC = () => {
     const updatedUser = response.data;
 
     if (updatedUser.modifiedCount) {
-      refetch();
+      //   refetch();
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -127,7 +127,7 @@ const UserOfTable: React.FC = () => {
     const updatedUser = response.data;
 
     if (updatedUser.modifiedCount) {
-      refetch();
+      //   refetch();
       Swal.fire({
         position: "top-end",
         icon: "success",
