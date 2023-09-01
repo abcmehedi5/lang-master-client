@@ -1,13 +1,14 @@
 import Chart from "./Chart";
 import UserInfo from "./UserInfo";
-import UserTable from "./UserTable";
+import UserOfTable from "./UserOfTable";
 
 const UserManage = () => {
   return (
     <div>
       <UserInfo></UserInfo>
       <Chart></Chart>
-      <UserTable></UserTable>
+      {/* <UserTable></UserTable> */}
+      <UserOfTable></UserOfTable>
     </div>
   );
 };
