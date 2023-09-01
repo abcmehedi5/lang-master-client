@@ -21,4 +21,23 @@ const useUser = () => {
   return [singleUser, isLoading, refetch];
 };
 
+
+
 export default useUser;
+
+// export const useAllUser = () => {
+//   const [axiosSecure] = useAxiosSecure();
+//   const { user } = useContext(AuthContext); // Ensure you're using the right property name
+//   const email = user?.email;
+
+//   const {
+//     data: allUser,
+//     isLoading,
+//     refetch,
+//   } = useQuery('allUser', async () => {
+//     const res = await axiosSecure.get('/users/user');
+//     return res.data;
+//   });
+
+//   return [allUser, isLoading, refetch];
+// };
