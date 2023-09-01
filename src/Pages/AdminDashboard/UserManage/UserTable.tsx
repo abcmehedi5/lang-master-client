@@ -1,6 +1,5 @@
-import {useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../../Providers/AuthProvider";
 
 interface User {
   _id: string;
@@ -10,7 +9,7 @@ interface User {
 }
 
 const UserTable: React.FC = () => {
-  const {user} = useContext(AuthContext);
+ 
   const [users, setUsers] = useState<User[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
