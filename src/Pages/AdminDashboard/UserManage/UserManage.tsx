@@ -1,6 +1,5 @@
 import Chart from "./Chart";
 import UserInfo from "./UserInfo";
-import UserOfTable from "./UserOfTable";
 
 const UserManage = () => {
   return (
@@ -8,7 +7,7 @@ const UserManage = () => {
       <UserInfo></UserInfo>
       <Chart></Chart>
       {/* <UserTable></UserTable> */}
-      <UserOfTable></UserOfTable>
+   
     </div>
   );
 };
