@@ -66,10 +66,12 @@ const CoinBuy = () => {
 
       {/* RIght side  */}
       <div className="col-span-8">
-        <h1>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil
-          temporibus, eos minima doloremque eius molestiae.
-        </h1>
+        <h1 className="font-bold text-xl">কয়েন দিয়ে কি করতে পারবে?</h1>
+        <p className="max-w-xl">
+          কয়েন ব্যবহার করে একজন ইউজার আমাদের পিডিএফ বই অথবা প্রয়োজনীয় ডকুমেন্ট
+          কিনতে পারবে। <br /> সেইসাথে নতুন ইউনিট আনলক করার ক্ষেত্রেও কয়েন কাজে
+          আসবে।
+        </p>
       </div>
     </div>
   );
