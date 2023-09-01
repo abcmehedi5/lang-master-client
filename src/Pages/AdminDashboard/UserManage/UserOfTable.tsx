@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/rules-of-hooks */
 
-import { useQuery } from "@tanstack/react-query";
+
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { FaUserShield, FaUserAlt } from "react-icons/fa";
