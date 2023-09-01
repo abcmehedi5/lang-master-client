@@ -19,6 +19,9 @@ import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
 import Faq from "../Pages/Faq/Faq";
+import Shop from "../Pages/UserDashboard/Shop/Shop";
+import Books from "../Pages/UserDashboard/Books/Books";
+import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
@@ -117,7 +120,7 @@ const router = createBrowserRouter([
       },
       {
         path: "shop",
-        element: <Shop></Shop>,
+        element: <Shop/>,
       },
       {
         path: "profile",

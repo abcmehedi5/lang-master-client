@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Select from "react-select";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 type FormValue = {
   Level: string;
@@ -17,6 +18,7 @@ const AddCategoryQuiz: React.FC = () => {
     register,
     handleSubmit,
     control,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors },
   } = useForm<FormValue>({
     defaultValues: {
@@ -35,9 +37,9 @@ const AddCategoryQuiz: React.FC = () => {
       const response = await axios.post("http://localhost:5000/quizs/quiz", data);
       if (response.status === 200) {
         // Successfully saved data
-        console.log("Data saved successfully!");
+        toast.success("Data saved successfully!");
       } else {
-        console.error("Failed to save data");
+        toast.error("Failed to save data");
       }
     } catch (error) {
       console.error("Error saving data:", error);

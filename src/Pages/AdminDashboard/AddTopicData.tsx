@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+
 // import Select from "react-select";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 type QuizQuestion = {
   question: string;
@@ -18,7 +18,7 @@ type Lesson = {
 };
 
 type FormValue = {
-  _id: number;
+  id: number;
   unit: string;
   topic: string;
   totalLessons: string;
@@ -29,13 +29,12 @@ const AddTopicData: React.FC = () => {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
     getValues, 
     setValue, 
   } = useForm<FormValue>({
     defaultValues: {
-      _id: 1,
+      id: 1,
       unit: "",
       topic: "",
       totalLessons: "",
@@ -62,12 +61,13 @@ const AddTopicData: React.FC = () => {
       const response = await axios.post("http://localhost:5000/learning-questions/questions", data);
       if (response.status === 200) {
         // Successfully saved data
-        console.log("তথ্যটি সফলভাবে সংরক্ষিত হয়েছে!");
+        toast("তথ্যটি সফলভাবে সংরক্ষিত হয়েছে!");
+        
       } else {
         console.error("তথ্য সংরক্ষণে সমস্যা হয়েছে");
       }
     } catch (error) {
-      console.error("তথ্য সংরক্ষণে সমস্যা:", error);
+      toast("তথ্য সংরক্ষণে সমস্যা", error);
     }
     console.log(data);
   };
