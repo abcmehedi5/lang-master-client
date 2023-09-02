@@ -1,3 +1,124 @@
 .banner{
-    min-height: 700px;
+    /* min-height: 700px; */
+    z-index: 1;
 }
+
+
+
+.imgbanner {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    margin-left: 50px;
+    background: linear-gradient(147.92deg, rgba(255, 255, 255, .4) 11.41%, rgba(255, 255, 255, 0) 90.25%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+}
+
+/* .imgbanner img::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: -45px;
+    width: 719px;
+    height: 719px;
+    background: linear-gradient(147.92deg, rgba(255, 255, 255, .4) 11.41%, rgba(255, 255, 255, 0) 90.25%);
+    border-radius: 50%;
+    z-index: 10;
+} */
+
+/* <!-- HTML !-->
+<button class="button-52" role="button">Button 52</button> */
+
+/* CSS */
+.button-52 {
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-52:after {
+  content: "";
+  background-color: #eebb2e;
+  width: 100%;
+  z-index: -2;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 50px 13px;
+  }
+}
+
+
+/* ------------------------------ */
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animatespin {
+    animation: spin 40s linear infinite;
+  }
+  
+   
+  @keyframes updown {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-updown {
+    animation: updown 4s ease-in-out infinite;
+  }
+
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .shake-effect:hover {
+    animation: shake 0.5s;
+  }

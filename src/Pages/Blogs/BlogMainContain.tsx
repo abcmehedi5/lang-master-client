@@ -116,7 +116,7 @@ const BlogMainContain = () => {
                     </div>
                     <div className="card-actions justify-between m-4 font-semibold text-2xl">
                       {/* Like  */}
-                      <Like postId = {item._id}/>
+                      <Like postId = {item._id} like={item.like}/>
                       {/* Comment */}
                       <button
                         onClick={() => setShowCommentInput(!showCommentInput)}
