@@ -77,7 +77,7 @@ const Cover: React.FC<CoverProps> = () => {
   <div className='animate-updown hidden md:block absolute top-32  left-[10%] h-20 w-20 opacity-80'><img src={shap3} /></div>
   
 
- <div className="imgbanner relative md:h-[500px] h-[350px] rounded-full ml-[50px] md:w-1/2 ">
+ <div className="imgbanner relative md:h-[500px] h-[350px] rounded-full md:ml-[50px] md:w-1/2 ">
     <img className="w-full h-full" src="https://i.ibb.co/s1vDwGW/banner-img-1.png" alt="" />
   
  </div>
