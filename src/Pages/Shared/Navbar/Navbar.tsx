@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
       </p>
       <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
-          to="/"
+          to="/contact"
           title="contact us"
           className={({ isActive }) => (isActive ? " underline-cus" : "")}
         >
