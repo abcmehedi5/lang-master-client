@@ -93,10 +93,9 @@ const Navbar: React.FC = () => {
   );
 
   return (
-    <div 
-    // className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5"
-    className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-5"
-    
+    <div
+      // className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5"
+      className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-5"
     >
       <div className="navbar-start flex">
         <div className="dropdown">
@@ -121,7 +120,11 @@ const Navbar: React.FC = () => {
 
         <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
           {/* LANG-MASTER */}
-          <img className="md:w-36 md:h-20 h-[74px] w-28 object-cover" src="https://i.ibb.co/bW9Mtdc/0001-7305240235375941366-removebg-preview.png" alt="" />
+          <img
+            className="md:w-36 md:h-20 h-[74px] w-28 object-cover"
+            src="https://i.ibb.co/bW9Mtdc/0001-7305240235375941366-removebg-preview.png"
+            alt=""
+          />
         </Link>
 
         <div className="navbar-center hidden lg:flex">

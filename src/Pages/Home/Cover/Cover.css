@@ -1,14 +1,15 @@
-.banner{
-    z-index: 1;
+.banner {
+  z-index: 1;
 }
-
-
 
 .imgbanner {
-    z-index: 1;
-    background: linear-gradient(147.92deg, rgba(255, 255, 255, .4) 11.41%, rgba(255, 255, 255, 0) 90.25%);
+  z-index: 1;
+  background: linear-gradient(
+    147.92deg,
+    rgba(255, 255, 255, 0.4) 11.41%,
+    rgba(255, 255, 255, 0) 90.25%
+  );
 }
-
 
 /* CSS */
 .button-52 {
@@ -49,32 +50,30 @@
   }
 }
 
-
 /* ------------------------------ */
 @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .animatespin {
-    animation: spin 40s linear infinite;
+  100% {
+    transform: rotate(360deg);
   }
-  
-   
-  @keyframes updown {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
+}
+
+.animatespin {
+  animation: spin 40s linear infinite;
+}
+
+@keyframes updown {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  
-  .animate-updown {
-    animation: updown 4s ease-in-out infinite;
+  50% {
+    transform: translateY(-10px);
   }
+}
+
+.animate-updown {
+  animation: updown 4s ease-in-out infinite;
+}
