@@ -31,7 +31,7 @@ const UpdateQuestion: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {questions.map((question, index) => (
+            {questions.map((question:any, index) => (
               <tr key={question.id}>
                 <th>{index + 1}</th>
                 <td>{question.topic}</td>

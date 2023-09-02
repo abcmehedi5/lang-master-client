@@ -30,7 +30,8 @@ const Quizzes = () => {
 
   const { id } = useParams<{ id: string }>();
 
-  const { allQuizeData } = useQuize();
+  const [allQuizeData] = useQuize();
+  console.log(allQuizeData);
 
   const quizData = allQuizeData.filter(
     (quizdataa: QuizData) => quizdataa._id == id
@@ -138,23 +139,25 @@ const Quizzes = () => {
                 {comment}
               </p>
 
-              {scorePercentage < 70 ? (
-                <p className="mb-4 text-red-400">
-                  You are not able to get coin
-                </p>
-              ) : (
-                <button
-                  className="defaultBtn mb-4"
-                  onClick={handleQuizCompleted}
-                  disabled={pointCollectionProcessing}
-                >
-                  {pointCollectionProcessing ? (
-                    <ImSpinner9 className="mx-auto animate-spin"></ImSpinner9>
-                  ) : (
-                    "Collect Points"
-                  )}
-                </button>
-              )}
+              <>
+                {scorePercentage < 70 ? (
+                  <p className="mb-4 text-red-400">
+                    You are not able to get coin
+                  </p>
+                ) : (
+                  <button
+                    className="defaultBtn mb-4"
+                    onClick={handleQuizCompleted}
+                    disabled={pointCollectionProcessing}
+                  >
+                    {pointCollectionProcessing ? (
+                      <ImSpinner9 className="mx-auto animate-spin"></ImSpinner9>
+                    ) : (
+                      "Collect Points"
+                    )}
+                  </button>
+                )}
+              </>
 
               <div className="flex justify-center gap-3">
                 <div>

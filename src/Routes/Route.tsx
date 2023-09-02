@@ -24,9 +24,9 @@ import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 import AdminRoute from "./AdminRoute";
+import Shop from "./../Pages/UserDashboard/Shop/Shop";
 import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -110,11 +110,15 @@ const router = createBrowserRouter([
         path: "mainquiz/:id",
         element: <Quizzes></Quizzes>,
         loader: ({ params }) =>
-          fetch(`../../../public/quizzess.jsonp/${params.id}`),
+          fetch(`http://localhost:5000/quizs/quiz/${params.id}`),
       },
       {
         path: "grammar",
         element: <Grammar></Grammar>,
+      },
+      {
+        path: "shop",
+        element: <Shop></Shop>,
       },
       {
         path: "profile",
@@ -162,7 +166,7 @@ const router = createBrowserRouter([
       },
       {
         path: "update-question",
-        element: <UpdateQuestion/>,
+        element: <UpdateQuestion />,
       },
     ],
   },

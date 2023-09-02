@@ -8,8 +8,8 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const Blogs = () => {
   const { blog } = useBlogData();
-  const { user } = useContext(AuthContext)
-  const myBlogs = blog.filter(item => item.email === user?.email)
+  const { user }:any = useContext(AuthContext)
+  const myBlogs = blog.filter((item:any) => item.email === user?.email)
 
 
   return (

@@ -5,19 +5,11 @@ import { BsFillEmojiHeartEyesFill } from "react-icons/bs";
 import BlogPostModal from "./BlogPostModal";
 
 // Define types for user and AuthContext
-interface User {
-  photoURL: string;
-  displayName: string;
-}
-
-interface AuthContextType {
-  user: User | null;
-}
 
 const BlogPost: React.FC = () => {
   const [openPostModal, setOpenPostModal] = useState<boolean>(false);
 
-  const { user } = useContext<AuthContextType>(AuthContext);
+  const { user }: any = useContext(AuthContext);
   return (
     <div className="mt-5">
       <div

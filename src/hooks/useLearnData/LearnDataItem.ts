@@ -20,5 +20,6 @@ export interface LessonQuiz {
     points: string;
     progress: string;
     lessons: Lesson[];
+    singleUser:any
   }
   

@@ -13,15 +13,12 @@ type FormValue = {
 };
 
 const AddCategoryQuiz: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm<FormValue>({
+  const { register, handleSubmit, control } = useForm<FormValue>({
     defaultValues: {
       Level: "easy",
-      questionData: [{ question: "", options: ["", "", ""], correctAnswer: "" }],
+      questionData: [
+        { question: "", options: ["", "", ""], correctAnswer: "" },
+      ],
     },
   });
 
@@ -32,7 +29,10 @@ const AddCategoryQuiz: React.FC = () => {
   const onSubmit: SubmitHandler<FormValue> = async (data) => {
     try {
       // Send data to the server using axios or your preferred HTTP library
-      const response = await axios.post("http://localhost:5000/quizs/quiz", data);
+      const response = await axios.post(
+        "http://localhost:5000/quizs/quiz",
+        data
+      );
       if (response.status === 200) {
         // Successfully saved data
         console.log("Data saved successfully!");
@@ -62,13 +62,16 @@ const AddCategoryQuiz: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* level */}
         <div>
-          <label htmlFor="question" className="block form-control text-sm font-medium">
+          <label
+            htmlFor="question"
+            className="block form-control text-sm font-medium"
+          >
             Level
           </label>
           <Controller
             name="Level"
             control={control}
-            render={({ field }) => (
+            render={({ field }: any) => (
               <Select
                 {...field}
                 options={[
@@ -84,9 +87,14 @@ const AddCategoryQuiz: React.FC = () => {
         {/* questionData */}
         {questionData.map((question, questionIndex) => (
           <div key={questionIndex}>
-            <h3 className="text-sm font-medium">Question {questionIndex + 1}</h3>
+            <h3 className="text-sm font-medium">
+              Question {questionIndex + 1}
+            </h3>
             <div>
-              <label htmlFor={`questionData.${questionIndex}.question`} className="block form-control text-sm font-medium">
+              <label
+                htmlFor={`questionData.${questionIndex}.question`}
+                className="block form-control text-sm font-medium"
+              >
                 Question
               </label>
               <input
@@ -97,27 +105,33 @@ const AddCategoryQuiz: React.FC = () => {
             </div>
 
             {/* Options */}
-            {question.options.map((_, optionIndex) => (
-              <div key={optionIndex} className=" flex gap-3">
-                <div className="  w-1/3">
-                  <label
-                    htmlFor={`questionData.${questionIndex}.options.${optionIndex}`}
-                    className="block form-control text-sm font-medium"
-                  >
-                    Option {optionIndex + 1}
-                  </label>
-                  <input
-                    className="w-full border rounded-md p-2 mt-2 input input-bordered "
-                    id={`questionData.${questionIndex}.options.${optionIndex}`}
-                    {...register(`questionData.${questionIndex}.options.${optionIndex}`)}
-                  />
+            <div className="flex gap-3">
+              {question.options.map((_, optionIndex) => (
+                <div key={optionIndex} className="w-1/3 ">
+                  <div>
+                    <label
+                      htmlFor={`questionData.${questionIndex}.options.${optionIndex}`}
+                      className="block form-control text-sm font-medium"
+                    >
+                      Option {optionIndex + 1}
+                    </label>
+                    <input
+                      className="w-full border rounded-md p-2 mt-2 input input-bordered "
+                      id={`questionData.${questionIndex}.options.${optionIndex}`}
+                      {...register(
+                        `questionData.${questionIndex}.options.${optionIndex}`
+                      )}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-
+              ))}
+            </div>
             {/* Correct Answer */}
             <div>
-              <label htmlFor={`questionData.${questionIndex}.correctAnswer`} className="block form-control text-sm font-medium">
+              <label
+                htmlFor={`questionData.${questionIndex}.correctAnswer`}
+                className="block form-control text-sm font-medium"
+              >
                 Correct Answer
               </label>
               <input
@@ -133,7 +147,7 @@ const AddCategoryQuiz: React.FC = () => {
         <button
           type="button"
           onClick={addQuestion}
-          className="btn bg-[#088395] hover:bg-[#21bbd3] text-white w-full px-4 py-2 rounded-md font-semibold"
+          className="btn hover:bg-[#088395] bg-slate-600 text-white w-full px-4 py-2 rounded-md font-semibold"
         >
           Add Question
         </button>

@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
-import { AiFillCaretRight } from 'react-icons/ai';
+import React, { useState } from "react";
+import { AiFillCaretRight } from "react-icons/ai";
 
 interface CommentInputProps {
   onComment: (newComment: Comment) => void;
 }
 
-const CommentInput: React.FC<CommentInputProps> = ({ onComment }: CommentInputProps) => {
-  const [commentBody, setCommentBody] = useState('');
+const CommentInput: React.FC<CommentInputProps> = ({
+  onComment,
+}: CommentInputProps) => {
+  const [commentBody, setCommentBody] = useState("");
 
   const handleCommentSubmit = () => {
-    if (commentBody.trim() !== '') {
-      const newComment: Comment = {
+    if (commentBody.trim() !== "") {
+      const newComment: any = {
         id: new Date().toISOString(),
         body: commentBody,
         comments: [],
       };
       onComment(newComment);
-      setCommentBody('');
+      setCommentBody("");
     }
   };
 
