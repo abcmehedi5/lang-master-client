@@ -120,7 +120,8 @@ const Navbar: React.FC = () => {
         </div>
 
         <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
-          LANG-MASTER
+          {/* LANG-MASTER */}
+          <img className="w-36 h-20 object-cover" src="https://i.ibb.co/bW9Mtdc/0001-7305240235375941366-removebg-preview.png" alt="" />
         </Link>
 
         <div className="navbar-center hidden lg:flex">
