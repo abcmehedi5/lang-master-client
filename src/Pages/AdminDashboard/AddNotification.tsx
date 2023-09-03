@@ -25,7 +25,7 @@ const AddNotification: React.FC = () => {
       </Helmet>
       <div className="p-4 lg:w-11/12">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <h1 className="text-2xl font-semibold">Notification Added</h1>
+          <h1 className="text-2xl font-semibold text-center text-cyan-500 mt-10">নোটিফিকেশন যোগ করুন</h1>
           <div>
             <label className="block text-sm font-medium">Your Position:</label>
             <input
