@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BiLike } from "react-icons/bi";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { AiTwotoneLike } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart, AiTwotoneLike } from "react-icons/ai";
 
 interface LikeProps {
   postId: string;
@@ -87,14 +87,12 @@ const Like: React.FC<LikeProps> = ({ postId }) => {
   return (
     <div className="text-2xl">
       <button
-        className={`flex items-center font-semibold text-xl ${
-          likeActive ? "text-yellow-600" : "text-black"
-        }`}
+        className= "flex items-center font-semibold text-xl"
         onClick={likeData}
         // disabled={likeActive} // Disable the button when already liked
       >
-        <span className="text-3xl gap-1 items-center flex">
-          {likeActive ? <AiTwotoneLike /> : <BiLike />}
+        <span className="text-4xl gap-1 items-center flex">
+          {likeActive ? <AiFillHeart className='text-rose-500' /> : <AiOutlineHeart />}
           {like ? 1 : 0}
         </span>
       </button>
