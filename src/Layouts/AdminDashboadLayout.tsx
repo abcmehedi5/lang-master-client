@@ -93,6 +93,15 @@ const AdminDashboadLayout = () => {
               Add Unit
             </Link>
           </li>
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+            <Link
+              to="/admin-dashboard/allPayment"
+              className="flex gap-2 items-center"
+            >
+              <MdQuiz style={{ fontSize: "30px" }} />
+              Payment History
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
