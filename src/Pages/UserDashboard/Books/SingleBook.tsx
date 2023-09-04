@@ -1,22 +1,58 @@
 import { AiFillCloseCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
+import useUser from "../../../hooks/useUser";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const SingleBook = ({ handleModalClose, selectedBook }: any) => {
-  const handleBuyNow = () => {
-    console.log("btn buy now", selectedBook.price);
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You want to Buy this!",
-      icon: "info",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, Sure!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire("Success!", "Your Bought This Book.", "success");
-      }
-    });
+  const [singleUser] = useUser();
+  const { user }: any = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
+  const navigate = useNavigate();
+  const handleBuyNow = async () => {
+    const bookPrice = selectedBook?.price;
+    if (singleUser?.score >= selectedBook?.price) {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You want to Buy this!",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Sure!",
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          // decreamenting the score after successfull buy
+          const response = await axiosSecure.patch(
+            `/users/user/${user?.email}`,
+            {
+              score: -bookPrice,
+            }
+          );
+          if (response.data.modifiedCount > 0) {
+            Swal.fire("Success!", "Your Bought This Book.", "success");
+            // navigate to my book page
+            // navigate("/user-dashboard/books");
+          }
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "একাউন্টে যথেষ্ট কয়েন নেই?",
+        text: "কয়েন কিনুন পেইজ থেকে কয়েন কিনতে ইছুক?",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Sure!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/user-dashboard/shop");
+        }
+      });
+    }
   };
   return (
     <>
@@ -50,7 +86,7 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
                   </p>
                 </div>
 
-                <p className="text-gray-900">${selectedBook.price}</p>
+                <p className="text-red-600">{selectedBook.price} Coin</p>
               </div>
             </div>
 
