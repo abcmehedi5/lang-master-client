@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 interface Question {
@@ -27,6 +27,8 @@ interface FetchedData {
 
 const UpdateQuestion: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
+  // const { id } = useParams<{ id: string }>();
+  // console.log(id);
 
   const handleDelete = (id: number) => {
     Swal.fire({
@@ -86,38 +88,39 @@ const UpdateQuestion: React.FC = () => {
   return (
     <div>
       <div className="overflow-x-auto p-14">
-        <h2 className="font-bold text-2xl text-cyan-500 text-center mb-5">আপনার প্রশ্নগুলো আপডেট বা পরিবর্তন করুন <br /> এবং অপ্রয়োজনীয় প্রশ্নগুলো ডিলেট করুনঃ </h2>
+        <h2 className="font-bold text-2xl text-cyan-500 text-center mb-5">
+          Update or Delete Questions:
+        </h2>
         <table className="table">
           <thead>
             <tr>
               <th>#</th>
               <th>Question</th>
               <th>Correct Answer</th>
-              <th>Update</th>
-              <th>Delete</th> 
+              {/* <th>Update</th> */}
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody className="border-2">
             {questions.map((question, index) => (
-             <tr key={question.id} className="border-2">
-             <th className="border-2">{index + 1}</th>
-             <td className="border-2">{question.question}</td>
-             <td>{question.correctAnswer}</td>
-             <td className="border-2 text-center">
-               <Link to={`/updatemodal/${question.id}`}>
-                 <button className="btn btn-primary btn-sm mx-auto">Update</button> 
-               </Link>
-             </td>
-             <td className="border-2 text-center">
-               <button
-                 onClick={() => handleDelete(question.id)}
-                 className="btn bg-red-500 hover:bg-red-600 text-white btn-sm mx-auto" 
-               >
-                 Delete
-               </button>
-             </td>
-           </tr>
-           
+              <tr key={question.id} className="border-2">
+                <th className="border-2">{index + 1}</th>
+                <td className="border-2">{question.question}</td>
+                <td className="border-2">{question.correctAnswer}</td>
+                {/* <td className="border-2 text-center">
+                <Link to={`/admin-dashboard/update/${question.id}`}>
+                  <button className="btn btn-primary btn-sm mx-auto">Update</button>
+                </Link>
+                </td> */}
+                <td className="border-2 text-center">
+                  <button
+                    onClick={() => handleDelete(question.id)}
+                    className="btn bg-red-500 hover:bg-red-600 text-white btn-sm mx-auto"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>

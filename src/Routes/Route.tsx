@@ -25,8 +25,8 @@ import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 
 import AdminRoute from "./AdminRoute";
-import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
-import UpdateModal from "../Pages/AdminDashboard/updateModal";
+import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion/UpdateQuestion";
+import Update from "../Pages/AdminDashboard/UpdateQuestion/update";
 
 const router = createBrowserRouter([
   {
@@ -160,7 +160,13 @@ const router = createBrowserRouter([
       {
         path: "update-question",
         element: <UpdateQuestion/>,
-      }
+      },
+      // {
+      //   path: "update/:id",
+      //   element: <Update />,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/learning-questions/questions${params.id}`),
+      // }      
     ],
   },
   {
