@@ -11,7 +11,7 @@ const Faq = () => {
           asked questions. Find helpful information on a variety of topics to
           enhance your experience
         </p>
-        <Link to="/faq-section">
+        <Link to="/faq">
           <button className="defaultBtn">Learn More</button>
         </Link>
       </div>

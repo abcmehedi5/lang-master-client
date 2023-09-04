@@ -47,15 +47,6 @@ const Navbar: React.FC = () => {
       </p>
       <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
         <NavLink
-          to="/contact"
-          title="contact us"
-          className={({ isActive }) => (isActive ? " underline-cus" : "")}
-        >
-          <p className="px-4 py-4">Contact us</p>
-        </NavLink>
-      </p>
-      <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
-        <NavLink
           to="/about-us"
           title="Our Classs"
           className={({ isActive }) => (isActive ? " underline-cus" : "")}
@@ -87,13 +78,16 @@ const Navbar: React.FC = () => {
     <div>
       <Link to="/user-dashboard/learning">
         {" "}
-        <button className="defaultBtn">GET STARTED</button>
+        <button className="defaultBtn btn-md">GET STARTED</button>
       </Link>
     </div>
   );
 
   return (
-    <div className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5">
+    <div
+      // className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5"
+      className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-5"
+    >
       <div className="navbar-start flex">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -116,7 +110,12 @@ const Navbar: React.FC = () => {
         </div>
 
         <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
-          LANG-MASTER
+          {/* LANG-MASTER */}
+          <img
+            className="md:w-36 md:h-20 h-[74px] w-28 object-cover"
+            src="https://i.ibb.co/bW9Mtdc/0001-7305240235375941366-removebg-preview.png"
+            alt=""
+          />
         </Link>
 
         <div className="navbar-center hidden lg:flex">
@@ -134,7 +133,7 @@ const Navbar: React.FC = () => {
         <Notification></Notification>
         {/* -------- user profile */}
         {user ? (
-          <div className="dropdown dropdown-end z-10">
+          <div className="dropdown dropdown-end z-[1000000]">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img src={user?.photoURL} />
@@ -142,7 +141,7 @@ const Navbar: React.FC = () => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3 z-[10000000] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
                 <a className="justify-between">

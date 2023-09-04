@@ -75,6 +75,15 @@ const AdminDashboadLayout = () => {
               Add Notification
             </Link>
           </li>
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+            <Link
+              to="/admin-dashboard/update-question"
+              className="flex gap-2 items-center"
+            >
+              <MdQuiz style={{ fontSize: "30px" }} />
+              Update Question
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

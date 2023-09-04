@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import cardBg from "./../../../assets/learningCardBg2.svg";
-import { LearnDataItem } from "../../../hooks/useLearnData/LearnDataItem";
+// import { LearnDataItem } from "../../../hooks/useLearnData/LearnDataItem";
 import { FaLock, FaUnlock } from "react-icons/fa";
 
-interface singleUnitProps {
-  singleUnit: LearnDataItem;
-}
-const SingleUnitCard: React.FC<singleUnitProps> = ({
+// interface singleUnitProps {
+//   singleUnit: LearnDataItem;
+// }
+const SingleUnitCard = ({
   singleUnit,
   singleUser,
 }: any) => {

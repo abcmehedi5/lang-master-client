@@ -5,21 +5,18 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: 5px;
-    background-color: #8c45ff; /* The color of the underline */
-    bottom: -1px;
+    height: 2px;
+    background-color: #ffffff; 
+    bottom: 1px;
     left: 0;
   }
  
-  
-  /* Add a transition effect to the underline when the NavLink elements are active */
   .underline-cus::after {
-    transition: width 0.3s ease; /* Add a smooth transition effect */
+    transition: width 0.3s ease; 
   }
   
-  /* Optional: You can also add a hover effect for better user feedback */
   .underline-cus:hover::after {
-    width: 100%; /* Expand the underline to full width on hover */
+    width: 100%; 
   }
 
 
