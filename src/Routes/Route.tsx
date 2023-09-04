@@ -27,6 +27,8 @@ import AdminRoute from "./AdminRoute";
 import Shop from "./../Pages/UserDashboard/Shop/Shop";
 import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
+import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
+import AllPayments from "../Pages/AdminDashboard/AllPayments";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -167,6 +169,14 @@ const router = createBrowserRouter([
       {
         path: "update-question",
         element: <UpdateQuestion />,
+      },
+      {
+        path: "add-unit",
+        element: <AddUnit></AddUnit>,
+      },
+      {
+        path: "allPayment",
+        element: <AllPayments></AllPayments>,
       },
     ],
   },
