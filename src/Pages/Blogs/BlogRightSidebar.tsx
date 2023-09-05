@@ -17,25 +17,26 @@ const BlogRightSidebar: React.FC<BlogRightSidebarProps> = ({ items }) => {
   return (
     <div>
       {items.length == 0 ? (
-        <p className="text-2xl text-center my-3 font-bold text-gray-500">{`You don't any have blog yet`}</p>
+        <p className="text-xl bg-base-200 text-center my-3 py-3 font-bold text-gray-500">{`You don't any have blog yet`}</p>
       ) : (
         <>
           {items.slice(0, showAll ? items.length : 1).map((item) => (
-            <div className="card bg-base-100 shadow-xl my-3" key={item._id}>
+             <Link to={`/singleBlogCard/${item._id}`}>
+             <div className="rounded-md bg-base-100 shadow-md my-3" key={item._id}>
               <figure>
-                <img src={item.image} alt="Shoes" />
+                <img className="h-40 w-full object-cover rounded-tl-md rounded-tr-md" src={item.image} alt="Shoes" />
               </figure>
               <div className="p-2">
                 <div className="badge badge-secondary">{item.name}</div>
                 <h2 className="card-title">{item.title}</h2>
-                <p>{item.description}</p>
+                <p>{item.description.slice(0, 60)}</p>
                 <div className="card-actions justify-end">
-                  <Link to={`/singleBlogCard/${item._id}`}>
-                    <button className="btn btn-primary">Read More!</button>
-                  </Link>
+                 
                 </div>
               </div>
             </div>
+           </Link>
+           
           ))}
         </>
       )}

@@ -88,15 +88,15 @@ const BlogPostModal: React.FC<{
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div className="fixed inset-0 bg-black opacity-70"></div>
-      <div className="bg-white p-6 md:w-1/2 rounded-lg shadow-md relative">
+      <div className="bg-white p-6 md:w-2/3 rounded-lg shadow-md relative">
         <form onSubmit={handleSubmit}>
           <div className="flex items-center my-3 justify-around">
-            <h1 className="text-center text-xl font-semibold">
+            <h1 className="text-center text-2xl font-semibold">
               Create Blog Post
             </h1>
             <button
               onClick={() => setOpenPostModal(false)}
-              className="bg-base-200 rounded-full p-3 text-xl text-start"
+              className="bg-base-200 rounded-full p-3 text-2xl text-start"
             >
               <IoClose />
             </button>
@@ -108,7 +108,7 @@ const BlogPostModal: React.FC<{
               src={user?.photoURL}
               alt="user photo"
             />
-            <h3 className="text-sm font-bold">{user?.displayName}</h3>
+            <h3 className="text-xl font-semibold">{user?.displayName}</h3>
           </div>
           <div className="space-y-4">
             <input
@@ -130,7 +130,7 @@ const BlogPostModal: React.FC<{
             </label>
             <textarea
               name="status"
-              className="textarea text-2xl w-full input-bordered"
+              className="textarea text-2xl w-full h-40 input-bordered resize-none"
               placeholder={`What's on your mind, ${
                 user?.displayName.split(" ")[0]
               } ?`}

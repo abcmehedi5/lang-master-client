@@ -1,42 +1,105 @@
-import { useLoaderData } from "react-router-dom";
+import React, { useState } from "react";
+import { AiTwotoneMail } from "react-icons/ai";
+import { Link, useLoaderData } from "react-router-dom";
+import Like from "./Like/Like";
+import useBlogData from "../../hooks/useBlogData";
+import Share from "./Share/Share";
 
-const SingleBlogCard = () => {
-  const data: any = useLoaderData();
+interface BlogData {
+  _id: string;
+  image: string;
+  uploadedtime: string;
+  title: string;
+  description: string;
+  email: string;
+  like: number;
+  likedUsers: string[];
+  authorImage: string;
+  name: string;
+}
+
+const SingleBlogCard: React.FC = () => {
+  const data: BlogData = useLoaderData();
+  const { blog } = useBlogData();
+  console.log(data.likedUsers);
+
+  const ownBlog = blog.filter(
+    (own) => own.email === data.email && own._id !== data._id
+  );
+  const [sharedData, setSharedData] = useState<string | null>(null);
 
   return (
-    <div
-      style={{
-        boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-      }}
-      className="card px-4 py-4 lg:w-2/3 mx-auto glass my-8 lg:my-12"
-    >
-      <figure>
+    <div className="md:flex w-10/12 py-4 my-8 mx-auto gap-6">
+      <div className="md:w-[70%] md:sticky top-0 h-full">
         <img
-          src={data.image}
-          alt="car!"
-          className="w-full h-[500px] object-cover"
+          className="w-full h-[550px] object-cover rounded-lg"
+          src={data?.image}
+          alt="post image"
         />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title text-3xl">{data.title}</h2>
-        <h3 className="text-xl text-lime-600 font-semibold"> {data.name}</h3>
-        <p>{data.description}</p>
-        <p className="text-yellow-600">Likes: {data.like}</p>
-        <p>Category: {data.category}</p>
+        <p className="text-gray-400 my-3">{data?.uploadedtime}</p>
+        <h1 className="text-3xl mb-2 font-semibold capitalize">
+          {data?.title}
+        </h1>
+        <p className="text-xl text-gray-600">{data?.description}</p>
 
-        {/* Check if comments exist and if it's an array before mapping */}
-        <div className="text-lg">
-          {Array.isArray(data.comment) &&
-            data.comment.map((singleComment: any, index: number) => (
-              <div key={index}>
-                <p className="indicator-item badge badge-primary">
-                  User: {singleComment.user}
-                </p>
-                <p>Comment: {singleComment.text}</p>
-                <p>Timestamp: {singleComment.timestamp}</p>
-              </div>
-            ))}
+        {/* -------------------------------------------------- */}
+        <hr className="my-4" />
+        {/* like, comment, share */}
+        <div className="card-actions justify-between m-4 font-semibold text-2xl">
+          {/* Like  */}
+          <Like postId={data._id} like={data.like} likedUsers={data.likedUsers} />
+          {/* Share */}
+          <button className="flex gap-2">
+            <Share onShare={(data) => setSharedData(data)} />
+            <span>Share</span>
+          </button>
         </div>
+
+        {sharedData && (
+          <div>
+            <p>Shared: {sharedData}</p>
+          </div>
+        )}
+
+        <hr className="my-4" />
+      </div>
+
+      <div className="md:w-[30%] mx-auto text-center">
+        <h2 className="capitalize text-3xl font-semibold">publisher</h2>
+        <hr className="my-4" />
+        <div className="flex gap-1">
+          <img
+            className="w-[100px] mx-auto h-[100px] object-cover"
+            src={data?.authorImage}
+            alt=""
+          />
+          <div className="text-start">
+            <h2 className="text-2xl my-3 font-semibold">{data?.name}</h2>
+            <p className="flex gap-1 text-lg">
+              <AiTwotoneMail className="text-3xl" /> : {data?.email}
+            </p>
+          </div>
+        </div>
+        <hr className="my-4" />
+        {/* ----------------------- */}
+        <h4 className="text-2xl mb-2 font-semibold">More Content</h4>
+        {ownBlog.map((blog:any) => (
+          <div key={blog._id}>
+            <Link to={`/singleBlogCard/${blog?._id}`}>
+              <div className="flex gap-2 mb-3 bg-base-200 hover:bg-base-300 cursor-pointer">
+                <img
+                  className="w-20 h-20 object-cover"
+                  src={blog?.image}
+                  alt="blog"
+                />
+                <div className="text-start">
+                  <h3 className="font-semibold text-xl">{blog?.title}</h3>
+                  <p>{blog?.description.slice(0, 30)}...</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );
