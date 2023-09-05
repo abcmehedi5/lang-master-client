@@ -11,6 +11,13 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
   const navigate = useNavigate();
+  const bookInfo = {
+    userName: user?.displayName,
+    email: user?.email,
+    bookId: selectedBook?.bookId,
+    bookName: selectedBook?.bookname,
+    writer: selectedBook?.writer,
+  };
   const handleBuyNow = async () => {
     const bookPrice = selectedBook?.price;
     if (singleUser?.score >= selectedBook?.price) {
@@ -32,9 +39,15 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
             }
           );
           if (response.data.modifiedCount > 0) {
-            Swal.fire("Success!", "Your Bought This Book.", "success");
-            // navigate to my book page
-            // navigate("/user-dashboard/books");
+            Swal.fire("Success!", "You Bought This Book.", "success");
+            // sending bought book info to backend
+            const res = await axiosSecure.post("/books/bought-book", {
+              bookInfo,
+            });
+            if (res.data.insertedId) {
+              //   navigate to my book page
+              navigate("/user-dashboard/bought-books");
+            }
           }
         }
       });

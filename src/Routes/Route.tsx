@@ -30,6 +30,7 @@ import Books from "../Pages/UserDashboard/Books/Books";
 import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
 import Support from "../Pages/Home/Support/Support.d";
+import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -134,6 +135,10 @@ const router = createBrowserRouter([
       {
         path: "books",
         element: <Books></Books>,
+      },
+      {
+        path: "bought-books",
+        element: <BoughtBooks></BoughtBooks>,
       },
     ],
   },
