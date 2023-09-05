@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // import { AiFillCloseCircle } from "react-icons/ai";
 import SingleBook from "./SingleBook";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 // import { FaRegStar, FaStar } from "react-icons/fa";
 // import Rating from "react-rating";
 
@@ -16,6 +17,7 @@ type Book = {
 };
 
 const Books: any = () => {
+  const [axiosSecure] = useAxiosSecure();
   const [books, setBooks] = useState<Book[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -40,11 +42,15 @@ const Books: any = () => {
   // };
 
   useEffect(() => {
-    fetch("/books.json")
-      .then((res) => res.json())
-      .then((data) => setBooks(data))
-      .catch((error) => console.error(error));
-  }, []);
+    axiosSecure
+      .get("/books/book")
+      .then((res) => {
+        setBooks(res.data); // Update state with the response data
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [axiosSecure]);
 
   return (
     <>
@@ -147,7 +153,7 @@ const Books: any = () => {
             //   </div>
             // </div>
             <div
-              key={book.id}
+              key={book._id}
               onClick={(e) => {
                 e.preventDefault();
                 handleEditButtonClick(book);
