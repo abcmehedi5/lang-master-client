@@ -32,6 +32,7 @@ import AllPayments from "../Pages/AdminDashboard/AllPayments";
 import Support from "../Pages/Home/Support/Support.d";
 import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
 import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
+import Translator from "../Pages/Translator/Translator";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/support",
         element: <Support></Support>,
+      },
+      {
+        path: "/translator",
+        element: <Translator></Translator>,
       },
       {
         path: "/blog",
