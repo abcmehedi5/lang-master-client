@@ -41,7 +41,7 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
     } else {
       Swal.fire({
         title: "একাউন্টে যথেষ্ট কয়েন নেই?",
-        text: "কয়েন কিনুন পেইজ থেকে কয়েন কিনতে ইছুক?",
+        text: "কয়েন কিনুন পেইজ থেকে কয়েন কিনুন!",
         icon: "info",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
