@@ -1,23 +1,35 @@
+import React, { useState } from "react";
 import { AiTwotoneMail } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
 import Like from "./Like/Like";
 import useBlogData from "../../hooks/useBlogData";
-import { useState } from "react";
 import Share from "./Share/Share";
 
-const SingleBlogCard = () => {
-  const data: any = useLoaderData();
-  const { blog } = useBlogData();
-  console.log(data.likedUsers)
+interface BlogData {
+  _id: string;
+  image: string;
+  uploadedtime: string;
+  title: string;
+  description: string;
+  email: string;
+  like: number;
+  likedUsers: string[];
+  authorImage: string;
+  name: string;
+}
 
-  const ownBlog = blog.filter(own => own.email === data.email && own._id !== data._id
+const SingleBlogCard: React.FC = () => {
+  const data: BlogData = useLoaderData();
+  const { blog } = useBlogData();
+  console.log(data.likedUsers);
+
+  const ownBlog = blog.filter(
+    (own) => own.email === data.email && own._id !== data._id
   );
-  const [sharedData]: any = useState(null);
+  const [sharedData, setSharedData] = useState<string | null>(null);
 
   return (
-    <div
-      className="md:flex w-10/12 py-4 my-8 mx-auto gap-6"
-    >
+    <div className="md:flex w-10/12 py-4 my-8 mx-auto gap-6">
       <div className="md:w-[70%] md:sticky top-0 h-full">
         <img
           className="w-full h-[550px] object-cover rounded-lg"
@@ -35,15 +47,14 @@ const SingleBlogCard = () => {
         {/* like, comment, share */}
         <div className="card-actions justify-between m-4 font-semibold text-2xl">
           {/* Like  */}
-          <Like postId={data._id} like={data.like} likedUsers = {data.likedUsers} />
+          <Like postId={data._id} like={data.like} likedUsers={data.likedUsers} />
           {/* Share */}
           <button className="flex gap-2">
-            <Share />
+            <Share onShare={(data) => setSharedData(data)} />
             <span>Share</span>
           </button>
         </div>
 
-        {/* {showCommentInput && <Comments />}  */}
         {sharedData && (
           <div>
             <p>Shared: {sharedData}</p>
@@ -72,7 +83,7 @@ const SingleBlogCard = () => {
         <hr className="my-4" />
         {/* ----------------------- */}
         <h4 className="text-2xl mb-2 font-semibold">More Content</h4>
-        {ownBlog.map(blog => (
+        {ownBlog.map((blog:any) => (
           <div key={blog._id}>
             <Link to={`/singleBlogCard/${blog?._id}`}>
               <div className="flex gap-2 mb-3 bg-base-200 hover:bg-base-300 cursor-pointer">

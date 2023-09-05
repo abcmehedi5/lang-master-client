@@ -5,7 +5,7 @@ import Modal from "react-modal";
 interface LikeModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
-  likedUsers: { username: string; email: string, userImg: string }[]; // Update the type based on your data structure
+  likedUsers: { username: string; email: string; userImg: string }[]; // Update the type based on your data structure
 }
 
 const modalStyles = {
@@ -18,7 +18,11 @@ const modalStyles = {
   },
 };
 
-const LikeModal: React.FC<LikeModalProps> = ({ isOpen, onRequestClose, likedUsers }) => {
+const LikeModal: React.FC<LikeModalProps> = ({
+  isOpen,
+  onRequestClose,
+  likedUsers,
+}) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -29,12 +33,19 @@ const LikeModal: React.FC<LikeModalProps> = ({ isOpen, onRequestClose, likedUser
       <h2 className="text-xl font-bold">Liked by</h2>
       <ul>
         {likedUsers?.map((user, index) => (
-            <> <li key={index} className="flex gap-2 items-center mt-4">
-                <img className="w-14 h-14 object-cover rounded-full" src={user?.userImg} alt="" />
-            <strong>Username:</strong> {user.username}<br />
-            {/* <strong>Email:</strong> {user.email} */}
-          </li></>
-         
+          <>
+            {" "}
+            <li key={index} className="flex gap-2 items-center mt-4">
+              <img
+                className="w-14 h-14 object-cover rounded-full"
+                src={user?.userImg}
+                alt=""
+              />
+              <strong>Username:</strong> {user.username}
+              <br />
+              {/* <strong>Email:</strong> {user.email} */}
+            </li>
+          </>
         ))}
       </ul>
     </Modal>
