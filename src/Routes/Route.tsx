@@ -27,6 +27,12 @@ import AdminRoute from "./AdminRoute";
 import Shop from "./../Pages/UserDashboard/Shop/Shop";
 import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
+import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
+import AllPayments from "../Pages/AdminDashboard/AllPayments";
+import Support from "../Pages/Home/Support/Support.d";
+import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
+import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
+import Translator from "../Pages/Translator/Translator";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +58,14 @@ const router = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/support",
+        element: <Support></Support>,
+      },
+      {
+        path: "/translator",
+        element: <Translator></Translator>,
       },
       {
         path: "/blog",
@@ -128,6 +142,10 @@ const router = createBrowserRouter([
         path: "books",
         element: <Books></Books>,
       },
+      {
+        path: "bought-books",
+        element: <BoughtBooks></BoughtBooks>,
+      },
     ],
   },
 
@@ -167,6 +185,18 @@ const router = createBrowserRouter([
       {
         path: "update-question",
         element: <UpdateQuestion />,
+      },
+      {
+        path: "add-unit",
+        element: <AddUnit></AddUnit>,
+      },
+      {
+        path: "allPayment",
+        element: <AllPayments></AllPayments>,
+      },
+      {
+        path: "allbuybook",
+        element: <AllBuyBook></AllBuyBook>,
       },
     ],
   },
