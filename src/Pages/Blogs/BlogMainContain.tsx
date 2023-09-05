@@ -1,22 +1,13 @@
-import { useState } from "react";
-import { BiComment } from "react-icons/bi";
+// import { useState } from "react";
+// import { BiComment } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import Comments from "./Comments/Comments";
-import Share from "./Share/Share";
-import Like from "./Like/Like";
-
-import "./BlogMainContain.css";
-import { AiFillHeart } from "react-icons/ai";
+// import Comments from "./Comments/Comments";
+// import Share from "./Share/Share";
+// import Like from "./Like/Like";
+// import { AiFillHeart } from "react-icons/ai";
 
 const BlogMainContain = ({filterblog}) => {
-  // const [showCommentInput, setShowCommentInput] = useState(false);
-  // const [sharedData]: any = useState(null);
-
   return (
-
-
-
-
     <>
       <div className="mb-7 grid md:grid-cols-2 gap-5">
         {filterblog.map((item: any) => (
@@ -50,7 +41,7 @@ const BlogMainContain = ({filterblog}) => {
 
               <div className="text-white absolute flex flex-col gap-1">
                 <p className="text-sm">{item?.uploadedtime}</p>
-                <h3 className="text-xl font-bold">Title: {item?.title}</h3>
+                <h3 className="text-xl font-bold capitalize">Title: {item?.title}</h3>
                 <p>{item?.description.slice(0, 60)} ...</p>
                 
                   <div className="flex gap-1 items-center ">
@@ -63,8 +54,6 @@ const BlogMainContain = ({filterblog}) => {
                   </div>
                 
               </div>
-
-              {/* like comment and share */}
             </div>
           </Link>
         ))}

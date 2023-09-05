@@ -18,8 +18,6 @@ const Blogs = () => {
   const { user }: any = useContext(AuthContext);
   const myBlogs = blog.filter((item: any) => item.email === user?.email);
 
-
-
   // sorted filterdata ---------------
   const sortedBlog = [...blog].sort(
     (a: any, b: any) =>
@@ -30,10 +28,11 @@ const Blogs = () => {
     setSearch(e.target.value);
   };
 
-  const filterblog = sortedBlog.filter((item) =>
-  item?.title.toLowerCase().includes(search.toLowerCase()) ||
-  item?.name.toLowerCase().includes(search.toLowerCase())
-);
+  const filterblog = sortedBlog.filter(
+    (item) =>
+      item?.title.toLowerCase().includes(search.toLowerCase()) ||
+      item?.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <>
@@ -49,7 +48,9 @@ const Blogs = () => {
               "no data found"
             </p>
           ) : (
-            <div className={`${myBlogs.length > 0 ? "mx-auto w-[95%]" : "w-full"}`}>
+            <div
+              className={`${myBlogs.length > 0 ? "mx-auto w-[95%]" : "w-full"}`}
+            >
               <BlogMainContain filterblog={filterblog} />
             </div>
           )}
