@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { BiLike } from "react-icons/bi";
-import axios from "axios";
-import Swal from "sweetalert2";
 import { AiTwotoneLike } from "react-icons/ai";
 
 interface LikeProps {
@@ -9,7 +7,7 @@ interface LikeProps {
   like: number;
 }
 
-const Like: React.FC<LikeProps> = ({ postId }) => {
+const Like: React.FC<LikeProps> = () => {
   const [like, setLike] = useState(false);
   // const [like, setLike] = useState<number>(0);
   const [likeActive, setLikeActive] = useState<boolean>(false);

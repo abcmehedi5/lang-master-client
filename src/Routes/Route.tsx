@@ -29,6 +29,7 @@ import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
 import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
+import Support from "../Pages/Home/Support/Support.d";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/about-us",
         element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/support",
+        element: <Support></Support>,
       },
       {
         path: "/blog",
