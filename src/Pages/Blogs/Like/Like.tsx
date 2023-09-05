@@ -1,6 +1,23 @@
+import React, { useState, useContext } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import useBlogData from "../../../hooks/useBlogData";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import LikeModal from "../LikeModal";
 
+interface LikeProps {
+  postId: number;
+  like: number;
+  likedUsers: { email: string; liked: boolean, userImg: string, username: string }[];
+}
 
-
+const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
+  console.log("likedUsers", likedUsers);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  // const [userLiked, setUserLiked] = useState<boolean>(false);
+  const { refetch } = useBlogData();
+  const { user }:any = useContext(AuthContext);
 
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
