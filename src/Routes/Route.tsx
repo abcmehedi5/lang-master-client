@@ -31,6 +31,7 @@ import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
 import Support from "../Pages/Home/Support/Support.d";
 import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
+import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -187,6 +188,10 @@ const router = createBrowserRouter([
       {
         path: "allPayment",
         element: <AllPayments></AllPayments>,
+      },
+      {
+        path: "allbuybook",
+        element: <AllBuyBook></AllBuyBook>,
       },
     ],
   },
