@@ -1,20 +1,16 @@
-/* .translatebutton */
 .translatebutton {
-    /* background-color:#359fac; */
     border: 2px solid #a5e8f2;
     border-radius: 30px;
-    box-shadow: #05525c 5px 6px 0 0;
-    /* display: inline-block; */
-    
+    box-shadow: #05525c 5px 6px 0 0;    
     padding: 0 18px;
     line-height: 50px;
-     text-align: center;
+    text-align: center;
     text-decoration: none;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
   }
-  .VolumeFullactive:active, .copyclip:active{
+  .closeLeft:active, .VolumeFullactive:active, .copyclip:active{
     padding: 15px;
   }
   .translatebutton:active {

@@ -5,6 +5,7 @@ import axios from "axios";
 import { BsArrowLeftRight } from "react-icons/bs";
 import { BiCopy, BiVolumeFull } from "react-icons/bi";
 import { Helmet } from "react-helmet-async";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Translator = () => {
   const [charCount, setCharCount] = useState(0);
@@ -116,24 +117,26 @@ const Translator = () => {
         <div className="md:flex w-full gap-3 text-2xl">
           {/* ------------ my written text ------------------ */}
           <div className="w-full">
+            <div className="relative">
             <textarea
               onInput={handleInputChange}
               value={input}
               className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none"
-              name=""
-              id=""
-              // cols="30"
-              rows="9"
+              rows="8"
               placeholder="type to translate"
               spellCheck="true"
             ></textarea>
+             <div onClick={()=>setInput('')} className="absolute top-2 right-2 cursor-pointer hover:bg-base-300 rounded-full p-3 closeLeft"><AiOutlineClose className="text-2xl" /></div>
+            </div>
+
+
             <div className="border-2 flex items-center justify-between px-5">
               <BiVolumeFull
                 title="listen"
                 className="cursor-pointer hover:bg-base-300 rounded-full p-3 m-2 text-6xl VolumeFullactive"
                 onClick={() => speakText(input)} // Speak the input text
               />
-              <div className="text-xl text-gray-400">
+              <div className="text-xl text-gray-400" style={{userSelect: 'none'}}>
                 Character: {charCount}
               </div>
             </div>
@@ -141,16 +144,17 @@ const Translator = () => {
 
           {/* ------------ translated text ------------------ */}
           <div className="w-full">
-            <textarea
+           <div className="relative">
+           <textarea
               readOnly
-              className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none"
+              className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none "
               value={output}
-              name=""
-              id=""
-              // cols="30"
-              rows="9"
+              rows="8"
               placeholder="translated"
             ></textarea>
+            <div onClick={()=>setOutput('')} className="absolute top-2 right-2 cursor-pointer hover:bg-base-300 rounded-full p-3 closeLeft"><AiOutlineClose className="text-2xl" /></div>
+           </div>
+
             <div className="border-2 flex items-center justify-between px-5">
               <BiVolumeFull
                 title="speak"
