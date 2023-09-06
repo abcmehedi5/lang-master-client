@@ -74,12 +74,10 @@ const Translator: React.FC = () => {
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     window.speechSynthesis.speak(utterance);
 
-    // Listen for the end of speech
     utterance.onend = () => {
       setIsSpeaking(false);
     };
 
-    // Set the speaking state to true
     setIsSpeaking(true);
   };
 
@@ -90,8 +88,7 @@ const Translator: React.FC = () => {
     setCharCount(count);
     setInput(text);
   };
-
-  // Define your component's JSX
+  
   return (
     <>
       <SubHeader title={"Translator"}></SubHeader>
