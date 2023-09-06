@@ -187,6 +187,14 @@ const Profile: React.FC = () => {
                                 </strong>
                               </a>
                             </li>
+                            {/* user payment History */}
+                            <li>
+                              <Link to="/user-dashboard/userPaymentData"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                              > My Payment
+                              </Link>
+                            </li>
+                            {/* user payment History */}
                           </div>
                         </ul>
                       </article>
