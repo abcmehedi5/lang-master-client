@@ -4,12 +4,14 @@ import "./Translator.css";
 import axios from "axios";
 import { BsArrowLeftRight } from "react-icons/bs";
 import { BiCopy, BiVolumeFull } from "react-icons/bi";
+import { Helmet } from "react-helmet-async";
 
 const Translator = () => {
   const [charCount, setCharCount] = useState(0);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const [optionss, setOptionss] = useState([]);
-  const [to, setTo] = useState("en");
-  const [from, setFrom] = useState("en");
+  const [from, setFrom] = useState("en"); // English
+  const [to, setTo] = useState("en"); // Bengali
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
 
@@ -33,8 +35,6 @@ const Translator = () => {
       });
   };
 
-  // curl -X 'GET' \'https://libretranslate.com/languages' \ -H 'accept: application/json'
-
   useEffect(() => {
     axios
       .get("https://libretranslate.com/languages", {
@@ -47,37 +47,50 @@ const Translator = () => {
   }, []);
 
   const copyToClipboard = () => {
-    // Create a temporary textarea element
     const textarea = document.createElement("textarea");
     textarea.value = output;
     document.body.appendChild(textarea);
-
-    // Select the text within the textarea
     textarea.select();
-
-    // Execute the copy command
     document.execCommand("copy");
-
-    // Remove the temporary textarea
     document.body.removeChild(textarea);
-
-    // Notify the user that the text has been copied
-    // alert("Copied to clipboard");
   };
 
+  // ---------------- speak text -----------------
+  const speakText = (textToSpeak) => {
+    if (!window.speechSynthesis) {
+      console.error("Speech synthesis is not supported in this browser");
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(textToSpeak);
+    window.speechSynthesis.speak(utterance);
+
+    // Listen for the end of speech
+    utterance.onend = () => {
+      setIsSpeaking(false);
+    };
+
+    // Set the speaking state to true
+    setIsSpeaking(true);
+  };
+
+  // ------------ count charecter ---------------
   const handleInputChange = (e) => {
     const text = e.target.value;
     const count = text.length;
     setCharCount(count);
-    setInput(text); 
+    setInput(text);
   };
 
   // Define your component's JSX
   return (
     <>
       <SubHeader title={"Translator"}></SubHeader>
+      <Helmet>
+        <title> Translator | Lang Master </title>
+      </Helmet>
       <div className="mx-10 gap-6 text-center">
-        <div className="w-full bg-base-200 border-2 flex items-center gap-6 justify-between mt-7 px-5 mb-2">
+        <div className="w-full bg-base-200 border-2 flex items-center gap-6 justify-between px-5 mb-2">
           <div className="p-4 text-xl">
             from({from}):
             <select onChange={(e) => setFrom(e.target.value)}>
@@ -100,43 +113,49 @@ const Translator = () => {
             </select>
           </div>
         </div>
-        <div className="md:flex w-full gap-5 text-2xl">
+        <div className="md:flex w-full gap-3 text-2xl">
+          {/* ------------ my written text ------------------ */}
           <div className="w-full">
             <textarea
               onInput={handleInputChange}
               value={input}
-              className="bg-base-200 resize-none w-full py-5 px-6 border-2"
+              className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none"
               name=""
               id=""
-              cols="30"
-              rows="10"
+              // cols="30"
+              rows="9"
               placeholder="type to translate"
               spellCheck="true"
             ></textarea>
             <div className="border-2 flex items-center justify-between px-5">
-              <BiVolumeFull 
+              <BiVolumeFull
                 title="listen"
                 className="cursor-pointer hover:bg-base-300 rounded-full p-3 m-2 text-6xl VolumeFullactive"
+                onClick={() => speakText(input)} // Speak the input text
               />
               <div className="text-xl text-gray-400">
                 Character: {charCount}
               </div>
             </div>
           </div>
+
+          {/* ------------ translated text ------------------ */}
           <div className="w-full">
             <textarea
-              className="bg-base-200 resize-none w-full py-5 px-6 border-2"
+              readOnly
+              className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none"
               value={output}
               name=""
               id=""
-              cols="30"
-              rows="10"
+              // cols="30"
+              rows="9"
               placeholder="translated"
             ></textarea>
             <div className="border-2 flex items-center justify-between px-5">
               <BiVolumeFull
-                title="listen"
+                title="speak"
                 className="cursor-pointer hover:bg-base-300 rounded-full p-3 m-2 text-6xl VolumeFullactive"
+                onClick={() => speakText(output)} // Speak the translated text
               />
               <BiCopy
                 onClick={copyToClipboard}

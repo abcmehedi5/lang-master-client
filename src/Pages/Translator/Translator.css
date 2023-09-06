@@ -14,10 +14,7 @@
     -webkit-user-select: none;
     touch-action: manipulation;
   }
-  .VolumeFullactive, .copyclip:active{
-    padding: 15px;
-  }
-  .VolumeFullactive:active{
+  .VolumeFullactive:active, .copyclip:active{
     padding: 15px;
   }
   .translatebutton:active {
