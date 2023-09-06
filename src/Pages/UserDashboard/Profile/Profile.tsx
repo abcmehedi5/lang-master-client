@@ -6,6 +6,7 @@ import { BsPersonFillAdd } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
 import ProfileEditModal from "./ProfileEditModal";
 import useUser from "../../../hooks/useUser";
+import { Link } from "react-router-dom";
 
 interface Profile {
   _id: string;
@@ -187,6 +188,15 @@ const Profile: React.FC = () => {
                                 </strong>
                               </a>
                             </li>
+
+                            {/* user payment History */}
+                            <li>
+                              <Link to="/user-dashboard/userPaymentData"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                              > My Payment
+                              </Link>
+                            </li>
+                            {/* user payment History */}
                           </div>
                         </ul>
                       </article>

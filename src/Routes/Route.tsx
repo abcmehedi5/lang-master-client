@@ -29,6 +29,7 @@ import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
 import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
+import UserPaymentData from "../Pages/AdminDashboard/UserPayment/UserPaymentData";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -77,6 +78,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/blogs/blog/${params.id}`),
       },
+      
     ],
   },
   // user dashboard
@@ -126,6 +128,12 @@ const router = createBrowserRouter([
         path: "profile",
         element: <Profile></Profile>,
       },
+      {
+        path: "userPaymentData", 
+        element: <UserPaymentData />,
+       
+      },
+      
       {
         path: "books",
         element: <Books></Books>,
