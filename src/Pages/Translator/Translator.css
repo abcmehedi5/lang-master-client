@@ -1,0 +1,27 @@
+.translatebutton {
+    border: 2px solid #a5e8f2;
+    border-radius: 30px;
+    box-shadow: #05525c 5px 6px 0 0;    
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  .closeLeft:active, .VolumeFullactive:active, .copyclip:active{
+    padding: 15px;
+  }
+  .translatebutton:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+  
+  @media (min-width: 768px) {
+    .translatebutton {
+      min-width: 120px;
+      padding: 0 25px;
+    }
+  }
+  
