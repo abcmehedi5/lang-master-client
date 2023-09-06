@@ -1,22 +1,30 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import SubHeader from "../../Components/SubHeader/SubHeader";
 import "./Translator.css";
 import axios from "axios";
-import { BsArrowLeftRight } from "react-icons/bs";
-import { BiCopy, BiVolumeFull } from "react-icons/bi";
+import {
+  BiCopy,
+  BiVolumeFull,
+} from "react-icons/bi";
 import { Helmet } from "react-helmet-async";
 import { AiOutlineClose } from "react-icons/ai";
+import { BsArrowLeftRight } from "react-icons/bs";
 
-const Translator = () => {
-  const [charCount, setCharCount] = useState(0);
-  const [isSpeaking, setIsSpeaking] = useState(false);
-  const [optionss, setOptionss] = useState([]);
-  const [from, setFrom] = useState("en"); // English
-  const [to, setTo] = useState("en"); // Bengali
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
+type LanguageOption = {
+  code: string;
+  name: string;
+};
 
-  const translated = () => {
+const Translator: React.FC = () => {
+  const [charCount, setCharCount] = useState<number>(0);
+  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
+  const [optionss, setOptionss] = useState<LanguageOption[]>([]);
+  const [from, setFrom] = useState<string>("en"); // English
+  const [to, setTo] = useState<string>("en"); // Bengali
+  const [input, setInput] = useState<string>("");
+  const [output, setOutput] = useState<string>("");
+
+  const handletranslated = () => {
     const params = new URLSearchParams();
     params.append("q", input);
     params.append("source", from);
@@ -57,7 +65,7 @@ const Translator = () => {
   };
 
   // ---------------- speak text -----------------
-  const speakText = (textToSpeak) => {
+  const speakText = (textToSpeak: string) => {
     if (!window.speechSynthesis) {
       console.error("Speech synthesis is not supported in this browser");
       return;
@@ -75,8 +83,8 @@ const Translator = () => {
     setIsSpeaking(true);
   };
 
-  // ------------ count charecter ---------------
-  const handleInputChange = (e) => {
+  // ------------ count character ---------------
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
     const count = text.length;
     setCharCount(count);
@@ -96,7 +104,7 @@ const Translator = () => {
             from({from}):
             <select onChange={(e) => setFrom(e.target.value)}>
               {optionss.map((options) => (
-                <option key={optionss.code} value={options.code}>
+                <option key={options.code} value={options.code}>
                   {options.name}
                 </option>
               ))}
@@ -107,7 +115,7 @@ const Translator = () => {
             To({to}):
             <select onChange={(e) => setTo(e.target.value)}>
               {optionss.map((options) => (
-                <option key={optionss.code} value={options.code}>
+                <option key={options.code} value={options.code}>
                   {options.name}
                 </option>
               ))}
@@ -118,17 +126,21 @@ const Translator = () => {
           {/* ------------ my written text ------------------ */}
           <div className="w-full">
             <div className="relative">
-            <textarea
-              onInput={handleInputChange}
-              value={input}
-              className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none"
-              rows="8"
-              placeholder="type to translate"
-              spellCheck="true"
-            ></textarea>
-             <div onClick={()=>setInput('')} className="absolute top-2 right-2 cursor-pointer hover:bg-base-300 rounded-full p-3 closeLeft"><AiOutlineClose className="text-2xl" /></div>
+              <textarea
+                onInput={handleInputChange}
+                value={input}
+                className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none"
+                rows={8}
+                placeholder="type to translate"
+                spellCheck={true}
+              ></textarea>
+              <div
+                onClick={() => setInput("")}
+                className="absolute top-2 right-2 cursor-pointer hover:bg-base-300 rounded-full p-3 closeLeft"
+              >
+                <AiOutlineClose className="text-2xl" />
+              </div>
             </div>
-
 
             <div className="border-2 flex items-center justify-between px-5">
               <BiVolumeFull
@@ -136,7 +148,7 @@ const Translator = () => {
                 className="cursor-pointer hover:bg-base-300 rounded-full p-3 m-2 text-6xl VolumeFullactive"
                 onClick={() => speakText(input)} // Speak the input text
               />
-              <div className="text-xl text-gray-400" style={{userSelect: 'none'}}>
+              <div className="text-xl text-gray-400" style={{ userSelect: 'none' }}>
                 Character: {charCount}
               </div>
             </div>
@@ -144,16 +156,21 @@ const Translator = () => {
 
           {/* ------------ translated text ------------------ */}
           <div className="w-full">
-           <div className="relative">
-           <textarea
-              readOnly
-              className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none "
-              value={output}
-              rows="8"
-              placeholder="translated"
-            ></textarea>
-            <div onClick={()=>setOutput('')} className="absolute top-2 right-2 cursor-pointer hover:bg-base-300 rounded-full p-3 closeLeft"><AiOutlineClose className="text-2xl" /></div>
-           </div>
+            <div className="relative">
+              <textarea
+                readOnly
+                className="bg-base-200 resize-none w-full py-5 px-6 border-2 outline-none "
+                value={output}
+                rows={8}
+                placeholder="translated"
+              ></textarea>
+              <div
+                onClick={() => setOutput("")}
+                className="absolute top-2 right-2 cursor-pointer hover:bg-base-300 rounded-full p-3 closeLeft"
+              >
+                <AiOutlineClose className="text-2xl" />
+              </div>
+            </div>
 
             <div className="border-2 flex items-center justify-between px-5">
               <BiVolumeFull
@@ -170,9 +187,8 @@ const Translator = () => {
           </div>
         </div>
         <div>
-          {/* Apply the buttonStyles object as inline styles */}
           <button
-            onClick={(e) => translated()}
+            onClick={handletranslated}
             className="translatebutton text-xl font-semibold bg-[#359fac] text-white mt-6 hover:bg-[#fbeee0] hover:text-[#422800] capitalize"
             role="button"
           >
