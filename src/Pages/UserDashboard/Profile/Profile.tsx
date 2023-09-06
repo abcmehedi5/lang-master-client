@@ -6,6 +6,7 @@ import { BsPersonFillAdd } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
 import ProfileEditModal from "./ProfileEditModal";
 import useUser from "../../../hooks/useUser";
+import { Link } from "react-router-dom";
 
 interface Profile {
   _id: string;
