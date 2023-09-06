@@ -91,7 +91,7 @@ const Translator = () => {
         <title> Translator | Lang Master </title>
       </Helmet>
       <div className="mx-10 gap-6 text-center">
-        <div className="w-full bg-base-200 border-2 flex items-center gap-6 justify-between px-5 mb-2">
+        <div className="w-full bg-base-200 border-2 text-center md:flex items-center gap-6 justify-between px-5 mb-2">
           <div className="p-4 text-xl">
             from({from}):
             <select onChange={(e) => setFrom(e.target.value)}>
@@ -102,7 +102,7 @@ const Translator = () => {
               ))}
             </select>
           </div>
-          <BsArrowLeftRight className="text-3xl font-bold" />
+          <BsArrowLeftRight className="text-3xl font-bold hidden md:block" />
           <div className="p-3 text-xl">
             To({to}):
             <select onChange={(e) => setTo(e.target.value)}>
