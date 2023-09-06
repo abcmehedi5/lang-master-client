@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 import ProfileEditModal from "./ProfileEditModal";
 import useUser from "../../../hooks/useUser";
 import { Link } from "react-router-dom";
+import SubHeader from "../../../Components/SubHeader/SubHeader";
 
 interface Profile {
   _id: string;

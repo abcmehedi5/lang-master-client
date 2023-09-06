@@ -23,7 +23,7 @@ const Translator: React.FC = () => {
   const [to, setTo] = useState<string>("en"); // Bengali
   const [input, setInput] = useState<string>("");
   const [output, setOutput] = useState<string>("");
-
+console.log(isSpeaking);
   const handletranslated = () => {
     const params = new URLSearchParams();
     params.append("q", input);

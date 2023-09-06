@@ -37,6 +37,15 @@ const AddUnit = () => {
     console.log(res);
   };
 
+  const add = {
+    unit: unit,
+    lessons: [lesson],
+    quiz: [quiz],
+  }
+
+  console.log(add);
+  
+
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
