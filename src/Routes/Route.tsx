@@ -15,6 +15,7 @@ import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
 import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
 import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
+import UserPaymentData from "../Pages/UserDashboard/Profile/UserPayment/UserPaymentData";
 import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
@@ -130,6 +131,7 @@ const router = createBrowserRouter([
         path: "grammar",
         element: <Grammar></Grammar>,
       },
+
       {
         path: "shop",
         element: <Shop></Shop>,
@@ -137,6 +139,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+      },
+      {
+        path: "userPaymentData", 
+        element: <UserPaymentData />,
       },
       {
         path: "books",

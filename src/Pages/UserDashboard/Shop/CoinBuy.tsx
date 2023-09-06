@@ -26,14 +26,14 @@ const CoinBuy = () => {
     e.preventDefault();
 
     emailjs.sendForm(
-      'service_mpetxyt', 
-      'template_fw43tmi', 
-      form.current, 
+      'service_mpetxyt',
+      'template_fw43tmi',
+      form.current,
       'bZAyBv6M_AfAxwGJW')
       .then((result) => {
-          console.log(result.text);
+        console.log(result.text);
       }, (error) => {
-          console.log(error.text);
+        console.log(error.text);
       });
   };
 
@@ -56,7 +56,7 @@ const CoinBuy = () => {
                 name="name"
                 className="input input-bordered input-primary w-full max-w-xs"
                 required
-              /> 
+              />
               <span className="block mb-3">আপনার ইমেইল দিনঃ</span>
               <input
                 type="email"
@@ -64,7 +64,7 @@ const CoinBuy = () => {
                 name="email"
                 className="input input-bordered input-primary w-full max-w-xs"
                 required
-              /> 
+              />
               <span className="block my-3">আপনার মতামত দিনঃ</span>
               <textarea
                 type="text"
