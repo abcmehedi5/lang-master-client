@@ -7,8 +7,6 @@ import { Helmet } from "react-helmet-async";
 import ProfileEditModal from "./ProfileEditModal";
 import useUser from "../../../hooks/useUser";
 import { Link } from "react-router-dom";
-import SubHeader from "../../../Components/SubHeader/SubHeader";
-
 interface Profile {
   _id: string;
   name: string;
@@ -32,7 +30,6 @@ const Profile: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // fetch single user
   const [singleUser] = useUser();
-
   const handleEditButtonClick = () => {
     setIsModalOpen(true);
   };
@@ -191,9 +188,12 @@ const Profile: React.FC = () => {
                             </li>
                             {/* user payment History */}
                             <li>
-                              <Link to="/user-dashboard/userPaymentData"
+                              <Link
+                                to="/user-dashboard/userPaymentData"
                                 className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
-                              > My Payment
+                              >
+                                {" "}
+                                My Payment
                               </Link>
                             </li>
                             {/* user payment History */}
