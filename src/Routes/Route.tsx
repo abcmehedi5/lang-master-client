@@ -25,10 +25,10 @@ import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 import AdminRoute from "./AdminRoute";
 import Shop from "./../Pages/UserDashboard/Shop/Shop";
-import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
 import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
+import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion/UpdateQuestion";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -168,8 +168,14 @@ const router = createBrowserRouter([
       },
       {
         path: "update-question",
-        element: <UpdateQuestion />,
+        element: <UpdateQuestion/>,
       },
+      // {
+      //   path: "update/:id",
+      //   element: <Update />,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/learning-questions/questions${params.id}`),
+      // },
       {
         path: "add-unit",
         element: <AddUnit></AddUnit>,
