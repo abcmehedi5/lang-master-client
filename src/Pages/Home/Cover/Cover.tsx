@@ -97,12 +97,14 @@ const Cover: React.FC<CoverProps> = () => {
         </p>
 
         <div className="flex my-2 justify-center">
-          {usersPoint.slice(0, 3).map((userPoint: any) => (
-            <img
-              className="w-10 h-10 rounded-full border-2"
-              src={userPoint?.image}
-            />
-          ))}{" "}
+        {usersPoint.slice(0, 3).map((userPoint: any, index) => (
+          <img
+            key={index} // Add this line to assign a unique key
+            className="w-10 h-10 rounded-full border-2"
+            src={userPoint?.image}
+          />
+        ))}
+
           <p className="flex items-center gap-2 text-white md:ml-3">
             People already trusted us{" "}
             <Link to="/user-dashboard/leader-board">
