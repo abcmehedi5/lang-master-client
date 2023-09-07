@@ -1,24 +1,22 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import { RiDeleteBin6Line } from 'react-icons/ri';
+import { RiDeleteBin6Line } from 'react-icons/Ri';
 
 // Types for your data
 interface PaymentData {
   _id: number;
-  bookimage: string;
-  bookname: string;
+  userName: string;
+  email: string;
   bookId: string;
+  bookName: string;
   writer: string;
-  price: number;
-  rating: number;
-  status: string;
-  description: string;
+  date: string;
 }
 
 // Types for your columns
-interface PaymentColumn extends GridColDef {
+interface PaymentColumn extends GridColDef{
   field: keyof PaymentData;
   headerName: string;
   width: number;
@@ -26,8 +24,11 @@ interface PaymentColumn extends GridColDef {
 }
 
 const AllBuyBook: React.FC = () => {
+
   const [data, setData] = useState<PaymentData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+
+
 
   useEffect(() => {
     fetchData()
@@ -40,10 +41,11 @@ const AllBuyBook: React.FC = () => {
       });
   }, []);
 
+
   async function fetchData() {
     try {
       const response = await axios.get<PaymentData[]>(
-        'http://localhost:5000/books/book'
+        'http://localhost:5000/books/bought-books'
       );
       return response.data;
     } catch (error) {
@@ -63,7 +65,7 @@ const AllBuyBook: React.FC = () => {
   const confirmDelete = async () => {
     if (itemToDeleteId !== null) {
       try {
-        await axios.delete(`http://localhost:5000/books/book/${itemToDeleteId}`);
+        await axios.delete(`http://localhost:5000/books/bought-books/${itemToDeleteId}`);
         // Remove the deleted item from the state
         setData((prevData) => prevData.filter((item) => item._id !== itemToDeleteId));
       } catch (error) {
@@ -73,21 +75,14 @@ const AllBuyBook: React.FC = () => {
     setDeleteConfirmationOpen(false);
   };
   //------------delete --------------------
-
   const columns: PaymentColumn[] = [
-    { field: 'bookimage', headerName: 'Image', width: 70, renderCell: (params) => <img src={params.value} alt=" Book" className="rounded-full" /> },
-    { field: 'bookname', headerName: 'Book Name', width: 200 },
-    { field: 'bookId', headerName: 'bookId', width: 120 },
-    { field: 'writer', headerName: 'Writer', width: 150 },
-    { field: 'price', headerName: 'price', width: 75 },
-    { field: 'rating', headerName: 'rating', width: 75 },
-    { field: 'status', headerName: 'status', width: 75 },
-    {
-      field: 'delete',
-      headerName: '',
-      width: 75,
-      sortable: false,
-      renderCell: (params) => (
+    { field: 'userName', headerName: 'UserName', width: 150 },
+    { field: 'email', headerName: 'Email', width: 160 },
+    { field: 'bookId', headerName: 'BookId', width: 100 },
+    { field: 'bookName', headerName: 'BookName', width: 120 },
+    { field: 'writer', headerName: 'Writer', width: 120 },
+    { field: 'date', headerName: 'date', width: 120 },
+    {field: 'delete', headerName: '', width: 75, sortable: false, renderCell: (params: any) => (
         <button onClick={() => handleDelete(params.row._id)}>
           <RiDeleteBin6Line className="text-center text-xl text-red-500" />
         </button>
@@ -114,8 +109,7 @@ const AllBuyBook: React.FC = () => {
                   paginationModel: { page: 0, pageSize: 5 },
                 },
               }}
-              pageSizeOptions={[5, 10]}
-            />
+              pageSizeOptions={[5, 10]} />
           </div>
         )}
         <div>
@@ -144,6 +138,6 @@ const AllBuyBook: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default AllBuyBook;
