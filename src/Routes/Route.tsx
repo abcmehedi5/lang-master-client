@@ -87,7 +87,11 @@ const router = createBrowserRouter([
       },
       {
         path: "certificate",
-        element:<Certificate></Certificate>,
+        element: (
+          <PrivateRoute>
+            <Certificate></Certificate>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/singleBlogCard/:id",
@@ -146,7 +150,7 @@ const router = createBrowserRouter([
         element: <Profile></Profile>,
       },
       {
-        path: "userPaymentData", 
+        path: "userPaymentData",
         element: <UserPaymentData />,
       },
       {
@@ -157,7 +161,6 @@ const router = createBrowserRouter([
         path: "bought-books",
         element: <BoughtBooks></BoughtBooks>,
       },
-   
     ],
   },
 

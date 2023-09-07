@@ -53,11 +53,7 @@ const Certificate = () => {
       >
         <div className="w-8.5/11 h-11/5 mx-auto bg-white p-20 shadow-lg border-4 border-blue-500 relative">
           <div className="w-[80px] mx-auto justify-center flex opacity-10">
-            <img
-              className=" absolute bottom-0 "
-              src= {awardImage}
-              alt=""
-            />
+            <img className=" absolute bottom-0 " src={awardImage} alt="" />
           </div>
           <div className="border-2 border-blue-500  border-dashed rounded-md absolute inset-0 z-0"></div>
           <div className="relative ">

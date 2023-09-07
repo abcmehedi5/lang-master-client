@@ -212,6 +212,7 @@ const QuestionsForLearn = () => {
   };
 
   // after finished unit ----------------------------------------end
+  // certificate 
   const totalUnits = allLearnData.length;
   const isLastUnit = selectedUnit.unit === allLearnData[totalUnits - 1].unit;
 
