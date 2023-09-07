@@ -15,6 +15,7 @@ import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
 import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
 import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
+import UserPaymentData from "../Pages/UserDashboard/Profile/UserPayment/UserPaymentData";
 import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
@@ -33,7 +34,6 @@ import Support from "../Pages/Home/Support/Support.d";
 import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
 import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
 import Translator from "../Pages/Translator/Translator";
-import Statistics from "../Pages/AdminDashboard/Statistics/Statistics";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -85,6 +85,14 @@ const router = createBrowserRouter([
         // element: <Review></Review>,
       },
       {
+        path: "certificate",
+        element: (
+          <PrivateRoute>
+            <Certificate></Certificate>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/singleBlogCard/:id",
         element: <SingleBlogCard />,
         loader: ({ params }) =>
@@ -131,6 +139,7 @@ const router = createBrowserRouter([
         path: "grammar",
         element: <Grammar></Grammar>,
       },
+
       {
         path: "shop",
         element: <Shop></Shop>,
@@ -138,6 +147,10 @@ const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile></Profile>,
+      },
+      {
+        path: "userPaymentData",
+        element: <UserPaymentData />,
       },
       {
         path: "books",

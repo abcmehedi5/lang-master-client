@@ -42,7 +42,7 @@ const QuestionsForLearn = () => {
   const [clickedOptions, setClickedOptions] = useState<{
     [key: number]: number;
   }>({});
-
+  const [certificate, setCertificate] = useState(false);
   // show the last part compelte
   // const [showUnitComplete, setShowUnitComplete] = useState(false);
 
@@ -203,6 +203,8 @@ const QuestionsForLearn = () => {
 
       setLoading(false);
       successAlert(res.data.message);
+      // Set the certificate state to true when the last unit is completed
+      setCertificate(true);
     } catch (error) {
       errorAlert(error);
       setLoading(false);
@@ -210,6 +212,9 @@ const QuestionsForLearn = () => {
   };
 
   // after finished unit ----------------------------------------end
+  // certificate 
+  const totalUnits = allLearnData.length;
+  const isLastUnit = selectedUnit.unit === allLearnData[totalUnits - 1].unit;
 
   return (
     <div className="flex justify-center items-center flex-col h-screen">
@@ -318,6 +323,14 @@ const QuestionsForLearn = () => {
         </div>
       )}
 
+      {/* Conditionally render certificate */}
+      {isLastUnit && certificate && (
+        <div className="mb-10">
+          {/* Your certificate content */}
+          <Link to={"/certificate"}><button className="defaultBtn">Cullect Certificate</button></Link>
+        </div>
+      )}
+
       {/* finished button ----------------------------------- start */}
 
       <div className="flex justify-center text-center font-bold">
@@ -333,7 +346,7 @@ const QuestionsForLearn = () => {
             </button>
 
             {loading && <Loading></Loading>}
-            <h1 className=" mt-3 md:w-96 w-full bg-yellow-400 p-3 rounded text-justify">
+            <h1 className=" mt-3 md:w-96 w-full bg-yellow-400 p-3 rounded text-justify mb-12">
               Congratulation তুমি এই Unit টি প্রায় শেষ করতে চলেছো । Finish Unit
               বাটনে ক্লিক করে Unit Fnish করো এবং Next বাটনে ক্লিক করে পয়েন্ট
               সংগ্রাহ কর ।

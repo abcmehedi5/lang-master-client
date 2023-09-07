@@ -13,6 +13,8 @@ const Blogs = () => {
   const [search, setSearch] = useState("");
 
   const { blog } = useBlogData();
+  console.log(blog);
+  
 
   // my all blogs---------------
   const { user }: any = useContext(AuthContext);
@@ -24,7 +26,7 @@ const Blogs = () => {
       new Date(b.uploadedtime).getTime() - new Date(a.uploadedtime).getTime()
   );
 
-  const handleSearch = (e) => {
+  const handleSearch = (e:any) => {
     setSearch(e.target.value);
   };
 

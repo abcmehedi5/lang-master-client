@@ -6,7 +6,7 @@ import { BsPersonFillAdd } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
 import ProfileEditModal from "./ProfileEditModal";
 import useUser from "../../../hooks/useUser";
-
+import { Link } from "react-router-dom";
 interface Profile {
   _id: string;
   name: string;
@@ -30,7 +30,6 @@ const Profile: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // fetch single user
   const [singleUser] = useUser();
-
   const handleEditButtonClick = () => {
     setIsModalOpen(true);
   };
@@ -187,6 +186,26 @@ const Profile: React.FC = () => {
                                 </strong>
                               </a>
                             </li>
+                            {/* user payment History */}
+                            <li>
+                              <Link
+                                to="/user-dashboard/userPaymentData"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                              >
+                                {" "}
+                                My Payment
+                              </Link>
+                            </li>
+                            {/* user payment History */}
+
+                            {/* user Book History */}
+                            <li>
+                              <Link to="/user-dashboard/bought-books"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                              > My Book
+                              </Link>
+                            </li>
+                            {/* user Book History */}
                           </div>
                         </ul>
                       </article>
