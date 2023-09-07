@@ -2,8 +2,7 @@ import { useRef, useState } from "react";
 import BuyingAmount from "./BuyingAmount";
 import Lottie from "lottie-react-web";
 import payCoin from "../../../../public/payCoin.json";
-import emailjs from '@emailjs/browser';
-
+import emailjs from "@emailjs/browser";
 
 const CoinBuy = () => {
   const [coinAmount, setCoinAmount] = useState<number>(0);
@@ -25,19 +24,10 @@ const CoinBuy = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      'service_mpetxyt',
-      'template_fw43tmi',
-      form.current,
-      'bZAyBv6M_AfAxwGJW')
-      .then((result) => {
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
   };
 
   const totalAmountToBePaid = (coinAmount * 0.1).toFixed(2);
+  console.log(parseFloat(totalAmountToBePaid));
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-2 w-11/12 mx-auto mt-16 border m-4 p-4 rounded-lg shadow-lg border-amber-400">
       {/* left side  */}
@@ -69,7 +59,8 @@ const CoinBuy = () => {
               <textarea
                 type="text"
                 placeholder="এখানে লিখুন"
-                rows="4" cols="50"
+                rows="4"
+                cols="50"
                 name="message"
                 className="input pt-3 input-bordered input-primary w-full max-w-xs"
                 required
@@ -110,11 +101,13 @@ const CoinBuy = () => {
             )}
           </>
           <div className="pt-14">
-            <h3 className="font-semibold text-base">কয়েন দিয়ে কি করতে পারবে?</h3>
+            <h3 className="font-semibold text-base">
+              কয়েন দিয়ে কি করতে পারবে?
+            </h3>
             <p className="max-w-xl font-thin text-slate-700">
-              কয়েন ব্যবহার করে একজন ইউজার আমাদের পিডিএফ বই অথবা প্রয়োজনীয় ডকুমেন্ট
-              কিনতে পারবে।  সেইসাথে নতুন ইউনিট আনলক করার ক্ষেত্রেও কয়েন কাজে
-              আসবে।
+              কয়েন ব্যবহার করে একজন ইউজার আমাদের পিডিএফ বই অথবা প্রয়োজনীয়
+              ডকুমেন্ট কিনতে পারবে। সেইসাথে নতুন ইউনিট আনলক করার ক্ষেত্রেও কয়েন
+              কাজে আসবে।
             </p>
           </div>
         </div>
@@ -137,7 +130,6 @@ const CoinBuy = () => {
           height={500}
         />
       </div>
-
     </div>
   );
 };

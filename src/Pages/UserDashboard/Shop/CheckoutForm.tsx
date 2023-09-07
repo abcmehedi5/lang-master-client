@@ -72,7 +72,7 @@ const CheckoutForm = ({ closeModal, totalAmountToBePaid, coinAmount }: any) => {
       if (paymentIntent.status === "succeeded") {
         // save payment info in db
         const paymentInfo = {
-          amount: totalAmountToBePaid,
+          amount: parseFloat(totalAmountToBePaid),
           name: user?.displayName,
           email: user?.email,
           transactionId: paymentIntent.id,

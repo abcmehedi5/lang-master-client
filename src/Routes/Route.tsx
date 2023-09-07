@@ -34,7 +34,6 @@ import Support from "../Pages/Home/Support/Support.d";
 import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
 import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
 import Translator from "../Pages/Translator/Translator";
-import Certificate from "../Pages/Cartificate/Certificate";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -181,6 +180,10 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "statistics",
+        element: <Statistics></Statistics>,
+      },
       {
         path: "user-manage",
         element: <UserManage></UserManage>,
