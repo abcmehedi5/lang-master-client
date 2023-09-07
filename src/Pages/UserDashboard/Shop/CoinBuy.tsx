@@ -23,7 +23,36 @@ const CoinBuy = () => {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-
+    emailjs
+      .sendForm(
+        "service_mpetxyt",
+        "template_fw43tmi",
+        form.current,
+        "bZAyBv6M_AfAxwGJW"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    emailjs
+      .sendForm(
+        "service_mpetxyt",
+        "template_fw43tmi",
+        form.current,
+        "bZAyBv6M_AfAxwGJW"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   const totalAmountToBePaid = (coinAmount * 0.1).toFixed(2);

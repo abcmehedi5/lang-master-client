@@ -96,4 +96,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  background-image: linear-gradient(to right, #543cbe, #f1a5ef, #F8FF95);
+  background-image: linear-gradient(to right, #614bc3, #c8ffe0);
 }
