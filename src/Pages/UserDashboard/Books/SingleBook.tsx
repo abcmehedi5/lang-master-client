@@ -17,6 +17,7 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
     bookId: selectedBook?.bookId,
     bookName: selectedBook?.bookname,
     writer: selectedBook?.writer,
+    date: new Date(),
   };
   const handleBuyNow = async () => {
     const bookPrice = selectedBook?.price;

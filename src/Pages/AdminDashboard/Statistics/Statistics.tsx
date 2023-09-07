@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlineIncompleteCircle } from "react-icons/md";
 import { SiFuturelearn } from "react-icons/si";
+import { FcLineChart, FcAreaChart } from "react-icons/fc";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import usePaymentData from "../../../hooks/usePaymentData/usePaymentData";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import DailyIncomeChart from "./DailyIncomeChart";
+import RecentBooks from "./RecentBooks";
 
 const Statistics = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -49,10 +51,9 @@ const Statistics = () => {
                   <h5 className=" mb-4 text-2xl font-bold text-primary dark:text-primary-400">
                     {allUsers.length}
                   </h5>
-                  <p className="text-neutral-500 dark:text-neutral-300">
-                    Laudantium totam quas cumque pariatur at doloremque hic quos
-                    quia eius
-                  </p>
+                  <div className="flex justify-center">
+                    <FcLineChart className="text-6xl" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -69,10 +70,9 @@ const Statistics = () => {
                   <h5 className=" mb-4 text-2xl font-bold text-primary dark:text-primary-400">
                     {allLearnData.length}
                   </h5>
-                  <p className="text-neutral-500 dark:text-neutral-300">
-                    Laudantium totam quas cumque pariatur at doloremque hic quos
-                    quia eius
-                  </p>
+                  <div className="flex justify-center">
+                    <FcAreaChart className="text-6xl" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ const Statistics = () => {
         </section>
         {/* Recent book orders */}
         <section className="mt-10">
-          <h1 className="text-2xl font-bold">Recent Book Orders:</h1>
+          <RecentBooks></RecentBooks>
         </section>
       </div>
     </div>
