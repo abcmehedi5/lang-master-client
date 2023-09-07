@@ -77,7 +77,7 @@
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 .text-gradient {
-  background-image: linear-gradient(to right, #614BC3, #C8FFE0);
+  background-image: linear-gradient(to right, #543cbe, #f1a5ef, #F8FF95);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

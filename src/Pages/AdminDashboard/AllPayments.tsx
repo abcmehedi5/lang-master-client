@@ -69,8 +69,8 @@ const AllPayments: React.FC = () => {
         }
         setDeleteConfirmationOpen(false);
     };
+    
     //------------delete --------------------
-
     const columns: PaymentColumn[] = [
         { field: 'name', headerName: 'Name', width: 170 },
         { field: 'email', headerName: 'Email', width: 170 },
@@ -85,8 +85,8 @@ const AllPayments: React.FC = () => {
     ];
 
     return (
-        <div className="w-10/12 mx-auto mt-4 border p-8 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
-            <h2 className='text-center font-semibold text-2xl '>All Payment Data </h2>
+        <div className="w-10/12 mx-auto mt-10 border p-8 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
+            <h2 className='text-center font-semibold text-3xl text-gradient'>All Payment Data </h2>
             <div className="shadow-xl mt-8 bg-white">
                 {loading ? (
                     <p>Loading...</p>
@@ -108,12 +108,10 @@ const AllPayments: React.FC = () => {
                     </div>
                 )}
                 <div>
-                    {/* Another section */}
                     {loading ? (
                         <p>Loading another section...</p>
                     ) : (
                         <div>
-                            {/* Add your JSX for the second section here */}
                             <Dialog
                                 open={deleteConfirmationOpen}
                                 onClose={() => setDeleteConfirmationOpen(false)}

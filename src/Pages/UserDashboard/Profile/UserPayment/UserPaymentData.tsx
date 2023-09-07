@@ -53,7 +53,7 @@ const UserPaymentData: React.FC = () => {
 
     return (
         <div className="w-9/12 mx-auto shadow-xl rounded-2xl border-2 mt-10">
-            <div className="py-20  bg-gray-50">
+            <div className="py-20  bg-rose-50">
                 <h2 className="text-center font-medium text-2xl text-gradient">{user?.email}</h2>
             </div>
             <div>
