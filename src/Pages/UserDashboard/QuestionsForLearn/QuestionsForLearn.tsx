@@ -326,7 +326,7 @@ const QuestionsForLearn = () => {
       {isLastUnit && certificate && (
         <div className="mb-10">
           {/* Your certificate content */}
-          <Link to={"/user-dashboard/certificate"}><button className="defaultBtn">Cullect Certificate</button></Link>
+          <Link to={"/certificate"}><button className="defaultBtn">Cullect Certificate</button></Link>
         </div>
       )}
 

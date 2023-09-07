@@ -86,6 +86,10 @@ const router = createBrowserRouter([
         // element: <Review></Review>,
       },
       {
+        path: "certificate",
+        element:<Certificate></Certificate>,
+      },
+      {
         path: "/singleBlogCard/:id",
         element: <SingleBlogCard />,
         loader: ({ params }) =>
@@ -153,10 +157,7 @@ const router = createBrowserRouter([
         path: "bought-books",
         element: <BoughtBooks></BoughtBooks>,
       },
-      {
-        path: "certificate",
-        element:<Certificate></Certificate>,
-      },
+   
     ],
   },
 

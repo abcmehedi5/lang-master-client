@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat&family=Lato:ital,wght@0,400;0,700;0,900;1,700&family=Lobster&family=Open+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Shadows+Into+Light&family=Work+Sans&family=Zeyada&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,6 +40,21 @@
   @apply bg-blue-600;
 }
 
+
+/* font  */
+.fontLobster {
+  font-family: 'Italianno', cursive;
+}
+.fontKalam {
+  font-family: "Kalam", cursive;
+}
+.fontYellowtail {
+  font-family: 'Yellowtail', cursive;
+
+}
+
+
+
 /* <!-- HTML !-->
 <button class="button-55" role="button">Button 55</button> */
 
@@ -77,7 +93,7 @@
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 .text-gradient {
-  background-image: linear-gradient(to right, #614BC3, #C8FFE0);
+  background-image: linear-gradient(to right, #614bc3, #c8ffe0);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
