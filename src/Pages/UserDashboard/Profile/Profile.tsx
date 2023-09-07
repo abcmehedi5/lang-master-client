@@ -197,6 +197,15 @@ const Profile: React.FC = () => {
                               </Link>
                             </li>
                             {/* user payment History */}
+
+                            {/* user Book History */}
+                            <li>
+                              <Link to="/user-dashboard/bought-books"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                              > My Book
+                              </Link>
+                            </li>
+                            {/* user Book History */}
                           </div>
                         </ul>
                       </article>
