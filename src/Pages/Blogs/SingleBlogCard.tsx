@@ -3,30 +3,30 @@ import { AiTwotoneMail } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
 import Like from "./Like/Like";
 import useBlogData from "../../hooks/useBlogData";
-import Share from "./Share/Share";
+// import Share from "./Share/Share";
 
-interface BlogData {
-  _id: string;
-  image: string;
-  uploadedtime: string;
-  title: string;
-  description: string;
-  email: string;
-  like: number;
-  likedUsers: string[];
-  authorImage: string;
-  name: string;
-}
+// interface BlogData {
+//   _id: string;
+//   image: string;
+//   uploadedtime: string;
+//   title: string;
+//   description: string;
+//   email: string;
+//   like: number;
+//   likedUsers: string[];
+//   authorImage: string;
+//   name: string;
+// }
 
 const SingleBlogCard: React.FC = () => {
-  const data: BlogData = useLoaderData();
+  const data: any = useLoaderData();
   const { blog } = useBlogData();
   console.log(data.likedUsers);
 
   const ownBlog = blog.filter(
-    (own) => own.email === data.email && own._id !== data._id
+    (own: any) => own.email === data.email && own._id !== data._id
   );
-  const [sharedData, setSharedData] = useState<string | null>(null);
+  const [sharedData]: any = useState(null);
 
   return (
     <div className="md:flex w-10/12 py-4 my-8 mx-auto gap-6">
@@ -47,10 +47,14 @@ const SingleBlogCard: React.FC = () => {
         {/* like, comment, share */}
         <div className="card-actions justify-between m-4 font-semibold text-2xl">
           {/* Like  */}
-          <Like postId={data._id} like={data.like} likedUsers={data.likedUsers} />
+          <Like
+            postId={data._id}
+            like={data.like}
+            likedUsers={data.likedUsers}
+          />
           {/* Share */}
           <button className="flex gap-2">
-            <Share onShare={(data) => setSharedData(data)} />
+            {/* <Share onShare={(data: any) => setSharedData(data)} /> */}
             <span>Share</span>
           </button>
         </div>
@@ -83,7 +87,7 @@ const SingleBlogCard: React.FC = () => {
         <hr className="my-4" />
         {/* ----------------------- */}
         <h4 className="text-2xl mb-2 font-semibold">More Content</h4>
-        {ownBlog.map((blog:any) => (
+        {ownBlog.map((blog: any) => (
           <div key={blog._id}>
             <Link to={`/singleBlogCard/${blog?._id}`}>
               <div className="flex gap-2 mb-3 bg-base-200 hover:bg-base-300 cursor-pointer">

@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
       {user && isAdmin && (
         <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
           <NavLink
-            to="/admin-dashboard"
+            to="/admin-dashboard/statistics"
             title="Our Classs"
             className={({ isActive }) => (isActive ? " underline-cus" : "")}
           >

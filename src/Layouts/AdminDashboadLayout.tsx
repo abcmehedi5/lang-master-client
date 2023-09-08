@@ -1,9 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { FcHome } from "react-icons/fc";
-import { MdQuiz } from "react-icons/md";
+import { MdBook, MdPayment, MdQuiz } from "react-icons/md";
 import { Link, Outlet } from "react-router-dom";
 import DashboardTop from "../Pages/Shared/DashboardTop/DashboardTop";
-
 const AdminDashboadLayout = () => {
   return (
     <div className="drawer lg:drawer-open ">
@@ -98,7 +97,7 @@ const AdminDashboadLayout = () => {
               to="/admin-dashboard/allPayment"
               className="flex gap-2 items-center"
             >
-              <MdQuiz style={{ fontSize: "30px" }} />
+              <MdPayment style={{ fontSize: "30px" }} />
               Payment History
             </Link>
           </li>
@@ -107,8 +106,17 @@ const AdminDashboadLayout = () => {
               to="/admin-dashboard/allbuybook"
               className="flex gap-2 items-center"
             >
-              <MdQuiz style={{ fontSize: "30px" }} />
+              <MdBook style={{ fontSize: "30px" }} />
               Buy Book History
+            </Link>
+          </li>
+          <li className="px-5 py-2 transition duration-300 hover:bg-blue-600">
+            <Link
+              to="/"
+              className="flex gap-2 items-center"
+            >
+              <FcHome style={{ fontSize: "30px" }} />
+             Home
             </Link>
           </li>
         </ul>

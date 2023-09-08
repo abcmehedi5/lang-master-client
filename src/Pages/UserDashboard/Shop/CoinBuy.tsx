@@ -20,8 +20,8 @@ const CoinBuy = () => {
     setCoinAmount(Number(event.target.value));
   };
 
-  const form = useRef();
-  const sendEmail = (e) => {
+  const form:any = useRef();
+  const sendEmail = (e:any) => {
     e.preventDefault();
     emailjs
       .sendForm(
@@ -82,16 +82,6 @@ const CoinBuy = () => {
                 placeholder="এখানে লিখুন"
                 name="email"
                 className="input input-bordered input-primary w-full max-w-xs"
-                required
-              />
-              <span className="block my-3">আপনার মতামত দিনঃ</span>
-              <textarea
-                type="text"
-                placeholder="এখানে লিখুন"
-                rows="4"
-                cols="50"
-                name="message"
-                className="input pt-3 input-bordered input-primary w-full max-w-xs"
                 required
               />
               <span className="block my-3">কত কয়েন কিনতে চান তা লিখুনঃ</span>

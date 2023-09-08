@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { RiDeleteBin6Line } from 'react-icons/Ri';
 
@@ -15,11 +15,11 @@ interface PaymentData {
 }
 
 // Types for your columns
-interface PaymentColumn extends GridColDef {
-    field: keyof PaymentData;
-    headerName: string;
-    width: number;
-}
+// interface PaymentColumn extends GridColDef {
+//     field: keyof PaymentData;
+//     headerName: string;
+//     width: number;
+// }
 
 const AllPayments: React.FC = () => {
     const [data, setData] = useState<PaymentData[]>([]);
@@ -71,14 +71,14 @@ const AllPayments: React.FC = () => {
     };
     
     //------------delete --------------------
-    const columns: PaymentColumn[] = [
+    const columns = [
         { field: 'name', headerName: 'Name', width: 170 },
         { field: 'email', headerName: 'Email', width: 170 },
         { field: 'transactionId', headerName: 'Transaction ID', width: 200 },
         { field: 'date', headerName: 'Date', width: 190 },
         {
             field: 'delete', headerName: 'Delete', width: 75, sortable: false,
-            renderCell: (params) => (
+            renderCell: (params:any) => (
                 <button onClick={() => handleDelete(params.row._id)}><RiDeleteBin6Line className="text-center text-xl text-red-500" /></button>
             ),
         }
@@ -95,7 +95,7 @@ const AllPayments: React.FC = () => {
                         <DataGrid
                             rows={data}
                             columns={columns}
-                            pageSize={5}
+                            // pageSize={5}
                             checkboxSelection
                             getRowId={(row) => row._id || row.transactionId || row.email}
                             initialState={{

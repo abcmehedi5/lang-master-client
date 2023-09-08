@@ -1,4 +1,4 @@
-const SubHeader = ({title}) => {
+const SubHeader = ({title}:any) => {
     return (
         <div className="h-20 my-7 mx-9 md:h-52 rounded-md bg-gradient-to-r from-[#95d3a2] to-[#359fac] flex items-center justify-center">
             <span className="animate-updown md:h-40 md:w-40 rounded-full bg-white absolute top-20 left-0 opacity-20"></span>

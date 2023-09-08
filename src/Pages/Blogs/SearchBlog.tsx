@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 
 
-const SearchBlog = ({handleSearch}) => {
+const SearchBlog = ({handleSearch}:any) => {
 
     return (
         <>
