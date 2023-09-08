@@ -23,7 +23,7 @@ const BoughtBooks = () => {
   }, [axiosSecure, user]);
   return (
     <div className="my-10 mt-10 w-9/12 mx-auto">
-      <h1 className="text-4xl font-bold text-gray-800 text-center mb-10">
+      <h1 className="text-4xl font-bold text-gradient text-center mb-10">
         Your Book Collection
       </h1>
       <div className="overflow-x-auto">
