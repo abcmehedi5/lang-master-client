@@ -1,14 +1,20 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemButton,
-  AccordionItemHeading,
-  AccordionItemPanel,
-} from "react-accessible-accordion";
+// import {
+//   Accordion,
+//   AccordionItem,
+//   AccordionItemButton,
+//   AccordionItemHeading,
+//   AccordionItemPanel,
+// } from "react-accessible-accordion";
 import grammarLottie from "../../../public/terns.json";
 import Lottie from "lottie-react-web";
+import SubHeader from "../../Components/SubHeader/SubHeader";
+import { useEffect } from "react";
 
 const Faq: React.FC = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   const items = [
     {
       question: "Who can use Lang-Master?",
@@ -72,27 +78,31 @@ const Faq: React.FC = () => {
     },
   ];
   return (
-    <div className="grid lg:grid-cols-2 lg:mx-6 mx-4">
-      <div className=" shadow-2xl my-10 text-white bg-gradient-to-r from-teal-600 from-10%  to-slate-500 to-90% ...">
-        <Accordion allowMultipleExpanded>
-          {items.map((item, index: number) => (
-            <AccordionItem key={index}>
-              <AccordionItemHeading>
-                <AccordionItemButton>{item.question}</AccordionItemButton>
-              </AccordionItemHeading>
-              <AccordionItemPanel>{item.answer}</AccordionItemPanel>
-            </AccordionItem>
+    <div>
+      <SubHeader title="FAQ"></SubHeader>
+      <div className="flex items-center justify-center gap-2 w-11/12 mx-auto">
+        <div className="w-1/2">
+          {items.map((item) => (
+            <div className="collapse collapse-plus bg-base-200 mb-2">
+              <input type="radio" name="my-accordion-3" />
+              <div className="collapse-title text-xl font-medium">
+                {item.question}
+              </div>
+              <div className="collapse-content">
+                <p>{item?.answer}</p>
+              </div>
+            </div>
           ))}
-        </Accordion>
-      </div>
-      <div className="">
-        <Lottie
-          options={{
-            animationData: grammarLottie,
-            loop: true,
-            autoplay: true,
-          }}
-        />
+        </div>
+        <div className="w-1/2">
+          <Lottie
+            options={{
+              animationData: grammarLottie,
+              loop: true,
+              autoplay: true,
+            }}
+          />
+        </div>
       </div>
     </div>
   );

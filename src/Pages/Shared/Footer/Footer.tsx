@@ -1,4 +1,4 @@
-import wave from "../../../../public/wave5.svg";
+import wave from "../../../../public/wave (3).svg";
 import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { AiFillYoutube, AiOutlineClose } from "react-icons/ai";
 import { BiLogoFacebook } from "react-icons/bi";
@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <footer>
       <img src={wave} alt="bg" />
-      <div className="bg-[#0b4e69] grid grid-cols-1 md:grid-cols-2 py-2 px-5">
+      <div className="bg-[#156279] grid grid-cols-1 md:grid-cols-2 py-2 px-5">
   <div>
     <h2 className="btn btn-ghost normal-case text-xl text-white">
       Lang-Master
@@ -44,7 +44,7 @@ const Footer = () => {
 </div>
 
       <hr className="border-t-2 border-[#05bfdb]" />
-      <div className="footer justify-between  p-10 bg-[#0b4e69] text-white">
+      <div className="footer justify-between  p-10 bg-[#156279] text-white">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
