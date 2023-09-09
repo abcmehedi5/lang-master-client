@@ -5,7 +5,7 @@ const Support = () => {
       <FacebookProvider appId={`${import.meta.env.VITE_APP_ID}`} chatSupport>
         <CustomChat
           pageId={`${import.meta.env.VITE_PAGE_ID}`}
-          minimized={true}
+          minimized={false}
         />
       </FacebookProvider>
     </div>

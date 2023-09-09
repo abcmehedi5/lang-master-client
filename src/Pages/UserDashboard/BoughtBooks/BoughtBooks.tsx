@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { FaDownload } from "react-icons/fa";
+
 interface Book {
   _id: string;
   userName: string;
@@ -8,6 +10,7 @@ interface Book {
   bookId: string;
   bookName: string;
   writer: string;
+  downloadUrl: string;
 }
 
 const BoughtBooks = () => {
@@ -44,6 +47,17 @@ const BoughtBooks = () => {
                 <th>{index + 1}</th>
                 <td>{book?.bookName}</td>
                 <td>{book?.writer}</td>
+                <td>
+                  <a
+                    href={book.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="btn">
+                      <FaDownload />
+                    </button>
+                  </a>
+                </td>
               </tr>
             ))}
           </tbody>

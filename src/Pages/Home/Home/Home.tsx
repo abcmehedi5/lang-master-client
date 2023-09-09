@@ -5,7 +5,7 @@ import Faq from "../Faq/Faq";
 import HomepageBlog from "../HomepageBlog/HomepageBlog";
 import LearnLanguage from "../LearnLanguage/LearnLanguage";
 import Lessons from "../Lessons/Lessons";
-import Support from "../Support/Support.d";
+import Support from "../Support/Support";
 import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
