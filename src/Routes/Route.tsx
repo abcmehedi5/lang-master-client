@@ -30,7 +30,7 @@ import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
 import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
-import Support from "../Pages/Home/Support/Support.d";
+import Support from "../Pages/Home/Support/Support";
 import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
 import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
 import Translator from "../Pages/Translator/Translator";

@@ -44,6 +44,7 @@ const BoughtBooks = () => {
                 <th>{index + 1}</th>
                 <td>{book?.bookName}</td>
                 <td>{book?.writer}</td>
+                <td><button className="btn btn-primary">Download</button></td>
               </tr>
             ))}
           </tbody>

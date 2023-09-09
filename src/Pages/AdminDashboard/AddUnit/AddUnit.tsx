@@ -19,8 +19,8 @@ function AddUnit() {
   const [unit, setUnit] = useState("");
   const [unitTopic, setUnitTopic] = useState("");
   const [totalLessons, setTotalLessons] = useState("");
-  const [allLearnData, refetch, isLoading] = useLearnData();
-  const [lessons, setLessons] = useState([
+  const [refetch] = useLearnData();
+  const [lessons, setLessons]: any = useState([
     {
       lessonNumber: "",
       lessonTitle: "",
@@ -123,7 +123,7 @@ function AddUnit() {
     lessonIndex: number,
     quizIndex: number
   ) => {
-    const newLessons = [...lessons];
+    const newLessons: any = [...lessons];
     newLessons[lessonIndex].quiz[quizIndex].correctAnswer = e.target.value;
     setLessons(newLessons);
   };
@@ -134,7 +134,7 @@ function AddUnit() {
         Add Units
       </h2>
       <form onSubmit={handleSubmit} className="m-5">
-        <div className="md:flex  gap-2">
+        <div className="md:flex justify-evenly  gap-2">
           <input
             name="unit"
             placeholder="Unit Name"
@@ -155,11 +155,11 @@ function AddUnit() {
             placeholder="Total Lessons"
             className="input input-bordered w-full max-w-xs bg-[#e8f0fe]"
             value={totalLessons}
-            onChange={(e: any) => setTotalLessons(lessons.length)}
+            onChange={() => setTotalLessons(lessons.length)}
           />
         </div>
 
-        {lessons.map((lesson, lessonIndex) => (
+        {lessons.map((lesson: any, lessonIndex: any) => (
           <div key={lessonIndex} className="mt-4 border-2 rounded-md p-4">
             <input
               name="lessonNumber"
@@ -190,7 +190,7 @@ function AddUnit() {
               onChange={(e) => handleLessonChange(e, lessonIndex, "points")}
             />
 
-            {lesson.quiz.map((quiz, quizIndex) => (
+            {lesson.quiz.map((quiz: any, quizIndex: any) => (
               <div key={quizIndex} className="mt-2 w-full">
                 <input
                   name="question"
@@ -204,7 +204,7 @@ function AddUnit() {
                 />
 
                 <div className="grid grid-cols-2 gap-2 mt-2">
-                  {quiz.options.map((option, optionIndex) => (
+                  {quiz.options.map((option: any, optionIndex: any) => (
                     <input
                       key={optionIndex}
                       name="options"
@@ -212,7 +212,7 @@ function AddUnit() {
                       placeholder={`Option ${optionIndex + 1}`}
                       className="input input-bordered w-full bg-[#e8f0fe]"
                       value={option}
-                      onChange={(e) =>
+                      onChange={(e: any) =>
                         handleQuizChange(e, lessonIndex, quizIndex, optionIndex)
                       }
                     />
