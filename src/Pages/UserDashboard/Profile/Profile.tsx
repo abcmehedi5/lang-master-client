@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdFindReplace } from "react-icons/md";
+import { MdFindReplace, MdPayments } from "react-icons/md";
 import "./Profile.css";
 import { FaCoins, FaEdit, FaFacebook } from "react-icons/fa";
 import { BsPersonFillAdd } from "react-icons/bs";
@@ -7,6 +7,9 @@ import { Helmet } from "react-helmet-async";
 import ProfileEditModal from "./ProfileEditModal";
 import useUser from "../../../hooks/useUser";
 import { Link } from "react-router-dom";
+import { GrUserAdmin } from 'react-icons/Gr';
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 interface Profile {
   _id: string;
   name: string;
@@ -26,10 +29,22 @@ interface Profile {
   state: string;
 }
 
+// ---------------------------------
+
+
+interface SomeResponseType {
+  // Define the response type structure here
+  // Example: id: number; message: string;
+}
+// ---------------------------------
+
 const Profile: React.FC = () => {
+  const [axiosSecure] = useAxiosSecure();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // fetch single user
+
+  const [data, setData] = useState<any>(null);
   const [singleUser] = useUser();
+
   const handleEditButtonClick = () => {
     setIsModalOpen(true);
   };
@@ -38,10 +53,28 @@ const Profile: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const handleModalSubmit = (data: any) => {
-    // Handle the data submitted from the modal (e.g., update the state or send to server)
+  const handleModalSubmit = async (data) => {
+     try {
+      const patchData = {
+        address: data.address,
+        phoneNumber: data.phoneNumber,
+        birthday: data.birthday,
+        gender: data.gender,
+      };
+      const email = data.email;
+      const response = await axiosSecure.patch<SomeResponseType>(
+        `http://localhost:5000/users/singleUser?email=/${email}`,
+        patchData
+      );
+      toast('Successfully updated user profile:', response.data);
+
+    } catch (error) {
+      toast.error('Error updating user profile')
+      console.error('Error updating user profile:', error);
+    }
     console.log(data);
   };
+
 
   return (
     <div className="profile">
@@ -65,19 +98,10 @@ const Profile: React.FC = () => {
                   <p className="font-bold text-white text-md md:text-3xl lg:text-3xl mb-2">
                     {singleUser?.name}
                   </p>
-                  {/* <p className="mt-0.5 text-[11px] md:text-sm lg:text-sm font-pj text-white">
-                    {profile?.passion}
-                  </p> */}
+
                 </div>
               </div>
-              <div className="mx-4">
-                <div className="flex mb-3 text-[11px]">
-                  {/* <span className="my-1 me-1 mx-4 text-md"><FaClock></FaClock></span>Joined {profile.joiningDate} */}
-                </div>
-                <button className="bg-white hover:bg-gray-100 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded text-[9px] md:text-sm">
-                  + Follow
-                </button>
-              </div>
+
             </div>
           </div>
           <div className="dark-overlay">
@@ -112,6 +136,7 @@ const Profile: React.FC = () => {
                               </button>
                             </div>
                           </div>
+
                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                             <div>
                               <h1 className="font-bold">Full Name:</h1>
@@ -122,7 +147,7 @@ const Profile: React.FC = () => {
                               </h1>
                             </div>
                           </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                          <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-2">
                             <div>
                               <h1 className="font-bold">Mobile Number:</h1>
                             </div>
@@ -132,7 +157,7 @@ const Profile: React.FC = () => {
                               </h1>
                             </div>
                           </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                          <div className="flex gap-3">
                             <div>
                               <h1 className="font-bold">Email:</h1>
                             </div>
@@ -142,6 +167,7 @@ const Profile: React.FC = () => {
                               </h1>
                             </div>
                           </div>
+
                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                             {/* <div>
                                 <h1 className="font-bold">Location:</h1>
@@ -181,8 +207,9 @@ const Profile: React.FC = () => {
                                 <p className="mt-1 text-xs font-medium text-black">
                                   Role
                                 </p>
-                                <strong className="font-medium text-black">
+                                <strong className="font-medium text-gradient flex gap-2 ">
                                   {singleUser?.role}
+                                  <GrUserAdmin />
                                 </strong>
                               </a>
                             </li>
@@ -190,10 +217,11 @@ const Profile: React.FC = () => {
                             <li>
                               <Link
                                 to="/user-dashboard/userPaymentData"
-                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 text-gradient "
                               >
-                                {" "}
-                                My Payment
+
+                                Payment
+                                <MdPayments />
                               </Link>
                             </li>
                             {/* user payment History */}
@@ -201,8 +229,8 @@ const Profile: React.FC = () => {
                             {/* user Book History */}
                             <li>
                               <Link to="/user-dashboard/bought-books"
-                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
-                              > My Book
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 text-gradient"
+                              > MyBook
                               </Link>
                             </li>
                             {/* user Book History */}

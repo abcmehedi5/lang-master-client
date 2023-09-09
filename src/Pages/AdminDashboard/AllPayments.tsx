@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { DataGrid } from '@mui/x-data-grid';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { RiDeleteBin6Line } from 'react-icons/Ri';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 // Types for your data
 interface PaymentData {
@@ -14,63 +14,49 @@ interface PaymentData {
     date: string;
 }
 
-// Types for your columns
-// interface PaymentColumn extends GridColDef {
-//     field: keyof PaymentData;
-//     headerName: string;
-//     width: number;
-// }
-
 const AllPayments: React.FC = () => {
     const [data, setData] = useState<PaymentData[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [axiosSecure] = useAxiosSecure()
 
     useEffect(() => {
-        fetchData()
-            .then((fetchedData) => {
-                setData(fetchedData);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-            });
-    }, []);
-
-    async function fetchData() {
-        try {
-            const response = await axios.get<PaymentData[]>(
-                'http://localhost:5000/payment/payment'
-            );
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            throw error;
-        }
-    }
-
-
-    //------------delete --------------------
-    const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
-    const [itemToDeleteId, setItemToDeleteId] = useState<number | null>(null);
-    const handleDelete = async (idToDelete: number) => {
-        setDeleteConfirmationOpen(true);
-        setItemToDeleteId(idToDelete);
-    };
-
-    const confirmDelete = async () => {
-        if (itemToDeleteId !== null) {
-            try {
-                await axios.delete(`http://localhost:5000/payment/payment/${itemToDeleteId}`);
-                // Remove the deleted item from the state
-                setData((prevData) => prevData.filter((item) => item._id !== itemToDeleteId));
-            } catch (error) {
-                console.error('Error deleting data:', error);
-            }
-        }
-        setDeleteConfirmationOpen(false);
-    };
+        fetchData();
+      }, []);
     
-    //------------delete --------------------
+      const fetchData = async () => {
+        try {
+          const response = await axiosSecure.get<PaymentData[]>("/payment/payment");
+          setData(response.data);
+          setLoading(false);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+
+   //------------delete --------------------
+const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
+const [itemToDeleteId, setItemToDeleteId] = useState<number | null>(null);
+
+const handleDelete = async (idToDelete: number) => {
+  setDeleteConfirmationOpen(true);
+  setItemToDeleteId(idToDelete);
+};
+
+const confirmDelete = async () => {
+  if (itemToDeleteId !== null) {
+    try {
+      await axiosSecure.delete(`/payment/payment/${itemToDeleteId}`);
+      setData((prevData) =>
+        prevData.filter((item) => item._id !== itemToDeleteId)
+      );
+    } catch (error) {
+      console.error("Error deleting data:", error);
+    }
+  }
+  setDeleteConfirmationOpen(false);
+};
+//------------delete --------------------
     const columns = [
         { field: 'name', headerName: 'Name', width: 170 },
         { field: 'email', headerName: 'Email', width: 170 },
