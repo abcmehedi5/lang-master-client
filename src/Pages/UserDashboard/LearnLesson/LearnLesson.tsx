@@ -7,7 +7,6 @@ import lessonAnimation from "../../../assets/lessonAnimation.json";
 
 const LearnLesson = () => {
   const { id } = useParams<{ id: string }>();
-  console.log("learn lession", id);
   const [activeLesson, setActiveLesson] = useState<string | null>(null);
   const [allLearnData] = useLearnData();
 
@@ -17,7 +16,7 @@ const LearnLesson = () => {
     return <p>Unit not found.</p>;
   }
   const lessons: LearnDataItem["lessons"] = selectedLesson.lessons;
-
+console.log(activeLesson);
   // handle lesson button click
   const handleLessonClick = (lessonNumber: string) => {
     setActiveLesson((prevActive) =>

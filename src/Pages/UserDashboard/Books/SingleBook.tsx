@@ -7,6 +7,8 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const SingleBook = ({ handleModalClose, selectedBook }: any) => {
+  console.log("single", selectedBook);
+
   const [singleUser] = useUser();
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
@@ -17,6 +19,7 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
     bookId: selectedBook?.bookId,
     bookName: selectedBook?.bookname,
     writer: selectedBook?.writer,
+    downloadUrl: selectedBook?.downloadUrl,
     date: new Date(),
   };
   const handleBuyNow = async () => {
