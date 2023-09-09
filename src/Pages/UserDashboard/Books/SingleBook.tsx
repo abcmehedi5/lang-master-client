@@ -27,7 +27,8 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
     if (singleUser?.score >= selectedBook?.price) {
       Swal.fire({
         title: "Are you sure?",
-        text: "You want to Buy this!",
+        // text: "You want to Buy this!",
+        text: `এই বই টি কেনার জন্য আপনার একাউন্ট থেকে ${selectedBook.price} কয়েন কেটে নেওয়া হবে ।`,
         icon: "info",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -44,7 +45,7 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
           );
           if (response.data.modifiedCount > 0) {
             Swal.fire("Success!", "You Bought This Book.", "success");
-            // sending bought book info to backend
+            // sending bought book info to backendF
             const res = await axiosSecure.post("/books/bought-book", {
               bookInfo,
             });
