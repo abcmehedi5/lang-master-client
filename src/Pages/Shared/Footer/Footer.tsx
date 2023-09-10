@@ -5,6 +5,7 @@ import { BiLogoFacebook } from "react-icons/bi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { useState } from "react";
 import Review from "../../Review/Review";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,6 +18,7 @@ const Footer = () => {
   return (
     <footer>
       <img src={wave} alt="bg" />
+<<<<<<< HEAD
       <div className="bg-[#156279] grid grid-cols-1 md:grid-cols-2 py-2 px-5">
         <div>
           <h2 className="btn btn-ghost normal-case text-xl text-white">
@@ -44,6 +46,8 @@ const Footer = () => {
           </a>
         </div>
       </div>
+=======
+>>>>>>> 83f746fa58e5da9fc5ad033e595f4c629f8eba9a
 
       <hr className="border-t-2 border-[#05bfdb]" />
       <div className="footer justify-between  p-10 bg-[#156279] text-white">
@@ -86,7 +90,7 @@ const Footer = () => {
             )}
           </>
 
-          <a className="link link-hover">Press kit</a>
+          <Link to={"/support"}>Support</Link>
         </div>
         <div>
           <span className="footer-title">Legal</span>

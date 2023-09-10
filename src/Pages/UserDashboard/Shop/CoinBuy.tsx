@@ -68,7 +68,7 @@ const CoinBuy = () => {
         <div className="my-5">
           <form ref={form} onSubmit={sendEmail}>
             <label>
-              <span className="block mb-3">আপনার নাম লিখুনঃ</span>
+              {/* <span className="block mb-3">আপনার নাম লিখুনঃ</span>
               <input
                 type="text"
                 placeholder="এখানে লিখুন"
@@ -83,7 +83,7 @@ const CoinBuy = () => {
                 name="email"
                 className="input input-bordered input-primary w-full max-w-xs"
                 required
-              />
+              /> */}
               <span className="block my-3">কত কয়েন কিনতে চান তা লিখুনঃ</span>
               <input
                 type="number"
