@@ -7,7 +7,7 @@ const Faq = () => {
   return (
     <div className="my-20">
       <h2 className="text-4xl font-bold text-gray-800 mb-7 text-center">FAQ Section</h2>
-      <div className="md:flex items-center justify-center  gap-10">
+      <div className="flex md:flex-row flex-col-reverse  items-center justify-center  gap-10">
       {/* -----img side----- */}
       <div className="md:w-1/2 p-4">
         <h1 className="text-5xl font-bold text-red-300">Do You Have Any Questions?</h1>
