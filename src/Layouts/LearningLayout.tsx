@@ -42,7 +42,7 @@ const LearningLayout = () => {
         {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}
         <ul className="w-64 bg-gradient-to-b h-screen text-black bg-gray-100 ">
           <DashboardTop></DashboardTop>
-          <li className="px-5 py-1 hover:bg-[#43A7AB] transition duration-300 mt-2">
+          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/learning"
               className="hover:text-white flex gap-2 items-center"
@@ -59,7 +59,7 @@ const LearningLayout = () => {
             </NavLink>
           </li>
 
-          <li className="px-5 py-1 hover:bg-[#43A7AB] transition duration-300 mt-2">
+          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/quiz"
               className="hover:text-white flex gap-2 items-center"
@@ -75,7 +75,7 @@ const LearningLayout = () => {
               কুইজ
             </NavLink>
           </li>
-          <li className="px-5 py-1 hover:bg-[#43A7AB] transition duration-300 mt-2">
+          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/grammar"
               className="hover:text-white flex gap-2 items-center"
@@ -92,7 +92,7 @@ const LearningLayout = () => {
             </NavLink>
           </li>
 
-          <li className="px-5 py-1 hover:bg-[#43A7AB] transition duration-300 mt-2">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/books"
               className="hover:text-white flex gap-2 items-center"
@@ -108,7 +108,7 @@ const LearningLayout = () => {
               বই কিনুন
             </NavLink>
           </li>
-          <li className="px-5 py-1 hover:bg-[#43A7AB] transition duration-300 mt-2">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/leader-board"
               className="hover:text-white flex gap-2 items-center"
@@ -125,7 +125,7 @@ const LearningLayout = () => {
             </NavLink>
           </li>
 
-          <li className="px-5 py-1 hover:bg-[#43A7AB] transition duration-300 mt-2">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/shop"
               className="hover:text-white flex gap-2 items-center"
@@ -134,7 +134,7 @@ const LearningLayout = () => {
               শপ
             </NavLink>
           </li>
-          <li className="px-5 py-1 hover:bg-[#43A7AB] transition duration-300 mt-4">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-4">
             <NavLink
               to="/user-dashboard/profile"
               className="hover:text-white flex gap-2 items-center"
@@ -151,7 +151,7 @@ const LearningLayout = () => {
             </NavLink>
           </li>
 
-          <li className="px-5 py-1 hover:bg-[#43A7AB] transition duration-300 mt-2">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/"
               className="hover:text-white flex gap-2 items-center"

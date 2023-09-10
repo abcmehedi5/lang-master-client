@@ -22,11 +22,16 @@
 .drawer-side a {
   background-color: transparent;
   @apply px-5 py-2;
+  
 }
 
 .drawer-side a.active {
-  color: #fff !important;
-  @apply bg-[#43A7AB];
+  color: #1CB0F8;
+  /* color: #fff !important; */
+  @apply bg-[#DDF4FF];
+  border:1px solid #84D8FF;
+  color: #1CB0F8;
+  font-weight: bold;
 }
 
 /* font  */

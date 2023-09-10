@@ -44,7 +44,7 @@ const AdminDashboadLayout = () => {
         <ul className="w-64 bg-gradient-to-b md:h-screen h-full bg-gray-100  space-y-2">
           {/* dashboard  nav top */}
           <DashboardTop></DashboardTop>
-          <li className="px-5 transition duration-300 hover:bg-[#43A7AB] hover:text-white">
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF] hover:text-white">
             <NavLink
               to="/admin-dashboard/user-manage"
               className=" flex gap-2 items-center"
@@ -53,7 +53,7 @@ const AdminDashboadLayout = () => {
               User Manage
             </NavLink>
           </li>
-          <li className="px-5 transition duration-300 hover:bg-[#43A7AB] hover:text-white">
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF] hover:text-white">
             <NavLink
               to="/admin-dashboard/add-quize"
               className="flex gap-2 items-center"
@@ -62,7 +62,7 @@ const AdminDashboadLayout = () => {
               Add Quiz
             </NavLink>
           </li>
-          {/* <li className="px-5 transition duration-300 hover:bg-[#43A7AB] hover:text-white">
+          {/* <li className="px-5 transition duration-300 hover:bg-[#DDF4FF] hover:text-white">
             <NavLink
               to="/admin-dashboard/add-topics"
                className="flex gap-2 items-center"
@@ -72,7 +72,7 @@ const AdminDashboadLayout = () => {
             </NavLink>
           </li> */}
 
-          <li className="px-5 transition duration-300 hover:bg-[#43A7AB]">
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
             <NavLink
               to="/admin-dashboard/update-question"
               className="flex gap-2 items-center"
@@ -81,7 +81,7 @@ const AdminDashboadLayout = () => {
               All Units
             </NavLink>
           </li>
-          <li className="px-5 transition duration-300 hover:bg-[#43A7AB]">
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
             <NavLink
               to="/admin-dashboard/add-unit"
               className="flex gap-2 items-center"
@@ -90,7 +90,7 @@ const AdminDashboadLayout = () => {
               Add Units
             </NavLink>
           </li>
-          <li className="px-5 transition duration-300 hover:bg-[#43A7AB]">
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
             <NavLink
               to="/admin-dashboard/allPayment"
               className="flex gap-2 items-center"
@@ -99,7 +99,7 @@ const AdminDashboadLayout = () => {
               All Payments
             </NavLink>
           </li>
-          <li className="px-5 transition duration-300 hover:bg-[#43A7AB]">
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
             <NavLink
               to="/admin-dashboard/allbuybook"
               className="flex gap-2 items-center"
@@ -108,7 +108,7 @@ const AdminDashboadLayout = () => {
               All Buy Books
             </NavLink>
           </li>
-          <li className="px-5 transition duration-300 hover:bg-[#43A7AB]">
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
             <NavLink to="/" className="flex gap-2 items-center">
               <AiFillHome style={{ fontSize: "30px" }} />
               Home
