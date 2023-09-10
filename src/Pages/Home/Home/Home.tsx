@@ -12,6 +12,7 @@ const Home = () => {
   return (
     <div>
       <Cover></Cover>
+      <div className="md:w-10/12 mx-auto w-11/12">
       <Lessons></Lessons>
       <LearnLanguage></LearnLanguage>
       <HomepageBlog></HomepageBlog>
@@ -20,6 +21,7 @@ const Home = () => {
       <Testimonial></Testimonial>
       <Contact></Contact>
       <Support></Support>
+      </div>
     </div>
   );
 };
