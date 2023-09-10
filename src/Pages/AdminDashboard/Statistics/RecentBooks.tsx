@@ -25,13 +25,13 @@ const RecentBooks = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-6">Recent Book Orders:</h1>
-      <div className="overflow-x-auto">
+      <h1 className="text-xl font-bold mb-6">Recent Book Orders:</h1>
+      <div className="overflow-x-auto border-2 rounded" >
         <table className="table table-zebra">
           {/* head */}
-          <thead>
+          <thead className="bg-slate-300">
             <tr>
-              <th></th>
+              <th>#</th>
               <th>Book Name</th>
               <th>Writer</th>
               <th>Buyer</th>

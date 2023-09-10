@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Caveat&family=Lato:ital,wght@0,400;0,700;0,900;1,700&family=Lobster&family=Open+Sans&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Shadows+Into+Light&family=Work+Sans&family=Zeyada&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -37,23 +37,19 @@
 
 .drawer-side a.active {
   color: #fff !important;
-  @apply bg-blue-600;
+  @apply bg-[#43A7AB];
 }
-
 
 /* font  */
 .fontLobster {
-  font-family: 'Italianno', cursive;
+  font-family: "Italianno", cursive;
 }
 .fontKalam {
   font-family: "Kalam", cursive;
 }
 .fontYellowtail {
-  font-family: 'Yellowtail', cursive;
-
+  font-family: "Yellowtail", cursive;
 }
-
-
 
 /* <!-- HTML !-->
 <button class="button-55" role="button">Button 55</button> */
@@ -96,5 +92,5 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, #543cbe, #f1a5ef, #F8FF95);
+  background-image: linear-gradient(to right, #543cbe, #f1a5ef, #f8ff95);
 }
