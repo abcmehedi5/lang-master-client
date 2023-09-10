@@ -119,11 +119,12 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-        <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
+        <Link to="/" className="normal-case text-xl text-white">
           {/* LANG-MASTER */}
           <img
-            className="md:w-36 md:h-20 h-[74px] w-28 object-cover"
-            src="https://i.ibb.co/bW9Mtdc/0001-7305240235375941366-removebg-preview.png"
+            className="md:w-30 md:h-20 h-[50px] w-20 object-cover"
+            // src="https://i.ibb.co/bW9Mtdc/0001-7305240235375941366-removebg-preview.png"
+            src="https://i.ibb.co/bgbkbc2/logo.png"
             alt=""
           />
         </Link>

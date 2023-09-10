@@ -22,7 +22,6 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Faq from "../Pages/Faq/Faq";
 import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
-import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 import AdminRoute from "./AdminRoute";
 import Shop from "./../Pages/UserDashboard/Shop/Shop";
@@ -30,7 +29,7 @@ import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
 import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
-import Support from "../Pages/Home/Support/Support.d";
+import Support from "../Pages/Home/Support/Support";
 import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
 import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
 import Translator from "../Pages/Translator/Translator";
@@ -197,10 +196,6 @@ const router = createBrowserRouter([
       {
         path: "add-topics",
         element: <AddTopics />,
-      },
-      {
-        path: "add-notification",
-        element: <AddNotification />,
       },
       {
         path: "update-question",
