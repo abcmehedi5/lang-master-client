@@ -1,76 +1,34 @@
-import computerImg from "./../../../assets/img/interactiveLesson.svg";
+import { Link } from "react-router-dom";
+
 const Lessons = () => {
   return (
-    <div className="my-20">
-      <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">
-        Why You'll Love Learning with LangMaster
-      </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* image div */}
-        <div className="col-span-1 p-4 lg:order-2">
-          <div className="flex justify-center items-center h-full">
-            <img src={computerImg} alt="" />
+    <div className="my-28">
+      <div className="md:flex items-center justify-center gap-10">
+        <div className="md:w-1/2">
+          <h2 className="text-4xl font-bold text-gray-800">
+            Why You'll Love Learning with{" "}
+            <span className="text-[#95d3a2]">LangMaster</span>
+          </h2>
+          <p className="my-3 font-sans text-gray-500">
+            Our courses provide effective and successful training in reading,
+            listening, and speaking skills. Learn about our latest research!
+          </p>
+          <div className="shadow-2xl lg:flex items-center gap-4 px-5 justify-center py-5 lg:h-[200px] rounded-lg my-4">
+          <iframe width="250" height="150" className="rounded-md
+          " src="https://www.youtube.com/embed/csXPyyKX94Y?si=anRfkoEFShOFNxRA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+          <div >
+          <p className="font-sans font-semibold">Watch this video to clear the confusion to learn from online website🥰</p>
+          <p className="text-gray-500">Video from <a className="underline text-blue-500" target="_blank" href="https://www.youtube.com/@collegeofartsletters">Michigan State University</a></p>
           </div>
+          </div>
+          <Link to='/about-us'>
+          <button className="defaultBtn">Know More About us</button>
+          </Link>
         </div>
-        {/* left text div  */}
-        <div className="col-span-1 lg:order-1">
-          <div className="flex gap-4">
-            <span className="text-3xl">🔥</span>
-            <div>
-              <h2 className="text-xl font-semibold mb-4">
-                Effective and Result Oriented
-              </h2>
-              <p className="text-gray-600">
-                Our courses provide effective and successful training in
-                reading, listening, and speaking skills. Learn about our latest
-                research!
-              </p>
-            </div>
-          </div>
-          <div className="mt-4">
-            <div className="flex gap-4">
-              <span className="text-3xl">✅</span>
-              <div>
-                <h2 className="text-xl font-semibold mb-4">
-                  Learn Like Yourself
-                </h2>
-                <p className="text-gray-600">
-                  Every lesson, created by combining the best of artificial
-                  intelligence and linguistics, will assist you in learning a
-                  new language at the right pace and speed.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* right text div  */}
-        <div className="col-span-1 lg:order-3">
-          <div className="flex gap-4">
-            <span className="text-3xl">👑</span>
-            <div>
-              <h2 className="text-xl font-semibold mb-4">
-                Keep Interest Alive
-              </h2>
-              <p className="text-gray-600">
-                Making language learning practice enjoyable and easy with
-                features like challenges and fun exercises is our way of making
-                the path of learning a new language smoother for you.
-              </p>
-            </div>
-          </div>
-          <div className="mt-4">
-            <div className="flex gap-4">
-              <span className="text-3xl">👨</span>
-              <div>
-                <h2 className="text-xl font-semibold mb-4">Enjoy Your Time</h2>
-                <p className="text-gray-600">
-                  To learn well, you have to learn with a serious face, no
-                  kidding! With engaging exercises and characters full of humor,
-                  combine them to make your expertise even more enjoyable.
-                </p>
-              </div>
-            </div>
+        <div className="md:w-1/2">
+          <div className="bg-[#b2f5c1a5]" style={{ "borderRadius": "80% 70% 70% 80% " }}>
+            <img  className="h-[450px] lg:object-cover" src="https://i.ibb.co/GpgYBSQ/7753413-removebg-preview.png" alt="" />
+            {/* <img src="https://i.ibb.co/dQv9gr2/business-img.png" alt="" /> */}
           </div>
         </div>
       </div>

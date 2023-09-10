@@ -26,20 +26,20 @@ const Contact = () => {
           <img className="h-full w-full object-cover" src={contact} alt="" />
 
           <span
-            style={{ borderRadius: "24px 24px 2px" }}
-            className="bg-[#aad6ff] absolute animate-updown top-10 left-10 p-3 text-gray-400"
+            style={{ borderRadius: "24px 24px 2px", lineHeight: '17px' }}
+            className="bg-[#93cbff] font-mono absolute animate-updown top-10 left-10 p-3 border text-gray-500"
           >
             Email <br /> abcde@gmail.com
           </span>
           <span
-            style={{ borderRadius: "24px 24px 24px 2px" }}
-            className="bg-[#f3dfc1] absolute animate-updown top-32 right-8 py-2 px-3 text-gray-400"
+            style={{ borderRadius: "24px 24px 24px 2px", lineHeight: '17px' }}
+            className="bg-[#ffe4ba] absolute font-mono animate-updown top-32 right-8 py-2 px-3 border text-gray-500"
           >
-            contact: <br /> +880123456
+            contact<br />+880123456
           </span>
           <span
-            style={{ borderRadius: "24px 24px 2px" }}
-            className="bg-[#a8e3da] absolute animate-updown bottom-32 left-20 py-2 px-3 text-gray-400"
+            style={{ borderRadius: "24px 24px 2px", lineHeight: '17px' }}
+            className="bg-[#a6fff2] absolute font-mono animate-updown bottom-32 left-20 py-2 px-3 border text-gray-500"
           >
             visit us <br />
             Dhaka Bonani
@@ -54,7 +54,7 @@ const Contact = () => {
               action="https://getform.io/f/8df9c731-aceb-4ca8-bde5-927f97ba1b59"
               method="POST"
             >
-              <h1 className="text-2xl mb-2 font-semibold">
+              <h1 className="text-2xl text-center mb-2 font-semibold">
                 Send Us Message Anytime
               </h1>
               <div className="form-control rounded-full border-2 p-1">
@@ -85,7 +85,7 @@ const Contact = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="defaultBtn">Submit</button>
+                <button className="defaultBtn">Send Messege</button>
               </div>
             </form>
           </div>
