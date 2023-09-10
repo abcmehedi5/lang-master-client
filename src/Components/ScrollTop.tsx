@@ -1,7 +1,4 @@
-// // import { BsArrowUpCircleFill } from "react-icons/bs";
-// import ScrollToTop from "react-scroll-to-top";
 import { useEffect, useState } from 'react';
-// import ArrowSvg from '../../public/arrow2.svg';
 import './ScrollTop.css'
 import { RxDoubleArrowUp } from 'react-icons/rx';
 
@@ -15,7 +12,7 @@ const ScrollTop = () => {
     }
 
     const listenToScroll = ()=>{
-      let heightTOHidden = 250;
+      const heightTOHidden = 250;
       const winScroll = 
       document.body.scrollTop || document.documentElement.scrollTop;
       if (winScroll > heightTOHidden) {
@@ -34,7 +31,7 @@ const ScrollTop = () => {
    
 <>
 {isVisible && <div className='flex items-center justify-center'>
-    <button className={`scroll-to-top ${isVisible ? 'visible' : ''}`} onClick={scrollTop}> <p><RxDoubleArrowUp className="text-5xl animate-bounce" /></p> </button>
+    <button className={`scroll-to-top ${isVisible ? 'visible' : ''}`} onClick={scrollTop}> <p><RxDoubleArrowUp className="text-6xl animate-bounce" /></p> </button>
     </div>}
 </>
    

@@ -1,12 +1,4 @@
-// import {
-//   Accordion,
-//   AccordionItem,
-//   AccordionItemButton,
-//   AccordionItemHeading,
-//   AccordionItemPanel,
-// } from "react-accessible-accordion";
-import grammarLottie from "../../../public/terns.json";
-import Lottie from "lottie-react-web";
+
 import SubHeader from "../../Components/SubHeader/SubHeader";
 import { useEffect } from "react";
 
@@ -58,31 +50,31 @@ const Faq: React.FC = () => {
       answer:
         "No, the content on Lang-Master is for personal, non-commercial use only. Any unauthorized use of our content for commercial purposes is strictly prohibited.",
     },
-    // {
-    //   question: "How is intellectual property handled on Lang-Master?",
+    {
+      question: "How is intellectual property handled on Lang-Master?",
 
-    //   answer:
-    //     "All content, including lessons, exercises, and quizzes, is the property of Lang-Master or its licensors and is protected by copyright and other intellectual property laws. Users may not reproduce or distribute our content without permission.",
-    // },
-    // {
-    //   question: "What happens if I violate the terms and conditions?",
+      answer:
+        "All content, including lessons, exercises, and quizzes, is the property of Lang-Master or its licensors and is protected by copyright and other intellectual property laws. Users may not reproduce or distribute our content without permission.",
+    },
+    {
+      question: "What happens if I violate the terms and conditions?",
 
-    //   answer:
-    //     "Lang-Master reserves the right to terminate or suspend the accounts of users who violate these terms and conditions. We may also take legal action if necessary.",
-    // },
-    // {
-    //   question: "How can I contact Lang-Master for questions or concerns?",
+      answer:
+        "Lang-Master reserves the right to terminate or suspend the accounts of users who violate these terms and conditions. We may also take legal action if necessary.",
+    },
+    {
+      question: "How can I contact Lang-Master for questions or concerns?",
 
-    //   answer:
-    //     "You can contact our customer support team through the provided contact information on our Contact Us page.",
-    // },
+      answer:
+        "You can contact our customer support team through the provided contact information on our Contact Us page.",
+    },
   ];
   return (
     <div>
       <SubHeader title="FAQ"></SubHeader>
       <h2 className="text-3xl font-bold my-10 text-center">We Are Always Ready To Help You</h2>
       <div className="flex items-center justify-center gap-2 w-11/12 mx-auto">
-        <div className="w-1/2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {items.map((item) => (
             <div className="collapse collapse-plus bg-base-200 mb-2">
               <input type="radio" name="my-accordion-3" />
@@ -94,15 +86,6 @@ const Faq: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-        <div className="w-1/2">
-          <Lottie
-            options={{
-              animationData: grammarLottie,
-              loop: true,
-              autoplay: true,
-            }}
-          />
         </div>
       </div>
     </div>
