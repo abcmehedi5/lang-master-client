@@ -30,13 +30,7 @@ interface Profile {
   state: string;
 }
 
-// ---------------------------------
 
-// interface SomeResponseType {
-//   // Define the response type structure here
-//   // Example: id: number; message: string;
-// }
-// ---------------------------------
 
 const Profile: React.FC = () => {
   const { user }: any = useContext(AuthContext);
@@ -208,7 +202,7 @@ const Profile: React.FC = () => {
                                 className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
                               >
                                 <p className="font-bold text-black">Role</p>
-                                <strong className="font-medium text-gradient flex gap-2 uppercase  items-center">
+                                <strong className="font-medium  flex gap-2 uppercase  items-center">
                                   {singleUser?.role}
                                   <GrUserAdmin />
                                 </strong>
@@ -220,7 +214,7 @@ const Profile: React.FC = () => {
                                 to="/user-dashboard/userPaymentData"
                                 className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
                               >
-                                <strong className="font-medium text-gradient uppercase  items-center">
+                                <strong className="font-medium  uppercase  items-center">
                                   Payment History
                                 </strong>
                               </Link>
@@ -231,7 +225,7 @@ const Profile: React.FC = () => {
                             <li>
                               <Link
                                 to="/user-dashboard/bought-books"
-                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 text-gradient"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 "
                               >
                                 {" "}
                                 Book Collection

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import ReactPaginate from "react-paginate";
+import { MdDeleteSweep, MdUpdate } from "react-icons/md";
+
+const itemsPerPage = 10;
 
 interface Question {
   id: number;
@@ -25,8 +29,15 @@ interface FetchedData {
   lessons: Lesson[];
 }
 
+
 const UpdateQuestion: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  // Handle page change
+  const handlePageChange = (selectedPage: { selected: number }) => {
+    setCurrentPage(selectedPage.selected);
+  };
 
   const handleDelete = (id: number) => {
     Swal.fire({
@@ -39,7 +50,9 @@ const UpdateQuestion: React.FC = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        setQuestions(questions.filter(question => question.id !== id));
+        setQuestions((prevQuestions) =>
+          prevQuestions.filter((question) => question.id !== id)
+        );
 
         fetch(`http://localhost:5000/users/user/${id}`, {
           method: "DELETE",
@@ -60,7 +73,6 @@ const UpdateQuestion: React.FC = () => {
       }
     });
   };
-  
 
   useEffect(() => {
     fetch("http://localhost:5000/learning-questions/questions")
@@ -83,12 +95,16 @@ const UpdateQuestion: React.FC = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  // Calculate the offset and get the questions for the current page
+  const offset = currentPage * itemsPerPage;
+  const paginatedQuestions = questions.slice(offset, offset + itemsPerPage);
+
   return (
-    <div>
+    <div className="border-2 w-10/12 mx-auto rounded-xl ">
       <div className="overflow-x-auto p-14">
         <table className="table">
           <thead>
-            <tr>
+            <tr className="bg-slate-700 text-white">
               <th></th>
               <th>Question</th>
               <th>Correct Answer</th>
@@ -97,29 +113,46 @@ const UpdateQuestion: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {questions.map((question, index) => (
+            {paginatedQuestions.map((question, index) => (
               <tr key={question.id}>
-                <th>{index + 1}</th>
+                <th>{index + 1 + currentPage * itemsPerPage}</th>
                 <td>{question.question}</td>
                 <td>{question.correctAnswer}</td>
                 <td>
                   <Link to={`/updatemodal/${question.id}`}>
-                    <button className="btn btn-primary btn-sm">Update</button>
+                  <button className="text-2xl text-emerald-500 "><MdUpdate/></button>
                   </Link>
                 </td>
                 <td>
-                  <button
+                <button
                     onClick={() => handleDelete(question.id)}
-                    className="btn bg-red-500 hover:bg-red-600 text-white btn-sm"
+                    className="text-2xl text-red-500 "
                   >
-                    Delete
+                   <MdDeleteSweep/>
                   </button>
                 </td>
               </tr>
             ))}
           </tbody>
+
         </table>
       </div>
+
+      {/* Pagination component */}
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        breakLabel={"..."}
+        breakClassName={"break-me"}
+        pageCount={Math.ceil(questions.length / itemsPerPage)}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageChange}
+        containerClassName={"flex justify-center items-center my-4"}
+        activeClassName={"bg-blue-500 text-white "}
+        pageClassName={"text-blue-500 px-3"}
+      />
+
     </div>
   );
 };

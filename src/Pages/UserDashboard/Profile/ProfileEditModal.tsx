@@ -119,27 +119,6 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
               />
             </label>
 
-            {/* <div className="my-3">
-              <label>
-              <span className="block mt-3 px-2">Learning Level</span>
-                <Controller
-                  name="learningLevel"
-                  control={control}
-                  render={({ field }) => (
-                    <select
-                      {...field}
-                      className="border rounded p-4 w-full"
-                    >
-                      <option value="">English proficiency</option>
-                      <option value="Beginner">Beginner</option>
-                      <option value="Intermediate">Intermediate</option>
-                      <option value="Advanced">Advanced</option>
-                    </select>
-                  )}
-                />
-              </label>
-            </div> */}
-
             <div className="flex items-center space-x-4 text-xl">
               {/* gender*/}
               <label>
