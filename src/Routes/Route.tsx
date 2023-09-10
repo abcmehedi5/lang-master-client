@@ -22,7 +22,6 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Faq from "../Pages/Faq/Faq";
 import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
-import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 import AdminRoute from "./AdminRoute";
 import Shop from "./../Pages/UserDashboard/Shop/Shop";
@@ -197,10 +196,6 @@ const router = createBrowserRouter([
       {
         path: "add-topics",
         element: <AddTopics />,
-      },
-      {
-        path: "add-notification",
-        element: <AddNotification />,
       },
       {
         path: "update-question",
