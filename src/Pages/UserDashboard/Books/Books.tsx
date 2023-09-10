@@ -54,13 +54,13 @@ const Books: any = () => {
 
   return (
     <>
-      <div className="w-9/12 mx-auto py-12">
+      <div className="py-12">
         <div className="flex flex-col items-center">
           <h1 className="text-2xl font-bold text-center mb-4">
             আপনার পছন্দের পিডিএফ পড়ুন
           </h1>
           {/* search bar  */}
-          <div className="flex items-center p-6 space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+          <div className="flex items-center space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
             <div className="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ const Books: any = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 p-14">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mt-8">
           {books.map((book: any) => (
             // <div
             //   key={book.id}

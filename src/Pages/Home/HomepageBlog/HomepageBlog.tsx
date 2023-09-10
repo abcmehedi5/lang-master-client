@@ -2,8 +2,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 const HomepageBlog = () => {
   return (
     <>
-      {/* // TODO: More will be added such that make it dynamic with link also button to read this blog */}
-      <section className="w-9/12 mx-auto my-20">
+      <section className="my-20">
         {/* section title  */}
         <div className="flex justify-between pb-10">
           <h1 className="font-bold text-gray-800 text-2xl">

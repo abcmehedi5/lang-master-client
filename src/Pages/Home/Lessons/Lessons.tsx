@@ -1,7 +1,7 @@
 import computerImg from "./../../../assets/img/interactiveLesson.svg";
 const Lessons = () => {
   return (
-    <div className="w-9/12 mx-auto my-20">
+    <div className="my-20">
       <h2 className="text-4xl font-bold text-gray-800 mb-10 text-center">
         Why You'll Love Learning with LangMaster
       </h2>
