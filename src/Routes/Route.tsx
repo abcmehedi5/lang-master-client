@@ -35,6 +35,8 @@ import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
 import Translator from "../Pages/Translator/Translator";
 import Statistics from "../Pages/AdminDashboard/Statistics/Statistics";
 import Certificate from "../Pages/Cartificate/Certificate";
+import AllBooks from "../Pages/AdminDashboard/AllBooks";
+import AddBooks from "../Pages/AdminDashboard/AddBooks";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -212,6 +214,14 @@ const router = createBrowserRouter([
       {
         path: "allbuybook",
         element: <AllBuyBook></AllBuyBook>,
+      },
+      {
+        path: "allbooks",
+        element: <AllBooks></AllBooks>,
+      },
+      {
+        path: "addBook",
+        element: <AddBooks></AddBooks>,
       },
     ],
   },

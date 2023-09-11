@@ -109,6 +109,24 @@ const AdminDashboadLayout = () => {
             </NavLink>
           </li>
           <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
+            <NavLink
+              to="/admin-dashboard/allbooks"
+              className="flex gap-2 items-center"
+            >
+              <IoBookSharp style={{ fontSize: "30px" }} />
+              All Books
+            </NavLink>
+          </li>
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
+            <NavLink
+              to="/admin-dashboard/addBook"
+              className="flex gap-2 items-center"
+            >
+              <IoBookSharp style={{ fontSize: "30px" }} />
+              Add Books
+            </NavLink>
+          </li>
+          <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
             <NavLink to="/" className="flex gap-2 items-center">
               <AiFillHome style={{ fontSize: "30px" }} />
               Home
