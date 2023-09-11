@@ -45,7 +45,9 @@ const Testimonial = () => {
               delivering excellence. We're grateful for their trust and look
               forward to more shared victories.
             </p>
-            <h4  className="text-xl capitalize font-semibold text-gray-700">review {reviews?.length}0 +</h4>
+            <h4 className="text-xl capitalize font-semibold text-gray-700">
+              review {reviews?.length}0 +
+            </h4>
           </div>
           <div className="review md:w-[60%] h-[65vh] overflow-hidden ">
             <div>

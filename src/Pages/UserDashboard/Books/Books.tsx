@@ -3,7 +3,6 @@ import SingleBook from "./SingleBook";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link, useLocation } from "react-router-dom";
 
-
 type Book = {
   id: number;
   bookname: string;
@@ -100,49 +99,51 @@ const Books: any = () => {
         </div>
 
         {filteredBooks.length === 0 ? (
-            <div className="text-center my-10 text-4xl text-gray-500 font-semibold">
-              <p>No data found</p>
-            </div>
-          ) : 
+          <div className="text-center my-10 text-4xl text-gray-500 font-semibold">
+            <p>No data found</p>
+          </div>
+        ) : (
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4  mt-8">
-          {filteredBooks
-            .slice(0, showAllBooks ? filteredBooks.length : 8)
-            .map((book: any) => (
-              <div
-                key={book._id}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleEditButtonClick(book);
-                }}
-                className="group relative block overflow-hidden cursor-pointer"
-              >
-                <img
-                  src={book.bookimage}
-                  alt=""
-                  className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black bg-opacity-70 text-white">
-                  <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium absolute top-0 left-0">
-                    {book.status}
-                  </span>
-                  <span className="text-2xl absolute top-0 right-0 p-2 cursor-pointer">
-                    ❤️
-                  </span>
-                  <div className="flex flex-col justify-center items-center absolute inset-0">
-                    <h3 className="text-lg font-medium">{book.bookname}</h3>
-                    <h3 className="mt-2 font-medium">Writer: {book.writer}</h3>
-                    <div className="flex items-center">
-                      {/* Add Rating component here */}
-                    </div>
-                    <p className="mt-2 text-sm">
-                      <b>Price:</b>{" "}
-                      <span className="text-green-500 font-semibold">
-                        {book.price} Coin
-                      </span>
-                    </p>
+            {filteredBooks
+              .slice(0, showAllBooks ? filteredBooks.length : 8)
+              .map((book: any) => (
+                <div
+                  key={book._id}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleEditButtonClick(book);
+                  }}
+                  className="group relative block overflow-hidden cursor-pointer"
+                >
+                  <img
+                    src={book.bookimage}
+                    alt=""
+                    className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black bg-opacity-70 text-white">
+                    <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium absolute top-0 left-0">
+                      {book.status}
+                    </span>
+                    <span className="text-2xl absolute top-0 right-0 p-2 cursor-pointer">
+                      ❤️
+                    </span>
+                    <div className="flex flex-col justify-center items-center absolute inset-0">
+                      <h3 className="text-lg font-medium">{book.bookname}</h3>
+                      <h3 className="mt-2 font-medium">
+                        Writer: {book.writer}
+                      </h3>
+                      <div className="flex items-center">
+                        {/* Add Rating component here */}
+                      </div>
+                      <p className="mt-2 text-sm">
+                        <b>Price:</b>{" "}
+                        <span className="text-green-500 font-semibold">
+                          {book.price} Coin
+                        </span>
+                      </p>
 
-                    {/* buy now btn  */}
-                    {/* <form className="mt-4">
+                      {/* buy now btn  */}
+                      {/* <form className="mt-4">
                     <button
                       onClick={(e) => {
                         e.preventDefault();
@@ -153,24 +154,21 @@ const Books: any = () => {
                       Buy Now
                     </button>
                   </form> */}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
 
-         
-
-          {/* // modal open after click on a book  */}
-          {isModalOpen && selectedBook && (
-            <SingleBook
-              key={selectedBook.bookimage}
-              selectedBook={selectedBook}
-              handleModalClose={handleModalClose}
-            ></SingleBook>
-          )}
-        </div>
-        }
-        
+            {/* // modal open after click on a book  */}
+            {isModalOpen && selectedBook && (
+              <SingleBook
+                key={selectedBook.bookimage}
+                selectedBook={selectedBook}
+                handleModalClose={handleModalClose}
+              ></SingleBook>
+            )}
+          </div>
+        )}
       </div>
     </>
   );

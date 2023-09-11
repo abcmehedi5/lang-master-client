@@ -1,4 +1,3 @@
-
 import SubHeader from "../../Components/SubHeader/SubHeader";
 import { useEffect } from "react";
 
@@ -72,7 +71,9 @@ const Faq: React.FC = () => {
   return (
     <div>
       <SubHeader title="FAQ"></SubHeader>
-      <h2 className="text-3xl font-bold my-10 text-center">We Are Always Ready To Help You</h2>
+      <h2 className="text-3xl font-bold my-10 text-center">
+        We Are Always Ready To Help You
+      </h2>
       <div className="flex items-center justify-center gap-2 w-11/12 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {items.map((item) => (

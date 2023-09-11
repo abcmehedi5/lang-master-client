@@ -38,7 +38,12 @@ const Cover: React.FC<CoverProps> = () => {
         <h1 className="text-4xl md:text-6xl font-semibold text-white">
           Improve your English
         </h1>
-        <p className="text-xl md:text-2xl my-4 text-gray-200">One of the app's standout features is its robust <span className="text-[#eebb2e]">progress</span> tracking system, allowing learners to monitor their advancements and set achievable <span className="text-[#eebb2e]">goals</span>.</p>
+        <p className="text-xl md:text-2xl my-4 text-gray-200">
+          One of the app's standout features is its robust{" "}
+          <span className="text-[#eebb2e]">progress</span> tracking system,
+          allowing learners to monitor their advancements and set achievable{" "}
+          <span className="text-[#eebb2e]">goals</span>.
+        </p>
 
         <div className="flex my-2 justify-center">
           {usersPoint.slice(0, 3).map((userPoint: any) => (
@@ -58,11 +63,10 @@ const Cover: React.FC<CoverProps> = () => {
           </p>
         </div>
         <div className="text-center">
-          <Link to='/user-dashboard/learning'>
-
-          <button className="button-52 mt-4" role="button">
-            get Started
-          </button>
+          <Link to="/user-dashboard/learning">
+            <button className="button-52 mt-4" role="button">
+              get Started
+            </button>
           </Link>
         </div>
       </div>
