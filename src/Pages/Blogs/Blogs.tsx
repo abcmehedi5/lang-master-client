@@ -3,7 +3,7 @@ import BlogRightSidebar from "./BlogRightSidebar";
 import useBlogData from "../../hooks/useBlogData";
 // import BlogLeftSidebar from "./BlogLeftSidebar";
 import BlogPost from "./BlogPost";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import SubHeader from "../../Components/SubHeader/SubHeader";
 import SearchBlog from "./SearchBlog";
@@ -15,6 +15,10 @@ const Blogs = () => {
   const { blog } = useBlogData();
   console.log(blog);
   
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
 
   // my all blogs---------------
   const { user }: any = useContext(AuthContext);

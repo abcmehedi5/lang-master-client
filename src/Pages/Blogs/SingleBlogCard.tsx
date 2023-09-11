@@ -1,22 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiTwotoneMail } from "react-icons/ai";
 import { Link, useLoaderData } from "react-router-dom";
 import Like from "./Like/Like";
 import useBlogData from "../../hooks/useBlogData";
-// import Share from "./Share/Share";
 
-// interface BlogData {
-//   _id: string;
-//   image: string;
-//   uploadedtime: string;
-//   title: string;
-//   description: string;
-//   email: string;
-//   like: number;
-//   likedUsers: string[];
-//   authorImage: string;
-//   name: string;
-// }
 
 const SingleBlogCard: React.FC = () => {
   const data: any = useLoaderData();
@@ -27,6 +14,11 @@ const SingleBlogCard: React.FC = () => {
     (own: any) => own.email === data.email && own._id !== data._id
   );
   const [sharedData]: any = useState(null);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
 
   return (
     <div className="md:flex w-10/12 py-4 my-8 mx-auto gap-6">
