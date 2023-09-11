@@ -1,24 +1,15 @@
-import * as React from "react"; // Import React
-import useGrammar from "../../../hooks/useGrammar";
-import GrammarCategory from "./GrammarCategory";
 import { Helmet } from "react-helmet-async";
-import grammarLottie from "../../../../public/grammarLottie.json"
+import grammarLottie from "../../../../public/grammarLottie.json";
 import Lottie from "lottie-react-web";
+import "./Grammer.css";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
-const Grammar: React.FC = () => {
-  const [grammar] = useGrammar();
-  const tense = grammar.filter(
-    (item: { category: string }) => item.category === "tense"
-  );
-  const parts_of_speech = grammar.filter(
-    (item: { category: string }) => item.category === "parts_of_speech"
-  );
-  const genders = grammar.filter(
-    (item: { category: string }) => item.category === "genders"
-  );
-
+function Grammar() {
   return (
     <>
+      <Helmet>
+        <title>Grammar | Lang Master</title>
+      </Helmet>
       <Lottie
         options={{
           animationData: grammarLottie,
@@ -30,14 +21,56 @@ const Grammar: React.FC = () => {
 
       <div className="w-9/12 mx-auto">
         <Helmet>
-          <title> Grammar | Lang Master </title>
+          <title>Grammar | Lang Master</title>
         </Helmet>
-        <GrammarCategory items={tense} title={"tense"} />
-        <GrammarCategory items={parts_of_speech} title={"parts_of_speech"} />
-        <GrammarCategory items={genders} title={"genders"} />
+        <div className="card max-w-screen-xl">
+          <h1>ইংরেজি ব্যাকরণ (English Grammar)</h1>
+          <p>
+            বর্তমান পৃথিবীতে ইংরেজি ভাষা শিক্ষার গুরত্ব অনেকটা সূর্যের মত ধ্রুব
+            । ইংরেজি বুঝে শেখার জন্যে ইংরেজি ব্যাকরণ (English Grammar) এর কোন
+            বিকল্প নেই। আর এ লক্ষ্যকে সামনে রেখে আমরা আপনাদের জন্য নিয়ে এসেছি
+            ইংরেজি ব্যাকরণের যথেষ্ট বাস্তবিক উদাহরণসহ সহজতম ব্যাখ্যা।{" "}
+          </p>
+          <p className="text-blue-400 font-medium mb-4">
+            যে বিষয়ে শিখতে চান সে বিষয়ের উপর ক্লিক করুন!
+          </p>
+
+          <details className="sentence">
+            <summary className="font-bold">Sentence</summary>
+            <ul className="pl-5">
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+            </ul>
+          </details>
+
+          <details className="info">
+            <summary>Tense</summary>
+            <ul className="pl-5">
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+            </ul>
+          </details>
+
+          <details className="alert">
+            <summary>Parts Of Speech</summary>
+            <ul className="pl-5">
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+              <li>hello</li>
+            </ul>
+          </details>
+        </div>
       </div>
     </>
   );
-};
+}
 
 export default Grammar;

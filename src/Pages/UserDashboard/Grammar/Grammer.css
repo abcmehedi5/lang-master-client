@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --color-bg: #eeedeb;
+  --color-title: #0e1c4e;
+
+  --color-summary-1: #fff6ee;
+  --color-summary-1-highlight: #ffc48b;
+  --color-summary-2: #fafaff;
+  --color-summary-2-highlight: #b4b3ff;
+  --color-summary-3: #fff0f3;
+  --color-summary-3-highlight: #ffb3c0;
+
+  --font-ibm-plex-sans: "IBM Plex Sans", sans-serif;
+}
+
+.card {
+  background: white;
+  padding: 38px 36px;
+  /* margin-top: 40px; */
+  margin-bottom: 40px;
+  border-radius: 4px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+  /* max-width: 30em; */
+  width: 100%;
+}
+
+.card h1 {
+  font-family: var(--font-ibm-plex-sans);
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--color-title);
+  margin-bottom: 20px;
+}
+
+.card details {
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.05);
+  border-left: 15px solid gray;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.card details.sentence {
+  background: var(--color-summary-1);
+  border-left-color: var(--color-summary-1-highlight);
+}
+
+.card details.info {
+  background: var(--color-summary-2);
+  border-left-color: var(--color-summary-2-highlight);
+}
+
+.card details.alert {
+  background: var(--color-summary-3);
+  border-left-color: var(--color-summary-3-highlight);
+}
+
+.card details summary {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  font-family: var(--font-ibm-plex-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-title);
+  padding: 20px;
+  cursor: pointer;
+}
+
+.card details summary::-webkit-details-marker {
+  display: none;
+}
+
+.card details summary:focus {
+  outline: solid 3px var(--highlight);
+}
+
+.card details summary::selection {
+  background-color: var(--highlight);
+}
+
+.card details p {
+  display: list-item;
+  cursor: default;
+  margin-left: 3rem;
+}
+.card details[open] summary {
+  font-weight: bold;
+}
