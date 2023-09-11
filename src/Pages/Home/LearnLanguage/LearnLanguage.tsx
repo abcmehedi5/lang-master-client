@@ -1,83 +1,71 @@
-import { BiBriefcase } from "react-icons/bi";
-import { FaBook, FaGraduationCap } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
-
+import { FaGraduationCap } from "react-icons/fa";
 import { BsPeople } from "react-icons/bs";
-import { GiMeepleGroup } from "react-icons/gi";
-import Lottie from "lottie-react-web";
-import learnOne from "../../../../public/learnLanguage/learnOne.json"
-import learnTwo from "../../../../public/learnLanguage/learnTwo.json"
-import learnThree from "../../../../public/learnLanguage/learnThree.json"
-import learnFour from "../../../../public/learnLanguage/learnFour.json"
+import CountUp from "react-countup";
+import { useState } from "react";
+import ScrollTrigger from "react-scroll-trigger";
+import { ImBooks } from "react-icons/im";
 
 function LearnLanguage() {
- const learning = [learnOne, learnTwo, learnThree, learnFour];
+  const [counton, setCountOn] = useState(false);
 
   return (
-    <div className="my-4 shadow-lg container mx-auto">
-      {/* Group button */}
-      <div className="flex border bg-slate-100 mx-auto justify-center md:w-1/2 w-full rounded-3xl text-center my-6 ">
-        <Link
-          to="/"
-          className="hover:bg-[#047e65] hover:text-white items-center p-4 w-full rounded-3xl flex gap-2"
-        >
-          <FaBook />
-          Learn & Get Certificates
-        </Link>
-        <Link
-          to="/about"
-          className="hover:bg-[#047e65] hover:text-white p-4 rounded-3xl w-full flex gap-2 items-center"
-        >
-          <BiBriefcase /> Build Your Career
-        </Link>
+    <ScrollTrigger
+      onEnter={() => setCountOn(true)}
+      onExit={() => setCountOn(false)}
+    >
+      <div className="py-5 ">
+        <h1 className="text-3xl font-bold text-gray-800 text-center mb-9">
+          Some Information About Our Company
+        </h1>
 
-      </div>
-      <h2 className="lg:text-5xl text-xl font-bold text-center">
-        Learn a new Language
-      </h2>
+        {/* Learning Footer & use Icons */}
 
-      {/* search bar */}
-      <div className="mx-10">
-        <SearchBar></SearchBar>
-      </div>
+        <div className="w-full bg-gradient-to-r from-[#359eace9] to-[#95d3a2] py-7 flex text-white items-center justify-evenly">
+          <div className="flex flex-col text-center text-3xl">
+            {/* <h3>3000+</h3> */}
+            <h1>
+              {counton && (
+                <CountUp start={0} end={3000} duration={2} separator="," />
+              )}
+              +
+            </h1>
 
-      <div className="grid gris-cols-1 md:grid-cols-2 lg:grid-cols-4  lg:gap-4 ">
-        {learning.map((learn, index) => (
-          <div className=" mt-4 " key={index}>
-            <Lottie
-              options={{
-                animationData: learn,
-                loop: true,
-                autoplay: true,
-              }}
-            />
+            <div className="flex text-xl">
+              <BsPeople className="m-2" />
+              <p>Learners</p>
+            </div>
           </div>
-        ))}
+          <hr className=" bg-white w-1 h-5 md:h-8 lg:h-12" />
+          <div className="flex flex-col text-center text-3xl">
+            <h1>
+              {counton && (
+                <CountUp start={0} end={4500} duration={2} separator="," />
+              )}
+              +
+            </h1>
+
+            <div className="flex text-xl">
+              <ImBooks className="m-2" />
+              <p>Online Books</p>
+            </div>
+          </div>
+          <hr className=" bg-white w-1 h-5 md:h-8 lg:h-12" />
+          <div className="flex flex-col text-center text-3xl">
+            <h1>
+              {counton && (
+                <CountUp start={0} end={23} duration={2} separator="," />
+              )}
+              +
+            </h1>
+
+            <div className="flex text-xl">
+              <FaGraduationCap className="m-2" />
+              <p>Instuctors</p>
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
-      {/* Learning Footer & use Icons */}
-
-      <div className="w-full bg-[#0A4D68] py-4 flex flex-wrap text-white items-center lg:gap-5 p-2 lg:text-xl justify-center">
-
-        <div className="flex items-center px-3">
-          <BsPeople className="m-2" />
-          <h3>30 Million + Learners</h3>
-        </div>
-        <hr className=" bg-white w-1 h-5 md:h-8 lg:h-12" />
-        <div className="flex items-center px-3">
-          <FaGraduationCap className="m-2" />
-          <h3>6 Million + Graduates</h3>
-        </div>
-        <hr className=" bg-white w-1 h-5 md:h-8 lg:h-12" />
-        <div className="flex items-center px-3">
-          <GiMeepleGroup className="m-2" />
-          <h3>195 Countries</h3>
-        </div>
-      </div>
-    </div>
+    </ScrollTrigger>
   );
 }
 

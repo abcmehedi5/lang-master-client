@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-// import { AiFillCloseCircle } from "react-icons/ai";
 import SingleBook from "./SingleBook";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link, useLocation } from "react-router-dom";
-// import { FaRegStar, FaStar } from "react-icons/fa";
-// import Rating from "react-rating";
+
 
 type Book = {
   id: number;
