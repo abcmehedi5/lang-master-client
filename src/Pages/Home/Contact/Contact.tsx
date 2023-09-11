@@ -26,19 +26,21 @@ const Contact = () => {
           <img className="h-full w-full object-cover" src={contact} alt="" />
 
           <span
-            style={{ borderRadius: "24px 24px 2px", lineHeight: '17px' }}
+            style={{ borderRadius: "24px 24px 2px", lineHeight: "17px" }}
             className="bg-[#93cbff] font-mono absolute animate-updown top-10 left-10 p-3 border text-gray-500"
           >
             Email <br /> abcde@gmail.com
           </span>
           <span
-            style={{ borderRadius: "24px 24px 24px 2px", lineHeight: '17px' }}
+            style={{ borderRadius: "24px 24px 24px 2px", lineHeight: "17px" }}
             className="bg-[#ffe4ba] absolute font-mono animate-updown top-32 right-8 py-2 px-3 border text-gray-500"
           >
-            contact<br />+880123456
+            contact
+            <br />
+            +880123456
           </span>
           <span
-            style={{ borderRadius: "24px 24px 2px", lineHeight: '17px' }}
+            style={{ borderRadius: "24px 24px 2px", lineHeight: "17px" }}
             className="bg-[#a6fff2] absolute font-mono animate-updown bottom-32 left-20 py-2 px-3 border text-gray-500"
           >
             visit us <br />

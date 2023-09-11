@@ -16,7 +16,7 @@ interface CoverProps {
 const Cover: React.FC<CoverProps> = () => {
   const { allLeaderBoardData: usersPoint } = useLeaderBoard();
   return (
-    <div className="banner md:flex items-center justify-between bg-gradient-to-r from-[#95d3a2] to-[#359fac] relative md:py-0 pt-0 pb-16 md:h-[100vh] px-7 gap-20">
+    <div className="banner md:flex items-center justify-between bg-gradient-to-r from-[#95d3a2] to-[#359fac] relative md:py-0 pt-0 pb-16 md:h-[90vh] px-7 gap-20">
       <div className="absolute animatespin h-20 w-20 opacity-95 hidden md:block animatespin right-10 bottom-32">
         <img src={shap1} />
       </div>
@@ -27,7 +27,7 @@ const Cover: React.FC<CoverProps> = () => {
         <img src={shap3} />
       </div>
 
-      <div className="imgbanner relative md:h-[550px] h-[350px] rounded-full md:ml-[50px] md:w-1/2 ">
+      <div className="imgbanner relative md:h-[430px] h-[300px] rounded-full md:ml-[50px] md:w-1/2 ">
         <img
           className="w-full h-full"
           src="https://i.ibb.co/s1vDwGW/banner-img-1.png"
@@ -38,7 +38,12 @@ const Cover: React.FC<CoverProps> = () => {
         <h1 className="text-4xl md:text-6xl font-semibold text-white">
           Improve your English
         </h1>
-        <p className="text-xl md:text-2xl my-4 text-gray-200">One of the app's standout features is its robust <span className="text-[#eebb2e]">progress</span> tracking system, allowing learners to monitor their advancements and set achievable <span className="text-[#eebb2e]">goals</span>.</p>
+        <p className="text-xl md:text-2xl my-4 text-gray-200">
+          One of the app's standout features is its robust{" "}
+          <span className="text-[#eebb2e]">progress</span> tracking system,
+          allowing learners to monitor their advancements and set achievable{" "}
+          <span className="text-[#eebb2e]">goals</span>.
+        </p>
 
         <div className="flex my-2 justify-center">
           {usersPoint.slice(0, 3).map((userPoint: any) => (
@@ -58,11 +63,10 @@ const Cover: React.FC<CoverProps> = () => {
           </p>
         </div>
         <div className="text-center">
-          <Link to='/user-dashboard/learning'>
-
-          <button className="button-52 mt-4" role="button">
-            get Started
-          </button>
+          <Link to="/user-dashboard/learning">
+            <button className="button-52 mt-4" role="button">
+              get Started
+            </button>
           </Link>
         </div>
       </div>

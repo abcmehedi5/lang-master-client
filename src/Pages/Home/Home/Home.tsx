@@ -22,6 +22,8 @@ const Home = () => {
       <Contact></Contact>
       <Support></Support>
       </div>
+     
+      
     </div>
   );
 };

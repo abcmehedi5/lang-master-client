@@ -1,7 +1,1 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    /* grid-template-rows: 1fr 3fr 2fr; One big item and one small item */
-    gap: 10px;
-  }
-  
+

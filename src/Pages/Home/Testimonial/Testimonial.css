@@ -1,0 +1,35 @@
+.swiper-button-next:after {
+  display: none;
+}
+.swiper-button-prev:after {
+  display: none;
+}
+
+.review::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+.review::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0);
+  border-radius: 10px;
+}
+
+/* Handle */
+.review::-webkit-scrollbar-thumb {
+  background: #bae2ff;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.review::-webkit-scrollbar-thumb:hover {
+  background: #b2dfff;
+}
+
+.review {
+  overflow: hidden;
+}
+
+.review:hover {
+  overflow-y: auto;
+}
