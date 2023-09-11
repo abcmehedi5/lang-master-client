@@ -15,8 +15,6 @@ const Home = () => {
       <div className="md:w-10/12 mx-auto w-11/12">
       <Lessons></Lessons>
       <LearnLanguage></LearnLanguage>
-      </div>
-      <div className="md:w-10/12 mx-auto w-11/12">
       <HomepageBlog></HomepageBlog>
       <Books></Books>
       <Faq></Faq>

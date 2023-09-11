@@ -14,13 +14,13 @@ function LearnLanguage() {
       onExit={() => setCountOn(false)}
     >
       <div className="py-5 ">
-        <h1 className="text-3xl font-bold text-gray-800 text-center mb-9">
+        <h1 className="text-3xl font-bold text-gray-800 text-center mb-5">
           Some Information About Our Company
         </h1>
 
         {/* Learning Footer & use Icons */}
 
-        <div className="w-full bg-gradient-to-r from-[#359eace9] to-[#95d3a2] py-7 flex text-white items-center justify-evenly">
+        <div className="w-full bg-gradient-to-r from-[#359eace9] to-[#95d3a2] py-7 sm:flex text-white items-center justify-evenly">
           <div className="flex flex-col text-center text-3xl">
             {/* <h3>3000+</h3> */}
             <h1>
@@ -30,13 +30,13 @@ function LearnLanguage() {
               +
             </h1>
 
-            <div className="flex text-xl">
+            <div className="flex text-xl items-center justify-center">
               <BsPeople className="m-2" />
               <p>Learners</p>
             </div>
           </div>
-          <hr className=" bg-white w-1 h-5 md:h-8 lg:h-12" />
-          <div className="flex flex-col text-center text-3xl">
+          <hr className=" bg-white sm:w-1 h-5 md:h-8 lg:h-12" />
+          <div className="flex flex-col text-center text-3xl sm:py-0 py-2">
             <h1>
               {counton && (
                 <CountUp start={0} end={4500} duration={2} separator="," />
@@ -44,12 +44,12 @@ function LearnLanguage() {
               +
             </h1>
 
-            <div className="flex text-xl">
+            <div className="flex text-xl items-center justify-center">
               <ImBooks className="m-2" />
               <p>Online Books</p>
             </div>
           </div>
-          <hr className=" bg-white w-1 h-5 md:h-8 lg:h-12" />
+          <hr className=" bg-white sm:w-1 h-5 md:h-8 lg:h-12" />
           <div className="flex flex-col text-center text-3xl">
             <h1>
               {counton && (
@@ -58,7 +58,7 @@ function LearnLanguage() {
               +
             </h1>
 
-            <div className="flex text-xl">
+            <div className="flex text-xl items-center justify-center">
               <FaGraduationCap className="m-2" />
               <p>Instuctors</p>
             </div>
