@@ -4,6 +4,9 @@ const AddUnit = () => {
   const [unit, setUnit] = useState({});
   const [lesson, setLesson] = useState({});
   const [quiz, setQuiz] = useState([]);
+  
+  const [options, setOptions] = useState(["", "", "", ""]);
+  
   const [axiosSecure] = useAxiosSecure();
   // unit data
   const handleUnitChange = (e: any) => {
@@ -27,14 +30,27 @@ const AddUnit = () => {
     setQuiz(newquiz);
   };
 
+ 
+  const handleOptionChange = (e :any, index :any) => {
+    const newOptions = [...options];
+    newOptions[index] = e.target.value;
+    setOptions(newOptions);
+  };
+
+
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+   
+   console.log(options)
     const res = await axiosSecure.post("/unitMake/createUnit", {
       unit: unit,
       lessons: [lesson],
       quiz: [quiz],
+      // options : [Options]
     });
-    console.log(res);
+   
+    
   };
 
   return (
@@ -88,27 +104,24 @@ const AddUnit = () => {
           onChange={handleQuizChange}
         />
 
-        <label>Options</label>
-        <input
-          className="w-full border rounded-md p-2 mt-2 input input-bordered"
-          name="options"
-        />
-        <label>Options</label>
-        <input
-          className="w-full border rounded-md p-2 mt-2 input input-bordered"
-          name="options"
-        />
-        <label>Options</label>
-        <input
-          className="w-full border rounded-md p-2 mt-2 input input-bordered"
-          name="options"
-        />
-        <label>Options</label>
-        <input
-          className="w-full border rounded-md p-2 mt-2 input input-bordered"
-          name="options"
-        />
+        {/* this is for options */}
 
+      
+       
+       {options.map((option, index) => (
+          <div key={index}>
+            <label>Option {index + 1}</label>
+            <input
+              className="w-full border rounded-md p-2 mt-2 input input-bordered"
+              value={option}
+              onChange={(e) => handleOptionChange(e, index)}
+            />
+          </div>
+        ))}
+      
+      
+      
+      
         <label>Correct Answer</label>
         <input
           className="w-full border rounded-md p-2 mt-2 input input-bordered"
