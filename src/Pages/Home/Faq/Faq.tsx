@@ -25,7 +25,7 @@ const Faq = () => {
             <div className="md:flex items-center gap-3 font-medium text-xl p-3 bg-indigo-100 drop-shadow-lg hover:skew-y-6 duration-500"><PiBooksThin className="text-red-300" /> <p>Can't Buy Books? </p></div>
           </div>
         <Link to="/faq">
-          <button className="defaultBtn">Learn More</button>
+          <button className="defaultBtn">Know More</button>
         </Link>
       </div>
       {/* -----img side----- */}

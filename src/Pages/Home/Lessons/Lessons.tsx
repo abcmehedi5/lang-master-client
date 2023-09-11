@@ -28,7 +28,6 @@ const Lessons = () => {
         <div className="md:w-1/2">
           <div className="bg-[#b2f5c1a5]" style={{ "borderRadius": "80% 70% 70% 80% " }}>
             <img  className="h-[450px] lg:object-cover" src="https://i.ibb.co/GpgYBSQ/7753413-removebg-preview.png" alt="" />
-            {/* <img src="https://i.ibb.co/dQv9gr2/business-img.png" alt="" /> */}
           </div>
         </div>
       </div>
