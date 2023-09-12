@@ -3,6 +3,7 @@ import grammarLottie from "../../../../public/grammarLottie.json";
 import Lottie from "lottie-react-web";
 import "./Grammar.css";
 import Sentence from "./Sentence";
+import Tense from "./Tense";
 
 function Grammar() {
   return (
@@ -45,11 +46,7 @@ function Grammar() {
           <details className="info">
             <summary>Tense</summary>
             <ul className="pl-5">
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
+              <Tense></Tense>
             </ul>
           </details>
 
