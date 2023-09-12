@@ -54,10 +54,19 @@ const Navbar: React.FC = () => {
           <p className="px-4 py-4">About Us</p>
         </NavLink>
       </p>
+      <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
+        <NavLink
+          to="/translator"
+          title="Our Classs"
+          className={({ isActive }) => (isActive ? " underline-cus" : "")}
+        >
+          <p className="px-4 py-4">Translator</p>
+        </NavLink>
+      </p>
       {user && isAdmin && (
         <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
           <NavLink
-            to="/admin-dashboard"
+            to="/admin-dashboard/statistics"
             title="Our Classs"
             className={({ isActive }) => (isActive ? " underline-cus" : "")}
           >
@@ -86,7 +95,8 @@ const Navbar: React.FC = () => {
   return (
     <div
       // className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5"
-      className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-5"
+      className="navbar sticky top-0 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-5"
+    style={{zIndex: 1000}}
     >
       <div className="navbar-start flex">
         <div className="dropdown">
@@ -109,11 +119,12 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-        <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
+        <Link to="/" className="normal-case text-xl text-white">
           {/* LANG-MASTER */}
           <img
-            className="md:w-36 md:h-20 h-[74px] w-28 object-cover"
-            src="https://i.ibb.co/bW9Mtdc/0001-7305240235375941366-removebg-preview.png"
+            className="md:w-30 md:h-20 h-[50px] w-20 object-cover"
+            // src="https://i.ibb.co/bW9Mtdc/0001-7305240235375941366-removebg-preview.png"
+            src="https://i.ibb.co/bgbkbc2/logo.png"
             alt=""
           />
         </Link>

@@ -1,74 +1,96 @@
-import { AiOutlinePhone, AiTwotoneMail } from "react-icons/ai";
-import { HiLocationMarker } from "react-icons/hi";
+import paperplane from "../../../../public/paperplane2.json";
+import contact from "../../../../public/contact.jpg";
+import Lottie from "lottie-react-web";
 
 const Contact = () => {
   return (
-    <div className="md:flex items-center justify-center my-20 px-4 max-w-7xl sm:px-6 lg:px-8 mx-auto bg-[#0a4d68] rounded-md p-3 md:p-6 gap-20">
-      {/* ---content--- */}
-      <div className="text-white p-4 ">
-        <h1 className="text-2xl font-semibold">Get In Toch</h1>
-        <p className="my-4 text-lg text-gray-300">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          praesentium nobis consequatur, ab autem provident voluptas animi, sint
-          modi debitis dolore, minus asperiores accusantium quia?
-        </p>
-        <div>
-          <h4 className="text-xl flex items-center">
-            <AiOutlinePhone /> &nbsp; Call US
-          </h4>
-          <p>+880123456789</p>
+    <div className="my-16">
+      <h2 className="text-4xl font-bold text-gray-800 mb-16 text-center">
+        Contact Us
+      </h2>
+      <div className="md:flex items-center justify-center md:h-[400px] relative">
+        <div
+          className="w-full absolute top-0 left-0 h-full"
+          style={{ zIndex: 10 }}
+        >
+          <Lottie
+            options={{
+              animationData: paperplane,
+              loop: true,
+              autoplay: true,
+            }}
+          />
         </div>
-        <div className="my-4">
-          <h4 className="text-xl flex items-center">
-            <AiTwotoneMail /> &nbsp; Email
-          </h4>
-          <p>example@gmail.com</p>
+        {/* ---content--- */}
+        <div className=" md:w-1/2 h-[440px] relative bg-[#e6fefe]">
+          <img className="h-full w-full object-cover" src={contact} alt="" />
+
+          <span
+            style={{ borderRadius: "24px 24px 2px", lineHeight: "17px" }}
+            className="bg-[#93cbff] font-mono absolute animate-updown top-10 left-10 p-3 border text-gray-500"
+          >
+            Email <br /> abcde@gmail.com
+          </span>
+          <span
+            style={{ borderRadius: "24px 24px 24px 2px", lineHeight: "17px" }}
+            className="bg-[#ffe4ba] absolute font-mono animate-updown top-32 right-8 py-2 px-3 border text-gray-500"
+          >
+            contact
+            <br />
+            +880123456
+          </span>
+          <span
+            style={{ borderRadius: "24px 24px 2px", lineHeight: "17px" }}
+            className="bg-[#a6fff2] absolute font-mono animate-updown bottom-32 left-20 py-2 px-3 border text-gray-500"
+          >
+            visit us <br />
+            Dhaka Bonani
+          </span>
         </div>
-        <div>
-          <h4 className="text-xl flex items-center">
-            <HiLocationMarker /> &nbsp; Location
-          </h4>
-          <p>12 rock stret, 21 aventg</p>
-        </div>
-      </div>
-      {/* --- form section --- */}
-      <div className="w-full">
-        <div className=" shadow-2xl bg-base-100 rounded-md">
+        {/* --- form section --- */}
+        <div className="md:w-1/2 h-[450px]">
+          <div className="rounded-md">
+            <form
+              className="card-body relative"
+              style={{ zIndex: 10 }}
+              action="https://getform.io/f/8df9c731-aceb-4ca8-bde5-927f97ba1b59"
+              method="POST"
+            >
+              <h1 className="text-2xl text-center mb-2 font-semibold">
+                Send Us Message Anytime
+              </h1>
+              <div className="form-control rounded-full border-2 p-1">
+                <input
+                  type="text"
+                  placeholder="Enter your Name"
+                  className="input rounded-full bg-[#e6fefe] pl-7"
+                  // style={{ borderBottom: "2px solid #0a4d68" }}
+                  required
+                />
+              </div>
+              <div className="form-control my-2 rounded-full border-2 p-1">
+                <input
+                  type="email"
+                  placeholder="Enter a valid email address"
+                  className="input rounded-full bg-[#e6fefe] pl-7"
+                  // style={{ borderBottom: "2px solid #0a4d68" }}
+                  required
+                />
+              </div>
+              <div className="form-control rounded-full border-2 p-1">
+                <textarea
+                  name="message"
+                  placeholder="Type Message"
+                  className="input rounded-full resize-none h-[100px] pt-3 pl-7 bg-[#e6fefe]"
+                  // style={{ borderBottom: "2px solid #0a4d68" }}
+                ></textarea>
+              </div>
 
-          <form className="card-body" action="https://getform.io/f/8df9c731-aceb-4ca8-bde5-927f97ba1b59" method="POST">
-            <h1 className="text-2xl font-semibold">CONTACT US</h1>
-            <div className="form-control">
-              <input
-                type="text"
-                placeholder="Enter your Name"
-                className="input rounded-none"
-                style={{ borderBottom: "2px solid #0a4d68" }}
-                required
-              />
-            </div>
-            <div className="form-control my-4">
-              <input
-                type="email"
-                placeholder="Enter a valid email address"
-                className="input rounded-none"
-                style={{ borderBottom: "2px solid #0a4d68" }}
-                required
-              />
-            </div>
-            <div className="form-control">
-              <textarea
-                name="message"
-                placeholder="Type Message"
-                className="input rounded-none"
-                style={{ borderBottom: "2px solid #0a4d68" }}
-              ></textarea>
-            </div>
-
-            <div className="form-control mt-6">
-              <button className="defaultBtn">Submit</button>
-            </div>
-          </form>
-
+              <div className="form-control mt-6">
+                <button className="defaultBtn">Send Messege</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

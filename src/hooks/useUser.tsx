@@ -18,6 +18,7 @@ const useUser = () => {
       return res.data;
     },
   });
+
   return [singleUser, isLoading, refetch];
 };
 

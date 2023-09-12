@@ -1,103 +1,103 @@
-import React, { useState } from "react";
-import { BiLike } from "react-icons/bi";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { AiTwotoneLike } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import useBlogData from "../../../hooks/useBlogData";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import LikeModal from "../LikeModal";
 
 interface LikeProps {
-  postId: string;
+  postId: number;
   like: number;
+  likedUsers: { email: string; liked: boolean, userImg: string, username: string }[];
 }
 
-const Like: React.FC<LikeProps> = ({ postId }) => {
-  const [like, setLike] = useState(false);
-  // const [like, setLike] = useState<number>(0);
-  const [likeActive, setLikeActive] = useState<boolean>(false);
-  // const [isLiked, setIsLiked] = useState<boolean>(false);
-  // const likeData = async () => {
-  //   setLikes(likes + 1)
-  //   setLikeActive(true);
-  //   // setIsLiked(true);
+const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
+  console.log("likedUsers", likedUsers);
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  // const [userLiked, setUserLiked] = useState<boolean>(false);
+  const { refetch } = useBlogData();
+  const { user }:any = useContext(AuthContext);
 
-  //   try {
-  //     // Send a PATCH request to update the like count
-  //     await axios.patch(`http://localhost:5000/blog/like/${postId}`, {
-  //       like: likes, // Increment the like count
-  //     });
-  //     // Check if the request was successful (status code 200)
-  //     // if (response.status === 200) {
-  //     //   setLikes(likes + 1); // Update the local state
-  //     //   setLikeActive(true);
-  //     //   setIsLiked(true);
-  //     //   Swal.fire({
-  //     //     icon: "success",
-  //     //     title: "Liked!",
-  //     //     text: "You've liked this post.",
-  //     //   });
-  //     // } else {
-  //     //   // Show an error message if the request is not successful
-  //     //   Swal.fire({
-  //     //     icon: "error",
-  //     //     title: "Oops...",
-  //     //     text: "Something went wrong! Please try again🙂",
-  //     //   });
-  //     // }
-  //   } catch (error) {
-  //     // Show an error message if an exception occurs
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: "Something went wrong! Please try again🙂",
-  //     });
-  //     console.error(error);
-  //   }
-  // };
-  const likeData = async () => {
-    setLike(!like);
-    setLikeActive(!likeActive);
-
-    // try {
-    //   // Send a PATCH request to update the like count
-    //   await axios.patch(`http://localhost:5000/blogs/blog/${postId}`,
-    //    {
-    //     like: 1, // Increment the like count by 1
-    //   }
-    //   );
-    //   // Update the local state and set likeActive to true
-    //   setLike(like + 1);
-    //   setLikeActive(true);
-    //   Swal.fire({
-    //     icon: "success",
-    //     title: "Liked!",
-    //     text: "You've liked this post.",
-    //   });
-    // } catch (error) {
-    //   // Show an error message if an exception occurs
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: "Something went wrong! Please try again🙂",
-    //   });
-    //   console.error(error);
-    // }
+  const toggleModal = () => {
+    setModalIsOpen(!modalIsOpen);
   };
 
-  console.log(like)
+  const likeData = async (): Promise<void> => {
+    // ---------- user liked this ----------
+    try {
+      // Include user information in the request body
+      const userData = {
+        username: user?.displayName, // Remove curly braces here
+        email: user?.email,
+        liked: true,
+        userImg: user?.photoURL,
+      };
+
+      // Send a POST request to the server with user information
+      const res = await axios.put(`http://localhost:5000/blogs/blog/${postId}/like`, userData);
+
+      console.log(res);
+      if (res.status === 200) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Liked!",
+          text: "You've liked this post.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    } catch (error) {
+      // Show an error message if an exception occurs
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong! Please try again🙂",
+      });
+      console.error(error);
+    }
+  };
 
   return (
-    <div className="text-2xl">
+    <div className="text-2xl flex items-center gap-3">
       <button
-        className={`flex items-center font-semibold text-xl ${
-          likeActive ? "text-yellow-600" : "text-black"
-        }`}
-        onClick={likeData}
-        // disabled={likeActive} // Disable the button when already liked
+        className="flex items-center font-semibold text-xl"
+        onClick={() => likeData()}
+        // disabled={userLiked} // Disable the button if the user has already liked the post
       >
-        <span className="text-3xl gap-1 items-center flex">
-          {likeActive ? <AiTwotoneLike /> : <BiLike />}
-          {like ? 1 : 0}
-        </span>
+        {likedUsers?.length > 0 ? (
+          <>
+            <div className="text-3xl items-center flex">
+              {likedUsers.some((user) => user.email === user.email && user.liked) ? (
+                <AiFillHeart className="text-rose-500" />
+              ) : (
+                <AiOutlineHeart />
+              )}
+              {likedUsers?.length}
+            </div>
+          </>
+        ) : (
+          <span className="text-3xl items-center flex">
+            <AiOutlineHeart />
+            {likedUsers?.length}
+          </span>
+        )}
       </button>
+      {likedUsers ? (
+        <span
+          className="text-lg hover:underline cursor-pointer text-gray-400"
+          onClick={() => toggleModal()} // Open the modal on click
+        >
+          see who liked
+        </span>
+      ) : (
+        ""
+      )}
+
+      {/* Render the LikeModal component */}
+      <LikeModal isOpen={modalIsOpen} onRequestClose={toggleModal} likedUsers={likedUsers} />
     </div>
   );
 };

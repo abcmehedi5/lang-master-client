@@ -8,7 +8,14 @@ import mehedi from "../../assets/about-us-image/team/mehedi.jpg";
 import mostakim from "../../assets/about-us-image/team/mostakim.jpg";
 import nazmul from "../../assets/about-us-image/team/nazmul.jpg";
 import  arjuman from "../../assets/about-us-image/team/arjuman.jpg";
+import { useEffect } from "react";
 const AboutUs = () => {
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+
   return (
     <div className="container mx-auto mt-10">
       <div className="lg:flex flex-row items-center gap-8 m-4">

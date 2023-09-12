@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-import { MdFindReplace } from "react-icons/md";
+import React, { useContext, useState } from "react";
+import { MdPayments } from "react-icons/md";
 import "./Profile.css";
-import { FaCoins, FaEdit, FaFacebook } from "react-icons/fa";
-import { BsPersonFillAdd } from "react-icons/bs";
+import { FaCoins, FaEdit } from "react-icons/fa";
+// import { BsPersonFillAdd } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
 import ProfileEditModal from "./ProfileEditModal";
 import useUser from "../../../hooks/useUser";
-
+import { Link } from "react-router-dom";
+import { GrUserAdmin } from "react-icons/Gr";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import { AuthContext } from "../../../Providers/AuthProvider";
 interface Profile {
   _id: string;
   name: string;
@@ -26,9 +30,14 @@ interface Profile {
   state: string;
 }
 
+
+
 const Profile: React.FC = () => {
+  const { user }: any = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // fetch single user
+
+  // const [data, setData] = useState<any>(null);
   const [singleUser] = useUser();
 
   const handleEditButtonClick = () => {
@@ -39,8 +48,26 @@ const Profile: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const handleModalSubmit = (data: any) => {
-    // Handle the data submitted from the modal (e.g., update the state or send to server)
+  const handleModalSubmit = async (data: any) => {
+    try {
+      const updatedData = {
+        name: data.name,
+        bio: data.bio,
+        birthday: data.birthday,
+        address: data.address,
+        phoneNumber: data.phoneNumber,
+        gender: data.gender,
+      };
+      console.log("updated data", updatedData.name);
+      const response = await axiosSecure.patch(
+        `/users/update-user/${user?.email}`,
+        { updatedData }
+      );
+      toast("Successfully updated user profile:", response.data);
+    } catch (error) {
+      toast.error("Error updating user profile");
+      console.error("Error updating user profile:", error);
+    }
     console.log(data);
   };
 
@@ -49,11 +76,11 @@ const Profile: React.FC = () => {
       <Helmet>
         <title> Profile | Lang Master </title>
       </Helmet>
-      <div className="mx-auto md:max-w-none px-4 max-w-7xl sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto px-4  sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <section className="text-center">
           <div className="px-4 py-7 bg-image text-white">
             <div className="flex justify-between items-center">
-              <div className="flex gap-10 items-center">
+              <div className="flex gap-10">
                 <div className="indicator">
                   <span className="indicator-item indicator-bottom badge badge-success"></span>
                   <img
@@ -62,22 +89,15 @@ const Profile: React.FC = () => {
                     alt="profile picture"
                   />
                 </div>
+                {/* name and bio  */}
                 <div className="mt-2 md:mt-6 lg:mt-6">
-                  <p className="font-bold text-white text-md md:text-3xl lg:text-3xl mb-2">
+                  <p className="font-bold text-white text-md md:text-3xl mb-2">
                     {singleUser?.name}
                   </p>
-                  {/* <p className="mt-0.5 text-[11px] md:text-sm lg:text-sm font-pj text-white">
-                    {profile?.passion}
-                  </p> */}
+                  <p className="text-gray-800 text-md md:text-3xl mb-2">
+                    {singleUser?.bio}
+                  </p>
                 </div>
-              </div>
-              <div className="mx-4">
-                <div className="flex mb-3 text-[11px]">
-                  {/* <span className="my-1 me-1 mx-4 text-md"><FaClock></FaClock></span>Joined {profile.joiningDate} */}
-                </div>
-                <button className="bg-white hover:bg-gray-100 text-black font-bold py-1 px-2 md:py-2 md:px-4 rounded text-[9px] md:text-sm">
-                  + Follow
-                </button>
               </div>
             </div>
           </div>
@@ -113,17 +133,18 @@ const Profile: React.FC = () => {
                               </button>
                             </div>
                           </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+
+                          <div className="flex gap-3">
                             <div>
-                              <h1 className="font-bold">Full Name:</h1>
+                              <h1 className="font-bold">Full Address:</h1>
                             </div>
                             <div>
                               <h1 className="text-[#2196f7]">
-                                {singleUser?.name}
+                                {singleUser?.address}
                               </h1>
                             </div>
                           </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                          <div className="flex gap-3">
                             <div>
                               <h1 className="font-bold">Mobile Number:</h1>
                             </div>
@@ -133,7 +154,7 @@ const Profile: React.FC = () => {
                               </h1>
                             </div>
                           </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                          <div className="flex gap-3">
                             <div>
                               <h1 className="font-bold">Email:</h1>
                             </div>
@@ -143,7 +164,8 @@ const Profile: React.FC = () => {
                               </h1>
                             </div>
                           </div>
-                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+
+                          <div className="grid grid-cols-1 md:grid-cols-2">
                             {/* <div>
                                 <h1 className="font-bold">Location:</h1>
                               </div>
@@ -165,7 +187,7 @@ const Profile: React.FC = () => {
                                 className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 text-center"
                               >
                                 <p className="mt-1 flex items-center gap-1 text-xs font-medium text-black">
-                                  <span>Score</span>{" "}
+                                  <span className="font-bold">Score</span>{" "}
                                   <FaCoins className="text-yellow-500 text-2xl" />
                                 </p>
                                 <strong className="font-medium text-black">
@@ -179,20 +201,42 @@ const Profile: React.FC = () => {
                                 href="#"
                                 className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
                               >
-                                <p className="mt-1 text-xs font-medium text-black">
-                                  Role
-                                </p>
-                                <strong className="font-medium text-black">
+                                <p className="font-bold text-black">Role</p>
+                                <strong className="font-medium  flex gap-2 uppercase  items-center">
                                   {singleUser?.role}
+                                  <GrUserAdmin />
                                 </strong>
                               </a>
+                            </li>
+                            {/* user payment History */}
+                            <li>
+                              <Link
+                                to="/user-dashboard/userPaymentData"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                              >
+                                <strong className="font-medium  uppercase  items-center">
+                                  Payment History
+                                </strong>
+                              </Link>
+                            </li>
+                            {/* user payment History */}
+
+                            {/* user Book History */}
+                            <li>
+                              <Link
+                                to="/user-dashboard/bought-books"
+                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 "
+                              >
+                                {" "}
+                                Book Collection
+                              </Link>
                             </li>
                           </div>
                         </ul>
                       </article>
                     </div>
                   </div>
-                  <article className="mt-0 md:mt-6 lg:mt-6">
+                  {/* <article className="mt-0 md:mt-6 lg:mt-6">
                     <h2 className="font-bold">Add friends</h2>
                     <ul className="mt-4 space-y-2">
                       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
@@ -236,7 +280,7 @@ const Profile: React.FC = () => {
                         </li>
                       </div>
                     </ul>
-                  </article>
+                  </article> */}
                 </div>
               </div>
             </div>

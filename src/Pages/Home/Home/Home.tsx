@@ -5,12 +5,14 @@ import Faq from "../Faq/Faq";
 import HomepageBlog from "../HomepageBlog/HomepageBlog";
 import LearnLanguage from "../LearnLanguage/LearnLanguage";
 import Lessons from "../Lessons/Lessons";
+import Support from "../Support/Support";
 import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
   return (
     <div>
       <Cover></Cover>
+      <div className="md:w-10/12 mx-auto w-11/12">
       <Lessons></Lessons>
       <LearnLanguage></LearnLanguage>
       <HomepageBlog></HomepageBlog>
@@ -18,6 +20,10 @@ const Home = () => {
       <Faq></Faq>
       <Testimonial></Testimonial>
       <Contact></Contact>
+      <Support></Support>
+      </div>
+     
+      
     </div>
   );
 };

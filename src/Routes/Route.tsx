@@ -15,13 +15,13 @@ import UserManage from "../Pages/AdminDashboard/UserManage/UserManage";
 import AdminDashboadLayout from "../Layouts/AdminDashboadLayout";
 import QuestionsForLearn from "../Pages/UserDashboard/QuestionsForLearn/QuestionsForLearn";
 import AddQuizAdmin from "../Pages/AdminDashboard/AddQuizAdmin";
+import UserPaymentData from "../Pages/UserDashboard/Profile/UserPayment/UserPaymentData";
 import Error from "../Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
 import Faq from "../Pages/Faq/Faq";
 import SingleBlogCard from "../Pages/Blogs/SingleBlogCard";
 import AddTopics from "../Pages/AdminDashboard/AddTopics";
-import AddNotification from "../Pages/AdminDashboard/AddNotification";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 import AdminRoute from "./AdminRoute";
 import Shop from "./../Pages/UserDashboard/Shop/Shop";
@@ -29,6 +29,14 @@ import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
 import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
+import Support from "../Pages/Home/Support/Support";
+import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
+import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
+import Translator from "../Pages/Translator/Translator";
+import Statistics from "../Pages/AdminDashboard/Statistics/Statistics";
+import Certificate from "../Pages/Cartificate/Certificate";
+import AllBooks from "../Pages/AdminDashboard/AllBooks";
+import AddBooks from "../Pages/AdminDashboard/AddBooks";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +64,14 @@ const router = createBrowserRouter([
         element: <AboutUs></AboutUs>,
       },
       {
+        path: "/support",
+        element: <Support></Support>,
+      },
+      {
+        path: "/translator",
+        element: <Translator></Translator>,
+      },
+      {
         path: "/blog",
         element: (
           <PrivateRoute>
@@ -70,6 +86,14 @@ const router = createBrowserRouter([
       {
         path: "/feedback",
         // element: <Review></Review>,
+      },
+      {
+        path: "certificate",
+        element: (
+          <PrivateRoute>
+            <Certificate></Certificate>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/singleBlogCard/:id",
@@ -118,6 +142,7 @@ const router = createBrowserRouter([
         path: "grammar",
         element: <Grammar></Grammar>,
       },
+
       {
         path: "shop",
         element: <Shop></Shop>,
@@ -127,8 +152,16 @@ const router = createBrowserRouter([
         element: <Profile></Profile>,
       },
       {
+        path: "userPaymentData",
+        element: <UserPaymentData />,
+      },
+      {
         path: "books",
         element: <Books></Books>,
+      },
+      {
+        path: "bought-books",
+        element: <BoughtBooks></BoughtBooks>,
       },
     ],
   },
@@ -151,6 +184,10 @@ const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "statistics",
+        element: <Statistics></Statistics>,
+      },
+      {
         path: "user-manage",
         element: <UserManage></UserManage>,
       },
@@ -163,10 +200,6 @@ const router = createBrowserRouter([
         element: <AddTopics />,
       },
       {
-        path: "add-notification",
-        element: <AddNotification />,
-      },
-      {
         path: "update-question",
         element: <UpdateQuestion />,
       },
@@ -177,6 +210,18 @@ const router = createBrowserRouter([
       {
         path: "allPayment",
         element: <AllPayments></AllPayments>,
+      },
+      {
+        path: "allbuybook",
+        element: <AllBuyBook></AllBuyBook>,
+      },
+      {
+        path: "allbooks",
+        element: <AllBooks></AllBooks>,
+      },
+      {
+        path: "addBook",
+        element: <AddBooks></AddBooks>,
       },
     ],
   },

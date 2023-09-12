@@ -8,6 +8,7 @@ import {
   FcIdea,
 } from "react-icons/fc";
 import DashboardTop from "../Pages/Shared/DashboardTop/DashboardTop";
+import { HiOutlineMenu } from "react-icons/hi";
 
 const LearningLayout = () => {
   return (
@@ -25,13 +26,13 @@ const LearningLayout = () => {
       </div>
 
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content ">
+      <div className="drawer-content m-4 ">
         {/* Page content here */}
         <label
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
         >
-          Dashboard
+          <HiOutlineMenu style={{ fontSize: "20px" }} />
         </label>
         <Outlet></Outlet>
       </div>
@@ -41,56 +42,90 @@ const LearningLayout = () => {
         {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}
         <ul className="w-64 bg-gradient-to-b h-screen text-black bg-gray-100 ">
           <DashboardTop></DashboardTop>
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-2">
+          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/learning"
               className="hover:text-white flex gap-2 items-center"
             >
-              <FcReading style={{ fontSize: "35px", background:"white" ,padding:"5px", borderRadius:"50%"  }} />
+              <FcReading
+                style={{
+                  fontSize: "35px",
+                  background: "white",
+                  padding: "5px",
+                  borderRadius: "50%",
+                }}
+              />
               শিখুন
             </NavLink>
           </li>
-          
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-2">
+
+          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/quiz"
               className="hover:text-white flex gap-2 items-center"
             >
-              <FcIdea style={{ fontSize: "35px", background:"white" ,padding:"5px", borderRadius:"50%"  }} />
+              <FcIdea
+                style={{
+                  fontSize: "35px",
+                  background: "white",
+                  padding: "5px",
+                  borderRadius: "50%",
+                }}
+              />
               কুইজ
             </NavLink>
           </li>
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-2">
+          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/grammar"
               className="hover:text-white flex gap-2 items-center"
             >
-              <FcReadingEbook style={{ fontSize: "35px", background:"white" ,padding:"5px", borderRadius:"50%"  }} />
+              <FcReadingEbook
+                style={{
+                  fontSize: "35px",
+                  background: "white",
+                  padding: "5px",
+                  borderRadius: "50%",
+                }}
+              />
               গ্রামার
             </NavLink>
           </li>
-  
 
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-2">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/books"
               className="hover:text-white flex gap-2 items-center"
             >
-              <FcReadingEbook style={{ fontSize: "35px", background:"white" ,padding:"5px", borderRadius:"50%"  }} />
+              <FcReadingEbook
+                style={{
+                  fontSize: "35px",
+                  background: "white",
+                  padding: "5px",
+                  borderRadius: "50%",
+                }}
+              />
               বই কিনুন
             </NavLink>
           </li>
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-2">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/leader-board"
               className="hover:text-white flex gap-2 items-center"
             >
-              <FcTodoList style={{ fontSize: "35px", background:"white" ,padding:"5px", borderRadius:"50%"  }} />
+              <FcTodoList
+                style={{
+                  fontSize: "35px",
+                  background: "white",
+                  padding: "5px",
+                  borderRadius: "50%",
+                }}
+              />
               লিডারবোর্ড
             </NavLink>
           </li>
 
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-2">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/shop"
               className="hover:text-white flex gap-2 items-center"
@@ -99,22 +134,36 @@ const LearningLayout = () => {
               শপ
             </NavLink>
           </li>
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-4">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-4">
             <NavLink
               to="/user-dashboard/profile"
               className="hover:text-white flex gap-2 items-center"
             >
-              <FcBusinessman style={{ fontSize: "35px", background:"white" ,padding:"5px", borderRadius:"50%"  }} />
+              <FcBusinessman
+                style={{
+                  fontSize: "35px",
+                  background: "white",
+                  padding: "5px",
+                  borderRadius: "50%",
+                }}
+              />
               প্রোফাইল
             </NavLink>
           </li>
 
-          <li className="px-5 py-2 hover:bg-blue-600 transition duration-300 mt-2">
+          <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/"
               className="hover:text-white flex gap-2 items-center"
             >
-              <FcHome style={{ fontSize: "35px", background:"white" ,padding:"5px", borderRadius:"50%"  }} />
+              <FcHome
+                style={{
+                  fontSize: "35px",
+                  background: "white",
+                  padding: "5px",
+                  borderRadius: "50%",
+                }}
+              />
               হোম পেজ
             </NavLink>
           </li>
