@@ -4,10 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   scroll-behavior: smooth;
 }
-
 
 @media (min-width: 768px) {
   .defaultBtn {
@@ -22,15 +21,14 @@
 .drawer-side a {
   background-color: transparent;
   @apply px-5 py-2;
-  
 }
 
 .drawer-side a.active {
-  color: #1CB0F8;
+  color: #1cb0f8;
   /* color: #fff !important; */
   @apply bg-[#DDF4FF];
-  border:1px solid #84D8FF;
-  color: #1CB0F8;
+  border: 1px solid #84d8ff;
+  color: #1cb0f8;
   font-weight: bold;
 }
 
@@ -83,4 +81,34 @@
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, #543cbe, #f1a5ef, #f8ff95);
+}
+
+/* grammar styles  */
+
+.grammar .title {
+  @apply text-2xl border-b-2 w-fit font-medium text-gray-800 mt-4;
+}
+.grammar .type-title {
+  @apply text-xl bg-green-400 px-3 py-2 rounded w-fit font-medium text-gray-100 mt-10 tracking-wide;
+}
+.grammar .desc {
+  @apply text-base text-[#252525] mt-4;
+}
+.grammar .desc2 {
+  @apply text-base text-[#252525] mt-3;
+}
+.grammar ul li {
+  list-style-type: circle;
+  cursor: default;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+.grammar .types {
+  @apply text-xl tracking-wider text-orange-700 ml-3 underline flex items-center mt-3;
+}
+.grammar .types-icon {
+  @apply text-gray-700 mt-1 pr-2;
+}
+.grammar .ex {
+  @apply mt-5 font-bold;
 }

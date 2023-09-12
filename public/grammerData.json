@@ -1,0 +1,35 @@
+[
+  {
+    "sentence_info": {
+      "definition": "A sentence is a group of words that conveys a complete thought or idea.",
+      "types": [
+        "Declarative Sentence",
+        "Interrogative Sentence",
+        "Imperative Sentence",
+        "Exclamatory Sentence"
+      ],
+      "types_details": [
+        {
+          "type": "Declarative Sentence",
+          "definition": "A declarative sentence is a type of sentence that makes a statement or expresses an opinion.",
+          "examples": ["She is a talented singer.", "The sky is blue."]
+        },
+        {
+          "type": "Interrogative Sentence",
+          "definition": "An interrogative sentence is a type of sentence that asks a question.",
+          "examples": ["Did you finish your homework?", "What is your name?"]
+        },
+        {
+          "type": "Imperative Sentence",
+          "definition": "An imperative sentence is a type of sentence that gives a command, request, or instruction.",
+          "examples": ["Please pass the salt.", "Close the door!"]
+        },
+        {
+          "type": "Exclamatory Sentence",
+          "definition": "An exclamatory sentence is a type of sentence that expresses strong emotion or excitement.",
+          "examples": ["Wow! That's amazing!", "Ouch! That hurt!"]
+        }
+      ]
+    }
+  }
+]
