@@ -3,7 +3,7 @@ import grammarLottie from "../../../../public/grammarLottie.json";
 import Lottie from "lottie-react-web";
 import "./Grammar.css";
 import Sentence from "./Sentence";
-import Tense from "./Tense";
+import Tense from "./Tense/Tense";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 function Grammar() {
