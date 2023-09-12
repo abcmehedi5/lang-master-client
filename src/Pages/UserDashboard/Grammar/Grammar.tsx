@@ -4,6 +4,7 @@ import Lottie from "lottie-react-web";
 import "./Grammar.css";
 import Sentence from "./Sentence";
 import Tense from "./Tense";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 function Grammar() {
   return (
@@ -21,9 +22,7 @@ function Grammar() {
       />
 
       <div className="w-9/12 mx-auto">
-        <Helmet>
-          <title>Grammar | Lang Master</title>
-        </Helmet>
+        <SectionTitle titleLetter="Gr" titleWord="ammar"></SectionTitle>
         <div className="card max-w-screen-xl">
           <h1>ইংরেজি ব্যাকরণ (English Grammar)</h1>
           <p>

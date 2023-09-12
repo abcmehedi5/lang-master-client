@@ -72,6 +72,7 @@ const Tense = () => {
               Present Perfect Continuous Tense
             </p>
           </div>
+          {/* Indefinite */}
           <div>
             <h1 className="type-title">Present Indefinite Tense কাকে বলে?</h1>
             <p className="desc">
@@ -155,10 +156,214 @@ const Tense = () => {
                 <strong>Negative:</strong> He does not walk in the evening.
               </li>
             </ul>
-            <p className="desc2"></p>
-            <p className="desc2"></p>
-            <p className="desc2"></p>
-            <p className="desc2"></p>
+          </div>
+
+          {/* Continuous  */}
+          <div>
+            <h1 className="type-title">Present Continuous Tense কাকে বলে?</h1>
+            <p className="desc">
+              বর্তমানকালে বা অদূর/নিকট ভবিষ্যতে কোন কাজ চলছে/চলবে বোঝালে{" "}
+              <strong>Present Continuous Tense</strong> ব্যবহার করা হয়।
+            </p>
+            <p className="desc2">
+              The <strong>present continuous tense</strong> designates an action
+              that is being continued or going to be continued in the near
+              future.
+            </p>
+            <p className="desc2">
+              <strong>বাংলায় চেনার উপায়:</strong> Verb এর শেষে তেছ, তেছি ,
+              তেছেন, তেছে, চ্ছ, চ্ছি, চ্ছে, চ্ছেন, ছেন, ছি ইত্যাদি থাকে।
+            </p>
+            <p className="ex">Example</p>
+            <ul>
+              <li>I am going to school - আমি স্কুলে যাচ্ছি।</li>
+              <li>He is going to market - সে বাজারে যাচ্ছে।</li>
+              <li>They are playing football - তারা ফুটবল খেলছে।</li>
+              <li>
+                The bus is leaving at 4.00 pm – বাসটি চারটায় ছাড়বে। (নিকট
+                ভবিষ্যত)
+              </li>
+            </ul>
+            <p className="desc2 underline">
+              <strong>Structure of the sentence:</strong> Verb এর present form
+              এর সাথে ing যোগ করতে হয়।
+            </p>
+            <p className="desc2 underline">
+              <strong>Positive Sentence:</strong>
+            </p>
+            <p className="desc2">
+              <strong>Subject + am/is/are + main verb + ing + object</strong>
+            </p>
+            <p className="desc2 p-3 bg-blue-100">
+              <strong>Note:</strong> ‘I’ এর পর am বসে, He/she/it এর পর is বসে।
+              এবং subjectযদি third person singular number হয় তাহলেও subject এর
+              পর is বসে। We/you/they এবং plural subject এর পর are বসে।
+            </p>
+            <p className="ex">Example:</p>
+            <ul>
+              <li>I am eating rice.</li>
+              <li>He is running to and fro.</li>
+              <li>They are going to school.</li>
+              <li>They are going to attend a party tonight. (নিকট ভবিষ্যত)</li>
+            </ul>
+            {/* negative  */}
+            <p className="desc2 underline">
+              <strong>Negative Sentence:</strong>
+            </p>
+            <p className="desc2">
+              <strong>
+                Subject + am/is/are + not + Main verb + ing + object
+              </strong>
+            </p>
+            <p className="ex">Example:</p>
+            <ul>
+              <li>He is not drinking milk.</li>
+              <li>I’m not going to open a bank account.</li>
+              <li>They are not going to play football.</li>
+            </ul>
+            <p className="desc2">
+              অর্থাৎ, am/is/are এর পর একটি not যোগ করে দিলেই negative sentence
+              হয়ে যায়।
+            </p>
+          </div>
+
+          {/* perfect  */}
+          <div>
+            <h1 className="type-title">Present Perfect Tense কাকে বলে?</h1>
+            <p className="desc">
+              কোন কাজ শেষ হয়ে গেছে অথচ তার ফল এখনও বিদ্যমান আছে, এরকম বোঝালে{" "}
+              <strong>Present Continuous Tense</strong> ব্যবহৃত হয়।
+            </p>
+            <p className="desc2">
+              It describes the work which has been done, but the effect exists
+              till now.
+            </p>
+            <p className="desc2">
+              <strong>বাংলায় চেনার উপায়:</strong> Verb এর শেষে য়াছে, এছে, য়াছ,
+              য়াছি, এছি, য়াছেন, য়াছে, য়েছ, ইয়াছি, ইয়াছ, ইয়াছে, ইয়েছ,
+              ইয়াছেন ইত্যাদি বসে। এছাড়া করি নাই, করিনি, খাই নাই, খাইনি,
+              ইত্যাদি বোঝালে <strong>Present Perfect Tense</strong> হয়।
+            </p>
+            <p className="ex">Example</p>
+            <ul>
+              <li>He has done the work - সে কাজটি করিয়াছে / করেছে।</li>
+              <li>I have gone to the market - আমি বাজারে গিয়াছি/গিয়েছি।</li>
+              <li>They have eaten mangoes – তারা আমগুলো খেয়েছে।</li>
+              <li>I have not eaten banana - আমি কলা খাইনি।</li>
+            </ul>
+            <p className="desc2 underline">
+              <strong>Structure of the sentence:</strong> The past participle
+              form of the verb is used after have/has.
+            </p>
+            <p className="desc2 underline">
+              <strong>Positive Sentence:</strong>
+            </p>
+            <p className="desc2">
+              <strong>
+                Subject + have/has + past participle form of verb + object
+              </strong>
+            </p>
+            <p className="ex">Example:</p>
+            <ul>
+              <li>He has done the work.</li>
+              <li>I have eaten rice.</li>
+              <li>They have worked hard.</li>
+              <li>They are going to attend a party tonight. (নিকট ভবিষ্যত)</li>
+            </ul>
+            <p className="desc2 p-3 bg-blue-100">
+              <strong>Note:</strong> Subject যদি He/she/it এবং third person
+              singular number হয় তাহলে has বসবে। Subject যদি I/we/they/you এবং
+              plural subject এর সাথে have বসবে।
+            </p>
+            {/* negative  */}
+            <p className="desc2 underline">
+              <strong>Negative Sentence:</strong>
+            </p>
+            <p className="desc2">
+              <strong>
+                Subject + have/has + not + past participle form of verb + object
+              </strong>
+            </p>
+            <p className="ex">Example:</p>
+            <ul>
+              <li>He has not eaten rice.</li>
+              <li>They have not come to our house.</li>
+              <li>I have not gone to school.</li>
+            </ul>
+          </div>
+
+          {/* perfect continuous  */}
+          <div>
+            <h1 className="type-title">Present Perfect Tense কাকে বলে?</h1>
+            <p className="desc">
+              কোন কাজ পূর্বে শুরু হয়ে এখনও চলছে বোঝালে{" "}
+              <strong>Present Continuous Tense</strong> ব্যবহৃত হয়।
+            </p>
+            <p className="desc2">
+              The work started in the past and it is still running is called{" "}
+              <strong>Present perfect continuous tense.</strong>
+            </p>
+            <p className="desc2">
+              <strong>বাংলায় চেনার উপায়:</strong> বাংলায় ক্রিয়ার শেষে তেছ,
+              তেছি,তেছে, তেছেন, চ্ছ, চ্ছি, চ্ছে, চ্ছেন, ছ্, ছি্, ছে্, ছে্ন,
+              ইত্যাদি উল্লেখ থাকে এবং সাথে সময়ের উল্লেখ থাকে।
+            </p>
+            <p className="ex">Example</p>
+            <ul>
+              <li>
+                I have been walking for two hours - আমি দুই ঘন্টা যাবৎ হাটছি।
+              </li>
+              <li>
+                He has been working in this office for five years - সে এই অফিসে
+                পাঁচ বছর যাবৎ কাজ করছে।
+              </li>
+              <li>
+                They have been suffering from fever since Tuesday - তারা
+                মঙ্গলবার হইতে জ্বরে ভুগছে।
+              </li>
+              <li>I have not eaten banana - আমি কলা খাইনি।</li>
+            </ul>
+            <p className="desc2 p-3 bg-blue-100">
+              <strong>Note:</strong> Subject third person singular number or
+              he/she/ it হলে has been বসে। I/we/you/they এবং অন্যসব subject এর
+              ক্ষেত্রে have been বসে।
+            </p>
+            <p className="desc2 underline">
+              <strong>Positive Sentence:</strong>
+            </p>
+            <p className="desc2">
+              <strong>
+                Subject + have been/has been + main verb + ing + since/from/for
+                + object.
+              </strong>
+            </p>
+            <p className="ex">Example:</p>
+            <ul>
+              <li>He has been reading this newspaper for two hours.</li>
+              <li>I have eaten rice.</li>
+              <li>They have worked hard.</li>
+              <li>They are going to attend a party tonight. (নিকট ভবিষ্যত)</li>
+            </ul>
+            <p className="desc2 p-3 bg-blue-100">
+              <strong>Note:</strong> Subject যদি He/she/it এবং third person
+              singular number হয় তাহলে has বসবে। Subject যদি I/we/they/you এবং
+              plural subject এর সাথে have বসবে।
+            </p>
+            {/* negative  */}
+            <p className="desc2 underline">
+              <strong>Negative Sentence:</strong>
+            </p>
+            <p className="desc2">
+              <strong>
+                Subject + have/has + not + past participle form of verb + object
+              </strong>
+            </p>
+            <p className="ex">Example:</p>
+            <ul>
+              <li>He has not eaten rice.</li>
+              <li>They have not come to our house.</li>
+              <li>I have not gone to school.</li>
+            </ul>
           </div>
         </div>
       </div>
