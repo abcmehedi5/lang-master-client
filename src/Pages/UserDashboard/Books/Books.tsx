@@ -22,7 +22,7 @@ const Books: any = () => {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearchInputChange = (e) => {
+  const handleSearchInputChange = (e: any) => {
     setSearchQuery(e.target.value);
   };
 
@@ -49,8 +49,8 @@ const Books: any = () => {
 
   const filteredBooks = books.filter((book) => {
     return (
-      book.bookname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      book.writer.toLowerCase().includes(searchQuery.toLowerCase())
+      book.bookname?.toLowerCase().includes(searchQuery?.toLowerCase()) ||
+      book.writer?.toLowerCase().includes(searchQuery?.toLowerCase())
     );
   });
 
