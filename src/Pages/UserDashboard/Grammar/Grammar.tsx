@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import grammarLottie from "../../../../public/grammarLottie.json";
 import Lottie from "lottie-react-web";
-import "./Grammer.css";
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import "./Grammar.css";
+import Sentence from "./Sentence";
 
 function Grammar() {
   return (
@@ -37,13 +37,9 @@ function Grammar() {
 
           <details className="sentence">
             <summary className="font-bold">Sentence</summary>
-            <ul className="pl-5">
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
-            </ul>
+            <div className="pl-5">
+              <Sentence></Sentence>
+            </div>
           </details>
 
           <details className="info">
