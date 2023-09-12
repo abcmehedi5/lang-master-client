@@ -25,7 +25,6 @@ import AddTopics from "../Pages/AdminDashboard/AddTopics";
 import QuizLevel from "../Pages/UserDashboard/Quiz/QuizLevel";
 import AdminRoute from "./AdminRoute";
 import Shop from "./../Pages/UserDashboard/Shop/Shop";
-import UpdateQuestion from "../Pages/AdminDashboard/UpdateQuestion";
 import Books from "../Pages/UserDashboard/Books/Books";
 import AddUnit from "../Pages/AdminDashboard/AddUnit/AddUnit";
 import AllPayments from "../Pages/AdminDashboard/AllPayments";
@@ -37,6 +36,8 @@ import Statistics from "../Pages/AdminDashboard/Statistics/Statistics";
 import Certificate from "../Pages/Cartificate/Certificate";
 import AllBooks from "../Pages/AdminDashboard/AllBooks";
 import AddBooks from "../Pages/AdminDashboard/AddBooks";
+import AllQuestion from "../Pages/AdminDashboard/AllQuestion/AllQuestion";
+import AddLesson from "../Pages/AdminDashboard/AllQuestion/AddLesson";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -103,7 +104,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // user dashboard
+  // user dashboard----------------------------------------------------------------------------------------
   {
     path: "user-dashboard",
     element: (
@@ -163,6 +164,10 @@ const router = createBrowserRouter([
         path: "bought-books",
         element: <BoughtBooks></BoughtBooks>,
       },
+      {
+        path: "add-lesson/:unitId",
+        element: <AddLesson></AddLesson>,
+      },
     ],
   },
 
@@ -172,7 +177,7 @@ const router = createBrowserRouter([
     element: <QuestionsForLearn></QuestionsForLearn>,
   },
 
-  // admin dashboard
+  // admin dashboard-----------------------------------------------------------------------------------------
   {
     path: "admin-dashboard",
     element: (
@@ -201,7 +206,7 @@ const router = createBrowserRouter([
       },
       {
         path: "update-question",
-        element: <UpdateQuestion />,
+        element: <AllQuestion />,
       },
       {
         path: "add-unit",
