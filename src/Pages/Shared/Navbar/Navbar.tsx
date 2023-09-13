@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
     <div
       // className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5"
 
-      className="navbar sticky top-0 justify-center py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-20"
+      className="navbar sticky top-0 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-20"
       style={{ zIndex: 1000 }}
     >
       <div className="navbar-start flex">
@@ -130,7 +130,7 @@ const Navbar: React.FC = () => {
           />
         </Link>
 
-        <div className="navbar-center justify-center lg:flex">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-white">
             <Navigation />
           </ul>
