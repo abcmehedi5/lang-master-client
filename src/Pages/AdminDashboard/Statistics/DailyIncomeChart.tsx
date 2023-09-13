@@ -39,7 +39,7 @@ const DailyIncomeChart: React.FC<DailyIncomeChartProps> = ({ paymentData }) => {
   }));
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center w-full max-w-screen-xl mx-auto">
       <LineChart
         width={1000}
         height={400}
