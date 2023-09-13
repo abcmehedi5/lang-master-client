@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SingleBook from "./SingleBook";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link, useLocation } from "react-router-dom";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 type Book = {
   id: number;
@@ -58,13 +59,14 @@ const Books: any = () => {
 
   return (
     <>
-      <div className="py-12">
+      <div className="py-12 mt-8">
         <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold text-gray-800 text-center mb-4">
-            You can buy your favorite books
-          </h1>
+          <SectionTitle
+            titleLetter="Language  "
+            titleWord="Library"
+          ></SectionTitle>
           {/* search bar  */}
-          <div className="md:flex p-4 md:space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+          <div className="mt-4 md:flex p-4 md:space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
             <div className="flex md:mb-0 mb-2 bg-gray-100 p-4 md:w-72 space-x-4 rounded-lg">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

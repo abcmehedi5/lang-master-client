@@ -1,8 +1,10 @@
 import { BsFillBookFill } from "react-icons/bs";
 import { FaBook } from "react-icons/fa";
 import { TbVocabulary } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 const Overview = () => {
+  const defaultLink = "http://localhost:5173/user-dashboard/";
   return (
     <>
       <div className="bg-[#F7F7F7] mt-16">
@@ -25,9 +27,12 @@ const Overview = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <a className="text-2xl text-blue-900 hover:cursor-pointer hover:underline">
+                <Link
+                  to={`${defaultLink}grammar`}
+                  className="text-2xl text-blue-900 hover:cursor-pointer hover:underline"
+                >
                   English Grammar
-                </a>
+                </Link>
                 <p className="text-[14px] text-[#757575]">
                   Your guide to English
                 </p>
@@ -46,9 +51,12 @@ const Overview = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <a className="text-2xl text-blue-900 hover:cursor-pointer hover:underline">
+                <Link
+                  to={`${defaultLink}learning`}
+                  className="text-2xl text-blue-900 hover:cursor-pointer hover:underline"
+                >
                   Basic English
-                </a>
+                </Link>
                 <p className="text-[14px] text-[#757575]">
                   Foundations of Basic English
                 </p>
@@ -65,9 +73,12 @@ const Overview = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <a className="text-2xl text-blue-900 hover:cursor-pointer hover:underline">
+                <Link
+                  to={`${defaultLink}quiz`}
+                  className="text-2xl text-blue-900 hover:cursor-pointer hover:underline"
+                >
                   English Quizzes
-                </a>
+                </Link>
                 <p className="text-[14px] text-[#757575]">
                   Testing Your English Proficiency
                 </p>
@@ -86,9 +97,12 @@ const Overview = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <a className="text-2xl text-blue-900 hover:cursor-pointer hover:underline">
+                <Link
+                  to={`${defaultLink}books`}
+                  className="text-2xl text-blue-900 hover:cursor-pointer hover:underline"
+                >
                   English Learning Book
-                </a>
+                </Link>
                 <p className="text-[14px] text-[#757575]">
                   Your Path to English Mastery
                 </p>

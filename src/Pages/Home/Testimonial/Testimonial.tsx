@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import "./Testimonial.css";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 interface Review {
   _id: string;
@@ -26,10 +27,8 @@ const Testimonial = () => {
 
   return (
     <section>
-      <h2 className="text-4xl font-bold text-gray-800 mb-7 text-center">
-        Review
-      </h2>
-      <div className="py-10 px-10 overflow-hidden bg-[#ffe2c1ea] relative rounded-2xl">
+      <SectionTitle titleLetter="Te" titleWord="stimonials"></SectionTitle>
+      <div className="mt-10 py-10 px-10 overflow-hidden bg-[#ffe2c1ea] relative rounded-2xl">
         <span className="animate-updown md:h-40 md:w-40 rounded-full bg-rose-200 absolute top-0 left-0 opacity-20"></span>
         <span className="animate-updown md:h-40 md:w-40 rounded-full bg-blue-200 absolute top-10 left-20 opacity-20"></span>
         <span className="animate-updown md:h-40 md:w-40 rounded-full bg-yellow-200 absolute -bottom-10 -left-2 opacity-20"></span>
