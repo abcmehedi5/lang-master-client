@@ -43,35 +43,35 @@ const Sentence = () => {
           functions. These are:
         </p>
         <div className="mt-4">
-          <p className="types">
+          <a className="types" href="#assertive">
             {" "}
             <AiFillCheckCircle className="types-icon"></AiFillCheckCircle>
             Assertive Sentence (বর্ণনামূলক বাক্য)
-          </p>
-          <p className="types">
+          </a>
+          <a className="types" href="#interrogative">
             {" "}
             <AiFillCheckCircle className="types-icon"></AiFillCheckCircle>
             Interrogative Sentence (প্রশ্নবোধক বাক্য)
-          </p>
-          <p className="types">
+          </a>
+          <a className="types" href="#imperative">
             {" "}
             <AiFillCheckCircle className="types-icon"></AiFillCheckCircle>
             Imperative Sentence (অনুজ্ঞাসূচক বাক্য)
-          </p>
-          <p className="types">
+          </a>
+          <a className="types" href="#optative">
             {" "}
             <AiFillCheckCircle className="types-icon"></AiFillCheckCircle>
             Optative Sentence (প্রার্থনা সূচক বাক্য)
-          </p>
-          <p className="types">
+          </a>
+          <a className="types" href="#exclamatory">
             {" "}
             <AiFillCheckCircle className="types-icon"></AiFillCheckCircle>
             Exclamatory Sentence (বিস্ময়সূচক বাক্য)
-          </p>
+          </a>
         </div>
 
         {/* Assertive  */}
-        <div>
+        <div id="assertive">
           <h1 className="type-title">Assertive Sentence (বর্ণনামূলক বাক্য):</h1>
           <p className="desc">
             যে Sentence দ্বারা কোন কিছুর বর্ননা বা বিবৃতি প্রকাশ করে তাকে{" "}
@@ -105,7 +105,7 @@ const Sentence = () => {
           </ul>
         </div>
         {/* interrogative  */}
-        <div>
+        <div id="interrogative">
           <h1 className="type-title">
             Interrogative Sentence (প্রশ্নবোধক বাক্য):
           </h1>
@@ -152,7 +152,7 @@ const Sentence = () => {
         </div>
 
         {/* imperative  */}
-        <div>
+        <div id="imperative">
           <h1 className="type-title">
             Imperative Sentence (অনুজ্ঞাসূচক বাক্য):
           </h1>
@@ -179,7 +179,7 @@ const Sentence = () => {
         </div>
 
         {/* optative  */}
-        <div>
+        <div id="optative">
           <h1 className="type-title">
             Optative Sentence (প্রার্থনা সূচক বাক্য):{" "}
           </h1>
@@ -211,7 +211,7 @@ const Sentence = () => {
         </div>
 
         {/* exclamatory  */}
-        <div>
+        <div id="exclamatory">
           <h1 className="type-title">
             Exclamatory Sentence (বিস্ময়সূচক বাক্য):
           </h1>

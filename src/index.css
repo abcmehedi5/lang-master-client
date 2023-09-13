@@ -104,11 +104,14 @@
   margin-top: 1rem;
 }
 .grammar .types {
-  @apply text-xl tracking-wider text-orange-700 ml-3 underline flex items-center mt-3;
+  @apply text-xl tracking-wider text-orange-700 ml-3 w-fit underline flex items-center mt-3 hover:cursor-pointer hover:text-orange-500 transition duration-200;
 }
 .grammar .types-icon {
   @apply text-gray-700 mt-1 pr-2;
 }
 .grammar .ex {
   @apply mt-5 font-bold;
+}
+.grammar .note {
+  @apply text-base text-[#252525] mt-3 p-3 bg-blue-100;
 }
