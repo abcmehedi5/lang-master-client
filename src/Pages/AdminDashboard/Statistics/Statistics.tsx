@@ -15,7 +15,7 @@ const Statistics = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [allLearnData] = useLearnData();
   const [allPaymentData] = usePaymentData();
-  console.log(allLearnData.length);
+
 
   // getting all users
   useEffect(() => {

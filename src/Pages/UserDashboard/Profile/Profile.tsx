@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { MdPayments } from "react-icons/md";
 import "./Profile.css";
 import { FaCoins, FaEdit } from "react-icons/fa";
 // import { BsPersonFillAdd } from "react-icons/bs";
@@ -11,6 +10,11 @@ import { GrUserAdmin } from "react-icons/Gr";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { ImLocation2 } from "react-icons/im";
+import { BsTelephone } from "react-icons/bs";
+import { MdEmail, MdOutlinePayments } from "react-icons/md";
+import { IoBookSharp } from "react-icons/io5";
+
 interface Profile {
   _id: string;
   name: string;
@@ -29,8 +33,6 @@ interface Profile {
   role: string;
   state: string;
 }
-
-
 
 const Profile: React.FC = () => {
   const { user }: any = useContext(AuthContext);
@@ -72,221 +74,158 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <div className="profile">
+    <div>
       <Helmet>
         <title> Profile | Lang Master </title>
       </Helmet>
-      <div className="mx-auto px-4  sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <section className="text-center">
-          <div className="px-4 py-7 bg-image text-white">
-            <div className="flex justify-between items-center">
-              <div className="flex gap-10">
-                <div className="indicator">
-                  <span className="indicator-item indicator-bottom badge badge-success"></span>
-                  <img
-                    className="place-items-center object-cover rounded-xl border-4 w-12 h-12 md:w-32 md:h-32 lg:w-32 lg:h-32 md:ml-12"
-                    src={singleUser?.image}
-                    alt="profile picture"
-                  />
-                </div>
-                {/* name and bio  */}
-                <div className="mt-2 md:mt-6 lg:mt-6">
-                  <p className="font-bold text-white text-md md:text-3xl mb-2">
-                    {singleUser?.name}
-                  </p>
-                  <p className="text-gray-800 text-md md:text-3xl mb-2">
-                    {singleUser?.bio}
-                  </p>
-                </div>
-              </div>
-            </div>
+      <div className="bg-image relative">
+        <div className="absolute md:-bottom-20 -bottom-6 left-0">
+          <div className="indicator">
+            <span className="indicator-item indicator-bottom badge badge-success"></span>
+            <img
+              className="place-items-center object-cover rounded-full border-4 w-16 h-16 md:w-44 md:h-44  md:ml-12"
+              src={singleUser?.image}
+              alt="profile picture"
+            />
           </div>
-          <div className="dark-overlay">
-            <div
-              className="card mx-md-5 shadow-5-strong mx-4 md:mx-8 lg:mx-12 rounded-md md:-mt-20 -mt-52"
-              style={{
-                background: "hsla(0, 0%, 100%, 0.8)",
-                backdropFilter: "blur(30px)",
-              }}
-            >
-              <div className="card-body py-5 px-md-5 text-left">
-                <div className="row">
-                  <div className="col-lg-8">
-                    <h2 className="font-bold mb-5 text-left ">About</h2>
-                    {/* <p>{profile.description}</p> */}
+        </div>
+      </div>
 
-                    <div className="md:flex gap-10">
-                      {/* started card  */}
-                      <div className="card md:w-1/2 border border-gray-400 hover:border-blue-600 cursor-pointer bg-white my-3">
-                        <div className="card-body">
-                          <div className="grid grid-cols-2">
-                            <div>
-                              <h2 className="text-4xl mb-3">Info</h2>
-                            </div>
-                            <div className="text-right m-3">
-                              <button
-                                className="tooltip"
-                                onClick={handleEditButtonClick}
-                              >
-                                <span className="tooltiptext">Edit</span>
-                                <FaEdit />
-                              </button>
-                            </div>
-                          </div>
+      <section >
+        <div className="dark-overlay mt-12">
+          <div>
+            <div className=" py-5 px-md-5 text-left">
+              <div>
+                <div className="col-lg-8">
+                  {/* name and bio  */}
+                  <div className="mt-2 md:mt-6 lg:mt-6">
+                    <p className="font-bold text-md md:text-3xl mb-2">
+                      {singleUser?.name}
+                    </p>
+                    <p className="text-gray-800 text-md md:text-xl mb-2">
+                      {singleUser?.bio}
+                    </p>
 
-                          <div className="flex gap-3">
-                            <div>
-                              <h1 className="font-bold">Full Address:</h1>
-                            </div>
-                            <div>
-                              <h1 className="text-[#2196f7]">
-                                {singleUser?.address}
-                              </h1>
-                            </div>
-                          </div>
-                          <div className="flex gap-3">
-                            <div>
-                              <h1 className="font-bold">Mobile Number:</h1>
-                            </div>
-                            <div>
-                              <h1 className="text-[#2196f7]">
-                                {singleUser?.phoneNumber}
-                              </h1>
-                            </div>
-                          </div>
-                          <div className="flex gap-3">
-                            <div>
-                              <h1 className="font-bold">Email:</h1>
-                            </div>
-                            <div>
-                              <h1 className="text-[#2196f7]">
-                                {singleUser?.email}
-                              </h1>
-                            </div>
-                          </div>
+                    <div className="flex gap-4">
+                      {/* user payment History */}
+                      <p>
+                        <Link
+                          to="/user-dashboard/userPaymentData"
+                        >
+                          <strong className=" text-[#053B50] text-xl items-center hover:">
+                            <MdOutlinePayments />
+                          </strong>
+                        </Link>
+                      </p>
+                      {/* user payment History */}
+                      {/* user Book History */}
+                      <p>
+                        <Link
+                          to="/user-dashboard/bought-books"
+                          className="text-[#053B50]  text-xl items-center"
+                        >
+                          {" "}
+                          <IoBookSharp />
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
 
-                          <div className="grid grid-cols-1 md:grid-cols-2">
-                            {/* <div>
-                                <h1 className="font-bold">Location:</h1>
-                              </div>
-                              <div>
-                                <h1>{profile.location}</h1>
-                              </div> */}
+
+                  <div className="md:flex gap-10">
+                    {/* started card  */}
+                    <div className="cursor-pointer my-3">
+                      <div>
+                        <div >
+                          <div>
+                          </div>
+                          <div className="text-right m-3">
+                            <button
+                              className="tooltip"
+                              onClick={handleEditButtonClick}
+                            >
+                              <span className="tooltiptext">Edit</span>
+                              <FaEdit />
+                            </button>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-3">
+                          <div>
+                            <h1 className="font-bold"><ImLocation2 /></h1>
+                          </div>
+                          <div>
+                            <h1 className="">
+                              {singleUser?.address}
+                            </h1>
+                          </div>
+                        </div>
+                        <div className="flex gap-3">
+                          <div>
+                            <h1 className="font-bold"><BsTelephone /></h1>
+                          </div>
+                          <div>
+                            <h1 className="">
+                              {singleUser?.phoneNumber}
+                            </h1>
+                          </div>
+                        </div>
+                        <div className="flex gap-3">
+                          <div>
+                            <h1 className="font-bold"><MdEmail /></h1>
+                          </div>
+                          <div>
+                            <h1 className="text-[#64CCC5]">
+                              {singleUser?.email}
+                            </h1>
                           </div>
                         </div>
                       </div>
-
-                      <article className="mt-0 md:mt-6 lg:mt-6">
-                        <h2 className="font-bold">Others Info</h2>
-                        <ul className="mt-4 space-y-2">
-                          <div className="flex gap-4">
-                            {/* -------- score --------- */}
-                            <li>
-                              <a
-                                href="#"
-                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 text-center"
-                              >
-                                <p className="mt-1 flex items-center gap-1 text-xs font-medium text-black">
-                                  <span className="font-bold">Score</span>{" "}
-                                  <FaCoins className="text-yellow-500 text-2xl" />
-                                </p>
-                                <strong className="font-medium text-black">
-                                  {singleUser?.score}
-                                </strong>
-                              </a>
-                            </li>
-                            {/* -------- role --------- */}
-                            <li>
-                              <a
-                                href="#"
-                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
-                              >
-                                <p className="font-bold text-black">Role</p>
-                                <strong className="font-medium  flex gap-2 uppercase  items-center">
-                                  {singleUser?.role}
-                                  <GrUserAdmin />
-                                </strong>
-                              </a>
-                            </li>
-                            {/* user payment History */}
-                            <li>
-                              <Link
-                                to="/user-dashboard/userPaymentData"
-                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
-                              >
-                                <strong className="font-medium  uppercase  items-center">
-                                  Payment History
-                                </strong>
-                              </Link>
-                            </li>
-                            {/* user payment History */}
-
-                            {/* user Book History */}
-                            <li>
-                              <Link
-                                to="/user-dashboard/bought-books"
-                                className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 "
-                              >
-                                {" "}
-                                Book Collection
-                              </Link>
-                            </li>
-                          </div>
-                        </ul>
-                      </article>
                     </div>
+
+                    <article className="mt-0 md:mt-6 lg:mt-6">
+
+                      <ul className="mt-4 space-y-2">
+                        <div className="flex gap-4">
+                          {/* -------- score --------- */}
+                          <li>
+                            <a
+                              href="#"
+                              className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600 text-center"
+                            >
+                              <p className="mt-1 flex items-center gap-1 text-xs font-medium text-black">
+                                <span className="font-bold">Score</span>{" "}
+                                <FaCoins className="text-yellow-500 text-2xl" />
+                              </p>
+                              <strong className="font-medium text-black">
+                                {singleUser?.score}
+                              </strong>
+                            </a>
+                          </li>
+                          {/* -------- role --------- */}
+                          <li>
+                            <a
+                              href="#"
+                              className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
+                            >
+                              <p className="font-bold text-black">Role</p>
+                              <strong className="font-medium  flex gap-2 uppercase  items-center">
+                                {singleUser?.role}
+                                <GrUserAdmin />
+                              </strong>
+                            </a>
+                          </li>
+                        </div>
+                      </ul>
+                    </article>
                   </div>
-                  {/* <article className="mt-0 md:mt-6 lg:mt-6">
-                    <h2 className="font-bold">Add friends</h2>
-                    <ul className="mt-4 space-y-2">
-                      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
-                        <li>
-                          <a
-                            href="#"
-                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
-                          >
-                            <strong className="font-medium text-black">
-                              <MdFindReplace />
-                            </strong>
-                            <span className="font-medium">Find friends</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
-                          >
-                            <strong className="font-medium text-black">
-                              <BsPersonFillAdd />
-                            </strong>
-                            <strong className="font-medium text-black">
-                              Invite friends
-                            </strong>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://www.facebook.com/"
-                            className="block h-full rounded-lg border border-gray-400 p-4 hover:border-blue-600"
-                          >
-                            <strong className="font-medium text-black">
-                              Contact to
-                            </strong>
-                            <p className="mt-1 text-xs font-medium text-black flex">
-                              Facebook{" "}
-                              <FaFacebook className="mt-1 ml-1 text-blue-500" />
-                            </p>
-                          </a>
-                        </li>
-                      </div>
-                    </ul>
-                  </article> */}
                 </div>
+
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
       <ProfileEditModal
         isOpen={isModalOpen}
         onClose={handleModalClose}
