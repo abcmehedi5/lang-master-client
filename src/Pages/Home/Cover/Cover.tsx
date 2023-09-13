@@ -35,7 +35,7 @@ const Cover: React.FC<CoverProps> = () => {
             alt=""
           />
         </div>
-        <div className="md:w-1/2 text-center">
+        <div className="md:w-1/2 text-center mt-10 md:mt-0">
           <h1 className="text-4xl md:text-6xl font-semibold text-white">
             Improve your English
           </h1>
