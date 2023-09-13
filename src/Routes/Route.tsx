@@ -232,12 +232,12 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/learning-questions/questions/${params.id}`),
       },
-      {
-        path: "add-Lessons/add-quiz/:id",
-        element: <AddQuizes></AddQuizes>,
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/learning-questions/questions/${params.id}`),
-      },
+      // {
+      //   path: "add-Lessons/add-quiz/:id",
+      //   element: <AddQuizes></AddQuizes>,
+      //   // loader: ({ params }) =>
+      //   //   fetch(`http://localhost:5000/learning-questions/questions/${params.id}`),
+      // },
     ],
   },
   {

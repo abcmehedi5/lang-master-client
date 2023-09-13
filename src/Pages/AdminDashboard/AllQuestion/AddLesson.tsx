@@ -1,23 +1,40 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-// import { useSingleLearningData } from "../../../hooks/useLearnData/singleLearnData";
+import AddQuizModal from "./AddQuizModal";
 
+interface Quiz {
+  question: string;
+  options: string[];
+  correctAnswer: string;
+}
 
-const AddLesson = () => {
+interface LessonData {
+  lessonNumber: string;
+  lessonTitle: string;
+  points: string;
+  quiz: Quiz[];
+}
 
+interface Inputs {
+  lessonNumber: string;
+  lessonTitle: string;
+  points: string;
+  quiz: string;
+}
+
+const AddLesson: React.FC = () => {
   const question: any = useLoaderData();
 
- 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const [quizes, setQuizes] = useState([
+  const [quizes, setQuizes] = useState<Quiz[]>([
     {
       question: "",
       options: ["", "", "", ""],
@@ -25,22 +42,22 @@ const AddLesson = () => {
     },
   ]);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedLessonId, setSelectedLessonId] = useState<number>(
+    question?.lessonNumber || null
+  );
 
-  
-  console.log(question)
-
-  type Inputs = {
-    example: string;
-    lessonNumber: string;
-    lessonTitle: string;
-    points: string;
-    quiz: string;
+  // Function to open the modal and set the selected lesson ID
+  const handleAddQuizClick = (lessonId: number) => {
+    setSelectedLessonId(lessonId);
+    setIsModalOpen(true);
   };
 
+  console.log(question);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
-      const formattedData = {
+      const formattedData: LessonData = {
         lessonNumber: data.lessonNumber,
         lessonTitle: data.lessonTitle,
         points: data.points,
@@ -53,7 +70,7 @@ const AddLesson = () => {
       );
       Swal.fire({
         icon: "success",
-        title: 'added 1 lesson',
+        title: "added 1 lesson",
         showConfirmButton: true,
         timer: 1500,
       });
@@ -63,8 +80,7 @@ const AddLesson = () => {
     }
   };
 
-
-  const onQuizChange = (index, field, value) => {
+  const onQuizChange = (index: number, field: string, value: string) => {
     setQuizes((prevQuizes) => {
       const newQuizes = [...prevQuizes];
       newQuizes[index][field] = value;
@@ -109,7 +125,6 @@ const AddLesson = () => {
             <span className="text-red-500">This field is required</span>
           )}
 
-          
           {/* Quiz Input */}
           {quizes.map((quiz, index) => (
             <div key={index}>
@@ -130,11 +145,7 @@ const AddLesson = () => {
                       placeholder={`Option ${optionIndex + 1}`}
                       value={option}
                       onChange={(e) =>
-                        onQuizChange(index, "options", [
-                          ...quiz.options.slice(0, optionIndex),
-                          e.target.value,
-                          ...quiz.options.slice(optionIndex + 1),
-                        ])
+                        onQuizChange(index, "options", [...quiz.options.slice(0, optionIndex),e.target.value,...quiz.options.slice(optionIndex + 1),])
                       }
                     />
                   </div>
@@ -176,7 +187,6 @@ const AddLesson = () => {
               </tr>
             </thead>
             <tbody>
-              {/* Check if boughtBooks is defined before mapping */}
               {question?.lessons?.map((lesson: any, index: any) => (
                 <tr key={lesson._id}>
                   <th>{index + 1}</th>
@@ -184,9 +194,12 @@ const AddLesson = () => {
                   <th>{lesson?.lessonNumber}</th>
                   <th>{lesson?.quiz?.length}</th>
                   <th>
-                    <Link to={`/admin-dashboard/add-Lessons/add-quiz/${question._id}`}>
-                      <button className="btn btn-primary">Add Quiz</button>
-                    </Link>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => handleAddQuizClick(index)}
+                    >
+                      Add Quiz
+                    </button>
                   </th>
                 </tr>
               ))}
@@ -194,6 +207,12 @@ const AddLesson = () => {
           </table>
         </div>
       </div>
+      {isModalOpen && (
+        <AddQuizModal
+          lessonId={selectedLessonId}
+          closeModal={() => setIsModalOpen(false)}
+        />
+      )}
     </div>
   );
 };
