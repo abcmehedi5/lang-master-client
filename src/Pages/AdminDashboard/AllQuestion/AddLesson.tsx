@@ -1,22 +1,33 @@
-import { useQuery } from "@tanstack/react-query";
-import { Link, useParams } from "react-router-dom";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link, useLoaderData } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
+// import { useSingleLearningData } from "../../../hooks/useLearnData/singleLearnData";
+
 
 const AddLesson = () => {
-  const { unitId } = useParams();
 
-  const [axiaxiosSecures] = useAxiosSecure();
+  const question: any = useLoaderData();
 
-  const { data: question } = useQuery({
-    queryKey: ["question"],
-    queryFn: async () => {
-      const res = await axiaxiosSecures.get(
-        "/learning-questions/add-lesson/" + unitId
-      );
-      return res.data;
+ 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const [quizes, setQuizes] = useState([
+    {
+      question: "",
+      options: ["", "", "", ""],
+      correctAnswer: "",
     },
-  });
+  ]);
+
+
+  
+  console.log(question)
 
   type Inputs = {
     example: string;
@@ -25,48 +36,126 @@ const AddLesson = () => {
     points: string;
     quiz: string;
   };
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      const formattedData = {
+        lessonNumber: data.lessonNumber,
+        lessonTitle: data.lessonTitle,
+        points: data.points,
+        quiz: quizes,
+      };
+
+      const response = await axios.post(
+        `http://localhost:5000/learning-questions/add-lesson/${question._id}`,
+        formattedData
+      );
+      Swal.fire({
+        icon: "success",
+        title: 'added 1 lesson',
+        showConfirmButton: true,
+        timer: 1500,
+      });
+      console.log("Lesson added:", response.data);
+    } catch (error) {
+      console.error("Error adding lesson:", error);
+    }
+  };
+
+
+  const onQuizChange = (index, field, value) => {
+    setQuizes((prevQuizes) => {
+      const newQuizes = [...prevQuizes];
+      newQuizes[index][field] = value;
+      return newQuizes;
+    });
   };
 
   return (
     <div>
-      <div className="join">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            className="border-2 p-3 mx-3"
-            placeholder="Lesson Number"
-            {...register("lessonNumber", { required: true })}
-          />
-          {errors.lessonNumber && <span>This field is required</span>}
+      <h2 className="text-center text-xl font-bold mb-3">Add Lessons</h2>
+      <div className="join shadow-lg bg-slate-100 p-5 w-full text-center">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+          <div className="grid grid-cols-3 gap-3">
+            <input
+              className="border-2 p-3 mx-3 w-full"
+              placeholder="Lesson Number"
+              {...register("lessonNumber", { required: true })}
+            />
 
-          <input
-            className="border-2 p-3 mx-3"
-            placeholder="Lesson Title"
-            {...register("lessonTitle", { required: true })}
-          />
-          {errors.lessonTitle && <span>This field is required</span>}
+            {errors.lessonNumber && (
+              <span className="text-red-500">This field is required</span>
+            )}
 
-          <input
-            className="border-2 p-3 mx-3"
-            placeholder="Points Number"
-            {...register("points", { required: true })}
-          />
-          {errors.lessonTitle && <span>This field is required</span>}
+            <input
+              className="border-2 p-3 mx-3 w-full"
+              placeholder="Lesson Title"
+              {...register("lessonTitle", { required: true })}
+            />
 
-          <input
-            className="border-2 p-3 mx-3"
-            placeholder="quiz question "
-            {...register("quiz", { required: true })}
-          />
-          {errors.quiz && <span>This field is required</span>}
+            {errors.lessonTitle && (
+              <span className="text-red-500">This field is required</span>
+            )}
 
-          <input className="btn btn-primary" type="submit" />
+            <input
+              className="border-2 p-3 mx-3 w-full"
+              placeholder="Points Number"
+              {...register("points", { required: true })}
+            />
+          </div>
+
+          {errors.lessonTitle && (
+            <span className="text-red-500">This field is required</span>
+          )}
+
+          
+          {/* Quiz Input */}
+          {quizes.map((quiz, index) => (
+            <div key={index}>
+              <input
+                className="border-2 p-3 mx-3 w-full mt-3"
+                placeholder={`Quiz question ${index + 1}`}
+                value={quiz.question}
+                onChange={(e) =>
+                  onQuizChange(index, "question", e.target.value)
+                }
+              />
+
+              <div className="grid grid-cols-2 gap-3 my-3">
+                {quiz.options.map((option, optionIndex) => (
+                  <div key={optionIndex}>
+                    <input
+                      className="border-2 p-3 mx-3 w-full"
+                      placeholder={`Option ${optionIndex + 1}`}
+                      value={option}
+                      onChange={(e) =>
+                        onQuizChange(index, "options", [
+                          ...quiz.options.slice(0, optionIndex),
+                          e.target.value,
+                          ...quiz.options.slice(optionIndex + 1),
+                        ])
+                      }
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <input
+                className="border-2 p-3 mx-3 w-full"
+                placeholder="Correct Answer"
+                value={quiz.correctAnswer}
+                onChange={(e) =>
+                  onQuizChange(index, "correctAnswer", e.target.value)
+                }
+              />
+            </div>
+          ))}
+          {errors.quiz && (
+            <span className="text-red-500">This field is required</span>
+          )}
+
+          <input className="btn mt-3 btn-primary" type="submit" />
         </form>
       </div>
 
@@ -95,7 +184,7 @@ const AddLesson = () => {
                   <th>{lesson?.lessonNumber}</th>
                   <th>{lesson?.quiz?.length}</th>
                   <th>
-                    <Link to={"/add-quiz/" + lesson?.lessonTitle}>
+                    <Link to={`/admin-dashboard/add-Lessons/add-quiz/${question._id}`}>
                       <button className="btn btn-primary">Add Quiz</button>
                     </Link>
                   </th>
