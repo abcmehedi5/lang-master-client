@@ -10,6 +10,24 @@
   --color-summary-2-highlight: #b4b3ff;
   --color-summary-3: #fff0f3;
   --color-summary-3-highlight: #ffb3c0;
+  --color-summary-4: #e8fff6;
+  --color-summary-4-highlight: #a5ffbf;
+
+  /* Color Set 2 */
+  --color-summary-5: #eefbff;
+  --color-summary-5-highlight: #aaccff;
+
+  /* Color Set 3 */
+  --color-summary-6: #fff3f0;
+  --color-summary-6-highlight: #ffa8a1;
+
+  /* Color Set 4 */
+  --color-summary-7: #f2f2ff;
+  --color-summary-7-highlight: #b1b1ff;
+
+  /* Color Set 5 */
+  --color-summary-8: #f0fff0;
+  --color-summary-8-highlight: #a1ffa1;
 
   --font-ibm-plex-sans: "IBM Plex Sans", sans-serif;
 }
@@ -50,14 +68,19 @@
   border-left-color: var(--color-summary-1-highlight);
 }
 
-.card details.info {
+.card details.tense {
   background: var(--color-summary-2);
   border-left-color: var(--color-summary-2-highlight);
 }
 
-.card details.alert {
+.card details.parts-of-speech {
   background: var(--color-summary-3);
   border-left-color: var(--color-summary-3-highlight);
+}
+
+.card details.verb {
+  background: var(--color-summary-4);
+  border-left-color: var(--color-summary-4-highlight);
 }
 
 .card details summary {
