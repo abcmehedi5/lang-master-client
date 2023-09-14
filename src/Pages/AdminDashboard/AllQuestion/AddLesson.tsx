@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import AddQuizModal from "./AddQuizModal";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 interface Quiz {
   question: string;
@@ -27,6 +28,7 @@ interface Inputs {
 
 const AddLesson: React.FC = () => {
   const question: any = useLoaderData();
+  const [axiosSecure] = useAxiosSecure();
 
   const {
     register,
@@ -48,9 +50,17 @@ const AddLesson: React.FC = () => {
   );
 
   // Function to open the modal and set the selected lesson ID
-  const handleAddQuizClick = (lessonId: number) => {
-    setSelectedLessonId(lessonId);
+  const handleAddQuizClick = (lessonTitle: any) => {
+    console.log(lessonTitle);
+
     setIsModalOpen(true);
+    axiosSecure
+      .get("/learning-questions/addQuize", lessonTitle)
+      .then((data) => {
+        alert(data);
+      });
+
+    // setSelectedLessonId(lessonId);
   };
 
   console.log(question);
@@ -82,7 +92,7 @@ const AddLesson: React.FC = () => {
 
   const onQuizChange = (index: number, field: string, value: string) => {
     setQuizes((prevQuizes) => {
-      const newQuizes = [...prevQuizes];
+      const newQuizes: any = [...prevQuizes];
       newQuizes[index][field] = value;
       return newQuizes;
     });
@@ -144,8 +154,12 @@ const AddLesson: React.FC = () => {
                       className="border-2 p-3 mx-3 w-full"
                       placeholder={`Option ${optionIndex + 1}`}
                       value={option}
-                      onChange={(e) =>
-                        onQuizChange(index, "options", [...quiz.options.slice(0, optionIndex),e.target.value,...quiz.options.slice(optionIndex + 1),])
+                      onChange={(e: any) =>
+                        onQuizChange(index, "options", [
+                          ...quiz.options.slice(0, optionIndex),
+                          e.target.value,
+                          ...quiz.options.slice(optionIndex + 1),
+                        ])
                       }
                     />
                   </div>
@@ -196,7 +210,7 @@ const AddLesson: React.FC = () => {
                   <th>
                     <button
                       className="btn btn-primary"
-                      onClick={() => handleAddQuizClick(index)}
+                      onClick={() => handleAddQuizClick(lesson.lessonTitle)}
                     >
                       Add Quiz
                     </button>
