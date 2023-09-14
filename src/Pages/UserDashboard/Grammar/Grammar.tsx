@@ -3,8 +3,9 @@ import grammarLottie from "../../../../public/grammarLottie.json";
 import Lottie from "lottie-react-web";
 import "./Grammar.css";
 import Sentence from "./Sentence";
-import Tense from "./Tense";
+import Tense from "./Tense/Tense";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import PartsOfSpeech from "./PartsOfSpeech/PartsOfSpeech";
 
 function Grammar() {
   return (
@@ -21,7 +22,7 @@ function Grammar() {
         height={150}
       />
 
-      <div className="w-9/12 mx-auto">
+      <div className="md:w-9/12 mx-auto">
         <SectionTitle titleLetter="Gr" titleWord="ammar"></SectionTitle>
         <div className="card max-w-screen-xl">
           <h1>ইংরেজি ব্যাকরণ (English Grammar)</h1>
@@ -42,24 +43,36 @@ function Grammar() {
             </div>
           </details>
 
-          <details className="info">
+          <details className="tense">
             <summary>Tense</summary>
-            <ul className="pl-5">
+            <div className="pl-5">
               <Tense></Tense>
-            </ul>
+            </div>
           </details>
 
-          <details className="alert">
+          <details className="parts-of-speech">
             <summary>Parts Of Speech</summary>
-            <ul className="pl-5">
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
-              <li>hello</li>
-            </ul>
+            <div className="pl-5">
+              <PartsOfSpeech></PartsOfSpeech>
+            </div>
+          </details>
+          <details className="verb">
+            <summary>Verb</summary>
+            <div className="pl-5">verb</div>
           </details>
         </div>
+      </div>
+      <div className="text-center mt-4 text-gray-600 underline">
+        Grammar information sourced from{" "}
+        <a
+          href="https://www.grammarbd.com"
+          className="text-blue-500 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GrammarBD
+        </a>{" "}
+        website.
       </div>
     </>
   );

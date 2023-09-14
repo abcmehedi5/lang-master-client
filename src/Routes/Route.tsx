@@ -38,7 +38,6 @@ import AllBooks from "../Pages/AdminDashboard/AllBooks";
 import AddBooks from "../Pages/AdminDashboard/AddBooks";
 import AllQuestion from "../Pages/AdminDashboard/AllQuestion/AllQuestion";
 import AddLesson from "../Pages/AdminDashboard/AllQuestion/AddLesson";
-import AddQuizes from "../Pages/AdminDashboard/AllQuestion/AddQuizes";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -72,6 +71,14 @@ const router = createBrowserRouter([
       {
         path: "/translator",
         element: <Translator></Translator>,
+      },
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy></PrivacyPolicy>,
+      },
+      {
+        path: "/terms-and-condition",
+        element: <TermsAndCondition></TermsAndCondition>,
       },
       {
         path: "/blog",

@@ -1,14 +1,13 @@
 import paperplane from "../../../../public/paperplane2.json";
 import contact from "../../../../public/contact.jpg";
 import Lottie from "lottie-react-web";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const Contact = () => {
   return (
-    <div className="my-16">
-      <h2 className="text-4xl font-bold text-gray-800 mb-16 text-center">
-        Contact Us
-      </h2>
-      <div className="md:flex items-center justify-center md:h-[400px] relative">
+    <div className="my-20">
+      <SectionTitle titleLetter="Connect " titleWord="With Us"></SectionTitle>
+      <div className="md:flex items-center justify-center md:h-[400px] relative mt-14">
         <div
           className="w-full absolute top-0 left-0 h-full"
           style={{ zIndex: 10 }}
