@@ -5,6 +5,7 @@ import { BiLogoFacebook } from "react-icons/bi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { useState } from "react";
 import Review from "../../Review/Review";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,7 +93,10 @@ const Footer = () => {
           <span className="footer-title">Legal</span>
           <a className="link link-hover">Terms of use</a>
           <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+
+          <Link className="link link-hover" to={"introduction"}>
+            introduction
+          </Link>
         </div>
         <div>
           <span className="footer-title">Newsletter</span>
@@ -123,9 +127,14 @@ const Footer = () => {
           <p className="font-semibold">All rights reserved</p>
         </div>
         <div className="flex">
-          <p>Privacy Policy</p>
+          <Link to={"/privacy-policy"}>
+            {" "}
+            <p>Privacy Policy</p>
+          </Link>
           &nbsp; &nbsp;
-          <p>Terms and Condition</p>
+          <Link to={"/terms-and-condition"}>
+            <p>Terms and Condition</p>
+          </Link>
         </div>
       </div>
     </footer>

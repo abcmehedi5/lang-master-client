@@ -40,6 +40,7 @@ import AllQuestion from "../Pages/AdminDashboard/AllQuestion/AllQuestion";
 import AddLesson from "../Pages/AdminDashboard/AllQuestion/AddLesson";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndCondition from "../Pages/TermsAndCondition/TermsAndCondition";
+import Introduction from "../Pages/Introduction/Introduction";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
       {
         path: "/terms-and-condition",
         element: <TermsAndCondition></TermsAndCondition>,
+      },
+      {
+        path: "/introduction",
+        element: <Introduction></Introduction>,
       },
       {
         path: "/blog",
