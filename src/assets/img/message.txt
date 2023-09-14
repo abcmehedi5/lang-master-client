@@ -1,0 +1,227 @@
+// ইউনিট -১-------- Learnig Sentance 
+{
+    "question": "ইংরেজি ভাষায় অনুবাদ করুন, 'তুমি কেমন আছো?' ",
+    "options": ["What is your name?", "How are you?", "She is nice", "I am good"],
+    "correctAnswer": "How are you?"
+  },
+{
+    "question": "বাংলা ভাষায় অনুবাদ করুন 'She is a woman'.",
+    "options": ["
+    সে একজন নারী", "তুমি একজন নারী", "তাহারা সবাই নারী", "আমরা সবাই নারী "],
+    "correctAnswer": "সে একজন নারী"
+  },
+{
+    "question": "ইংরেজি ভাষায় অনুবাদ করুন, 'তোমার ছাত্র' ",
+    "options": ["Your Student", "My Student", "His Student", "Her Student"],
+    "correctAnswer": "Your Student"
+  },
+{
+    "question": "
+    বাংলা ভাষায় অনুবাদ করুন, 'I am her friend.' ",
+    "options": ["আমি তার বন্ধু", "তুমি আমার বন্ধু", "সে আমার বন্ধু", "সে তুমার বন্ধু"],
+    "correctAnswer": "আমি তার বন্ধু"
+  },
+
+  {
+    "question": "
+    বাংলা ভাষায় অনুবাদ করুন, 'Australia is a beautiful country' ",
+    "options": [" অস্ট্রেলিয়া একটি সুন্দর দেশ", "অস্ট্রেলিয়া একটি ছোট দেশ", "অস্ট্রেলিয়া একটি সুন্দর মহাদেশ", "অস্ট্রেলিয়া একটি বড় দেশ"],
+    "correctAnswer": " অস্ট্রেলিয়া একটি সুন্দর দেশ"
+  },
+
+  {
+    "question": "বাংলা ভাষায় অনুবাদ করুন, 'Hello',",
+    "options": ["নমস্কার", "খোকা", "হাসি", "দোল"],
+    "correctAnswer": "নমস্কার"
+  },
+
+  {
+    "question": "বাংলা ভাষায় অনুবাদ করুন, 'How are you?'",
+    "options": ["তুমি কেমন আছ", "আমি ভাল আছি", "তুমি কোথায় থাকো", "আমার নাম কি"],
+    "correctAnswer": "তুমি কেমন আছ"
+  },
+
+  {
+    "question": "বাংলা ভাষায় অনুবাদ করুন 'I love learning languages' into Bengali.",
+    "options": ["আমি ভাষা শেখা ভালবাসি", "আমি পড়তে ভালবাসি", "আমি লিখা শেখা ভালবাসি", "আমি ঘুরতে ভালবাসি"],
+    "correctAnswer": "আমি ভাষা শেখা ভালবাসি"
+  },
+  {
+    "question": "ইংরেজি ভাষায় অনুবাদ করুন, 'আমি ভাল আছি' ",
+    "options": ["I am good", "He is good", "What is your name?", "She is nice"],
+    "correctAnswer": "I am good"
+  },
+
+  {
+    "question": "ইংরেজি ভাষায় অনুবাদ করুন, 'আমি বই পড়ি' ",
+    "options": ["I read a book", "She read a book", "I reading a book?", "She reading a book"],
+    "correctAnswer": "I read a book"
+  },
+
+
+//   Unit -2 ----Learning Vocabulary
+
+
+    {
+      "question": "ইংরেজি ভাষায় শব্দার্থ করুন, 'বই' ",
+      "options": ["Book", "Table", "Chair", "Pen"],
+      "correctAnswer": "Book"
+    },
+    {
+      "question": "ইংরেজি ভাষায় শব্দার্থ করুন, 'মাংস'",
+      "options": ["Fish", "Meat", "Rice", "Bread"],
+      "correctAnswer": "Meat"
+    },
+    {
+      "question": "ইংরেজি ভাষায় শব্দার্থ করুন, 'ফুল'",
+      "options": ["Sun", "Moon", "Flower", "Tree"],
+      "correctAnswer": "Flower"
+    },
+    {
+      "question": "ইংরেজি ভাষায় শব্দার্থ করুন, 'মেয়ে'",
+      "options": ["Boy", "Girl", "Man", "Woman"],
+      "correctAnswer": "Girl"
+    },
+    {
+      "question": "ইংরেজি ভাষায় শব্দার্থ করুন, 'পানি'",
+      "options": ["Water", "Fire", "Air", "Earth"],
+      "correctAnswer": "Water"
+    },
+
+      {
+          "question": "বাংলা ভাষায় শব্দার্থ করুন, 'Book'?",
+          "options": ["বই", "টেবিল", "চেয়ার", "পেন"],
+          "correctAnswer": "বই"
+        },
+        {
+          "question": "বাংলা ভাষায় শব্দার্থ করুন 'Water'",
+          "options": ["পানি", "আগুন", "বায়ু", "পৃথিবী"],
+          "correctAnswer": "পানি"
+        },
+        {
+          "question": "বাংলা ভাষায় শব্দার্থ করুন'Sky'",
+          "options": ["আকাশ", "পৃথিবী", "নদী", "সূর্য"],
+          "correctAnswer": "আকাশ"
+        },
+        {
+          "question": "বাংলা ভাষায় শব্দার্থ করুন'Poet'",
+          "options": ["ডাক্তার", "শিক্ষক", "গায়ক", "কবি"],
+          "correctAnswer": "কবি"
+        },
+        {
+          "question": "বাংলা ভাষায় শব্দার্থ করুন 'Talk'",
+          "options": ["কথা বলা", "হাঁটা", "দৌড়া", "বসা"],
+          "correctAnswer": "কথা বলা"
+        }
+
+
+
+//   Unit - 7 ----কর্মস্থলের বর্ণনা, খাবারদাবার অর্ডার করা
+
+{
+    "question": "এগুলোর মধ্যে কোনটি 'অফিস'?",
+    "options": ["Office", "Father", "Mother", "Sister"],
+    "correctAnswer": "Office"
+  }
+
+{
+    "question": "বাংলা ভাষায় লিখুন, 'This is my office.'?",
+    "options": ["
+    এটি আমার বাসা", "এটি আমার অফিস", "এটি আমার স্কুল", "এটি আমার কম্পিউটার"],
+    "correctAnswer": "এটি আমার অফিস"
+}
+
+{
+    "question": "বাংলা ভাষায় লিখুন, 'This is my cabin'?",
+    "options": ["
+    এটি আমার চেয়ার", "এটি আমার অফিস", "এটি আমার কেবিন", "এটি আমার কম্পিউটার"],
+    "correctAnswer": " এটি আমার কেবিন"
+}
+
+{
+    "question": "বাংলা ভাষায় লিখুন, 'Is this your cabin?",
+    "options": ["এটি আপনার কম্পিউটার?", "এটি আপনার বস?", "এটি আপনার কেবিন?", "এটি আমার কম্পিউটার?"],
+    "correctAnswer": " এটি আপনার কেবিন?"
+}
+{
+    "question": "বাংলা ভাষায় লিখুন, 'Your cabin is nice.",
+    "options": ["আপনার সহকর্মী সুন্দর", "আপনার অফিস সুন্দর", "এটি আপনার কেবিন?", "আপনার কেবিন সুন্দর"],
+    "correctAnswer": " আপনার কেবিন সুন্দর"
+}
+{
+    "question": "বাংলা ভাষায় লিখুন, 'This is not my cabin!",
+    "options": ["এটা আমার চেয়ার নয়", "এটা আমার ডেস্ক নয়", " এটা আমার ডেস্ক নয়", " এটা আমার কেবিন নয়"],
+    "correctAnswer": "এটা আমার কেবিন নয়"
+}
+
+{
+    "question": "সঠিক অর্থটি নির্বাচন করুন, 'নয়",
+    "options": ["Not", "badmidton", "Teacher", "Class"],
+    "correctAnswer": "Not"
+}
+{
+    "question": "সঠিক অর্থটি নির্বাচন করুন,  'ফোন'?",
+    "options": ["Phone", "call", "Mobile", "Class"],
+    "correctAnswer": "Phone"
+}
+{
+    "question": "বাংলা ভাষায় লিখুন,'This is your phone!'?",
+    "options": ["এটি তোমার ডেস্ক", "এটি তোমার কুকুর", "এটি তোমার ফোন", "এটি তোমার অফিস"],
+    "correctAnswer": "এটি তোমার ফোন"
+}
+
+{
+    "question": "সঠিক অর্থটি নির্বাচন করুন,  'কম্পিউটার'?",
+    "options": ["Phone", "Computer", "Mobile", "Class"],
+    "correctAnswer": "Computer"
+}
+{
+    "question": "বাংলা ভাষায় লিখুন,'This is your phone!'?",
+    "options": ["এটি আমার ডেস্ক", "এটি আমার কম্পিউটার", "এটি আমার ফোন", "এটি আমার অফিস"],
+    "correctAnswer": "এটি আমার কম্পিউটার"
+}
+
+{
+    "question": "সঠিক অর্থটি নির্বাচন করুন,  'ডেস্ক'?",
+    "options": ["Phone", "Computer", "Desk", "Class"],
+    "correctAnswer": "Desk"
+}
+
+{
+    "question": "বাংলা ভাষায় লিখুন,'This is your Desk!'?",
+    "options": ["এটি আমার ডেস্ক", "এটি আমার কম্পিউটার", "এটি আমার ফোন", "এটি আমার অফিস"],
+    "correctAnswer": "এটি আমার ডেস্ক"
+}
+
+{
+    "question": "সঠিক অর্থটি নির্বাচন করুন,  'চেয়ার'?",
+    "options": ["Phone", "Computer", "Desk", "Chair"],
+    "correctAnswer": "Chair"
+}
+
+{
+    "question": "বাংলা ভাষায় লিখুন,'This is your Chair!'?",
+    "options": ["এটি আমার ডেস্ক", "এটি আমার চেয়ার", "এটি আমার ফোন", "এটি আমার অফিস"],
+    "correctAnswer": "এটি আমার চেয়ার"
+}
+
+{
+    "question": "বাংলা ভাষায় লিখুন, 'This is not my Chair!",
+    "options": ["এটা আমার চেয়ার নয়", "এটা আমার ডেস্ক নয়", " এটা আমার ডেস্ক নয়", " এটা আমার কেবিন নয়"],
+    "correctAnswer": "এটা আমার চেয়ার নয়"
+}
+{
+    "question": "বাংলা ভাষায় লিখুন, 'That is not my Cabin!",
+    "options": ["ওটা আমার চেয়ার নয়", "ওটা আমার ডেস্ক নয়", " ওটা আমার ডেস্ক নয়", " ওটা আমার কেবিন নয়"],
+    "correctAnswer": "ওটা আমার কেবিন নয়"
+}
+{
+    "question": "ইংরেজি ভাষায় লিখুন, 'ওটা আমার চেয়ার নয়",
+    "options": ["That is not my chair", "That is not my Desk", " That is not my Office", " That is not my cabin"],
+    "correctAnswer": "That is not my chair"
+}
+{
+    "question": "ইংরেজি ভাষায় লিখুন, 'ওটা আমার ফোন নয়।",
+    "options": ["That is not my chair", "That is not my Phone", " That is not my Office", " That is not my cabin"],
+    "correctAnswer": "That is not my Phone"
+}
