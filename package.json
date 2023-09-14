@@ -48,6 +48,7 @@
     "react-select": "^5.7.4",
     "react-share": "^4.4.1",
     "react-star-ratings": "^2.3.0",
+    "react-tabs": "^6.0.2",
     "react-to-pdf": "^0.0.14",
     "recharts": "^2.8.0",
     "sort-by": "^1.2.0",
