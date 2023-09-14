@@ -3,6 +3,7 @@ import SingleBook from "./SingleBook";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link, useLocation } from "react-router-dom";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import Aos from "aos";
 
 type Book = {
   id: number;
@@ -54,6 +55,10 @@ const Books: any = () => {
       book.writer?.toLowerCase().includes(searchQuery?.toLowerCase())
     );
   });
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   const showAllBooks = location.pathname === "/user-dashboard/books";
 
@@ -116,6 +121,8 @@ const Books: any = () => {
                     handleEditButtonClick(book);
                   }}
                   className="group relative block overflow-hidden cursor-pointer"
+                  data-aos="fade-up"
+                  data-aos-duration="800"
                 >
                   <img
                     src={book.bookimage}

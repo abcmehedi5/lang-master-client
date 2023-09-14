@@ -3,6 +3,7 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import "./Testimonial.css";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import Aos from "aos";
 
 interface Review {
   _id: string;
@@ -25,10 +26,18 @@ const Testimonial = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <section>
       <SectionTitle titleLetter="Te" titleWord="stimonials"></SectionTitle>
-      <div className="mt-10 py-10 px-10 overflow-hidden bg-[#ffe2c1ea] relative rounded-2xl">
+      <div
+        className="mt-10 py-10 px-10 overflow-hidden bg-[#ffe2c1ea] relative rounded-2xl"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+      >
         <span className="animate-updown md:h-40 md:w-40 rounded-full bg-rose-200 absolute top-0 left-0 opacity-20"></span>
         <span className="animate-updown md:h-40 md:w-40 rounded-full bg-blue-200 absolute top-10 left-20 opacity-20"></span>
         <span className="animate-updown md:h-40 md:w-40 rounded-full bg-yellow-200 absolute -bottom-10 -left-2 opacity-20"></span>
