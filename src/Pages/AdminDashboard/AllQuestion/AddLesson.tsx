@@ -45,9 +45,8 @@ const AddLesson: React.FC = () => {
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedLessonId, setSelectedLessonId] = useState<number>(
-    question?.lessonNumber || null
-  );
+  // const [selectedLessonId, setSelectedLessonId] = useState<number>(
+  const [selectedLessonId] = useState<number>(question?.lessonNumber || null);
 
   // Function to open the modal and set the selected lesson ID
   const handleAddQuizClick = (lessonTitle: any) => {
@@ -90,7 +89,7 @@ const AddLesson: React.FC = () => {
     }
   };
 
-  const onQuizChange = (index: number, field: string, value: string) => {
+  const onQuizChange = (index: any, field: any, value: any) => {
     setQuizes((prevQuizes) => {
       const newQuizes: any = [...prevQuizes];
       newQuizes[index][field] = value;
@@ -148,7 +147,7 @@ const AddLesson: React.FC = () => {
               />
 
               <div className="grid grid-cols-2 gap-3 my-3">
-                {quiz.options.map((option, optionIndex) => (
+                {quiz.options.map((option: any, optionIndex: any) => (
                   <div key={optionIndex}>
                     <input
                       className="border-2 p-3 mx-3 w-full"

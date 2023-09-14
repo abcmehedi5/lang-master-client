@@ -13,7 +13,10 @@ const Lessons = () => {
             Our courses provide effective and successful training in reading,
             listening, and speaking skills. Learn about our latest research!
           </p>
-          <div data-aos="fade-in" className="shadow-2xl lg:flex items-center gap-4 px-5 justify-center py-5 lg:h-[200px] rounded-lg my-4">
+          <div
+            data-aos="fade-in"
+            className="shadow-2xl lg:flex items-center gap-4 px-5 justify-center py-5 lg:h-[200px] rounded-lg my-4"
+          >
             <iframe
               width="250"
               height="150"
@@ -21,9 +24,7 @@ const Lessons = () => {
           "
               src="https://www.youtube.com/embed/csXPyyKX94Y?si=anRfkoEFShOFNxRA"
               title="YouTube video player"
-              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
             ></iframe>
             <div>
               <p className="font-sans font-semibold">

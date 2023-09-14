@@ -2,19 +2,16 @@ import { FaGraduationCap } from "react-icons/fa";
 import { BsPeople } from "react-icons/bs";
 import CountUp from "react-countup";
 import { useState } from "react";
-import ScrollTrigger from "react-scroll-trigger";
+
 import { ImBooks } from "react-icons/im";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 function LearnLanguage() {
-  const [counton, setCountOn] = useState(false);
+  const [counton] = useState(true);
 
   return (
     <>
-      <ScrollTrigger
-        onEnter={() => setCountOn(true)}
-        onExit={() => setCountOn(false)}
-      >
+      
         <div className="py-5 mt-12">
           <SectionTitle
             titleLetter="Some"
@@ -68,7 +65,7 @@ function LearnLanguage() {
             </div>
           </div>
         </div>
-      </ScrollTrigger>
+    
     </>
   );
 }

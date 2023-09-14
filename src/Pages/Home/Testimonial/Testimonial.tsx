@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { FaRegStar, FaStar } from "react-icons/fa";
-import Rating from "react-rating";
+// import { FaRegStar, FaStar } from "react-icons/fa";
+// import Rating from "react-rating";
 import "./Testimonial.css";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
@@ -69,7 +69,7 @@ const Testimonial = () => {
                     </div>
                     <p className="font-mono my-1">{review?.reviewText}</p>
                     <div className="flex items-center justify-between">
-                      <p>
+                      {/* <p>
                         <Rating
                           placeholderRating={review?.rating}
                           readonly
@@ -80,7 +80,7 @@ const Testimonial = () => {
                           fullSymbol={<FaStar />}
                         />
                         {review?.rating}
-                      </p>
+                      </p> */}
                       <p className="text-gray-400 text-sm">
                         {review?.reviewDate}
                       </p>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
@@ -16,17 +16,17 @@ const AddBooks = () => {
     description: "",
   });
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: any) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleImageFileChange = (event) => {
+  const handleImageFileChange = (event: any) => {
     const file = event.target.files[0];
     setBookImageFile(file);
   };
 
-  const handleBookAdd = async (event) => {
+  const handleBookAdd = async (event: any) => {
     event.preventDefault();
 
     try {
@@ -101,16 +101,21 @@ const AddBooks = () => {
   };
 
   return (
-    <div className="container mx-auto border-2 rounded-md shadow-md bg-rotate" style={{backgroundImage: 'url(https://img.freepik.com/free-vector/gradient-blur-pink-blue-abstract-background_53876-117324.jpg?size=626&ext=jpg&ga=GA1.1.1531122545.1684612316&semt=ais)'}}>
+    <div
+      className="container mx-auto border-2 rounded-md shadow-md bg-rotate"
+      style={{
+        backgroundImage:
+          "url(https://img.freepik.com/free-vector/gradient-blur-pink-blue-abstract-background_53876-117324.jpg?size=626&ext=jpg&ga=GA1.1.1531122545.1684612316&semt=ais)",
+      }}
+    >
       <div className=" lg:ml-60 mt-2">
-                <h3 className="pt-4 text-3xl text-rose-400 font-semibold inline  border-b-4 border-rose-400">
-                  Add a Book
-                </h3>
-              </div>
-    
-    
+        <h3 className="pt-4 text-3xl text-rose-400 font-semibold inline  border-b-4 border-rose-400">
+          Add a Book
+        </h3>
+      </div>
+
       <div className="flex justify-center px-8 ">
-         {/* ... Rest of your form layout */}
+        {/* ... Rest of your form layout */}
         <form onSubmit={handleBookAdd} className="px-8 pt-6 pb-8 mb-4 rounded">
           <div className="mb-4">
             <label className="block w-full mb-2 text-sm font-bold text-gray-700">
@@ -165,7 +170,6 @@ const AddBooks = () => {
                 accept="image/*"
                 onChange={handleImageFileChange}
               />
-           
             </div>
           </div>
 
