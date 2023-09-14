@@ -205,7 +205,7 @@ const AllQuestion: React.FC = () => {
                 <td>{question.unit}</td>
                 <td>{question.lessons.length}</td>
                 <td>
-                  <Link to={"/user-dashboard/add-lesson/" + question._id}>
+                  <Link to={"/admin-dashboard/add-lesson/" + question._id}>
                     <button className="btn btn-primary">Add Unit</button>
                   </Link>
                 </td>
