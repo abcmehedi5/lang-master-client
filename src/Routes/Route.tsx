@@ -38,6 +38,9 @@ import AllBooks from "../Pages/AdminDashboard/AllBooks";
 import AddBooks from "../Pages/AdminDashboard/AddBooks";
 import AllQuestion from "../Pages/AdminDashboard/AllQuestion/AllQuestion";
 import AddLesson from "../Pages/AdminDashboard/AllQuestion/AddLesson";
+import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
+import TermsAndCondition from "../Pages/TermsAndCondition/TermsAndCondition";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -172,7 +175,6 @@ const router = createBrowserRouter([
         path: "bought-books",
         element: <BoughtBooks></BoughtBooks>,
       },
-     
     ],
   },
 
@@ -237,7 +239,9 @@ const router = createBrowserRouter([
         path: "add-lesson/:id",
         element: <AddLesson></AddLesson>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/learning-questions/questions/${params.id}`),
+          fetch(
+            `http://localhost:5000/learning-questions/questions/${params.id}`
+          ),
       },
       // {
       //   path: "add-Lessons/add-quiz/:id",
