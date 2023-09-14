@@ -3,13 +3,12 @@ import shap3 from "../../../../public/shape-3.svg";
 import { BsFillCartCheckFill, BsPatchQuestionFill } from "react-icons/bs";
 import { RiLoginCircleFill } from "react-icons/Ri";
 import { PiBooksThin } from "react-icons/pi";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 const Faq = () => {
   return (
     <div className="my-20">
-      <h2 className="text-4xl font-bold text-gray-800 mb-7 text-center">
-        FAQ Section
-      </h2>
-      <div className="flex md:flex-row flex-col-reverse  items-center justify-center  gap-10">
+      <SectionTitle titleLetter="FAQ " titleWord="Corner"></SectionTitle>
+      <div className="flex md:flex-row flex-col-reverse items-center justify-center gap-20 mt-14">
         {/* -----img side----- */}
         <div className="md:w-1/2 p-4">
           <h1 className="text-5xl font-bold text-red-300">
@@ -43,7 +42,7 @@ const Faq = () => {
         </div>
         {/* -----img side----- */}
         <div
-          className="md:w-1/2 relative bg-[#fca5a5c5] "
+          className="md:w-1/3 relative bg-[#fca5a5c5] "
           style={{ borderRadius: "50% 50% 50% 50% / 70% 70% 40% 40%" }}
         >
           <img

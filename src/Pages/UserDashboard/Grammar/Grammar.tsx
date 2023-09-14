@@ -22,7 +22,7 @@ function Grammar() {
         height={150}
       />
 
-      <div className="w-9/12 mx-auto">
+      <div className="md:w-9/12 mx-auto">
         <SectionTitle titleLetter="Gr" titleWord="ammar"></SectionTitle>
         <div className="card max-w-screen-xl">
           <h1>ইংরেজি ব্যাকরণ (English Grammar)</h1>

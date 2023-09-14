@@ -3,6 +3,7 @@ import useBlogData from "../../../hooks/useBlogData";
 import Loading from "../../../Components/Loading";
 import "./HomepageBlog.css";
 import { Link } from "react-router-dom";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const HomepageBlog = () => {
   const { blog, loading } = useBlogData();
@@ -11,21 +12,17 @@ const HomepageBlog = () => {
     return <Loading />;
   }
   return (
-    <section className="my-20">
-      {/* section title */}
-      <div className="flex justify-between pb-4 ">
-        <h1 className="font-bold text-gray-800 text-2xl">Recent Blog Posts</h1>
-        <Link to="/blog">
-          <button className="bg-blue-50 text-blue-500 px-5 py-2 hover:text-blue-600">
-            View All Posts{" "}
-            <MdOutlineKeyboardArrowRight className="inline-block font-bold" />
-          </button>
-        </Link>
+    <section className="mt-20">
+      <div className="pb-4 mb-6">
+        <SectionTitle
+          titleLetter="Recent "
+          titleWord="Blog Posts"
+        ></SectionTitle>
       </div>
       {/* blog card starts */}
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-        {blog.slice(0, 3).map((item) => (
-          <div className="shadow-xl rounded-lg" key={item.id}>
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-8 md:gap-10">
+        {blog.slice(0, 3).map((item: any) => (
+          <div className="shadow-lg rounded-lg" key={item.id}>
             <img
               className="h-[200px] w-full object-cover"
               src={item.image}
@@ -51,6 +48,15 @@ const HomepageBlog = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center mt-10">
+        <Link to="/blog">
+          <button className="bg-blue-50 text-blue-500 px-5 py-2 hover:text-blue-600">
+            View All Blogs{" "}
+            <MdOutlineKeyboardArrowRight className="inline-block font-bold" />
+          </button>
+        </Link>
       </div>
     </section>
   );

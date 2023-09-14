@@ -5,6 +5,7 @@ import Faq from "../Faq/Faq";
 import HomepageBlog from "../HomepageBlog/HomepageBlog";
 import LearnLanguage from "../LearnLanguage/LearnLanguage";
 import Lessons from "../Lessons/Lessons";
+import Overview from "../Overview/Overview";
 import Support from "../Support/Support";
 import Testimonial from "../Testimonial/Testimonial";
 
@@ -14,6 +15,9 @@ const Home = () => {
       <Cover></Cover>
       <div className="md:w-10/12 mx-auto w-11/12">
         <Lessons></Lessons>
+      </div>
+      <Overview></Overview>
+      <div className="md:w-10/12 mx-auto w-11/12">
         <LearnLanguage></LearnLanguage>
         <HomepageBlog></HomepageBlog>
         <Books></Books>
@@ -28,8 +32,6 @@ const Home = () => {
 
 export default Home;
 
-
-
 // import { lazy, Suspense } from 'react';
 // import Loading from '../../../Components/Loading';
 
@@ -42,7 +44,6 @@ export default Home;
 // const LazyLessons = lazy(() => import('../Lessons/Lessons'));
 // const LazySupport = lazy(() => import('../Support/Support'));
 // const LazyTestimonial = lazy(() => import('../Testimonial/Testimonial'));
-
 
 // const Home = () => {
 //   return (
@@ -63,6 +64,5 @@ export default Home;
 //     </div>
 //   );
 // };
-
 
 // export default Home;

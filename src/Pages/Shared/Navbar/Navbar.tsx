@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
           <p className="px-4 py-4">Home</p>
         </NavLink>
       </p>
-      <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
+      <p className="relative mx-4 hover:bg-[#33333345] rounded-xl">
         <NavLink
           to="/blog"
           title="blog"
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
         <p className="relative mx-4 hover:bg-[#33333345]   rounded-xl">
           <NavLink
             to="/admin-dashboard/statistics"
-            title="Our Classs"
+            title="Our Class"
             className={({ isActive }) => (isActive ? " underline-cus" : "")}
           >
             <p className="px-4 py-4">Admin</p>
@@ -95,8 +95,9 @@ const Navbar: React.FC = () => {
   return (
     <div
       // className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5"
-      className="navbar sticky top-0 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-5"
-    style={{zIndex: 1000}}
+
+      className="navbar sticky top-0 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] px-20"
+      style={{ zIndex: 1000 }}
     >
       <div className="navbar-start flex">
         <div className="dropdown">
@@ -155,13 +156,9 @@ const Navbar: React.FC = () => {
               className="mt-3 z-[10000000] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
+                <Link to="user-dashboard/profile" className="justify-between">
                   Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
+                </Link>
               </li>
               <button onClick={handleLogout}>
                 <li>
