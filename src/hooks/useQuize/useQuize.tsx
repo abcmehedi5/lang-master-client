@@ -27,7 +27,7 @@ const useQuize = () => {
     refetch,
     isLoading,
   } = useQuery(["allQuizeData"], async () => {
-    const res = await fetch("http://localhost:5000/quizs/quiz");
+    const res = await fetch("https://lang-master-server-abcmehedi5.vercel.app/quizs/quiz");
     const data = await res.json();
     return data;
   });

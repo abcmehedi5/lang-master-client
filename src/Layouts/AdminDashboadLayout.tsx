@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import {} from "react-icons/fc";
 import { MdPayments } from "react-icons/md";
-import { IoMdListBox } from "react-icons/io";
+import { IoIosAddCircle, IoMdListBox } from "react-icons/io";
 import { NavLink, Outlet } from "react-router-dom";
 import DashboardTop from "../Pages/Shared/DashboardTop/DashboardTop";
 import { FaUserAlt } from "react-icons/fa";
-import { AiFillFileAdd, AiFillHome } from "react-icons/ai";
+import { AiFillFileAdd, AiFillHome, AiTwotoneBook } from "react-icons/ai";
 import { IoBookSharp } from "react-icons/io5";
 import { BiSolidBookAdd } from "react-icons/bi";
 import { HiOutlineMenu } from "react-icons/hi";
@@ -104,7 +104,7 @@ const AdminDashboadLayout = () => {
               to="/admin-dashboard/allbuybook"
               className="flex gap-2 items-center"
             >
-              <IoBookSharp style={{ fontSize: "30px" }} />
+              <AiTwotoneBook style={{ fontSize: "30px" }} />
               All Buy Books
             </NavLink>
           </li>
@@ -122,7 +122,7 @@ const AdminDashboadLayout = () => {
               to="/admin-dashboard/addBook"
               className="flex gap-2 items-center"
             >
-              <IoBookSharp style={{ fontSize: "30px" }} />
+              <IoIosAddCircle style={{ fontSize: "30px" }} />
               Add Books
             </NavLink>
           </li>
