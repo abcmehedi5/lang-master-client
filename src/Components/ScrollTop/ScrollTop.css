@@ -5,7 +5,7 @@
     display: none;
     position: fixed;
     bottom: 35px;
-    right: 30px;
+    left: 30px;
     font-size: 2em;
     cursor: pointer;
     opacity: 0.5;
