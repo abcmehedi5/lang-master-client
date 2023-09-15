@@ -139,46 +139,86 @@ const router = createBrowserRouter([
       },
       {
         path: "learning/:id",
-        element: <LearnLesson></LearnLesson>,
+        element: (
+          <PrivateRoute>
+            <LearnLesson></LearnLesson>
+          </PrivateRoute>
+        ),
       },
       {
         path: "leader-board",
-        element: <LeaderBoard></LeaderBoard>,
+        element: (
+          <PrivateRoute>
+            <LeaderBoard></LeaderBoard>
+          </PrivateRoute>
+        ),
       },
       {
         path: "quiz",
-        element: <QuizLevel></QuizLevel>,
+        element: (
+          <PrivateRoute>
+            <QuizLevel></QuizLevel>
+          </PrivateRoute>
+        ),
       },
       {
         path: "mainquiz/:id",
-        element: <Quizzes></Quizzes>,
+        element: (
+          <PrivateRoute>
+            <Quizzes></Quizzes>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/quizs/quiz/${params.id}`),
       },
       {
         path: "grammar",
-        element: <Grammar></Grammar>,
+        element: (
+          <PrivateRoute>
+            <Grammar></Grammar>
+          </PrivateRoute>
+        ),
       },
 
       {
         path: "shop",
-        element: <Shop></Shop>,
+        element: (
+          <PrivateRoute>
+            <Shop></Shop>
+          </PrivateRoute>
+        ),
       },
       {
         path: "profile",
-        element: <Profile></Profile>,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "userPaymentData",
-        element: <UserPaymentData />,
+        element: (
+          <PrivateRoute>
+            <UserPaymentData />
+          </PrivateRoute>
+        ),
       },
       {
         path: "books",
-        element: <Books></Books>,
+        element: (
+          <PrivateRoute>
+            <Books></Books>
+          </PrivateRoute>
+        ),
       },
       {
         path: "bought-books",
-        element: <BoughtBooks></BoughtBooks>,
+        element: (
+          <PrivateRoute>
+            <BoughtBooks></BoughtBooks>
+          </PrivateRoute>
+        ),
       },
     ],
   },
@@ -202,47 +242,47 @@ const router = createBrowserRouter([
     children: [
       {
         path: "statistics",
-        element: <Statistics></Statistics>,
+        element: <AdminRoute><Statistics></Statistics></AdminRoute>,
       },
       {
         path: "user-manage",
-        element: <UserManage></UserManage>,
+        element: <AdminRoute><UserManage></UserManage></AdminRoute>,
       },
       {
         path: "add-quize",
-        element: <AddQuizAdmin></AddQuizAdmin>,
+        element: <AdminRoute><AddQuizAdmin></AddQuizAdmin></AdminRoute>,
       },
       {
         path: "add-topics",
-        element: <AddTopics />,
+        element: <AdminRoute><AddTopics /></AdminRoute>,
       },
       {
         path: "update-question",
-        element: <AllQuestion />,
+        element: <AdminRoute><AllQuestion /></AdminRoute>,
       },
       {
         path: "add-unit",
-        element: <AddUnit></AddUnit>,
+        element: <AdminRoute><AddUnit></AddUnit></AdminRoute>,
       },
       {
         path: "allPayment",
-        element: <AllPayments></AllPayments>,
+        element: <AdminRoute><AllPayments></AllPayments></AdminRoute>,
       },
       {
         path: "allbuybook",
-        element: <AllBuyBook></AllBuyBook>,
+        element: <AdminRoute><AllBuyBook></AllBuyBook></AdminRoute>,
       },
       {
         path: "allbooks",
-        element: <AllBooks></AllBooks>,
+        element: <AdminRoute><AllBooks></AllBooks></AdminRoute>,
       },
       {
         path: "addBook",
-        element: <AddBooks></AddBooks>,
+        element: <AdminRoute><AddBooks></AddBooks></AdminRoute>,
       },
       {
         path: "add-lesson/:id",
-        element: <AddLesson></AddLesson>,
+        element: <AdminRoute><AddLesson></AddLesson></AdminRoute>,
         loader: ({ params }) =>
           fetch(
             `http://localhost:5000/learning-questions/questions/${params.id}`

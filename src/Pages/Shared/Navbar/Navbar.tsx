@@ -142,7 +142,7 @@ const Navbar: React.FC = () => {
           <ResponsiveIconsSection />
         </div>
 
-        <Notification></Notification>
+        {user && <Notification></Notification>}
         {/* -------- user profile */}
         {user ? (
           <div className="dropdown dropdown-end z-[1000000]">

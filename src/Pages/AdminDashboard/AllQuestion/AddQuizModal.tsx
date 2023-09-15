@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 interface Inputs {
   question: string;
   option1: string;
+  option: string;
   option2: string;
   option3: string;
   option4: string;
@@ -18,11 +19,15 @@ interface AddQuizModalProps {
   lessonId: number;
 }
 
-const AddQuizModal: React.FC<AddQuizModalProps> = ({ closeModal, lessonId }) => {
+const AddQuizModal: React.FC<AddQuizModalProps> = ({
+  closeModal,
+  lessonId,
+}) => {
   const { register, handleSubmit } = useForm<Inputs>();
   console.log(lessonId);
 
-  const [quizzes, setQuizzes] = useState([
+  // const [quizzes, setQuizzes] = useState([
+  const [quizzes] = useState([
     {
       question: "",
       options: ["", "", "", ""],
@@ -31,13 +36,13 @@ const AddQuizModal: React.FC<AddQuizModalProps> = ({ closeModal, lessonId }) => 
   ]);
   console.log(quizzes);
 
-//   const onQuizChange = (index: number, field: string, value: string) => {
-//     setQuizzes((prevQuizzes) => {
-//       const newQuizzes = [...prevQuizzes];
-//       newQuizzes[index][field] = value;
-//       return newQuizzes;
-//     });
-//   };
+  //   const onQuizChange = (index: number, field: string, value: string) => {
+  //     setQuizzes((prevQuizzes) => {
+  //       const newQuizzes = [...prevQuizzes];
+  //       newQuizzes[index][field] = value;
+  //       return newQuizzes;
+  //     });
+  //   };
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -86,11 +91,11 @@ const AddQuizModal: React.FC<AddQuizModalProps> = ({ closeModal, lessonId }) => 
           <div className="mb-3">
             <label className="mb-4">Options:</label>
             <div className="grid grid-cols-2 gap-3">
-              {quizzes.map((option, index) =>
-                option.options.map((option, subIndex) => (
+              {quizzes.map((option) =>
+                option.options.map((subIndex) => (
                   <input
                     key={subIndex}
-                    {...register(`options.${subIndex}`)}
+                    {...register('option')}
                     className="rounded-lg border-2 p-3 mx-3 w-full"
                     type="text"
                     placeholder={`Option ${subIndex + 1}`}
