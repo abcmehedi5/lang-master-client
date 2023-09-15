@@ -19,9 +19,6 @@ const Lessons = () => {
             listening, and speaking skills. Learn about our latest research!
           </p>
           <div
-            className="shadow-2xl lg:flex items-center gap-4 px-5 justify-center py-5 lg:h-[200px] rounded-lg my-4"
-            data-aos="fade-right"
-            data-aos-duration="1000"
           >
             <iframe
               width="250"
