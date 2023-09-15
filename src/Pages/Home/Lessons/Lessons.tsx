@@ -1,6 +1,11 @@
+import Aos from "aos";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Lessons = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="my-28">
       <div className="md:flex items-center justify-center gap-10">
@@ -14,8 +19,6 @@ const Lessons = () => {
             listening, and speaking skills. Learn about our latest research!
           </p>
           <div
-            data-aos="fade-in"
-            className="shadow-2xl lg:flex items-center gap-4 px-5 justify-center py-5 lg:h-[200px] rounded-lg my-4"
           >
             <iframe
               width="250"
@@ -47,7 +50,11 @@ const Lessons = () => {
             <button className="defaultBtn">Know More About us</button>
           </Link>
         </div>
-        <div className="md:w-1/2">
+        <div
+          className="md:w-1/2"
+          data-aos="fade-up-left"
+          data-aos-duration="1000"
+        >
           <div
             className="bg-[#b2f5c1a5]"
             style={{ borderRadius: "80% 70% 70% 80% " }}

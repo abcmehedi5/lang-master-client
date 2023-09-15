@@ -2,8 +2,13 @@ import paperplane from "../../../../public/paperplane2.json";
 import contact from "../../../../public/contact.jpg";
 import Lottie from "lottie-react-web";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import { useEffect } from "react";
+import Aos from "aos";
 
 const Contact = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="my-20">
       <SectionTitle titleLetter="Connect " titleWord="With Us"></SectionTitle>
@@ -11,6 +16,8 @@ const Contact = () => {
         <div
           className="w-full absolute top-0 left-0 h-full"
           style={{ zIndex: 10 }}
+          data-aos="fade-up-right"
+          data-aos-duration="1100"
         >
           <Lottie
             options={{
@@ -21,7 +28,11 @@ const Contact = () => {
           />
         </div>
         {/* ---content--- */}
-        <div className=" md:w-1/2 h-[440px] relative bg-[#e6fefe]">
+        <div
+          className=" md:w-1/2 h-[440px] relative bg-[#e6fefe]"
+          data-aos="fade-up-right"
+          data-aos-duration="1200"
+        >
           <img className="h-full w-full object-cover" src={contact} alt="" />
 
           <span
