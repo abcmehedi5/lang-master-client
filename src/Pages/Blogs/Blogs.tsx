@@ -1,7 +1,6 @@
 import BlogMainContain from "./BlogMainContain";
 import BlogRightSidebar from "./BlogRightSidebar";
 import useBlogData from "../../hooks/useBlogData";
-// import BlogLeftSidebar from "./BlogLeftSidebar";
 import BlogPost from "./BlogPost";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";

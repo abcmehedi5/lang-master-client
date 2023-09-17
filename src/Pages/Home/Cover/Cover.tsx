@@ -28,7 +28,7 @@ const Cover: React.FC<CoverProps> = () => {
           <img src={shap3} />
         </div>
 
-        <div className="imgbanner relative md:h-[430px] h-[300px] rounded-full md:ml-[50px] md:w-1/3 ">
+        <div className="imgbanner relative md:h-[430px] h-[300px] rounded-full md:ml-[50px] md:w-1/2 ">
           <img
             className="w-full h-full"
             src="https://i.ibb.co/s1vDwGW/banner-img-1.png"

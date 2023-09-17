@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { AiTwotoneMail } from "react-icons/ai";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Like from "./Like/Like";
 import useBlogData from "../../hooks/useBlogData";
+import useSingleBlogData from "../../hooks/useSingleBlogData";
+import Share from "./Share/Share";
 
 
 const SingleBlogCard: React.FC = () => {
-  const data: any = useLoaderData();
+  const { id } = useParams<{ id: string }>();
+  
   const { blog } = useBlogData();
-  console.log(data.likedUsers);
+
+  const {singleBlog} = useSingleBlogData(id);
+  console.log(singleBlog)
 
   const ownBlog = blog.filter(
-    (own: any) => own.email === data.email && own._id !== data._id
+    (own: any) => own.email === singleBlog.email && own._id !== singleBlog._id
   );
   const [sharedData]: any = useState(null);
 
@@ -21,33 +26,33 @@ const SingleBlogCard: React.FC = () => {
 
 
   return (
-    <div className="md:flex w-10/12 py-4 my-8 mx-auto gap-6">
-      <div className="md:w-[70%] md:sticky top-0 h-full">
+    <div className="md:flex w-10/12 py-4 my-8 mx-auto gap-10">
+      <div className="md:w-[60%] md:sticky top-0 h-full">
         <img
-          className="w-full h-[550px] object-cover rounded-lg"
-          src={data?.image}
+          className="w-full h-[350px] object-cover rounded-lg"
+          src={singleBlog?.image}
           alt="post image"
         />
-        <p className="text-gray-400 my-3">{data?.uploadedtime}</p>
-        <h1 className="text-3xl mb-2 font-semibold capitalize">
-          {data?.title}
+        <p className="text-gray-400 mt-2">{singleBlog?.uploadedtime}</p>
+        <h1 className="text-3xl my-2 font-semibold capitalize">
+          {singleBlog?.title}
         </h1>
-        <p className="text-xl text-gray-600">{data?.description}</p>
+        <p className="text-xl text-gray-600">{singleBlog?.description}</p>
 
         {/* -------------------------------------------------- */}
         <hr className="my-4" />
         {/* like, comment, share */}
-        <div className="card-actions justify-between m-4 font-semibold text-2xl">
+        <div className="card-actions justify-between m-4 font-semibold text-2xl items-center">
           {/* Like  */}
           <Like
-            postId={data._id}
-            like={data.like}
-            likedUsers={data.likedUsers}
+            postId={singleBlog._id}
+            like={singleBlog.like}
+            likedUsers={singleBlog.likedUsers}
           />
           {/* Share */}
-          <button className="flex gap-2">
-            {/* <Share onShare={(data: any) => setSharedData(data)} /> */}
-            <span>Share</span>
+          <button className="flex gap-2 ">
+            <Share id={id}/>
+            {/* <span><FaShare /></span> */}
           </button>
         </div>
 
@@ -60,19 +65,19 @@ const SingleBlogCard: React.FC = () => {
         <hr className="my-4" />
       </div>
 
-      <div className="md:w-[30%] mx-auto text-center">
+      <div className="md:w-[35%] mx-auto text-center">
         <h2 className="capitalize text-3xl font-semibold">publisher</h2>
         <hr className="my-4" />
         <div className="flex gap-1">
           <img
             className="w-[100px] mx-auto h-[100px] object-cover"
-            src={data?.authorImage}
+            src={singleBlog?.authorImage}
             alt=""
           />
           <div className="text-start">
-            <h2 className="text-2xl my-3 font-semibold">{data?.name}</h2>
+            <h2 className="text-2xl my-3 font-semibold">{singleBlog?.name}</h2>
             <p className="flex gap-1 text-lg">
-              <AiTwotoneMail className="text-3xl" /> : {data?.email}
+              <AiTwotoneMail className="text-3xl" /> : {singleBlog?.email}
             </p>
           </div>
         </div>
