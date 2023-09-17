@@ -26,7 +26,7 @@ const UserPaymentData: React.FC = () => {
   console.log(error);
 
   useEffect(() => {
-    const url = `https://lang-master-server-abcmehedi5.vercel.app/payment/paymentUser?email=${user?.email}`;
+    const url = `http://localhost:5000/payment/paymentUser?email=${user?.email}`;
     axios
       .get<PaymentData[]>(url)
       .then((response) => {

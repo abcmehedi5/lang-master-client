@@ -7,7 +7,7 @@ const useAllBooks = () => {
         refetch,
         isLoading,
       } = useQuery(["allBooks"], async () => {
-        const res = await fetch("https://lang-master-server-abcmehedi5.vercel.app/books/book");
+        const res = await fetch("http://localhost:5000/books/book");
         const data = await res.json();
         return data;
       });

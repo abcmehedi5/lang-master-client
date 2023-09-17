@@ -30,7 +30,7 @@ const AddCategoryQuiz: React.FC = () => {
     try {
       // Send data to the server using axios or your preferred HTTP library
       const response = await axios.post(
-        "https://lang-master-server-abcmehedi5.vercel.app/quizs/quiz",
+        "http://localhost:5000/quizs/quiz",
         data
       );
       if (response.status === 200) {

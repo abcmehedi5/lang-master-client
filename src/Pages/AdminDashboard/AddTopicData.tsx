@@ -56,7 +56,7 @@ const AddTopicData: React.FC = () => {
   const onSubmit: SubmitHandler<FormValue> = async (data) => {
     try {
       // Send data to the server using axios or your preferred HTTP library
-      const response = await axios.post("https://lang-master-server-abcmehedi5.vercel.app/learning-questions/questions", data);
+      const response = await axios.post("http://localhost:5000/learning-questions/questions", data);
       if (response.status === 200) {
         // Successfully saved data
         console.log("তথ্যটি সফলভাবে সংরক্ষিত হয়েছে!");

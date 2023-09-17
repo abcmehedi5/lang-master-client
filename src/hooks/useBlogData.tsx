@@ -8,7 +8,7 @@ const useBlogData = () => {
   } = useQuery({
     queryKey: ["blog"],
     queryFn: async () => {
-      const res = await fetch("https://lang-master-server-abcmehedi5.vercel.app/blogs/blog");
+      const res = await fetch("http://localhost:5000/blogs/blog");
       return res.json();
     },
   });

@@ -53,7 +53,7 @@
 //           prevQuestions.filter((question) => question.id !== id)
 //         );
 
-//         fetch(`https://lang-master-server-abcmehedi5.vercel.app/users/user/${id}`, {
+//         fetch(`http://localhost:5000/users/user/${id}`, {
 //           method: "DELETE",
 //         })
 //           .then((res) => {
@@ -74,7 +74,7 @@
 //   };
 
 //   useEffect(() => {
-//     fetch("https://lang-master-server-abcmehedi5.vercel.app/learning-questions/questions")
+//     fetch("http://localhost:5000/learning-questions/questions")
 //       .then((res) => res.json())
 //       .then((data: FetchedData[]) => {
 //         const extractedQuestions: Question[] = [];
@@ -175,7 +175,7 @@ const AllQuestion: React.FC = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   console.log(questions);
   useEffect(() => {
-    fetch("https://lang-master-server-abcmehedi5.vercel.app/learning-questions/questions")
+    fetch("http://localhost:5000/learning-questions/questions")
       .then((res) => res.json())
       .then((data) => {
         setQuestions(data);

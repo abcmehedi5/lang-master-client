@@ -58,7 +58,7 @@ const BlogPostModal: React.FC<{
         comment: [],
       };
       axios
-        .post("https://lang-master-server-abcmehedi5.vercel.app/blogs/blog", postData)
+        .post("http://localhost:5000/blogs/blog", postData)
         .then((res) => {
           console.log("post", res.data);
           setOpenPostModal(false);

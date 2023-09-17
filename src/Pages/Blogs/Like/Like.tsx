@@ -35,7 +35,7 @@ const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
       };
 
       // Send a POST request to the server with user information
-      const res = await axios.put(`https://lang-master-server-abcmehedi5.vercel.app/blogs/blog/${postId}/like`, userData);
+      const res = await axios.put(`http://localhost:5000/blogs/blog/${postId}/like`, userData);
 
       console.log(res);
       if (res.status === 200) {
