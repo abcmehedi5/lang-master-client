@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useBlogData = () => {
+  const [axiosSecure] = useAxiosSecure();
   const {
     data: blog = [],
     isLoading: loading,
@@ -8,8 +10,8 @@ const useBlogData = () => {
   } = useQuery({
     queryKey: ["blog"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/blogs/blog");
-      return res.json();
+      const res = await axiosSecure.get('/blogs/blog');
+      return res.data;
     },
   });
 

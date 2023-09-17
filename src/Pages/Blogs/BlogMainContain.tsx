@@ -21,7 +21,11 @@ const BlogMainContain: React.FC<BlogMainContainProps> = ({ filterblog }) => {
       <div className="mb-7 grid md:grid-cols-2 gap-5">
         {filterblog.map((item) => (
           <Link to={`/singleBlogCard/${item._id}`} key={item._id}>
-            <div
+            <div 
+            // data-aos="flip-down"
+            data-aos="fade-up"
+            // data-aos-easing="linear"
+            data-aos-duration="1000"
               className="rounded-md pt-3 pl-3 h-48 relative overflow-hidden"
               style={{
                 boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",

@@ -114,9 +114,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/singleBlogCard/:id",
-        element: <SingleBlogCard />,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/blogs/blog/${params.id}`),
+        element: <SingleBlogCard />
       },
     ],
   },
