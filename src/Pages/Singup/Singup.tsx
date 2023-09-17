@@ -3,7 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { UserCredential } from "firebase/auth";
-import login from "../../../public/login.svg";
+import registerImg from "../../../public/register.svg";
 import GoogleFb from "../Shared/Google-Fb/GoogleFb";
 import { Helmet } from "react-helmet-async";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
@@ -107,11 +107,26 @@ const Signup: React.FC = () => {
         <title> Sign Up | Lang Master </title>
       </Helmet>
       <div className="my-10">
-        <div className="hero-content flex-col md:flex-row gap-5">
-          <img className="md:w-[40%]" src={login} alt="" />
-          <div className="card flex-shrink-0 md:w-[50%] shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-0">
-              <h1 className="text-4xl font-semibold">Please Register</h1>
+        <div className="hero-content flex-col lg:flex-row gap-5">
+          <div>
+            <img className="md:pr-10" src={registerImg} alt="" />
+          </div>
+          <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
+            <h1 className="text-4xl font-bold pb-0 mb-0 fontKalam">
+              Create your account
+            </h1>
+            <p className="font-semibold text-xl fontKalam mb-4">
+              Have an Account?
+              <Link to="/login" className="text-[#407bff] ml-1 hover:underline">
+                Login
+              </Link>
+            </p>
+            <GoogleFb />
+            <div className="divider">or</div>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="card-body p-0 w-full"
+            >
               {/* -------- full name field ---------- */}
               <div className="form-control">
                 <label className="label">
@@ -147,7 +162,7 @@ const Signup: React.FC = () => {
                 {/* -------- phone number ----------- */}
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Phone Number</span>
+                    <span className="label-text">Phone</span>
                   </label>
                   <input
                     type="number"
@@ -164,12 +179,12 @@ const Signup: React.FC = () => {
               {/* -------- image field */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Photo URL</span>
+                  <span className="label-text">Photo</span>
                 </label>
                 <input
                   type="file"
-                  placeholder="photo URL"
-                  className="input input-bordered"
+                  placeholder="photo"
+                  className="input input-bordered pt-2"
                   accept="image/*"
                   {...register("image")}
                 />
@@ -206,23 +221,12 @@ const Signup: React.FC = () => {
               </div>
 
               <div className="form-control">
-                <button
-                  type="submit"
-                  className="btn bg-[#0b4e69] text-white hover:bg-[#187296]"
-                >
+                <button type="submit" className="defaultBtn w-full mt-6">
                   Sign up
                 </button>
                 {error && <span className="text-red-500 text-xs">{error}</span>}
               </div>
-              <Link to="/login">
-                <p className="text-[#407bff] text-sm underline">
-                  Already have an account? Login
-                </p>
-              </Link>
             </form>
-
-            <div className="divider">or</div>
-            <GoogleFb />
           </div>
         </div>
       </div>

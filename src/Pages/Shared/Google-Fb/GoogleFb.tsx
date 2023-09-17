@@ -45,13 +45,28 @@ const GoogleFb = () => {
   };
 
   return (
-    <div className="flex items-center gap-3 justify-center mt-2 mb-4">
-      <button onClick={handleGoogle} className="btn btn-circle">
-        <FcGoogle className="text-2xl" />
-      </button>
-      <button className="btn btn-circle">
-        <FaFacebookF className="text-2xl text-[#1877f2]" />
-      </button>
+    <div className="mt-2 mb-4 w-full">
+      <div className="w-full mb-3">
+        <button
+          onClick={handleGoogle}
+          className="w-full btn transition-all duration-200 border-1 border-gray-800 hover:border-1 hover:border-gray-800 hover:ring-2 ring-offset-1 ring-gray-200"
+        >
+          <p className="flex items-center gap-2">
+            <FcGoogle className="text-2xl" />{" "}
+            <span className="text-base normal-case font-semibold">Google</span>
+          </p>
+        </button>
+      </div>
+      <div className="w-full">
+        <button className="w-full btn transition-all duration-200 border-1 border-gray-800 hover:border-1 hover:border-gray-800 hover:ring-2 ring-offset-1 ring-gray-200">
+          <p className="flex items-center gap-2">
+            <FaFacebookF className="text-2xl text-[#1877f2]" />
+            <span className="text-base normal-case font-semibold">
+              Facebook
+            </span>
+          </p>
+        </button>
+      </div>
     </div>
   );
 };
