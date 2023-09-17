@@ -344,45 +344,458 @@
   {
     "_id": 1,
     "unit": "1",
-    "topic": "নিজের পরিচয় দিন",
-    "totalLessons": "৯",
+    "topic": "বেসিক ইংরেজী",
+    "totalLessons": "৫",
     "lessons": [
       {
         "lessonNumber": "১",
         "lessonTitle": "পরিচয়",
-        "points": "২০",
+        "points": "10",
         "quiz": [
           {
-            "question": "মানুষের কোন অংশ দেখে মানুষের পরিচয় জানা যায়?",
-            "options": ["চোখ", "কান", "মুখ", "গাল"],
-            "correctAnswer": "চোখ"
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'আমি'",
+            "options": ["I", "myself", "you"],
+            "correctAnswer": "I"
           },
           {
-            "question": "আমাদের দেশে কোন ভাষা চলতি?",
-            "options": ["বাংলা", "ইংরেজি", "হিন্দি", "উর্দু"],
-            "correctAnswer": "বাংলা"
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'পরিচয়'",
+            "options": ["introduction", "friendship", "experience"],
+            "correctAnswer": "introduction"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমি জাপান থেকে এসেছি।'",
+            "options": [
+              "I am from Japan",
+              "I am going to Japan",
+              "I am in Japan now"
+            ],
+            "correctAnswer": "I am from Japan"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'আমার'",
+            "options": ["my", "your", "our"],
+            "correctAnswer": "my"
+          },
+          {
+            "question": "সঠিক বাক্যটি নির্বাচন করুন, 'আমার বাড়ি সুন্দর'",
+            "options": [
+              "My house is beautiful.",
+              "I enjoy playing sports.",
+              "The car is fast."
+            ],
+            "correctAnswer": "My house is beautiful."
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'নাম'",
+            "options": ["name", "age", "address"],
+            "correctAnswer": "name"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'পেশা'",
+            "options": ["profession", "hobby", "location"],
+            "correctAnswer": "profession"
+          },
+          {
+            "question": "সঠিক বাক্যটি নির্বাচন করুন, 'আমি একজন শিক্ষার্থী'",
+            "options": [
+              "I am a student.",
+              "My favorite color is blue.",
+              "I love to travel."
+            ],
+            "correctAnswer": "I am a student."
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'খুশি'",
+            "options": ["happy", "sad", "angry"],
+            "correctAnswer": "happy"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'বই'",
+            "options": ["book", "pen", "paper"],
+            "correctAnswer": "book"
           }
         ]
       },
       {
         "lessonNumber": "২",
         "lessonTitle": "পরিবার",
-        "points": "৩০",
+        "points": "১৩",
         "quiz": [
           {
-            "question": "পরিবারে আমাদের যারা সবচেয়ে বড় তা কে?",
-            "options": ["মা", "বাবা", "দাদী", "দাদা"],
-            "correctAnswer": "মা"
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'মেয়ে'",
+            "options": ["daughter", "family", "I"],
+            "correctAnswer": "daughter"
           },
           {
-            "question": "পরিবারে যারা আমাদের আপা?",
-            "options": ["মা", "বাবা", "বোন", "ভাই"],
-            "correctAnswer": "বাবা"
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'My sister is beautiful.'",
+            "options": [
+              "আমার বোন সুন্দরী",
+              "আমার বোন অসুন্দর ",
+              "আমার বোন ভাল"
+            ],
+            "correctAnswer": "আমার বোন সুন্দরী"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'স্ত্রী'",
+            "options": ["wife", "Japan", "Bangladeshi"],
+            "correctAnswer": "wife"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'My brother is funny.'",
+            "options": ["আমার ভাই মজার", "আমার ভাই চালাক ", "আমার বোন মজার"],
+            "correctAnswer": "আমার ভাই মজার"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'চৌকস'",
+            "options": ["university", "smart", "not"],
+            "correctAnswer": "smart"
+          },
+          {
+            "question": "এগুলোর মধ্যে কোনটি 'পরিবার'?",
+            "options": ["family", "Germany", "husband"],
+            "correctAnswer": "family"
+          },
+          {
+            "question": "উপযুক্ত শব্দের সাথে জোড়া মিলিয়ে নিন, 'দারুণ'",
+            "options": ["great", "country", "husband"],
+            "correctAnswer": "great"
+          },
+          {
+            "question": "উপযুক্ত শব্দের সাথে জোড়া মিলিয়ে নিন, 'দেশ'",
+            "options": ["great", "country", "husband"],
+            "correctAnswer": "country"
+          },
+          {
+            "question": "উপযুক্ত শব্দের সাথে জোড়া মিলিয়ে নিন, 'স্বামী'",
+            "options": ["great", "country", "husband"],
+            "correctAnswer": "husband"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'My wife is not tall.'",
+            "options": [
+              "আমার স্ত্রী লম্বা নয়",
+              "আমার স্ত্রী লম্বা",
+              "আমার স্ত্রী খাট"
+            ],
+            "correctAnswer": "আমার স্ত্রী লম্বা নয়"
+          },
+          {
+            "question": "উপযুক্ত শব্দের সাথে জোড়া মিলিয়ে নিন, 'পরিবার'",
+            "options": ["family", "big", "she"],
+            "correctAnswer": "family"
+          },
+          {
+            "question": "উপযুক্ত শব্দের সাথে জোড়া মিলিয়ে নিন, 'বড়'",
+            "options": ["family", "big", "she"],
+            "correctAnswer": "big"
+          },
+          {
+            "question": "উপযুক্ত শব্দের সাথে জোড়া মিলিয়ে নিন, 'ছেলে'",
+            "options": ["family", "big", "son"],
+            "correctAnswer": "son"
+          }
+        ]
+      },
+      {
+        "lessonNumber": "৩",
+        "lessonTitle": "কর্মস্থলের বর্ণনা",
+        "points": "১০",
+        "quiz": [
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'কাজ",
+            "options": ["profile", "work", "basketball"],
+            "correctAnswer": "Work"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'সহকর্মী",
+            "options": ["tennis", "oh", "colleague"],
+            "correctAnswer": "colleague"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'প্রশাসনিক",
+            "options": ["administrative", "holiday", "entertainment"],
+            "correctAnswer": "administrative"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'কর্মী",
+            "options": ["employee", "weather", "music"],
+            "correctAnswer": "employee"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'বৃদ্ধশ্রমিক",
+            "options": ["retiree", "vacation", "technology"],
+            "correctAnswer": "retiree"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'সংস্থান",
+            "options": ["institution", "restaurant", "movie"],
+            "correctAnswer": "institution"
+          },
+          {
+            "question": "সঠিক অর্থটি নির্বাচন করুন, 'অফিস ক্যাম্পাস",
+            "options": ["office campus", "shopping mall", "beach"],
+            "correctAnswer": "office campus"
+          },
+          {
+            "question": "উপযুক্ত শব্দের সাথে জোড়া মিলিয়ে নিন, 'ক্ষেত'",
+            "options": ["field", "cat", "sun"],
+            "correctAnswer": "field"
+          },
+          {
+            "question": "উপযুক্ত শব্দের সাথে জোড়া মিলিয়ে নিন, 'চেয়ার'",
+            "options": ["field", "chair", "sun"],
+            "correctAnswer": "chair"
+          },
+          {
+            "question": "যা দেখতে পাচ্ছেন তার অনুবাদে স্পর্শ করুন, 'চেয়ারটি আরামদায়ক",
+            "options": [
+              "chair is comfortable",
+              "this is a chair",
+              "chair is exciting"
+            ],
+            "correctAnswer": "chair is comfortable"
+          }
+        ]
+      },
+      {
+        "lessonNumber": "৪",
+        "lessonTitle": "Adjective এর ব্যবহার",
+        "points": "১০",
+        "quiz": [
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'Your flat is clean'",
+            "options": [
+              "তোমার ফ্লাট পরিস্কার নয়",
+              "তোমার ফ্লাট পরিস্কার",
+              "তোমার ফ্লাট সুন্দর"
+            ],
+            "correctAnswer": "তোমার ফ্লাট পরিস্কার"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'Her dress is beautiful'",
+            "options": [
+              "তার দেশ সুন্দর নয়",
+              "তার দেশ সুন্দর",
+              "তার জামা সুন্দর"
+            ],
+            "correctAnswer": "তার জামা সুন্দর"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'The flowers are fresh'",
+            "options": ["ফুলগুলি শুষ্ক", "ফুলগুলি তাজা", "ফুলগুলি কাপড়"],
+            "correctAnswer": "ফুলগুলি তাজা"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'The coffee is hot'",
+            "options": ["কফি ঠান্ডা", "কফি গরম", "কফি মিষ্টি"],
+            "correctAnswer": "কফি গরম"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'The pizza is delicious'",
+            "options": ["পিজা মিষ্টি", "পিজা কোমরা", "পিজা সুস্বাদু"],
+            "correctAnswer": "পিজা সুস্বাদু"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'The room is tidy'",
+            "options": ["কক্ষ পরিস্কার", "কক্ষ প্যান্ট", "কক্ষ দুষ্কৃত"],
+            "correctAnswer": "কক্ষ পরিস্কার"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'The weather is rainy'",
+            "options": ["আবহাওয়া শুষ্ক", "আবহাওয়া বৃষ্টি", "আবহাওয়া পানি"],
+            "correctAnswer": "আবহাওয়া বৃষ্টি"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'The movie is exciting'",
+            "options": [
+              "চলচ্চিত্র বিরক্তিকর",
+              "চলচ্চিত্র মজার",
+              "চলচ্চিত্র উত্সাহজনক"
+            ],
+            "correctAnswer": "চলচ্চিত্র উত্সাহজনক"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'The book is interesting'",
+            "options": ["বই উদ্দিপন্ন", "বই সুস্বাদু", "বই আগ্রহজনক"],
+            "correctAnswer": "বই আগ্রহজনক"
+          },
+          {
+            "question": "বাংলা ভাষায় অর্থটি নির্বাচন করুন, 'The music is soothing'",
+            "options": [
+              "সংগীত উত্তেজনাপূর্ণ",
+              "সংগীত সুস্বাদু",
+              "সংগীত শান্তিদায়ক"
+            ],
+            "correctAnswer": "সংগীত শান্তিদায়ক"
+          }
+        ]
+      },
+      {
+        "lessonNumber": "৫",
+        "lessonTitle": "বেসিক অনুবাদ",
+        "points": "১২",
+        "quiz": [
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার ছেলে চৌকস।'",
+            "options": ["My son is smart", "My son is funny", "My son is nice"],
+            "correctAnswer": "My son is smart"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার বোন মিষ্টি।'",
+            "options": [
+              "My sister is sweet",
+              "My sister is funny",
+              "My sister is nice"
+            ],
+            "correctAnswer": "My sister is sweet"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার মা যত্নশীল।'",
+            "options": [
+              "My mother is careful",
+              "My mother is funny",
+              "My mother is nice"
+            ],
+            "correctAnswer": "My mother is careful"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার বাবা দ্বিগুণ ব্যবস্থিত।'",
+            "options": [
+              "My father is twice organized",
+              "My father is funny",
+              "My father is nice"
+            ],
+            "correctAnswer": "My father is twice organized"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার দাদী মজার।'",
+            "options": [
+              "My grandmother is fun",
+              "My grandmother is funny",
+              "My grandmother is nice"
+            ],
+            "correctAnswer": "My grandmother is funny"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার দাদা খুব সহানুভূতি।'",
+            "options": [
+              "My grandfather is very compassionate",
+              "My grandfather is funny",
+              "My grandfather is nice"
+            ],
+            "correctAnswer": "My grandfather is very compassionate"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমি সফল।'",
+            "options": ["I am successful", "I am funny", "I am nice"],
+            "correctAnswer": "I am successful"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমরা খাবার প্রিয় করি।'",
+            "options": ["We love food", "We love funny", "We love nice"],
+            "correctAnswer": "We love food"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'তুমি আশা কর না।'",
+            "options": [
+              "You don't hope",
+              "You don't like",
+              "You don't believe"
+            ],
+            "correctAnswer": "You don't hope"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'ও ভালো মানুষ।'",
+            "options": ["She is a good person", "She is funny", "She is nice"],
+            "correctAnswer": "She is a good person"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার ছেলে চৌকস।'",
+            "options": ["My son is smart", "My son is funny", "My son is nice"],
+            "correctAnswer": "My son is smart"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার বোন মিষ্টি।'",
+            "options": [
+              "My sister is sweet",
+              "My sister is funny",
+              "My sister is nice"
+            ],
+            "correctAnswer": "My sister is sweet"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার মা যত্নশীল।'",
+            "options": [
+              "My mother is careful",
+              "My mother is funny",
+              "My mother is nice"
+            ],
+            "correctAnswer": "My mother is careful"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার বাবা দ্বিগুণ ব্যবস্থিত।'",
+            "options": [
+              "My father is twice organized",
+              "My father is funny",
+              "My father is nice"
+            ],
+            "correctAnswer": "My father is twice organized"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার দাদী মজার।'",
+            "options": [
+              "My grandmother is fun",
+              "My grandmother is funny",
+              "My grandmother is nice"
+            ],
+            "correctAnswer": "My grandmother is funny"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমার দাদা খুব সহানুভূতি।'",
+            "options": [
+              "My grandfather is very compassionate",
+              "My grandfather is funny",
+              "My grandfather is nice"
+            ],
+            "correctAnswer": "My grandfather is very compassionate"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমি সফল।'",
+            "options": ["I am successful", "I am funny", "I am nice"],
+            "correctAnswer": "I am successful"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'আমরা খাবার প্রিয় করি।'",
+            "options": ["We love food", "We love funny", "We love nice"],
+            "correctAnswer": "We love food"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'তুমি আশা কর না।'",
+            "options": [
+              "You don't hope",
+              "You don't like",
+              "You don't believe"
+            ],
+            "correctAnswer": "You don't hope"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'ও ভালো মানুষ।'",
+            "options": ["She is a good person", "She is funny", "She is nice"],
+            "correctAnswer": "She is a good person"
+          },
+          {
+            "question": "ইংরেজী ভাষায় অর্থটি নির্বাচন করুন, 'এটি আমার প্রিয় গান।'",
+            "options": [
+              "This is my favorite song.",
+              "It is a beautiful day.",
+              "I like to sing."
+            ],
+            "correctAnswer": "This is my favorite song."
           }
         ]
       }
     ],
-    "points": "২০০",
+    "points": "৫৫",
     "progress": "৮৫"
   },
   {

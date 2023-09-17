@@ -1,3 +1,5 @@
+import Aos from "aos";
+import { useEffect } from "react";
 import { BsFillBookFill } from "react-icons/bs";
 import { FaBook } from "react-icons/fa";
 import { TbVocabulary } from "react-icons/tb";
@@ -5,6 +7,10 @@ import { Link } from "react-router-dom";
 
 const Overview = () => {
   const defaultLink = "http://localhost:5173/user-dashboard/";
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <>
       <div className="bg-[#F7F7F7] mt-16">
@@ -19,7 +25,11 @@ const Overview = () => {
           {/* parent div  */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {/* child div  */}
-            <div className="group bg-white px-6 py-24 rounded-lg border-b-4 border-b-blue-800 text-center relative shadow-2xl mb-14">
+            <div
+              className="group bg-white px-6 py-24 rounded-lg border-b-4 border-b-blue-800 text-center relative shadow-2xl mb-14"
+              data-aos="fade-up"
+              data-aos-duration="400"
+            >
               {/* circle div  */}
               <div className="group-hover:border-2  border-blue-800 rounded-full absolute -top-10 left-1/2 transform -translate-x-1/2 flex justify-center items-center p-1">
                 <div className="bg-blue-800 inline-block p-6 rounded-full">
@@ -43,7 +53,11 @@ const Overview = () => {
             </div>
 
             {/* child div  */}
-            <div className="group bg-white px-6 py-24 rounded-lg border-b-4 border-b-blue-800 text-center relative shadow-2xl mb-14">
+            <div
+              className="group bg-white px-6 py-24 rounded-lg border-b-4 border-b-blue-800 text-center relative shadow-2xl mb-14"
+              data-aos="fade-up"
+              data-aos-duration="800"
+            >
               {/* circle div  */}
               <div className="group-hover:border-2  border-blue-800 rounded-full absolute -top-10 left-1/2 transform -translate-x-1/2 flex justify-center items-center p-1">
                 <div className="bg-blue-800 inline-block p-6 rounded-full">
@@ -65,7 +79,11 @@ const Overview = () => {
             </div>
 
             {/* child div  */}
-            <div className="group bg-white px-6 py-24 rounded-lg border-b-4 border-b-blue-800 text-center relative shadow-2xl mb-14">
+            <div
+              className="group bg-white px-6 py-24 rounded-lg border-b-4 border-b-blue-800 text-center relative shadow-2xl mb-14"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+            >
               {/* circle div  */}
               <div className="group-hover:border-2  border-blue-800 rounded-full absolute -top-10 left-1/2 transform -translate-x-1/2 flex justify-center items-center p-1">
                 <div className="bg-blue-800 inline-block p-6 rounded-full">
@@ -89,7 +107,11 @@ const Overview = () => {
             </div>
 
             {/* child div  */}
-            <div className="group bg-white px-6 py-24 rounded-lg border-b-4 border-b-blue-800 text-center relative shadow-2xl mb-14">
+            <div
+              className="group bg-white px-6 py-24 rounded-lg border-b-4 border-b-blue-800 text-center relative shadow-2xl mb-14"
+              data-aos="fade-up"
+              data-aos-duration="1600"
+            >
               {/* circle div  */}
               <div className="group-hover:border-2  border-blue-800 rounded-full absolute -top-10 left-1/2 transform -translate-x-1/2 flex justify-center items-center p-1">
                 <div className="bg-blue-800 inline-block p-6 rounded-full">

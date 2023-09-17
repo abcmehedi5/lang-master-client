@@ -4,7 +4,7 @@ import deleteIcon from '../../assets/img/4476891.png'
 import Swal from "sweetalert2";
 
 const AllBooks = () => {
-    const [allBooks,refetch,isLoading] =useAllBooks()
+    const [allBooks,refetch] =useAllBooks()
     console.log(allBooks)
 
     const handleDeleteBook = (id : any) => {

@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const AddQuizes = () => {
   const { register, handleSubmit } = useForm();
-  const [quiz, setQuiz] = useState({
+  // const [quiz, setQuiz] = useState({
+  const [quiz] = useState({
     question: "",
     options: ["", "", "", ""],
     correctAnswer: "",
   });
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit = async (data: any) => {
     // Handle form submission here
-    console.log(data)
-  }
+    console.log(data);
+  };
 
   return (
     <div>
@@ -28,7 +29,7 @@ const AddQuizes = () => {
         <div className="mb-3">
           <label className="mb-4">Options:</label>
           <div className="grid grid-cols-2 gap-3">
-            {quiz.options.map((option, index) => (
+            {quiz.options.map((index) => (
               <input
                 key={index}
                 {...register(`options.${index}`)} // Register options with react-hook-form
@@ -46,7 +47,10 @@ const AddQuizes = () => {
             className="rounded-lg border-2 p-3 mx-3 w-full"
           />
         </div>
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        >
           Submit
         </button>
       </form>

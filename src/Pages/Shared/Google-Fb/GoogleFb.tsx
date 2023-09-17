@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useToast from "../../../hooks/useToast";
 const GoogleFb = () => {
   const { logingoogle }: any = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [axiosSecure] = useAxiosSecure();
+  const [successAlert] = useToast();
   const from = location.state?.pathname || "/";
 
   const handleGoogle = () => {
@@ -22,18 +24,16 @@ const GoogleFb = () => {
           email: loggedInUser.email,
           phoneNumber: "",
           image: loggedInUser.photoURL,
-          score:0,
+          score: 0,
           role: "user",
           unit: ["1"],
         };
         axiosSecure
           .post("/users/user", saveUser)
           .then(() => {
-            alert("login successfull");
+            successAlert("login successfull");
           })
-          .catch((error) => {
-            alert(error);
-          });
+          .catch(() => {});
 
         // send user data on mongodb end.................
 
