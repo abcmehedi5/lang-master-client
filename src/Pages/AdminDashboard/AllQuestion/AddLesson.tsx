@@ -74,7 +74,7 @@ const AddLesson: React.FC = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:5000/learning-questions/add-lesson/${question._id}`,
+        `https://lang-master-server-abcmehedi5.vercel.app/learning-questions/add-lesson/${question._id}`,
         formattedData
       );
       Swal.fire({

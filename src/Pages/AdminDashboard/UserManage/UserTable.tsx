@@ -18,7 +18,7 @@ const UserTable: React.FC = () => {
 
   const handleSearch = () => {
     if (searchText !== "") {
-      fetch(`http://localhost:5000/users/user/${searchText}`)
+      fetch(`https://lang-master-server-abcmehedi5.vercel.app/users/user/${searchText}`)
         .then((res) => res.json())
         .then((data) => {
           setUsers(data);
@@ -42,7 +42,7 @@ const UserTable: React.FC = () => {
       if (result.isConfirmed) {
         setUsers(users.filter((user) => user._id !== _id));
 
-        fetch(`http://localhost:5000/users/user/${_id}`, {
+        fetch(`https://lang-master-server-abcmehedi5.vercel.app/users/user/${_id}`, {
           method: "DELETE",
         })
           .then((res) => {
@@ -66,7 +66,7 @@ const UserTable: React.FC = () => {
 
   // admin created
   const handleMakeAdmin = (user: any) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`https://lang-master-server-abcmehedi5.vercel.app/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -85,7 +85,7 @@ const UserTable: React.FC = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/users/user")
+    fetch("https://lang-master-server-abcmehedi5.vercel.app/users/user")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
