@@ -9,7 +9,12 @@ import useSingleBlogData from "../../../hooks/useSingleBlogData";
 interface LikeProps {
   postId: number;
   like: number;
-  likedUsers: { email: string; liked: boolean, userImg: string, username: string }[];
+  likedUsers: {
+    email: string;
+    liked: boolean;
+    userImg: string;
+    username: string;
+  }[];
 }
 
 const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
@@ -17,11 +22,13 @@ const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [userLiked, setUserLiked] = useState<boolean>(false);
   const { refetch } = useSingleBlogData(postId);
-  const { user }:any = useContext(AuthContext);
+  const { user }: any = useContext(AuthContext);
 
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
+
+  console.log(user?.email);
 
   const likeData = async (): Promise<void> => {
     // ---------- user liked this ----------
@@ -35,16 +42,21 @@ const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
       };
 
       // Send a POST request to the server with user information
-      const res = await axios.put(`http://localhost:5000/blogs/blog/${postId}/like`, userData);
+      const res = await axios.put(
+        `http://localhost:5000/blogs/blog/${postId}/like`,
+        userData
+      );
 
       console.log(res);
+
       if (res.status === 200) {
         refetch();
-        setUserLiked(true)
-         // Set userLiked back to false after 1 second
-      setTimeout(() => {
-        setUserLiked(false);
-      }, 500);
+        setUserLiked(true);
+
+        // Set userLiked back to false after 1 second
+        setTimeout(() => {
+          setUserLiked(false);
+        }, 500);
       }
     } catch (error) {
       Swal.fire({
@@ -65,11 +77,14 @@ const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
         {likedUsers?.length > 0 ? (
           <>
             <div className="text-3xl items-center flex">
-              {likedUsers.some((user) => user.email === user.email && user.liked) ? (
+              {likedUsers.some((likeuser) => likeuser.email === user?.email) ? (
                 <>
-                {userLiked ? <AiFillHeart className="text-rose-500 transition ease-linear scale-125 duration-100" /> : <AiFillHeart className="text-rose-500" />}
+                  {userLiked ? (
+                    <AiFillHeart className="text-rose-500 transition ease-linear scale-125 duration-100" />
+                  ) : (
+                    <AiFillHeart className="text-rose-500" />
+                  )}
                 </>
-                
               ) : (
                 <AiOutlineHeart />
               )}
@@ -94,8 +109,11 @@ const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
         ""
       )}
 
-
-      <LikeModal isOpen={modalIsOpen} onRequestClose={toggleModal} likedUsers={likedUsers} />
+      <LikeModal
+        isOpen={modalIsOpen}
+        onRequestClose={toggleModal}
+        likedUsers={likedUsers}
+      />
     </div>
   );
 };
