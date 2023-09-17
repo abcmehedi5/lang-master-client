@@ -60,7 +60,8 @@ const Blogs = () => {
             </div>
           )}
 
-          <div className="md:w-[30%] mx-auto top-10 h-full overflow-auto sticky">
+          <div className="md:w-[30%] mx-auto top-10 h-full overflow-auto sticky"
+          data-aos="fade-left" data-aos-duration="1000">
             <h1 className="text-center text-3xl font-semibold  rounded-md py-2 bg-base-200">
               My Blogs
             </h1>
