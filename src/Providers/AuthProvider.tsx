@@ -66,7 +66,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
       setUser(currentUser);
       if (currentUser) {
-        axios.post("https://lang-master-server-abcmehedi5.vercel.app/json-web-token/jwt").then((data) => {
+        axios.post("http://localhost:5000/json-web-token/jwt").then((data) => {
           localStorage.setItem("access-token", data.data.token);
           setLoading(false);
         });

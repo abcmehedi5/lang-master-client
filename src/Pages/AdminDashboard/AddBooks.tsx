@@ -62,7 +62,7 @@ const AddBooks = () => {
 
       // Send the addBook object with the image URL to your server using fetch or axios.
       // Example using fetch:
-      fetch("https://lang-master-server-abcmehedi5.vercel.app/books/addBook", {
+      fetch("http://localhost:5000/books/addBook", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

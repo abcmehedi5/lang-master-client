@@ -53,7 +53,7 @@ const AddQuizModal: React.FC<AddQuizModalProps> = ({
       };
 
       const response = await axios.post(
-        `https://lang-master-server-abcmehedi5.vercel.app/add-quiz/${lessonId}`,
+        `http://localhost:5000/add-quiz/${lessonId}`,
         { newQuiz: newQuizData }
       );
 

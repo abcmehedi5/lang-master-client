@@ -1,33 +1,33 @@
+import React from "react";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
+} from "react-share";
 
-import { EmailShareButton, OKShareButton } from "react-share";
-import { PiShareFatThin } from 'react-icons/pi';
-
-// ShareButtonTypes.ts
-export interface EmailShareButtonProps {
-    url: string;
-    subject?: string;
-    children: React.ReactNode;
+interface ShareProps {
+  id: string;
 }
 
-export interface OKShareButtonProps {
-    url: string;
-    children: React.ReactNode;
-}
+const Share: React.FC<ShareProps> = ({ id }) => {
+  const shareUrl = `https://langmaster.netlify.app/singleBlogCard/${id}`;
 
-
-const Share = () => {
-
-    const shareUrl = "https://wwwlangmaster50@gmail.com";
-    const title = "Check out this website!";
-    return (
-        <div>
-            <EmailShareButton url={shareUrl} subject={title}>
-            </EmailShareButton>
-            <OKShareButton url={shareUrl} >
-                <PiShareFatThin /> 
-            </OKShareButton>
-        </div>
-    );
+  return (
+    <div>
+      <FacebookShareButton url={shareUrl} quote={'status'} hashtag={'#blog'}>
+        <FacebookIcon size={35} round={true}/>
+      </FacebookShareButton>
+      <WhatsappShareButton url={shareUrl} >
+        <WhatsappIcon size={35} round={true}/>
+      </WhatsappShareButton>
+      <LinkedinShareButton url={shareUrl} >
+        <LinkedinIcon size={35} round={true}/>
+      </LinkedinShareButton>
+    </div>
+  );
 };
 
 export default Share;

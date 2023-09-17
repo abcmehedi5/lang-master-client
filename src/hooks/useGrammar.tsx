@@ -7,7 +7,7 @@ const useGrammar = () => {
     const { data: grammar = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['grammar'],
         queryFn: async () => {
-            const res = await fetch('https://lang-master-server-abcmehedi5.vercel.app/grammars/grammar');
+            const res = await fetch('http://localhost:5000/grammars/grammar');
             return res.json()
         }
     })

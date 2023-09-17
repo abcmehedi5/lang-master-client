@@ -114,9 +114,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/singleBlogCard/:id",
-        element: <SingleBlogCard />,
-        loader: ({ params }) =>
-          fetch(`https://lang-master-server-abcmehedi5.vercel.app/blogs/blog/${params.id}`),
+        element: <SingleBlogCard />
       },
     ],
   },
@@ -169,7 +167,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://lang-master-server-abcmehedi5.vercel.app/quizs/quiz/${params.id}`),
+          fetch(`http://localhost:5000/quizs/quiz/${params.id}`),
       },
       {
         path: "grammar",
@@ -285,14 +283,14 @@ const router = createBrowserRouter([
         element: <AdminRoute><AddLesson></AddLesson></AdminRoute>,
         loader: ({ params }) =>
           fetch(
-            `https://lang-master-server-abcmehedi5.vercel.app/learning-questions/questions/${params.id}`
+            `http://localhost:5000/learning-questions/questions/${params.id}`
           ),
       },
       // {
       //   path: "add-Lessons/add-quiz/:id",
       //   element: <AddQuizes></AddQuizes>,
       //   // loader: ({ params }) =>
-      //   //   fetch(`https://lang-master-server-abcmehedi5.vercel.app/learning-questions/questions/${params.id}`),
+      //   //   fetch(`http://localhost:5000/learning-questions/questions/${params.id}`),
       // },
     ],
   },

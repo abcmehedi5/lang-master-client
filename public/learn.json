@@ -1,5 +1,347 @@
 [
   {
+    "unit": "1",
+    "topic": "শূন্যস্থান পূরণ করুন",
+    "totalLessons": "৫",
+    "lessons": [
+      {
+        "lessonNumber": "১",
+        "lessonTitle": "articles অনুশীলন",
+        "points": "১০",
+        "quiz": [
+          {
+            "question": "______ longest river in _____ world is _____ Mississippi.",
+           "options": ["A/An/The", "The/The/The", "The/A/The"],
+            "correctAnswer": "The/The/The"
+          },
+          {
+            "question": "Where thereâ€™s _____ will, thereâ€™s _____ way.",
+           "options": ["a/an", "a/a", "the/an"],
+            "correctAnswer": "a/a"
+          },
+          {
+            "question": "Letâ€™s have _____ good breakfast and start the day.",
+           "options": ["a", "the", "an"],
+            "correctAnswer": "a"
+          },
+          {
+            "question": "This is _____ lion that I saw in the circus yesterday.",
+           "options": ["a", "the", "an"],
+            "correctAnswer": "the"
+          },
+          {
+            "question": "My uncle was _____ first guest to arrive.",
+            "options": ["a", "the", "an"],
+            "correctAnswer": "the"
+          },
+          {
+            "question": "_____ Apple a day keeps the doctor away.",
+           "options": ["a", "the", "an"],
+            "correctAnswer": "an"
+          },
+          {
+            "question": "Cricket is one of _____ most interesting sports.",
+           "options": ["a", "the", "an"],
+            "correctAnswer": "the"
+          },
+          {
+            "question": "Ant is ______ insect.",
+           "options": ["a", "the", "an"],
+            "correctAnswer": "an"
+          },
+          {
+            "question": "He saw _____ aeroplane in the sky.",
+           "options": ["a", "the", "an"],
+            "correctAnswer": "an"
+          },
+          {
+            "question": "_____ USA is _____ country. It is in North America.",
+           "options": ["The/A", "A/An", "A/The"],
+            "correctAnswer": "The/A"
+          }
+        ]
+      },
+      {
+        "lessonNumber": "২",
+        "lessonTitle": "অব্যয় অনুশীলন ",
+        "points": "১০",
+        "quiz": [
+          {
+            "question": "This shop doesn’t have the books we were looking __.",
+           "options": ["up", "for", "on"],
+            "correctAnswer": "for"
+          },
+          {
+            "question": "Priya’s house is ___ Rahul’s. ",
+           "options": ["next to", "after", "beside"],
+            "correctAnswer": "next to"
+          },
+          {
+            "question": "Dogs are always loyal __ their master. ",
+           "options": ["to", "for", "of"],
+            "correctAnswer": "to"
+          },
+          {
+            "question": "My birthday is __ 20th January.",
+           "options": ["on", "at", "to"],
+            "correctAnswer": "on"
+          },
+          {
+            "question": "The girl working __ the departmental store is pretty.",
+            "options": ["up", "on", "at"],
+            "correctAnswer": "at"
+          },
+          {
+            "question": "Netaji Subhas Chandra Bose was born ___ 23rd January. ",
+           "options": ["in", "at", "on"],
+            "correctAnswer": "on"
+          },
+          {
+            "question": "Humpty Dumpty sat __ a wall. ",
+           "options": ["up", "on", "in"],
+            "correctAnswer": "on"
+          },
+          {
+            "question": "The IAS officer was posted __ the rural office.",
+           "options": ["at", "on", "in"],
+            "correctAnswer": "at"
+          },
+          {
+            "question": "The Sun will not rise __ 8 o’clock today. ",
+           "options": ["before", "since", "ago"],
+            "correctAnswer": "before"
+          },
+          {
+            "question": "The people sitting ____  us ordered a pineapple pizza",
+           "options": ["opposite", "behind", "left"],
+            "correctAnswer": "opposite"
+          }
+        ]
+      },
+      {
+        "lessonNumber": "৩",
+        "lessonTitle": "সাধারণ ব্যাকরণ অনুশীলন",
+        "points": "১০",
+        "quiz": [
+          {
+            "question": "Tell me if you ___ any help.?",
+            "options": ["need", "will need", "would need"],
+            "correctAnswer": "need"
+          },
+          {
+            "question": "The first time I ___ him was at university?",
+            "options": ["met", "had met", "have met"],
+            "correctAnswer": "met"
+          },
+          {
+            "question": "This is the garage ___ they used to work.",
+            "options": ["where", "which", "that"],
+            "correctAnswer": "where"
+          },
+          {
+            "question": "I ___ a terrible experience yesterday.",
+            "options": ["have", "had", "have had"],
+            "correctAnswer": "have"
+          },
+          {
+            "question": "That is my biggest regret ___ .",
+            "options": ["still", "yet", "already"],
+            "correctAnswer": "yet"
+          },
+          {
+            "question": "The valley ___ quiet and beautiful in the morning.",
+            "options": ["lays", "lay", "laid"],
+            "correctAnswer": "lay"
+          },
+          {
+            "question": "Each of us ___ the world differently.",
+            "options": ["see", "sees", "seen"],
+            "correctAnswer": "sees"
+          },
+          {
+            "question": " ___ his illness, he could not write the exam.",
+            "options": ["Owing to", "Due to", "Either could be used here"],
+            "correctAnswer": "Either could be used here"
+          },
+          {
+            "question": " The summer term ___ on April 12th.",
+            "options": ["will start", "is starting", "starts"],
+            "correctAnswer": "starts"
+          },
+          {
+            "question": "I will pay you back when I ___ a job.",
+            "options": ["will get", "get", "would get"],
+            "correctAnswer": "get"
+          }
+        ]
+      },
+      {
+        "lessonNumber": "৪",
+        "lessonTitle": "উপযুক্ত শব্দ দিয়ে শূন্যস্থান পূরণ করুন",
+        "points": "১০",
+        "quiz": [
+          {
+            "question": "The Union Budget is likely to be presented on February 26, two days ahead of the _____ date.",
+            "options": ["critical", "suitable", "conventional"],
+            "correctAnswer": "conventional"
+          },
+          {
+            "question": "I am sorry ______ the mistake.",
+            "options": ["to", "for", "with"],
+            "correctAnswer": "for"
+          }
+          ,{
+            "question": "He ____ her that she would pass.",
+            "options": ["assured", "insured", "ensured"],
+            "correctAnswer": "assured"
+          },
+          {
+            "question": "Your father ____ worry. I’m a very careful driver.",
+            "options": ["needn’t", "none", "doesn’t"],
+            "correctAnswer": "needn’t"
+          }
+          ,{
+            "question": "The _____ chosen for construction of the building is in the heart of the city.",
+            "options": ["slight", "cite", "site"],
+            "correctAnswer": "site"
+          },
+          {
+            "question": "____ pollution control measures are expensive, many industries hesitate to adopt them.",
+            "options": ["Although", "Because", "However"],
+            "correctAnswer": "Because"
+          }
+          ,{
+            "question": "It is not ____ for a man to be confined to the pursuit of wealth.",
+            "options": ["healthy", "easy", "possible"],
+            "correctAnswer": "healthy"
+          },
+          {
+            "question": "It is a story of two men and a batch of ____ armoured cars.",
+            "options": ["deceased", "defeated", "decrepit"],
+            "correctAnswer": "decrepit"
+          }
+          ,{
+            "question": "_____ his being innocent of the crime, the judge sentenced him to one year imprisonment.",
+            "options": ["In spite of", "In case of", "In the event of"],
+            "correctAnswer": "In spite of"
+          },
+          {
+            "question": "Although there is _____ gunfire, there is no stiff resistance to the revolutionary army.",
+            "options": ["bitter", "meagre", "sporadic"],
+            "correctAnswer": "sporadic"
+          }
+        ]
+      },
+      {
+        "lessonNumber": "৫",
+        "lessonTitle": "ক্রিয়ার সঠিক ফর্ম দিয়ে শূন্যস্থান পূরণ করুন",
+        "points": "১০",
+        "quiz": [
+          {
+            "question": "He is______football",
+            "options": ["plays", "plays", "playing"],
+            "correctAnswer": "playing"
+          },
+          {
+            "question": "The shop______at nine o’clock every morning.",
+            "options": ["open", "opens", "is opening"],
+            "correctAnswer": "opens "
+          }
+          ,{
+            "question": " I______next month",
+            "options": ["will be coming", "am coming", "shall be coming"],
+            "correctAnswer": "shall be coming"
+          },
+          {
+            "question": "That house______to my uncle. ",
+            "options": ["belong", "belongs", "is belonging"],
+            "correctAnswer": "belongs"
+          }
+          ,{
+            "question": "You______when I came to your house. ",
+            "options": ["are sleeping", "were sleeping", "slept"],
+            "correctAnswer": "were sleeping"
+          },
+          {
+            "question": "When I______ my dinner I went to bed.",
+            "options": ["had", "have had", "had had"],
+            "correctAnswer": "had had"
+          }
+          ,{
+            "question": "I thanked him for what he______.",
+            "options": ["did", "has done", "had done"],
+            "correctAnswer": "had done"
+          },
+          {
+            "question": " A hardworking student______the prize",
+            "options": ["win", "wins", "won"],
+            "correctAnswer": "wins"
+          }
+          ,{
+            "question": "She______ with her bad-tempered roommate",
+            "options": ["put up", "puts up", "putted up"],
+            "correctAnswer": "put up"
+          },
+          {
+            "question": " It______since eight o’clock this morning. ",
+            "options": ["is raining", "was raining", "has been raining"],
+            "correctAnswer": "has been raining"
+          }
+        ]
+      }
+    ],
+    "points": "৫০",
+    "progress": "৮৫"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
     "_id": 1,
     "unit": "1",
     "topic": "বেসিক ইংরেজী",
