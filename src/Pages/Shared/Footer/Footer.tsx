@@ -18,47 +18,65 @@ const Footer = () => {
   return (
     <footer>
       <img src={wave} alt="bg" />
-      <div className="bg-[#156279] grid grid-cols-1 md:grid-cols-2 py-2 px-5">
-        <div>
-          <h2 className="btn btn-ghost normal-case text-xl text-white">
-            Lang-Master
-          </h2>
-        </div>
-        {/* -- icons--- */}
-        <div className="flex items-center justify-center md:justify-end gap-3">
-          {" "}
-          {/* Added 'md:justify-start' */}
-          <a>
-            <BiLogoFacebook className="text-4xl rounded-full p-2 text-white bg-[#4268b2]" />
-          </a>
-          <a>
-            <BsTwitter className="text-4xl rounded-full p-2 text-white bg-[#1f9fef]" />
-          </a>
-          <a>
-            <BsInstagram className="text-4xl rounded-full p-2 text-white bg-[#db316d]" />
-          </a>
-          <a>
-            <FaLinkedinIn className="text-4xl rounded-full p-2 text-white bg-[#0375b3]" />
-          </a>
-          <a>
-            <AiFillYoutube className="text-4xl rounded-full p-2 text-white bg-[#f90304]" />
-          </a>
-        </div>
-      </div>
+      {/* <div className="bg-[#156279] grid grid-cols-1 md:grid-cols-2 py-2 px-5"> */}
+      {/* <div>
+          <img
+            className="object-cover w-32"
+            src="https://i.ibb.co/bgbkbc2/logo.png"
+            alt=""
+          />
+        </div> */}
+      {/* -- icons--- */}
+      {/* </div> */}
 
-      <hr className="border-t-2 border-[#05bfdb]" />
-      <div className="footer justify-between  p-10 bg-[#156279] text-white">
+      <hr className="border-t-2 border-white" />
+      <div className="footer justify-between md:px-20 lg:px-44 p-10 bg-[#156279] text-white">
+        <div>
+          <span className="footer-title">Subscribe Our Newsletter</span>
+          <div className="form-control w-full sm:w-80">
+            <label className="label">
+              <span className="label-text text-white">
+                Enter your email address
+              </span>
+            </label>
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="username@site.com"
+                className="input input-bordered w-full pr-16 text-black sm:text-sm"
+              />
+              <button className="btn btn-outline border-2 border-gray-800 absolute top-0 right-0 rounded-l-none sm:text-sm">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
         <div>
           <span className="footer-title">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <Link className="link link-hover" to={"/user-dashboard/learning"}>
+            <p>Learning</p>
+          </Link>
+          <Link className="link link-hover" to={"/user-dashboard/grammar"}>
+            <p>Grammar</p>
+          </Link>
+          <Link className="link link-hover" to={"/user-dashboard/book-buy"}>
+            <p>Book Buy</p>
+          </Link>
+          <Link className="link link-hover" to={"/user-dashboard/shop"}>
+            <p>Coin Buy</p>
+          </Link>
         </div>
         <div>
-          <span className="footer-title">Company</span>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <span className="footer-title">Platform</span>
+          <Link className="link link-hover" to={"/user-dashboard/profile"}>
+            <p>Profile</p>
+          </Link>
+          <Link className="link link-hover" to={"/about-us"}>
+            <p>About Us</p>
+          </Link>
+          <Link className="link link-hover" to={"/contact"}>
+            <p>Contact</p>
+          </Link>
           {/* Open the modal */}
           <a className="link link-hover" onClick={openModal}>
             Feedback
@@ -86,55 +104,51 @@ const Footer = () => {
               </div>
             )}
           </>
-
-          <a className="link link-hover">Press kit</a>
         </div>
         <div>
-          <span className="footer-title">Legal</span>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-
+          <span className="footer-title">Others</span>
           <Link className="link link-hover" to={"introduction"}>
-            introduction
+            Introduction
           </Link>
-        </div>
-        <div>
-          <span className="footer-title">Newsletter</span>
-          <div className="form-control w-full sm:w-80">
-            <label className="label">
-              <span className="label-text text-white">
-                Enter your email address
-              </span>
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="username@site.com"
-                className="input input-bordered w-full pr-16 text-black sm:text-sm"
-              />
-              <button className="btn btn-primary absolute top-0 right-0 rounded-l-none sm:text-sm">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr className="border-t-2 border-[#05bfdb]" />
-      <div className="flex items-center justify-between bg-[#0b4e69] py-4 px-8 text-white">
-        <div className="flex">
-          <p>copyrite &copy;2021</p>
-          &nbsp;
-          <p className="font-semibold">All rights reserved</p>
-        </div>
-        <div className="flex">
-          <Link to={"/privacy-policy"}>
-            {" "}
+          <Link className="link link-hover" to={"/faq"}>
+            <p>FAQ</p>
+          </Link>
+          <Link className="link link-hover" to={"/privacy-policy"}>
             <p>Privacy Policy</p>
           </Link>
-          &nbsp; &nbsp;
-          <Link to={"/terms-and-condition"}>
+          {/* &nbsp; &nbsp; */}
+          <Link className="link link-hover" to={"/terms-and-condition"}>
             <p>Terms and Condition</p>
           </Link>
+        </div>
+      </div>
+      <hr className="border-t-2 border-white" />
+      {/* under hr line  */}
+      <div className="bg-[#0b4e69] pt-6 px-8 mx-auto text-gray-100">
+        {/* social  */}
+        <div className="flex items-center justify-center gap-3">
+          {" "}
+          {/* Added 'md:justify-start' */}
+          <a className="hover:cursor-pointer">
+            <BiLogoFacebook className="text-4xl rounded-full p-2 text-white bg-[#4268b2]" />
+          </a>
+          <a className="hover:cursor-pointer">
+            <BsTwitter className="text-4xl rounded-full p-2 text-white bg-[#1f9fef]" />
+          </a>
+          <a className="hover:cursor-pointer">
+            <BsInstagram className="text-4xl rounded-full p-2 text-white bg-[#db316d]" />
+          </a>
+          <a className="hover:cursor-pointer">
+            <FaLinkedinIn className="text-4xl rounded-full p-2 text-white bg-[#0375b3]" />
+          </a>
+          <a className="hover:cursor-pointer">
+            <AiFillYoutube className="text-4xl rounded-full p-2 text-white bg-[#f90304]" />
+          </a>
+        </div>
+        <div className="flex justify-center mt-6 pb-4">
+          <p>Copyright &copy;2023</p>
+          &nbsp;
+          <p className="text-gray-200">All Rights Reserved</p>
         </div>
       </div>
     </footer>
