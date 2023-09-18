@@ -34,7 +34,7 @@ const Testimonial = () => {
     <section>
       <SectionTitle titleLetter="Te" titleWord="stimonials"></SectionTitle>
       <div
-        className="mt-10 py-10 px-10 overflow-hidden bg-[#ffe2c1ea] relative rounded-2xl"
+        className="mt-10 py-10 px-10 overflow-hidden bg-[#ffe8cf86] relative rounded-2xl"
         data-aos="fade-up"
         data-aos-duration="1500"
       >
@@ -60,9 +60,9 @@ const Testimonial = () => {
           <div className="review md:w-[60%] h-[65vh] overflow-hidden ">
             <div>
               {reviews.map((review) => (
-                <div>
+                <div key={review?._id}>
                   <div
-                    key={review?._id}
+                    
                     className="bg-base-300 mb-3 px-5 py-2 rounded-2xl"
                   >
                     <div className="flex gap-3 items-center">

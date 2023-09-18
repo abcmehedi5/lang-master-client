@@ -13,12 +13,12 @@ const Faq = () => {
   return (
     <div className="my-20">
       <SectionTitle titleLetter="FAQ " titleWord="Corner"></SectionTitle>
-      <div className="flex md:flex-row flex-col-reverse items-center justify-center gap-20 mt-14">
+      <div className="flex md:flex-row flex-col-reverse items-center justify-between gap-20 mt-14">
         {/* -----img side----- */}
         <div
           className="md:w-1/2 p-4"
-          data-aos="fade-right"
-          data-aos-duration="1200"
+          data-aos="fade-zoom-in"
+          data-aos-duration="1000"
         >
           <h1 className="text-5xl font-bold text-red-300">
             Do You Have Any Questions?
@@ -51,10 +51,10 @@ const Faq = () => {
         </div>
         {/* -----img side----- */}
         <div
-          className="md:w-1/3 relative bg-[#fca5a5c5] "
+          className="md:w-1/2 relative bg-[#fca5a58d] "
           style={{ borderRadius: "50% 50% 50% 50% / 70% 70% 40% 40%" }}
-          data-aos="fade-left"
-          data-aos-duration="1200"
+          data-aos="fade-zoom-in"
+          data-aos-duration="1000"
         >
           <img
             className="w-full h-full "
