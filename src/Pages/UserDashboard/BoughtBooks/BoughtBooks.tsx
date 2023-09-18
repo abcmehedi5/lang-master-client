@@ -17,7 +17,6 @@ const BoughtBooks = () => {
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
   const [allBooks, setAllBooks] = useState<Book[]>([]);
-  console.log(allBooks);
 
   useEffect(() => {
     axiosSecure(`/books/bought-book?email=${user?.email}`).then((res) =>

@@ -43,10 +43,14 @@ function AddUnit() {
       totalLessons,
       lessons,
     };
-    console.log(formData);
-    const res = await axiosSecure
-      .post("/learning-questions/questions", formData)
-      .then((response) => {
+    try {
+      const response = await axiosSecure.post(
+        "/learning-questions/questions",
+        formData
+      );
+
+      if (response.status === 200) {
+        // Success: refetch, show success message, and reset input fields
         refetch();
         Swal.fire({
           position: "top-end",
@@ -55,6 +59,7 @@ function AddUnit() {
           showConfirmButton: false,
           timer: 1500,
         });
+
         // Reset the input fields
         setUnit("");
         setUnitTopic("");
@@ -73,17 +78,19 @@ function AddUnit() {
             ],
           },
         ]);
-        console.log("Post request successful!", response);
-      })
-      .catch((error) => {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong! Please try again later🙂",
-        });
-        console.error("Error making post request:", error);
+      } else {
+        // Handle non-200 response status (e.g., server error)
+        throw new Error("Network response was not ok");
+      }
+    } catch (error) {
+      // Handle errors (e.g., network issues, Axios error)
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong! Please try again later🙂",
       });
-    console.log(res);
+      console.error("Error making post request:", error);
+    }
   };
 
   const handleLessonChange = (

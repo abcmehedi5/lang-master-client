@@ -2,14 +2,15 @@ import React, { useContext, useRef, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { FcGallery } from "react-icons/fc";
 import Swal from "sweetalert2";
-import axios from "axios";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useBlogData from "../../hooks/useBlogData";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const BlogPostModal: React.FC<{
   setOpenPostModal: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setOpenPostModal }) => {
   const { user }: any = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
   const fileInputRef: any = useRef(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [selectedFile, setSelectedFile]: any = useState(null);
@@ -57,10 +58,9 @@ const BlogPostModal: React.FC<{
         like: 0,
         comment: [],
       };
-      axios
-        .post("http://localhost:5000/blogs/blog", postData)
-        .then((res) => {
-          console.log("post", res.data);
+      axiosSecure
+        .post("/blogs/blog", postData)
+        .then(() => {
           setOpenPostModal(false);
           Swal.fire({
             position: "top-end",

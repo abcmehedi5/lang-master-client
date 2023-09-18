@@ -12,12 +12,10 @@ const Blogs = () => {
   const [search, setSearch] = useState("");
 
   const { blog } = useBlogData();
-  console.log(blog);
-  
+
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
-
 
   // my all blogs---------------
   const { user }: any = useContext(AuthContext);
@@ -29,7 +27,7 @@ const Blogs = () => {
       new Date(b.uploadedtime).getTime() - new Date(a.uploadedtime).getTime()
   );
 
-  const handleSearch = (e:any) => {
+  const handleSearch = (e: any) => {
     setSearch(e.target.value);
   };
 
@@ -60,8 +58,11 @@ const Blogs = () => {
             </div>
           )}
 
-          <div className="md:w-[30%] mx-auto top-10 h-full overflow-auto sticky"
-          data-aos="fade-left" data-aos-duration="1000">
+          <div
+            className="md:w-[30%] mx-auto top-10 h-full overflow-auto sticky"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
             <h1 className="text-center text-3xl font-semibold  rounded-md py-2 bg-base-200">
               My Blogs
             </h1>

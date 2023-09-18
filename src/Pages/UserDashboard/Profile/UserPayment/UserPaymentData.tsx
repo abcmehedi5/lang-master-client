@@ -11,6 +11,7 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
 interface PaymentData {
   name: string;
@@ -21,13 +22,15 @@ interface PaymentData {
 
 const UserPaymentData: React.FC = () => {
   const { user }: any = useContext(AuthContext);
+  const [axiosSecure] = useAxiosSecure();
   const [paymentData, setPaymentData] = useState<PaymentData[]>([]);
   const [error, setError] = useState<string | null>(null);
-  console.log(error);
 
   useEffect(() => {
-    const url = `http://localhost:5000/payment/paymentUser?email=${user?.email}`;
-    axios
+    const url = `${import.meta.env.VITE_API_URL}/payment/paymentUser?email=${
+      user?.email
+    }`;
+    axiosSecure
       .get<PaymentData[]>(url)
       .then((response) => {
         if (response.status === 200) {
@@ -42,7 +45,7 @@ const UserPaymentData: React.FC = () => {
         setError("Error occurred during the request.");
         setPaymentData([]);
       });
-  }, [user?.email]);
+  }, [user?.email, axiosSecure]);
 
   const columns = [
     { id: "name", label: "Name" },

@@ -2,6 +2,7 @@
 // import Select from "react-select";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 type QuizQuestion = {
   question: string;
@@ -25,12 +26,8 @@ type FormValue = {
 };
 
 const AddTopicData: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    getValues, 
-    setValue, 
-  } = useForm<FormValue>({
+  const [axiosSecure] = useAxiosSecure();
+  const { register, handleSubmit, getValues, setValue } = useForm<FormValue>({
     defaultValues: {
       _id: 1,
       unit: "",
@@ -56,7 +53,10 @@ const AddTopicData: React.FC = () => {
   const onSubmit: SubmitHandler<FormValue> = async (data) => {
     try {
       // Send data to the server using axios or your preferred HTTP library
-      const response = await axios.post("http://localhost:5000/learning-questions/questions", data);
+      const response = await axiosSecure.post(
+        "/learning-questions/questions",
+        data
+      );
       if (response.status === 200) {
         // Successfully saved data
         console.log("তথ্যটি সফলভাবে সংরক্ষিত হয়েছে!");
@@ -66,7 +66,6 @@ const AddTopicData: React.FC = () => {
     } catch (error) {
       console.error("তথ্য সংরক্ষণে সমস্যা:", error);
     }
-    console.log(data);
   };
 
   const addLesson = () => {
@@ -99,9 +98,9 @@ const AddTopicData: React.FC = () => {
     const updatedLessons = getValues("lessons").map((lesson, index) =>
       index === lessonIndex
         ? {
-          ...lesson,
-          quiz: [...lesson.quiz, newQuestion],
-        }
+            ...lesson,
+            quiz: [...lesson.quiz, newQuestion],
+          }
         : lesson
     );
 
@@ -117,7 +116,10 @@ const AddTopicData: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* unit */}
         <div>
-          <label htmlFor="unit" className="block form-control text-sm font-medium">
+          <label
+            htmlFor="unit"
+            className="block form-control text-sm font-medium"
+          >
             ইউনিট
           </label>
           <input
@@ -129,7 +131,10 @@ const AddTopicData: React.FC = () => {
 
         {/* topic */}
         <div>
-          <label htmlFor="topic" className="block form-control text-sm font-medium">
+          <label
+            htmlFor="topic"
+            className="block form-control text-sm font-medium"
+          >
             টপিক
           </label>
           <input
@@ -141,7 +146,10 @@ const AddTopicData: React.FC = () => {
 
         {/* totalLessons */}
         <div>
-          <label htmlFor="totalLessons" className="block form-control text-sm font-medium">
+          <label
+            htmlFor="totalLessons"
+            className="block form-control text-sm font-medium"
+          >
             মোট পাঠ
           </label>
           <input
@@ -156,7 +164,10 @@ const AddTopicData: React.FC = () => {
           <div key={lessonIndex}>
             <h3 className="text-sm font-medium">পাঠ {lessonIndex + 1}</h3>
             <div>
-              <label htmlFor={`lessons.${lessonIndex}.lessonNumber`} className="block form-control text-sm font-medium">
+              <label
+                htmlFor={`lessons.${lessonIndex}.lessonNumber`}
+                className="block form-control text-sm font-medium"
+              >
                 পাঠ নম্বর
               </label>
               <input
@@ -168,7 +179,10 @@ const AddTopicData: React.FC = () => {
 
             {/* lessonTitle */}
             <div>
-              <label htmlFor={`lessons.${lessonIndex}.lessonTitle`} className="block form-control text-sm font-medium">
+              <label
+                htmlFor={`lessons.${lessonIndex}.lessonTitle`}
+                className="block form-control text-sm font-medium"
+              >
                 পাঠের শিরোনাম
               </label>
               <input
@@ -180,7 +194,10 @@ const AddTopicData: React.FC = () => {
 
             {/* points */}
             <div>
-              <label htmlFor={`lessons.${lessonIndex}.points`} className="block form-control text-sm font-medium">
+              <label
+                htmlFor={`lessons.${lessonIndex}.points`}
+                className="block form-control text-sm font-medium"
+              >
                 মূল্যায়ন মার্ক
               </label>
               <input
@@ -193,7 +210,9 @@ const AddTopicData: React.FC = () => {
             {/* quiz */}
             {lesson.quiz.map((question, questionIndex) => (
               <div key={questionIndex}>
-                <h4 className="text-sm font-medium">কুইজ প্রশ্ন {questionIndex + 1}</h4>
+                <h4 className="text-sm font-medium">
+                  কুইজ প্রশ্ন {questionIndex + 1}
+                </h4>
                 <div>
                   <label
                     htmlFor={`lessons.${lessonIndex}.quiz.${questionIndex}.question`}
@@ -204,7 +223,9 @@ const AddTopicData: React.FC = () => {
                   <input
                     className="w-full border rounded-md p-2 mt-2 input input-bordered"
                     id={`lessons.${lessonIndex}.quiz.${questionIndex}.question`}
-                    {...register(`lessons.${lessonIndex}.quiz.${questionIndex}.question`)}
+                    {...register(
+                      `lessons.${lessonIndex}.quiz.${questionIndex}.question`
+                    )}
                   />
                 </div>
 
@@ -222,7 +243,9 @@ const AddTopicData: React.FC = () => {
                         <input
                           className="w-full border rounded-md p-2 mt-2 input input-bordered"
                           id={`lessons.${lessonIndex}.quiz.${questionIndex}.options.${optionIndex}`}
-                          {...register(`lessons.${lessonIndex}.quiz.${questionIndex}.options.${optionIndex}`)}
+                          {...register(
+                            `lessons.${lessonIndex}.quiz.${questionIndex}.options.${optionIndex}`
+                          )}
                         />
                       </div>
                     </div>
@@ -239,7 +262,9 @@ const AddTopicData: React.FC = () => {
                   <input
                     className="w-full border rounded-md p-2 my-3 input input-bordered"
                     id={`lessons.${lessonIndex}.quiz.${questionIndex}.correctAnswer`}
-                    {...register(`lessons.${lessonIndex}.quiz.${questionIndex}.correctAnswer`)}
+                    {...register(
+                      `lessons.${lessonIndex}.quiz.${questionIndex}.correctAnswer`
+                    )}
                   />
                 </div>
               </div>
@@ -273,7 +298,7 @@ const AddTopicData: React.FC = () => {
           টপিক তথ্য সংরক্ষণ করুন
         </button>
       </form>
-    </div >
+    </div>
   );
 };
 

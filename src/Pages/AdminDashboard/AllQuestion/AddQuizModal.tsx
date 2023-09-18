@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 interface Inputs {
   question: string;
@@ -24,9 +24,8 @@ const AddQuizModal: React.FC<AddQuizModalProps> = ({
   lessonId,
 }) => {
   const { register, handleSubmit } = useForm<Inputs>();
-  console.log(lessonId);
+  const [axiosSecure] = useAxiosSecure();
 
-  // const [quizzes, setQuizzes] = useState([
   const [quizzes] = useState([
     {
       question: "",
@@ -34,15 +33,6 @@ const AddQuizModal: React.FC<AddQuizModalProps> = ({
       correctAnswer: "",
     },
   ]);
-  console.log(quizzes);
-
-  //   const onQuizChange = (index: number, field: string, value: string) => {
-  //     setQuizzes((prevQuizzes) => {
-  //       const newQuizzes = [...prevQuizzes];
-  //       newQuizzes[index][field] = value;
-  //       return newQuizzes;
-  //     });
-  //   };
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -52,19 +42,18 @@ const AddQuizModal: React.FC<AddQuizModalProps> = ({
         correctAnswer: data.correctAnswer,
       };
 
-      const response = await axios.post(
-        `http://localhost:5000/add-quiz/${lessonId}`,
-        { newQuiz: newQuizData }
-      );
-
-      Swal.fire({
-        icon: "success",
-        title: "Quiz added successfully",
-        showConfirmButton: true,
-        timer: 1500,
+      const response = await axiosSecure.post(`/add-quiz/${lessonId}`, {
+        newQuiz: newQuizData,
       });
 
-      console.log("Quiz added:", response.data);
+      if (response.status === 200) {
+        Swal.fire({
+          icon: "success",
+          title: "Quiz added successfully",
+          showConfirmButton: true,
+          timer: 1500,
+        });
+      }
     } catch (error) {
       console.error("Error adding quiz:", error);
     }
@@ -95,7 +84,7 @@ const AddQuizModal: React.FC<AddQuizModalProps> = ({
                 option.options.map((subIndex) => (
                   <input
                     key={subIndex}
-                    {...register('option')}
+                    {...register("option")}
                     className="rounded-lg border-2 p-3 mx-3 w-full"
                     type="text"
                     placeholder={`Option ${subIndex + 1}`}

@@ -8,6 +8,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ReactPaginate from "react-paginate";
 import { MdDeleteSweep } from "react-icons/md";
 import LazyLoader from "../../../Components/LazyLoader/LazyLoader";
+import { useQuery } from "@tanstack/react-query";
 
 const itemsPerPage = 10;
 interface User {
@@ -28,16 +29,12 @@ const UserOfTable: React.FC = () => {
     setCurrentPage(selectedPage.selected);
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (searchText !== "") {
-      fetch(`http://localhost:5000/users/user/${searchText}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setUsers(data);
-        })
-        .catch((error) => {
-          console.error("Error searching users:", error);
-        });
+      const res = await axiosSecure.get(`/users/user/${searchText}`);
+      if (res.data) {
+        setUsers(res.data);
+      }
     }
   };
 
@@ -53,20 +50,16 @@ const UserOfTable: React.FC = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         setUsers(users.filter((user) => user._id !== _id));
-
-        fetch(`http://localhost:5000/users/user/${_id}`, {
-          method: "DELETE",
-        })
-          .then((res) => {
-            if (!res.ok) {
+        axiosSecure
+          .delete(`/users/user/${_id}`)
+          .then((response) => {
+            if (response.status === 200) {
+              const data = response.data;
+              if (data.deletedCount > 0) {
+                Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              }
+            } else {
               throw new Error("Network response was not ok");
-            }
-            return res.json();
-          })
-          .then((data) => {
-            console.log(data);
-            if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           })
           .catch((error) => {
@@ -78,7 +71,6 @@ const UserOfTable: React.FC = () => {
 
   // admin created
   const handleMakeAdmin = async (user: User) => {
-    console.log("btn  is click");
     const response = await axiosSecure.patch(`/admins/user/admin/${user?._id}`);
     const updatedUser = response.data;
 
@@ -122,6 +114,14 @@ const UserOfTable: React.FC = () => {
         console.error("Error fetching users:", error);
       });
   }, []);
+
+  // const {data: users=[]}=useQuery({
+  //   queryKey: ["user"],
+  //   queryFn: async()=>{
+  //     const res = await axiosSecure.get('/users/user')
+  //     return res.data
+  //   }
+  // })
 
   const offset = currentPage * itemsPerPage;
   const paginatedUsers = users.slice(offset, offset + itemsPerPage);

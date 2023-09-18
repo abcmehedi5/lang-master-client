@@ -29,10 +29,7 @@ const AddCategoryQuiz: React.FC = () => {
   const onSubmit: SubmitHandler<FormValue> = async (data) => {
     try {
       // Send data to the server using axios or your preferred HTTP library
-      const response = await axios.post(
-        "http://localhost:5000/quizs/quiz",
-        data
-      );
+      const response = await axios.post("/quizs/quiz", data);
       if (response.status === 200) {
         // Successfully saved data
         console.log("Data saved successfully!");
@@ -42,7 +39,6 @@ const AddCategoryQuiz: React.FC = () => {
     } catch (error) {
       console.error("Error saving data:", error);
     }
-    console.log(data);
   };
 
   const addQuestion = () => {

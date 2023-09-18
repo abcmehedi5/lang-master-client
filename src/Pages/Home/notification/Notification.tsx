@@ -32,7 +32,6 @@ const Notification = () => {
   const handleNotificationDelete = async (id: string) => {
     try {
       const res = await axiosSecure.delete("/notifications/notification/" + id);
-      console.log(res);
 
       successAlert(res.data.message);
       refetch();

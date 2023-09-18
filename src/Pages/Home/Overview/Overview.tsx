@@ -6,7 +6,7 @@ import { TbVocabulary } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 const Overview = () => {
-  const defaultLink = "http://localhost:5173/user-dashboard/";
+  const defaultLink = `${import.meta.env.VITE_API_URL}/user-dashboard/`;
 
   useEffect(() => {
     Aos.init();

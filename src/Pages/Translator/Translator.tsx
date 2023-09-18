@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import SubHeader from "../../Components/SubHeader/SubHeader";
 import "./Translator.css";
 import axios from "axios";
-import {
-  BiCopy,
-  BiVolumeFull,
-} from "react-icons/bi";
+import { BiCopy, BiVolumeFull } from "react-icons/bi";
 import { Helmet } from "react-helmet-async";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsArrowLeftRight } from "react-icons/bs";
@@ -23,7 +20,6 @@ const Translator: React.FC = () => {
   const [to, setTo] = useState<string>("en"); // Bengali
   const [input, setInput] = useState<string>("");
   const [output, setOutput] = useState<string>("");
-console.log(isSpeaking);
   const handletranslated = () => {
     const params = new URLSearchParams();
     params.append("q", input);
@@ -40,7 +36,6 @@ console.log(isSpeaking);
       })
       .then((res) => {
         setOutput(res.data.translatedText);
-        console.log(res.data);
       });
   };
 
@@ -51,7 +46,6 @@ console.log(isSpeaking);
       })
       .then((res) => {
         setOptionss(res.data);
-        console.log(res.data);
       });
   }, []);
 
@@ -88,7 +82,7 @@ console.log(isSpeaking);
     setCharCount(count);
     setInput(text);
   };
-  
+
   return (
     <>
       <SubHeader title={"Translator"}></SubHeader>
@@ -145,7 +139,10 @@ console.log(isSpeaking);
                 className="cursor-pointer hover:bg-base-300 rounded-full p-3 m-2 text-6xl VolumeFullactive"
                 onClick={() => speakText(input)} // Speak the input text
               />
-              <div className="text-xl text-gray-400" style={{ userSelect: 'none' }}>
+              <div
+                className="text-xl text-gray-400"
+                style={{ userSelect: "none" }}
+              >
                 Character: {charCount}
               </div>
             </div>

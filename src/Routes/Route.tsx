@@ -114,7 +114,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/singleBlogCard/:id",
-        element: <SingleBlogCard />
+        element: <SingleBlogCard />,
       },
     ],
   },
@@ -167,7 +167,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/quizs/quiz/${params.id}`),
+          fetch(`${import.meta.env.VITE_API_URL}/quizs/quiz/${params.id}`),
       },
       {
         path: "grammar",
@@ -240,58 +240,98 @@ const router = createBrowserRouter([
     children: [
       {
         path: "statistics",
-        element: <AdminRoute><Statistics></Statistics></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <Statistics></Statistics>
+          </AdminRoute>
+        ),
       },
       {
         path: "user-manage",
-        element: <AdminRoute><UserManage></UserManage></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <UserManage></UserManage>
+          </AdminRoute>
+        ),
       },
       {
         path: "add-quize",
-        element: <AdminRoute><AddQuizAdmin></AddQuizAdmin></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddQuizAdmin></AddQuizAdmin>
+          </AdminRoute>
+        ),
       },
       {
         path: "add-topics",
-        element: <AdminRoute><AddTopics /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddTopics />
+          </AdminRoute>
+        ),
       },
       {
         path: "update-question",
-        element: <AdminRoute><AllQuestion /></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AllQuestion />
+          </AdminRoute>
+        ),
       },
       {
         path: "add-unit",
-        element: <AdminRoute><AddUnit></AddUnit></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddUnit></AddUnit>
+          </AdminRoute>
+        ),
       },
       {
         path: "allPayment",
-        element: <AdminRoute><AllPayments></AllPayments></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AllPayments></AllPayments>
+          </AdminRoute>
+        ),
       },
       {
         path: "allbuybook",
-        element: <AdminRoute><AllBuyBook></AllBuyBook></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AllBuyBook></AllBuyBook>
+          </AdminRoute>
+        ),
       },
       {
         path: "allbooks",
-        element: <AdminRoute><AllBooks></AllBooks></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AllBooks></AllBooks>
+          </AdminRoute>
+        ),
       },
       {
         path: "addBook",
-        element: <AdminRoute><AddBooks></AddBooks></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddBooks></AddBooks>
+          </AdminRoute>
+        ),
       },
       {
         path: "add-lesson/:id",
-        element: <AdminRoute><AddLesson></AddLesson></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddLesson></AddLesson>
+          </AdminRoute>
+        ),
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/learning-questions/questions/${params.id}`
+            `${import.meta.env.VITE_API_URL}/learning-questions/questions/${
+              params.id
+            }`
           ),
       },
-      // {
-      //   path: "add-Lessons/add-quiz/:id",
-      //   element: <AddQuizes></AddQuizes>,
-      //   // loader: ({ params }) =>
-      //   //   fetch(`http://localhost:5000/learning-questions/questions/${params.id}`),
-      // },
     ],
   },
   {

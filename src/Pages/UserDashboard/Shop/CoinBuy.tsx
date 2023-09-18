@@ -20,8 +20,8 @@ const CoinBuy = () => {
     setCoinAmount(Number(event.target.value));
   };
 
-  const form:any = useRef();
-  const sendEmail = (e:any) => {
+  const form: any = useRef();
+  const sendEmail = (e: any) => {
     e.preventDefault();
     emailjs
       .sendForm(
@@ -31,11 +31,9 @@ const CoinBuy = () => {
         "bZAyBv6M_AfAxwGJW"
       )
       .then(
-        (result) => {
-          console.log(result.text);
-        },
+        () => {},
         (error) => {
-          console.log(error.text);
+          console.error(error.text);
         }
       );
     emailjs
@@ -46,17 +44,14 @@ const CoinBuy = () => {
         "bZAyBv6M_AfAxwGJW"
       )
       .then(
-        (result) => {
-          console.log(result.text);
-        },
+        () => {},
         (error) => {
-          console.log(error.text);
+          console.error(error.text);
         }
       );
   };
 
   const totalAmountToBePaid = (coinAmount * 0.1).toFixed(2);
-  console.log(parseFloat(totalAmountToBePaid));
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-2 w-11/12 mx-auto mt-16 border m-4 p-4 rounded-lg shadow-lg border-amber-400">
       {/* left side  */}

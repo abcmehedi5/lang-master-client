@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useAllBooks = () => {
-    const {
-        data: allBooks = [],
-        refetch,
-        isLoading,
-      } = useQuery(["allBooks"], async () => {
-        const res = await fetch("http://localhost:5000/books/book");
-        const data = await res.json();
-        return data;
-      });
-    
-      return [allBooks, refetch, isLoading];
+  const [axiosSecure] = useAxiosSecure();
+  const {
+    data: allBooks = [],
+    refetch,
+    isLoading,
+  } = useQuery(["book"], async () => {
+    const res = await axiosSecure.get("/books/book");
+    return res.data;
+  });
+
+  return [allBooks, refetch, isLoading];
 };
 
 export default useAllBooks;

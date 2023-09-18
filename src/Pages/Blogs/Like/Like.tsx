@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 import Swal from "sweetalert2";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import LikeModal from "../LikeModal";
 import useSingleBlogData from "../../../hooks/useSingleBlogData";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 interface LikeProps {
   postId: number;
@@ -18,7 +18,7 @@ interface LikeProps {
 }
 
 const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
-  console.log("likedUsers", likedUsers);
+  const [axiosSecure] = useAxiosSecure();
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [userLiked, setUserLiked] = useState<boolean>(false);
   const { refetch } = useSingleBlogData(postId);
@@ -27,8 +27,6 @@ const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
-
-  console.log(user?.email);
 
   const likeData = async (): Promise<void> => {
     // ---------- user liked this ----------
@@ -42,12 +40,7 @@ const Like: React.FC<LikeProps> = ({ postId, likedUsers }) => {
       };
 
       // Send a POST request to the server with user information
-      const res = await axios.put(
-        `http://localhost:5000/blogs/blog/${postId}/like`,
-        userData
-      );
-
-      console.log(res);
+      const res = await axiosSecure.put(`/blogs/blog/${postId}/like`, userData);
 
       if (res.status === 200) {
         refetch();

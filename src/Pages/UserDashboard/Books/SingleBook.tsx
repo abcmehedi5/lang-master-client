@@ -7,8 +7,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const SingleBook = ({ handleModalClose, selectedBook }: any) => {
-  console.log("single", selectedBook);
-
   const [singleUser] = useUser();
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
