@@ -9,7 +9,7 @@ import {
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
 import { ReactNode, createContext, useEffect, useState } from "react";
 import app from "../Firebase/firebase.config";
-import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 interface AuthInfo {
   user: any;
@@ -25,7 +25,9 @@ export const AuthContext = createContext<AuthInfo | null>(null);
 
 const auth = getAuth(app);
 const googleprovider = new GoogleAuthProvider();
+
 const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [axiosSecure] = useAxiosSecure();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   // create user email and password
@@ -66,7 +68,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
       setUser(currentUser);
       if (currentUser) {
-        axios.post("http://localhost:5000/json-web-token/jwt").then((data) => {
+        axiosSecure.post("/json-web-token/jwt").then((data) => {
           localStorage.setItem("access-token", data.data.token);
           setLoading(false);
         });

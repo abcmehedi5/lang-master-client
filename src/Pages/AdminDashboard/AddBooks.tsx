@@ -58,8 +58,6 @@ const AddBooks = () => {
 
       const addBook = { ...formData, bookimage: imageUrl };
 
-      console.log(addBook);
-
       // Send the addBook object with the image URL to your server using fetch or axios.
       // Example using fetch:
       fetch("http://localhost:5000/books/addBook", {
@@ -71,7 +69,6 @@ const AddBooks = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data) {
             // Reset form and show success message
             setFormData({

@@ -27,7 +27,6 @@ const Login: React.FC = () => {
   // toaster message
   const [successAlert, errorAlert] = useToast();
   const from = location.state?.from?.pathname || "/";
-  console.log(from);
 
   const onSubmit = (data: FormData) => {
     loginUser(data.email, data.password)

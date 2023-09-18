@@ -75,7 +75,7 @@ const QuestionsForLearn = () => {
       try {
         if (user) {
           const response = await axiosSecure.patch(
-            `http://localhost:5000/users/user/${user?.email}`,
+            `/users/user/${user?.email}`,
             {
               score: score,
             },
@@ -212,7 +212,7 @@ const QuestionsForLearn = () => {
   };
 
   // after finished unit ----------------------------------------end
-  // certificate 
+  // certificate
   const totalUnits = allLearnData.length;
   const isLastUnit = selectedUnit.unit === allLearnData[totalUnits - 1].unit;
 
@@ -327,7 +327,9 @@ const QuestionsForLearn = () => {
       {isLastUnit && certificate && (
         <div className="mb-10">
           {/* Your certificate content */}
-          <Link to={"/certificate"}><button className="defaultBtn">Cullect Certificate</button></Link>
+          <Link to={"/certificate"}>
+            <button className="defaultBtn">Cullect Certificate</button>
+          </Link>
         </div>
       )}
 

@@ -34,7 +34,6 @@ const Signup: React.FC = () => {
 
   const onSubmit = async (data: FormData) => {
     const { name, email, password, confirmPassword, image, phoneNumber } = data;
-    console.log(data);
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
@@ -87,7 +86,6 @@ const Signup: React.FC = () => {
               navigate(from, { replace: true });
             })
             .catch((err: any) => {
-              console.log(err.message);
               setError(err.message);
             });
           setError(null);
@@ -97,7 +95,7 @@ const Signup: React.FC = () => {
           setError(err.message);
         });
     } catch (error: any) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 

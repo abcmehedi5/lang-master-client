@@ -31,7 +31,6 @@ const Quizzes = () => {
   const { id } = useParams<{ id: string }>();
 
   const [allQuizeData] = useQuize();
-  console.log(allQuizeData);
 
   const quizData = allQuizeData.filter(
     (quizdataa: QuizData) => quizdataa._id == id

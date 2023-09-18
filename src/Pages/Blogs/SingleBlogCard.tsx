@@ -6,14 +6,12 @@ import useBlogData from "../../hooks/useBlogData";
 import useSingleBlogData from "../../hooks/useSingleBlogData";
 import Share from "./Share/Share";
 
-
 const SingleBlogCard: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  
+
   const { blog } = useBlogData();
 
-  const {singleBlog} = useSingleBlogData(id);
-  console.log(singleBlog)
+  const { singleBlog } = useSingleBlogData(id);
 
   const ownBlog = blog.filter(
     (own: any) => own.email === singleBlog.email && own._id !== singleBlog._id
@@ -24,10 +22,13 @@ const SingleBlogCard: React.FC = () => {
     window.scroll(0, 0);
   }, []);
 
-
   return (
     <div className="md:flex w-10/12 py-4 my-8 mx-auto gap-10">
-      <div className="md:w-[60%] md:sticky top-0 h-full" data-aos="zoom-in" data-aos-duration="1000">
+      <div
+        className="md:w-[60%] md:sticky top-0 h-full"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+      >
         <img
           className="w-full h-[350px] object-cover rounded-lg"
           src={singleBlog?.image}
@@ -51,7 +52,7 @@ const SingleBlogCard: React.FC = () => {
           />
           {/* Share */}
           <button className="flex gap-2 ">
-            <Share id={id}/>
+            <Share id={id} />
             {/* <span><FaShare /></span> */}
           </button>
         </div>
@@ -65,7 +66,11 @@ const SingleBlogCard: React.FC = () => {
         <hr className="my-4" />
       </div>
 
-      <div className="md:w-[35%] mx-auto text-center" data-aos="zoom-in" data-aos-duration="1000">
+      <div
+        className="md:w-[35%] mx-auto text-center"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+      >
         <h2 className="capitalize text-3xl font-semibold">publisher</h2>
         <hr className="my-4" />
         <div className="flex gap-1">

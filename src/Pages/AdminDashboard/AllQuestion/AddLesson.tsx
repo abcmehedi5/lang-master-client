@@ -50,8 +50,6 @@ const AddLesson: React.FC = () => {
 
   // Function to open the modal and set the selected lesson ID
   const handleAddQuizClick = (lessonTitle: any) => {
-    console.log(lessonTitle);
-
     setIsModalOpen(true);
     axiosSecure
       .get("/learning-questions/addQuize", lessonTitle)
@@ -61,8 +59,6 @@ const AddLesson: React.FC = () => {
 
     // setSelectedLessonId(lessonId);
   };
-
-  console.log(question);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -74,16 +70,19 @@ const AddLesson: React.FC = () => {
       };
 
       const response = await axios.post(
-        `http://localhost:5000/learning-questions/add-lesson/${question._id}`,
+        `/learning-questions/add-lesson/${question._id}`,
         formattedData
       );
-      Swal.fire({
-        icon: "success",
-        title: "added 1 lesson",
-        showConfirmButton: true,
-        timer: 1500,
-      });
-      console.log("Lesson added:", response.data);
+
+      if (response.status === 200) {
+        // Success: Show success message
+        Swal.fire({
+          icon: "success",
+          title: "Added 1 lesson",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     } catch (error) {
       console.error("Error adding lesson:", error);
     }

@@ -16,7 +16,6 @@ const LearnLesson = () => {
     return <p>Unit not found.</p>;
   }
   const lessons: LearnDataItem["lessons"] = selectedLesson.lessons;
-console.log(activeLesson);
   // handle lesson button click
   const handleLessonClick = (lessonNumber: string) => {
     setActiveLesson((prevActive) =>

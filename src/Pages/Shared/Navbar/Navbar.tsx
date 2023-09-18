@@ -17,12 +17,8 @@ const Navbar: React.FC = () => {
 
   const handleLogout = () => {
     logOut()
-      .then(() => {
-        console.log("Logged out successfully");
-      })
-      .catch((err: any) => {
-        console.log(err.message);
-      });
+      .then(() => {})
+      .catch(() => {});
   };
 
   const Navigation = () => (

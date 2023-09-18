@@ -63,7 +63,6 @@
 //             return res.json();
 //           })
 //           .then((data) => {
-//             console.log(data);
 //             Swal.fire("Deleted!", "Your file has been deleted.", "success");
 //           })
 //           .catch((error) => {
@@ -158,9 +157,10 @@
 
 // export default UpdateQuestion;
 
-import { useEffect, useState } from "react";
 import { MdDeleteSweep } from "react-icons/md";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 interface Question {
   _id: string;
@@ -172,16 +172,14 @@ interface Question {
 }
 
 const AllQuestion: React.FC = () => {
-  const [questions, setQuestions] = useState<Question[]>([]);
-  console.log(questions);
-  useEffect(() => {
-    fetch("http://localhost:5000/learning-questions/questions")
-      .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+  const [axiosSecure] = useAxiosSecure();
+  const { data: questions = [] } = useQuery<Question[]>({
+    queryKey: ["questions"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/learning-questions/questions");
+      return res.data;
+    },
+  });
 
   return (
     <div className="border-2 mx-auto rounded-xl ">
