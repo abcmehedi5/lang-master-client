@@ -16,8 +16,8 @@ const Contact = () => {
         <div
           className="w-full absolute top-0 left-0 h-full"
           style={{ zIndex: 10 }}
-          data-aos="fade-up-right"
-          data-aos-duration="1100"
+          data-aos="fade-zoom-in"
+          data-aos-duration="1000"
         >
           <Lottie
             options={{
@@ -30,7 +30,7 @@ const Contact = () => {
         {/* ---content--- */}
         <div
           className=" md:w-1/2 h-[440px] relative bg-[#e6fefe]"
-          data-aos="fade-up-right"
+          data-aos="fade-zoom-in"
           data-aos-duration="1200"
         >
           <img className="h-full w-full object-cover" src={contact} alt="" />

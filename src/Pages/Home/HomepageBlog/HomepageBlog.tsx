@@ -22,7 +22,7 @@ const HomepageBlog = () => {
       {/* blog card starts */}
       <div className="grid md:grid-cols-3 grid-cols-1 gap-8 md:gap-10">
         {blog.slice(0, 3).map((item: any) => (
-          <div className="shadow-lg rounded-lg" key={item.id}>
+          <div  className="shadow-lg rounded-lg" key={item._id}>
             <img
               className="h-[200px] w-full object-cover"
               src={item.image}
