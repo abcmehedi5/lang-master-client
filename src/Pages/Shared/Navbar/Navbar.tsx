@@ -90,8 +90,6 @@ const Navbar: React.FC = () => {
 
   return (
     <div
-      // className="navbar sticky top-0 z-10 justify-between py-0 bg-gradient-to-r from-[#376E84] to-[#376E84] px-5"
-
       className="navbar sticky top-0 justify-between py-0 bg-gradient-to-r from-[#95d3a2] to-[#359fac] md:px-10"
       style={{ zIndex: 1000 }}
     >
@@ -126,7 +124,15 @@ const Navbar: React.FC = () => {
           />
         </Link>
 
-        <div className="navbar-center hidden lg:flex">
+        {/* <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 text-white">
+            <Navigation />
+          </ul>
+        </div> */}
+      </div>
+
+      <div className="navbar-center">
+      <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-white">
             <Navigation />
           </ul>
@@ -165,8 +171,9 @@ const Navbar: React.FC = () => {
           </div>
         ) : (
           <Link title="login" to="/login">
-            <button>
-              <FiLogIn className="text-4xl text-white" />
+            <button className=" text-white btn btn-outline border-2 hover:bg-white hover:text-black rounded-md font-semibold flex items-center">
+              {/* <FiLogIn className="text-4xl text-white" /> */}
+              Login
             </button>
           </Link>
         )}
