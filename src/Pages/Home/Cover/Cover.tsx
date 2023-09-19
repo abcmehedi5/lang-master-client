@@ -75,7 +75,6 @@ const Cover: React.FC<CoverProps> = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -45,14 +45,15 @@ const Certificate = () => {
   const formattedDate = `${month}/${day}/${year}`;
 
   return (
-    <div className="text-center italic">
+    <div className="text-center italic max-w-screen-xl mx-auto">
       <div
         ref={componentRef}
-        className="mx-auto my-12 p-6 bg-white shadow-lg rounded-lg w-[210mm] h-[297mm] flex flex-col justify-center items-center"
+        className="mx-auto my-12 p-6 bg-white shadow-lg rounded-l w-[210mm] h-[297mm] flex flex-col justify-center items-center"
         id="content-to-pdf"
       >
-        <div className="w-8.5/11 h-11/5 mx-auto bg-white p-20 shadow-lg border-4 border-blue-500 relative">
-          <div className="w-[80px] mx-auto justify-center flex opacity-10">
+
+        <div className="w-8.5/11 h-11/5 md:mx-auto mx-2 bg-white p-20 shadow-lg border-4 border-blue-500 relative">
+          <div className="md:w-[80px] mx-auto justify-center flex opacity-10">
             <img className=" absolute bottom-0 " src={awardImage} alt="" />
           </div>
           <div className="border-2 border-blue-500  border-dashed rounded-md absolute inset-0 z-0"></div>
@@ -117,6 +118,7 @@ const Certificate = () => {
         Download PDF
       </button>
     </div>
+
   );
 };
 
