@@ -8,8 +8,7 @@ const axiosSecure = axios.create({
 });
 
 const useAxiosSecure = () => {
-  const authInfo: any | null = useContext(AuthContext);
-  const logOut = authInfo.logOut;
+  const { logOut }: any = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {

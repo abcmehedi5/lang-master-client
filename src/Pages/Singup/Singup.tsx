@@ -73,11 +73,21 @@ const Signup: React.FC = () => {
           axiosSecure
             .post("/users/user", saveUser)
             .then(() => {
-              alert("account create successfull!");
+              alert("Account creation successful!");
               navigate("/login");
             })
             .catch((error) => {
-              alert(error);
+              if (error.response) {
+                // The request was made, but the server responded with an error status code.
+                // You can access the error response data here.
+                alert(`Error: ${error.response.data.message}`);
+              } else if (error.request) {
+                // The request was made, but no response was received from the server.
+                alert("No response received from the server.");
+              } else {
+                // Something happened in setting up the request that triggered an error.
+                alert(`Error: ${error.message}`);
+              }
             });
 
           // send user data on mongodb end.................
