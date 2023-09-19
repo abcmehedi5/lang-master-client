@@ -9,11 +9,10 @@ interface LikeModalProps {
 
 const modalStyles = {
   content: {
-    width: "40%",
-    height: "40%",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    width: "80%", // Adjusted width for mobile devices
+    maxWidth: "600px", // Added maximum width to ensure readability
+    height: "60%", // Adjusted height for mobile devices
+    margin: "auto", // Centering the modal horizontally
   },
 };
 
@@ -48,7 +47,8 @@ const LikeModal: React.FC<LikeModalProps> = ({
         {Array.from(uniqueEmails).map((email, index) => {
           const user = likedUsers.find((user) => user.email === email);
           return (
-            <li key={index} className="flex gap-2 items-center mt-4">
+            <>
+            <li key={index} className="sm:flex gap-2 items-center mt-4">
               <img
                 className="w-14 h-14 object-cover rounded-full"
                 src={user?.userImg}
@@ -59,6 +59,7 @@ const LikeModal: React.FC<LikeModalProps> = ({
               )}
               <br />
             </li>
+            </>
           );
         })}
       </ul>

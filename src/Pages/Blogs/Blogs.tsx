@@ -7,6 +7,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import SubHeader from "../../Components/SubHeader/SubHeader";
 import SearchBlog from "./SearchBlog";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Blogs = () => {
   const [search, setSearch] = useState("");
@@ -39,6 +40,9 @@ const Blogs = () => {
 
   return (
     <>
+     <Helmet>
+        <title>Blogs | Lang Master </title>
+      </Helmet>
       <SubHeader title="Blog"></SubHeader>
       <div className="w-11/12 mx-auto">
         <div className="flex md:flex-row gap-6 flex-col-reverse items-center justify-between">
