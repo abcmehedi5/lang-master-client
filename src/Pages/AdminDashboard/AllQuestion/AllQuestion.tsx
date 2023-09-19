@@ -161,6 +161,8 @@ import { MdDeleteSweep } from "react-icons/md";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 interface Question {
   _id: string;
@@ -182,42 +184,48 @@ const AllQuestion: React.FC = () => {
   });
 
   return (
-    <div className="border-2 mx-auto rounded-xl ">
-      <div className="overflow-x-auto ">
-        <table className="table">
-          <thead>
-            <tr className="bg-slate-700 text-white">
-              <th>#</th>
-              <th>Topic Name</th>
-              <th>Unit Number</th>
-              <th>Total lessons</th>
-              <th>Lessons add</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {questions.map((question, index) => (
-              <tr key={question._id}>
-                <th>{index + 1}</th>
-                <td>{question.topic}</td>
-                <td>{question.unit}</td>
-                <td>{question.lessons.length}</td>
-                <td>
-                  <Link to={"/admin-dashboard/add-lesson/" + question._id}>
-                    <button className="btn btn-primary">Add Unit</button>
-                  </Link>
-                </td>
-                <td>
-                  <button className="text-2xl text-red-500 ">
-                    <MdDeleteSweep />
-                  </button>
-                </td>
+    <>
+      <Helmet>
+        <title> AllUnits | Admin dashboard | Lang Master </title>
+      </Helmet>
+      <SectionTitle titleLetter="All " titleWord="Units" ></SectionTitle>
+      <div className="border-2 mx-auto rounded-xl ">
+        <div className="overflow-x-auto ">
+          <table className="table">
+            <thead>
+              <tr className="bg-slate-700 text-white">
+                <th>#</th>
+                <th>Topic Name</th>
+                <th>Unit Number</th>
+                <th>Total lessons</th>
+                <th>Lessons add</th>
+                <th>Delete</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {questions.map((question, index) => (
+                <tr key={question._id}>
+                  <th>{index + 1}</th>
+                  <td>{question.topic}</td>
+                  <td>{question.unit}</td>
+                  <td>{question.lessons.length}</td>
+                  <td>
+                    <Link to={"/admin-dashboard/add-lesson/" + question._id}>
+                      <button className="btn btn-primary">Add Unit</button>
+                    </Link>
+                  </td>
+                  <td>
+                    <button className="text-2xl text-red-500 ">
+                      <MdDeleteSweep />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

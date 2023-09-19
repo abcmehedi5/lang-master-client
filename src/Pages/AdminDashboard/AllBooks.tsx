@@ -3,6 +3,8 @@ import useAllBooks from "../../hooks/useAllBooks";
 import deleteIcon from "../../assets/img/4476891.png";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const AllBooks = () => {
   const [allBooks, refetch] = useAllBooks();
@@ -51,12 +53,16 @@ const AllBooks = () => {
   return (
     <div
       className="w-full"
-      style={{
-        backgroundImage:
-          "url(https://img.freepik.com/free-vector/pastel-ombre-background-pink-purple_53876-120750.jpg?w=2000)",
-      }}
+      // style={{
+      //   backgroundImage:
+      //     "url(https://img.freepik.com/free-vector/pastel-ombre-background-pink-purple_53876-120750.jpg?w=2000)",
+      // }}
     >
-      <h2 className="text-center text-3xl font-serif p-4">All Book Here</h2>
+      {/* <h2 className="text-center text-3xl font-serif p-4">All Book Here</h2> */}
+      <Helmet>
+        <title>  All Payment | Admin dashboard | Lang Master </title>
+      </Helmet>
+      <SectionTitle titleLetter="All " titleWord="Book Here" ></SectionTitle>
 
       <div className="flex  flex-col font-bold  p-6 shadow-md bg-[#linear-gradient(45deg,#efefef 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,#efefef 75%,#efefef),linear-gradient(45deg,#efefef 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,#efefef 75%,#efefef)]">
         <div className="overflow-x-auto">

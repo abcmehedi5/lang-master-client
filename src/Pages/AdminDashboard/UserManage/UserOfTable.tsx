@@ -9,8 +9,9 @@ import ReactPaginate from "react-paginate";
 import { MdDeleteSweep } from "react-icons/md";
 import LazyLoader from "../../../Components/LazyLoader/LazyLoader";
 import { useQuery } from "@tanstack/react-query";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
-const itemsPerPage = 10;
+const itemsPerPage = 8;
 interface User {
   _id: string;
   name: string;
@@ -131,6 +132,7 @@ const UserOfTable: React.FC = () => {
 
   return (
     <>
+     <SectionTitle titleLetter="User " titleWord="Manage" ></SectionTitle>
       {users.length <= 0 ? (
         <LazyLoader></LazyLoader>
       ) : (

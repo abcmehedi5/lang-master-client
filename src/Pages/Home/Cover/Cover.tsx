@@ -19,6 +19,7 @@ const Cover: React.FC<CoverProps> = () => {
   const { allLeaderBoardData: usersPoint } = useLeaderBoard();
   return (
     <div className="bg-gradient-to-r from-[#95d3a2] to-[#359fac]">
+
       <div className="banner md:flex items-center justify-between relative md:py-0 pb-16 md:h-[90vh] md:px-7 gap-20 w-11/12 mx-auto pt-12">
         <div className="absolute animatespin h-20 w-20 opacity-95 hidden md:block right-10 bottom-32">
           <img src={shap1} />
@@ -51,7 +52,7 @@ const Cover: React.FC<CoverProps> = () => {
           <div className="flex my-2 justify-center">
             {usersPoint.slice(0, 3).map((userPoint: any) => (
               <img
-              key={userPoint._id}
+                key={userPoint._id}
                 className="w-10 h-10 rounded-full border-2"
                 src={userPoint?.image}
               />
@@ -75,6 +76,7 @@ const Cover: React.FC<CoverProps> = () => {
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

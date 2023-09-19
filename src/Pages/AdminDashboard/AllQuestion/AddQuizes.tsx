@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const AddQuizes = () => {
   const { register, handleSubmit } = useForm();
@@ -17,6 +19,9 @@ const AddQuizes = () => {
 
   return (
     <div>
+      <Helmet>
+        <title> AddQuizes | Admin dashboard | Lang Master </title>
+      </Helmet>
       <h2 className="text-center text-xl font-bold mb-3">Add Quiz</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <div className="mb-3">
