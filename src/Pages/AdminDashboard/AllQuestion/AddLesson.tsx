@@ -5,6 +5,8 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import AddQuizModal from "./AddQuizModal";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 interface Quiz {
   question: string;
@@ -98,7 +100,10 @@ const AddLesson: React.FC = () => {
 
   return (
     <div>
-      <h2 className="text-center text-xl font-bold mb-3">Add Lessons</h2>
+      <Helmet>
+        <title> Add Lessons | Admin dashboard | Lang Master </title>
+      </Helmet>
+      <SectionTitle titleLetter="Add " titleWord="Lessons" ></SectionTitle>
       <div className="join shadow-lg bg-slate-100 p-5 w-full text-center">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
           <div className="grid grid-cols-3 gap-3">

@@ -4,6 +4,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { RiDeleteBin6Line } from 'react-icons/Ri';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import { Helmet } from 'react-helmet-async';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 // Types for your data
 interface PaymentData {
@@ -21,103 +23,109 @@ const AllPayments: React.FC = () => {
 
     useEffect(() => {
         fetchData();
-      }, []);
-    
-      const fetchData = async () => {
+    }, []);
+
+    const fetchData = async () => {
         try {
-          const response = await axiosSecure.get<PaymentData[]>("/payment/payment");
-          setData(response.data);
-          setLoading(false);
+            const response = await axiosSecure.get<PaymentData[]>("/payment/payment");
+            setData(response.data);
+            setLoading(false);
         } catch (error) {
-          console.error("Error fetching data:", error);
+            console.error("Error fetching data:", error);
         }
-      };
+    };
 
 
-   //------------delete --------------------
-const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
-const [itemToDeleteId, setItemToDeleteId] = useState<number | null>(null);
+    //------------delete --------------------
+    const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
+    const [itemToDeleteId, setItemToDeleteId] = useState<number | null>(null);
 
-const handleDelete = async (idToDelete: number) => {
-  setDeleteConfirmationOpen(true);
-  setItemToDeleteId(idToDelete);
-};
+    const handleDelete = async (idToDelete: number) => {
+        setDeleteConfirmationOpen(true);
+        setItemToDeleteId(idToDelete);
+    };
 
-const confirmDelete = async () => {
-  if (itemToDeleteId !== null) {
-    try {
-      await axiosSecure.delete(`/payment/payment/${itemToDeleteId}`);
-      setData((prevData) =>
-        prevData.filter((item) => item._id !== itemToDeleteId)
-      );
-    } catch (error) {
-      console.error("Error deleting data:", error);
-    }
-  }
-  setDeleteConfirmationOpen(false);
-};
-//------------delete --------------------
+    const confirmDelete = async () => {
+        if (itemToDeleteId !== null) {
+            try {
+                await axiosSecure.delete(`/payment/payment/${itemToDeleteId}`);
+                setData((prevData) =>
+                    prevData.filter((item) => item._id !== itemToDeleteId)
+                );
+            } catch (error) {
+                console.error("Error deleting data:", error);
+            }
+        }
+        setDeleteConfirmationOpen(false);
+    };
+    //------------delete --------------------
     const columns = [
         { field: 'name', headerName: 'Name', width: 170 },
-        { field: 'email', headerName: 'Email', width: 170 },
+        { field: 'email', headerName: 'Email', width: 200 },
         { field: 'transactionId', headerName: 'Transaction ID', width: 200 },
         { field: 'date', headerName: 'Date', width: 190 },
         {
             field: 'delete', headerName: 'Delete', width: 75, sortable: false,
-            renderCell: (params:any) => (
+            renderCell: (params: any) => (
                 <button onClick={() => handleDelete(params.row._id)}><RiDeleteBin6Line className="text-center text-xl text-red-500" /></button>
             ),
         }
     ];
 
     return (
-        <div className="w-10/12 mx-auto mt-10 border p-8 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
-            <h2 className='text-center font-semibold text-3xl text-gradient'>All Payment Data </h2>
-            <div className="shadow-xl mt-8 bg-white">
-                {loading ? (
-                    <p>Loading...</p>
-                ) : (
-                    <div style={{ height: 400, width: '100%' }}>
-                        <DataGrid
-                            rows={data}
-                            columns={columns}
-                            // pageSize={5}
-                            checkboxSelection
-                            getRowId={(row) => row._id || row.transactionId || row.email}
-                            initialState={{
-                                pagination: {
-                                    paginationModel: { page: 0, pageSize: 5 },
-                                },
-                            }}
-                            pageSizeOptions={[5, 10]}
-                        />
-                    </div>
-                )}
-                <div>
+        <>
+            <Helmet>
+                <title>  All Payment | Admin dashboard | Lang Master </title>
+            </Helmet>
+            <SectionTitle titleLetter="All " titleWord="Payment" ></SectionTitle>
+            <div className="w-11/12 mx-auto mt-10 border p-6 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
+
+                <div className="shadow-2xl bg-white">
                     {loading ? (
-                        <p>Loading another section...</p>
+                        <p>Loading...</p>
                     ) : (
-                        <div>
-                            <Dialog
-                                open={deleteConfirmationOpen}
-                                onClose={() => setDeleteConfirmationOpen(false)}
-                            >
-                                <DialogTitle>Confirm Deletion</DialogTitle>
-                                <DialogContent>
-                                    <DialogContentText>
-                                        Are you sure you want to delete this item?
-                                    </DialogContentText>
-                                </DialogContent>
-                                <DialogActions>
-                                    <Button onClick={() => setDeleteConfirmationOpen(false)}>Cancel</Button>
-                                    <Button onClick={confirmDelete}>delete</Button>
-                                </DialogActions>
-                            </Dialog>
+                        <div style={{ height: 400, width: '100%' }}>
+                            <DataGrid
+                                rows={data}
+                                columns={columns}
+                                // pageSize={5}
+                                checkboxSelection
+                                getRowId={(row) => row._id || row.transactionId || row.email}
+                                initialState={{
+                                    pagination: {
+                                        paginationModel: { page: 0, pageSize: 5 },
+                                    },
+                                }}
+                                pageSizeOptions={[5, 10]}
+                            />
                         </div>
                     )}
+                    <div>
+                        {loading ? (
+                            <p>Loading another section...</p>
+                        ) : (
+                            <div>
+                                <Dialog
+                                    open={deleteConfirmationOpen}
+                                    onClose={() => setDeleteConfirmationOpen(false)}
+                                >
+                                    <DialogTitle>Confirm Deletion</DialogTitle>
+                                    <DialogContent>
+                                        <DialogContentText>
+                                            Are you sure you want to delete this item?
+                                        </DialogContentText>
+                                    </DialogContent>
+                                    <DialogActions>
+                                        <Button onClick={() => setDeleteConfirmationOpen(false)}>Cancel</Button>
+                                        <Button onClick={confirmDelete}>delete</Button>
+                                    </DialogActions>
+                                </Dialog>
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -2,6 +2,8 @@ import { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 interface Lesson {
   lessonNumber: string;
@@ -136,120 +138,124 @@ function AddUnit() {
   };
 
   return (
-    <div className="w-11/12 mx-auto">
-      <h2 className="text-center my-4 text-3xl font-semibold text-gray-600">
-        Add Units
-      </h2>
-      <form onSubmit={handleSubmit} className="m-5">
-        <div className="md:flex justify-evenly  gap-2">
-          <input
-            name="unit"
-            placeholder="Unit Name"
-            className="input input-bordered w-full max-w-xs bg-[#e8f0fe]"
-            value={unit}
-            onChange={(e) => setUnit(e.target.value)}
-          />
-          <input
-            name="topic"
-            placeholder="Unit Topic"
-            className="input input-bordered w-full max-w-xs bg-[#e8f0fe] md:my-0 my-2"
-            value={unitTopic}
-            onChange={(e) => setUnitTopic(e.target.value)}
-          />
-          <input
-            name="totalLessons"
-            type="number"
-            placeholder="Total Lessons"
-            className="input input-bordered w-full max-w-xs bg-[#e8f0fe]"
-            value={totalLessons}
-            onChange={() => setTotalLessons(lessons.length)}
-          />
-        </div>
+    <>
+      <Helmet>
+        <title>  Add Units | Admin dashboard | Lang Master </title>
+      </Helmet>
 
-        {lessons.map((lesson: any, lessonIndex: any) => (
-          <div key={lessonIndex} className="mt-4 border-2 rounded-md p-4">
+      <div className="w-11/12 mx-auto">
+        <SectionTitle titleLetter="Add" titleWord="Units" ></SectionTitle>
+        <form onSubmit={handleSubmit} className="m-5">
+          <div className="md:flex justify-evenly  gap-2">
             <input
-              name="lessonNumber"
-              type="text"
-              placeholder="Lesson Number"
-              className="input input-bordered w-full bg-[#e8f0fe]"
-              value={lesson.lessonNumber}
-              onChange={(e) =>
-                handleLessonChange(e, lessonIndex, "lessonNumber")
-              }
+              name="unit"
+              placeholder="Unit Name"
+              className="input input-bordered w-full max-w-xs bg-[#e8f0fe]"
+              value={unit}
+              onChange={(e) => setUnit(e.target.value)}
             />
             <input
-              name="lessonTitle"
-              type="text"
-              placeholder="Lesson Title"
-              className="input input-bordered w-full mt-2 bg-[#e8f0fe]"
-              value={lesson.lessonTitle}
-              onChange={(e) =>
-                handleLessonChange(e, lessonIndex, "lessonTitle")
-              }
+              name="topic"
+              placeholder="Unit Topic"
+              className="input input-bordered w-full max-w-xs bg-[#e8f0fe] md:my-0 my-2"
+              value={unitTopic}
+              onChange={(e) => setUnitTopic(e.target.value)}
             />
             <input
-              name="points"
+              name="totalLessons"
               type="number"
-              placeholder="Points"
-              className="input input-bordered w-full mt-2 bg-[#e8f0fe]"
-              value={lesson.points}
-              onChange={(e) => handleLessonChange(e, lessonIndex, "points")}
+              placeholder="Total Lessons"
+              className="input input-bordered w-full max-w-xs bg-[#e8f0fe]"
+              value={totalLessons}
+              onChange={() => setTotalLessons(lessons.length)}
             />
-
-            {lesson.quiz.map((quiz: any, quizIndex: any) => (
-              <div key={quizIndex} className="mt-2 w-full">
-                <input
-                  name="question"
-                  type="text"
-                  placeholder="Question"
-                  className="input input-bordered w-full bg-[#e8f0fe]"
-                  value={quiz.question}
-                  onChange={(e) =>
-                    handleQuizQuestionChange(e, lessonIndex, quizIndex)
-                  }
-                />
-
-                <div className="grid grid-cols-2 gap-2 mt-2">
-                  {quiz.options.map((option: any, optionIndex: any) => (
-                    <input
-                      key={optionIndex}
-                      name="options"
-                      type="text"
-                      placeholder={`Option ${optionIndex + 1}`}
-                      className="input input-bordered w-full bg-[#e8f0fe]"
-                      value={option}
-                      onChange={(e: any) =>
-                        handleQuizChange(e, lessonIndex, quizIndex, optionIndex)
-                      }
-                    />
-                  ))}
-                </div>
-                <input
-                  name="correctAnswer"
-                  type="text"
-                  placeholder="Correct Answer"
-                  className="input input-bordered w-full mt-2 bg-[#e8f0fe]"
-                  value={quiz.correctAnswer}
-                  onChange={(e) =>
-                    handleCorrectAnswerChange(e, lessonIndex, quizIndex)
-                  }
-                />
-              </div>
-            ))}
           </div>
-        ))}
 
-        <div className="text-center">
-          <button
-            type="submit"
-            className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+          {lessons.map((lesson: any, lessonIndex: any) => (
+            <div key={lessonIndex} className="mt-4 border-2 rounded-md p-4">
+              <input
+                name="lessonNumber"
+                type="text"
+                placeholder="Lesson Number"
+                className="input input-bordered w-full bg-[#e8f0fe]"
+                value={lesson.lessonNumber}
+                onChange={(e) =>
+                  handleLessonChange(e, lessonIndex, "lessonNumber")
+                }
+              />
+              <input
+                name="lessonTitle"
+                type="text"
+                placeholder="Lesson Title"
+                className="input input-bordered w-full mt-2 bg-[#e8f0fe]"
+                value={lesson.lessonTitle}
+                onChange={(e) =>
+                  handleLessonChange(e, lessonIndex, "lessonTitle")
+                }
+              />
+              <input
+                name="points"
+                type="number"
+                placeholder="Points"
+                className="input input-bordered w-full mt-2 bg-[#e8f0fe]"
+                value={lesson.points}
+                onChange={(e) => handleLessonChange(e, lessonIndex, "points")}
+              />
+
+              {lesson.quiz.map((quiz: any, quizIndex: any) => (
+                <div key={quizIndex} className="mt-2 w-full">
+                  <input
+                    name="question"
+                    type="text"
+                    placeholder="Question"
+                    className="input input-bordered w-full bg-[#e8f0fe]"
+                    value={quiz.question}
+                    onChange={(e) =>
+                      handleQuizQuestionChange(e, lessonIndex, quizIndex)
+                    }
+                  />
+
+                  <div className="grid grid-cols-2 gap-2 mt-2">
+                    {quiz.options.map((option: any, optionIndex: any) => (
+                      <input
+                        key={optionIndex}
+                        name="options"
+                        type="text"
+                        placeholder={`Option ${optionIndex + 1}`}
+                        className="input input-bordered w-full bg-[#e8f0fe]"
+                        value={option}
+                        onChange={(e: any) =>
+                          handleQuizChange(e, lessonIndex, quizIndex, optionIndex)
+                        }
+                      />
+                    ))}
+                  </div>
+                  <input
+                    name="correctAnswer"
+                    type="text"
+                    placeholder="Correct Answer"
+                    className="input input-bordered w-full mt-2 bg-[#e8f0fe]"
+                    value={quiz.correctAnswer}
+                    onChange={(e) =>
+                      handleCorrectAnswerChange(e, lessonIndex, quizIndex)
+                    }
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+
+          <div className="text-center">
+            <button
+              type="submit"
+              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 
