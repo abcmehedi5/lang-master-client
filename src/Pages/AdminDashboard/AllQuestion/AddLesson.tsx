@@ -57,6 +57,7 @@ const AddLesson: React.FC = () => {
       .get("/learning-questions/addQuize", lessonTitle)
       .then((data) => {
         alert(data);
+        console.log(data);
       });
 
     // setSelectedLessonId(lessonId);

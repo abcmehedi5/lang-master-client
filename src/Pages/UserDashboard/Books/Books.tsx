@@ -63,7 +63,7 @@ const Books: any = () => {
       {books.length <= 0 ? (
         <LazyLoader></LazyLoader>
       ) : (
-        <div className="py-12 mt-8">
+        <div className="mt-8 px-4 py-8 md:px-20 md:py-16 mx-auto">
           <div className="flex flex-col items-center">
             <SectionTitle
               titleLetter="Language  "
@@ -95,7 +95,7 @@ const Books: any = () => {
                 />
               </div>
               {!showAllBooks && (
-                <Link to="/user-dashboard/books">
+                <Link to="/user-dashboard/books-buy">
                   <div className="bg-[#95d3a2] p-4 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
                     <span>Explore More Books</span>
                   </div>

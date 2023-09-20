@@ -72,7 +72,7 @@ const LearningLayout = () => {
                   borderRadius: "50%",
                 }}
               />
-              চর্চা করুন
+              প্রাক্টিস
             </NavLink>
           </li>
           <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
@@ -94,7 +94,7 @@ const LearningLayout = () => {
 
           <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
-              to="/user-dashboard/books"
+              to="/user-dashboard/books-buy"
               className="hover:text-green-600 flex gap-2 items-center"
             >
               <FcReadingEbook
@@ -127,7 +127,7 @@ const LearningLayout = () => {
 
           <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
-              to="/user-dashboard/shop"
+              to="/user-dashboard/coin-buy"
               className="hover:text-green-600 flex gap-2 items-center"
             >
               <FcReadingEbook style={{ fontSize: "30px" }} />

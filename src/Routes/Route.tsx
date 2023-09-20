@@ -179,7 +179,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "shop",
+        path: "coin-buy",
         element: (
           <PrivateRoute>
             <Shop></Shop>
@@ -203,7 +203,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "books",
+        path: "books-buy",
         element: (
           <PrivateRoute>
             <Books></Books>

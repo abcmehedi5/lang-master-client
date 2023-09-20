@@ -6,7 +6,7 @@ import { TbVocabulary } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 const Overview = () => {
-  const defaultLink = `${import.meta.env.VITE_API_URL}/user-dashboard/`;
+  const defaultLink = `/user-dashboard/`;
 
   useEffect(() => {
     Aos.init();
@@ -120,7 +120,7 @@ const Overview = () => {
               </div>
               <div className="space-y-2">
                 <Link
-                  to={`${defaultLink}books`}
+                  to={`${defaultLink}books-buy`}
                   className="text-2xl text-blue-900 hover:cursor-pointer hover:underline"
                 >
                   English Learning Book
