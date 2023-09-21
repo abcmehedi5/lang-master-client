@@ -12,6 +12,7 @@ import { RiDeleteBin6Line } from "react-icons/Ri";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import LazyLoader from "../../Components/LazyLoader/LazyLoader";
 
 // Types for your data
 interface PaymentData {
@@ -88,61 +89,61 @@ const AllBuyBook: React.FC = () => {
   ];
 
   return (
-    <div className="px-4 py-8 md:px-20 md:py-16">
-      <Helmet>
-        <title> All Bought Books | Admin dashboard | Lang Master </title>
-      </Helmet>
-      <SectionTitle titleLetter="All Bought " titleWord="Books"></SectionTitle>
+    <div>
+      {loading ? (
+        <LazyLoader></LazyLoader>
+      ) : (
+        <div className="px-4 py-8 md:px-20 md:py-16">
+          <Helmet>
+            <title> All Bought Books | Admin dashboard | Lang Master </title>
+          </Helmet>
+          <SectionTitle
+            titleLetter="All Bought "
+            titleWord="Books"
+          ></SectionTitle>
 
-      <div className="border mt-10 p-6 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
-        <div className="shadow-2xl bg-white">
-          {loading ? (
-            <p className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
-              Loading Bought Books...
-            </p>
-          ) : (
-            <div style={{ height: 400, width: "100%" }}>
-              <DataGrid
-                rows={data}
-                columns={columns}
-                checkboxSelection={false} // Remove checkbox selection
-                getRowId={(row) => row._id || row._id || row.bookId}
-                initialState={{
-                  pagination: {
-                    paginationModel: { page: 0, pageSize: 5 },
-                  },
-                }}
-                pageSizeOptions={[5, 10]}
-              />
-            </div>
-          )}
-          <div>
-            {loading ? (
-              <p></p>
-            ) : (
-              <div>
-                <Dialog
-                  open={deleteConfirmationOpen}
-                  onClose={() => setDeleteConfirmationOpen(false)}
-                >
-                  <DialogTitle>Confirm Deletion</DialogTitle>
-                  <DialogContent>
-                    <DialogContentText>
-                      Are you sure you want to delete this item?
-                    </DialogContentText>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={() => setDeleteConfirmationOpen(false)}>
-                      Cancel
-                    </Button>
-                    <Button onClick={confirmDelete}>Delete</Button>
-                  </DialogActions>
-                </Dialog>
+          <div className="border mt-10 p-6 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
+            <div className="shadow-2xl bg-white">
+              <div style={{ height: 400, width: "100%" }}>
+                <DataGrid
+                  rows={data}
+                  columns={columns}
+                  checkboxSelection={false} // Remove checkbox selection
+                  getRowId={(row) => row._id || row._id || row.bookId}
+                  initialState={{
+                    pagination: {
+                      paginationModel: { page: 0, pageSize: 5 },
+                    },
+                  }}
+                  pageSizeOptions={[5, 10]}
+                />
               </div>
-            )}
+
+              <div>
+                <div>
+                  <Dialog
+                    open={deleteConfirmationOpen}
+                    onClose={() => setDeleteConfirmationOpen(false)}
+                  >
+                    <DialogTitle>Confirm Deletion</DialogTitle>
+                    <DialogContent>
+                      <DialogContentText>
+                        Are you sure you want to delete this item?
+                      </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={() => setDeleteConfirmationOpen(false)}>
+                        Cancel
+                      </Button>
+                      <Button onClick={confirmDelete}>Delete</Button>
+                    </DialogActions>
+                  </Dialog>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

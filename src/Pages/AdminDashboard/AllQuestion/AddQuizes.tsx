@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const AddQuizes = () => {
   const { register, handleSubmit } = useForm();
