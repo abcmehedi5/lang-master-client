@@ -16,7 +16,6 @@ const Statistics = () => {
   const [allLearnData] = useLearnData();
   const [allPaymentData] = usePaymentData();
 
-
   // getting all users
   useEffect(() => {
     axiosSecure
@@ -35,8 +34,8 @@ const Statistics = () => {
     0
   );
   return (
-    <div className="container mx-2">
-      <div className=" mx-auto md:px-6">
+    <div className="px-4 py-8 md:px-20 md:py-16">
+      <div className="">
         {/* Section: Design Block */}
         <section className="mb-16 text-center">
           <div className="grid lg:grid-cols-3 lg:gap-x-12">

@@ -24,13 +24,10 @@ interface PaymentData {
   date: string;
 }
 
-
-
 const AllBuyBook: React.FC = () => {
   const [data, setData] = useState<PaymentData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [axiosSecure] = useAxiosSecure()
-
+  const [axiosSecure] = useAxiosSecure();
 
   useEffect(() => {
     fetchData();
@@ -38,15 +35,15 @@ const AllBuyBook: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axiosSecure.get<PaymentData[]>("/books/bought-books");
+      const response = await axiosSecure.get<PaymentData[]>(
+        "/books/bought-books"
+      );
       setData(response.data);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-
-
 
   //------------delete --------------------
   const [deleteConfirmationOpen, setDeleteConfirmationOpen] = useState(false);
@@ -91,16 +88,18 @@ const AllBuyBook: React.FC = () => {
   ];
 
   return (
-    <>
+    <div className="px-4 py-8 md:px-20 md:py-16">
       <Helmet>
-        <title>  All Buy Book | Admin dashboard | Lang Master </title>
+        <title> All Bought Books | Admin dashboard | Lang Master </title>
       </Helmet>
-      <SectionTitle titleLetter="All Buy " titleWord="Book" ></SectionTitle>
+      <SectionTitle titleLetter="All Bought " titleWord="Books"></SectionTitle>
 
-      <div className="w-11/12 mx-auto  border p-6 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
+      <div className="border mt-10 p-6 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
         <div className="shadow-2xl bg-white">
           {loading ? (
-            <p>Loading...</p>
+            <p className="bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50">
+              Loading Bought Books...
+            </p>
           ) : (
             <div style={{ height: 400, width: "100%" }}>
               <DataGrid
@@ -119,7 +118,7 @@ const AllBuyBook: React.FC = () => {
           )}
           <div>
             {loading ? (
-              <p>Loading another section...</p>
+              <p></p>
             ) : (
               <div>
                 <Dialog
@@ -144,7 +143,7 @@ const AllBuyBook: React.FC = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

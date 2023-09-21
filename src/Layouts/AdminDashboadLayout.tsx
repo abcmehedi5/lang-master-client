@@ -28,7 +28,7 @@ const AdminDashboadLayout = () => {
       </div>
 
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content m-10 ">
+      <div className="drawer-content">
         {/* Page content here */}
         <label
           htmlFor="my-drawer-2"
@@ -101,11 +101,11 @@ const AdminDashboadLayout = () => {
           </li>
           <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">
             <NavLink
-              to="/admin-dashboard/allbuybook"
+              to="/admin-dashboard/all-bought-books"
               className="flex gap-2 items-center"
             >
               <AiTwotoneBook style={{ fontSize: "30px" }} />
-              All Buy Books
+              All Bought Books
             </NavLink>
           </li>
           <li className="px-5 transition duration-300 hover:bg-[#DDF4FF]">

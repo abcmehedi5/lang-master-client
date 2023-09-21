@@ -26,7 +26,7 @@ const AddQuestion: any = () => {
   };
 
   return (
-    <div className="container mx-auto border p-5 rounded-lg m-4 lg:m-10 lg:p-10 shadow-lg bg-slate-100">
+    <div className="mx-auto border p-5 rounded-lg m-4 lg:m-10 lg:p-10 shadow-lg bg-slate-100">
       <h2 className="text-center font-semibold text-2xl text-[#21bbd3] ">
         Add Quiz
       </h2>
