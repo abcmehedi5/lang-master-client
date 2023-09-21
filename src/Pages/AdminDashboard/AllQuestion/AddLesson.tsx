@@ -100,12 +100,12 @@ const AddLesson: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="px-4 py-8 md:px-20 md:py-16">
       <Helmet>
         <title> Add Lessons | Admin dashboard | Lang Master </title>
       </Helmet>
-      <SectionTitle titleLetter="Add " titleWord="Lessons" ></SectionTitle>
-      <div className="join shadow-lg bg-slate-100 p-5 w-full text-center">
+      <SectionTitle titleLetter="Add " titleWord="Lessons"></SectionTitle>
+      <div className="join shadow-lg bg-base-100 p-5 w-full text-center mt-10">
         <form onSubmit={handleSubmit(onSubmit)} className="w-full">
           <div className="grid grid-cols-3 gap-3">
             <input
@@ -184,13 +184,13 @@ const AddLesson: React.FC = () => {
             <span className="text-red-500">This field is required</span>
           )}
 
-          <input className="btn mt-3 btn-primary" type="submit" />
+          <input className="btn mt-3 defaultBtn" type="submit" />
         </form>
       </div>
 
       {/* lessons list */}
 
-      <div>
+      <div className="mt-10">
         <h1 className="text-xl font-bold mb-6">Lessons</h1>
         <div className="overflow-x-auto border-2 rounded">
           <table className="table table-zebra">
@@ -200,7 +200,7 @@ const AddLesson: React.FC = () => {
                 <th>#</th>
                 <th>Lessons Title</th>
                 <th>Lesson Number</th>
-                <th>Total Quizs</th>
+                <th>Total Quizzes</th>
                 <th>Action</th>
               </tr>
             </thead>

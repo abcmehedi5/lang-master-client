@@ -8,7 +8,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import ReactPaginate from "react-paginate";
 import { MdDeleteSweep } from "react-icons/md";
 import LazyLoader from "../../../Components/LazyLoader/LazyLoader";
-import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const itemsPerPage = 8;
@@ -132,18 +131,18 @@ const UserOfTable: React.FC = () => {
 
   return (
     <>
-     <SectionTitle titleLetter="User " titleWord="Manage" ></SectionTitle>
+      <SectionTitle titleLetter="User " titleWord="Manage"></SectionTitle>
       {users.length <= 0 ? (
         <LazyLoader></LazyLoader>
       ) : (
-        <div className="border-2 rounded-3xl  shadow-2xl">
+        <div className="border-2 rounded-3xl shadow-2xl mt-10">
           <div className="form-control p-6 w-10/12 mx-auto ">
-            <div className="input-group ">
+            <div className="input-group flex justify-center">
               <input
                 onChange={(e: any) => setSearchText(e.target.value)}
                 type="text"
-                placeholder="Search…"
-                className="input input-bordered w-full"
+                placeholder="Search User"
+                className="input input-bordered md:w-2/3 w-full"
               />
               <button onClick={handleSearch} className="btn btn-square ">
                 <svg

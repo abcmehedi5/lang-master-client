@@ -140,12 +140,12 @@ function AddUnit() {
   return (
     <>
       <Helmet>
-        <title>  Add Units | Admin dashboard | Lang Master </title>
+        <title> Add Units | Admin dashboard | Lang Master </title>
       </Helmet>
 
-      <div className="w-11/12 mx-auto">
-        <SectionTitle titleLetter="Add" titleWord="Units" ></SectionTitle>
-        <form onSubmit={handleSubmit} className="m-5">
+      <div className="px-4 py-8 md:px-20 md:py-16">
+        <SectionTitle titleLetter="Add " titleWord="Units"></SectionTitle>
+        <form onSubmit={handleSubmit} className="mt-10">
           <div className="md:flex justify-evenly  gap-2">
             <input
               name="unit"
@@ -225,7 +225,12 @@ function AddUnit() {
                         className="input input-bordered w-full bg-[#e8f0fe]"
                         value={option}
                         onChange={(e: any) =>
-                          handleQuizChange(e, lessonIndex, quizIndex, optionIndex)
+                          handleQuizChange(
+                            e,
+                            lessonIndex,
+                            quizIndex,
+                            optionIndex
+                          )
                         }
                       />
                     ))}
@@ -246,10 +251,7 @@ function AddUnit() {
           ))}
 
           <div className="text-center">
-            <button
-              type="submit"
-              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            >
+            <button type="submit" className="mt-4 defaultBtn">
               Submit
             </button>
           </div>

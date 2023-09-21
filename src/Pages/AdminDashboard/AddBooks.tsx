@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
+import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 
 const AddBooks = () => {
   const [bookImageFile, setBookImageFile] = useState(null);
@@ -98,143 +100,136 @@ const AddBooks = () => {
   };
 
   return (
-    <div
-      className="container mx-auto border-2 rounded-md shadow-md bg-rotate"
-      style={{
-        backgroundImage:
-          "url(https://img.freepik.com/free-vector/gradient-blur-pink-blue-abstract-background_53876-117324.jpg?size=626&ext=jpg&ga=GA1.1.1531122545.1684612316&semt=ais)",
-      }}
-    >
-      <div className=" lg:ml-60 mt-2">
-        <h3 className="pt-4 text-3xl text-rose-400 font-semibold inline  border-b-4 border-rose-400">
-          Add a Book
-        </h3>
-      </div>
-
-      <div className="flex justify-center px-8 ">
-        {/* ... Rest of your form layout */}
-        <form onSubmit={handleBookAdd} className="px-8 pt-6 pb-8 mb-4 rounded">
-          <div className="mb-4">
-            <label className="block w-full mb-2 text-sm font-bold text-gray-700">
-              Book Name
-            </label>
-            <input
-              className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-              name="bookname"
-              type="text"
-              placeholder="Book Name"
-              value={formData.bookname}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block w-full mb-2 text-sm font-bold text-gray-700">
-              Download URL
-            </label>
-            <input
-              className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-              name="downloadUrl"
-              type="text"
-              placeholder="Download URL"
-              value={formData.downloadUrl}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="mb-4 md:flex">
-            <div className="mb-4 md:mr-2 md:mb-0">
-              <label className="block mb-2 text-sm font-bold text-gray-700">
-                Book ID
+    <div className="px-4 py-8 md:px-20 md:py-16">
+      <Helmet>
+        <title> All Bought Books | Admin dashboard | Lang Master </title>
+      </Helmet>
+      <SectionTitle titleLetter="Add " titleWord="Book"></SectionTitle>
+      <div className="border-2 rounded-md shadow-md bg-rotate bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 mt-10">
+        <div className="flex justify-center px-8 ">
+          {/* ... Rest of your form layout */}
+          <form
+            onSubmit={handleBookAdd}
+            className="px-8 pt-6 pb-8 mb-4 rounded"
+          >
+            <div className="mb-4">
+              <label className="block w-full mb-2 text-sm font-bold text-gray-700">
+                Book Name
               </label>
               <input
                 className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                name="bookId"
+                name="bookname"
                 type="text"
-                placeholder="Book ID"
-                value={formData.bookId}
+                placeholder="Book Name"
+                value={formData.bookname}
                 onChange={handleInputChange}
               />
             </div>
-            <div className="md:ml-2">
-              <label className="block mb-2 text-sm font-bold text-gray-700">
-                Book Image
-              </label>
-              <input
-                className="lg:w-[400px] px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                name="bookimage"
-                type="file"
-                accept="image/*"
-                onChange={handleImageFileChange}
-              />
-            </div>
-          </div>
 
-          <div className="mb-4 md:flex">
-            <div className="mb-4 md:mr-2 md:mb-0">
-              <label className="block mb-2 text-sm font-bold text-gray-700">
-                Writer
+            <div className="mb-4">
+              <label className="block w-full mb-2 text-sm font-bold text-gray-700">
+                Download URL
               </label>
               <input
                 className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                name="writer"
+                name="downloadUrl"
                 type="text"
-                placeholder="Writer"
-                value={formData.writer}
+                placeholder="Download URL"
+                value={formData.downloadUrl}
                 onChange={handleInputChange}
               />
             </div>
-            <div className="md:ml-2">
+
+            <div className="mb-4 md:flex">
+              <div className="mb-4 md:mr-2 md:mb-0">
+                <label className="block mb-2 text-sm font-bold text-gray-700">
+                  Book ID
+                </label>
+                <input
+                  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  name="bookId"
+                  type="text"
+                  placeholder="Book ID"
+                  value={formData.bookId}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="md:ml-2">
+                <label className="block mb-2 text-sm font-bold text-gray-700">
+                  Book Image
+                </label>
+                <input
+                  className="lg:w-[400px] px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  name="bookimage"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageFileChange}
+                />
+              </div>
+            </div>
+
+            <div className="mb-4 md:flex">
+              <div className="mb-4 md:mr-2 md:mb-0">
+                <label className="block mb-2 text-sm font-bold text-gray-700">
+                  Writer
+                </label>
+                <input
+                  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  name="writer"
+                  type="text"
+                  placeholder="Writer"
+                  value={formData.writer}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="md:ml-2">
+                <label className="block mb-2 text-sm font-bold text-gray-700">
+                  Price
+                </label>
+                <input
+                  className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  name="price"
+                  type="number"
+                  placeholder="Price"
+                  value={formData.price}
+                  onChange={handleInputChange}
+                />
+              </div>
+              <div className="md:ml-2">
+                <label className="block mb-2 text-sm font-bold text-gray-700">
+                  Rating
+                </label>
+                <input
+                  className="lg:w-[210px] px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  name="rating"
+                  type="number"
+                  placeholder="Rating"
+                  value={formData.rating}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+
+            <div className="mb-4">
               <label className="block mb-2 text-sm font-bold text-gray-700">
-                Price
+                Description
               </label>
               <input
                 className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                name="price"
-                type="number"
-                placeholder="Price"
-                value={formData.price}
+                name="description"
+                type="text"
+                placeholder="Description"
+                value={formData.description}
                 onChange={handleInputChange}
               />
             </div>
-            <div className="md:ml-2">
-              <label className="block mb-2 text-sm font-bold text-gray-700">
-                Rating
-              </label>
-              <input
-                className="lg:w-[210px] px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                name="rating"
-                type="number"
-                placeholder="Rating"
-                value={formData.rating}
-                onChange={handleInputChange}
-              />
+
+            <div className="mb-6 text-center">
+              <input className="defaultBtn" type="submit" value="Add Book" />
             </div>
-          </div>
-
-          <div className="mb-4">
-            <label className="block mb-2 text-sm font-bold text-gray-700">
-              Description
-            </label>
-            <input
-              className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-              name="description"
-              type="text"
-              placeholder="Description"
-              value={formData.description}
-              onChange={handleInputChange}
-            />
-          </div>
-
-          <div className="mb-6 text-center">
-            <input
-              className="w-full px-4 py-2 font-bold text-white bg-rose-400 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-              type="submit"
-              value="Add Book"
-            />
-          </div>
-        </form>
-        {/* ... Rest of your form */}
+          </form>
+          {/* ... Rest of your form */}
+        </div>
       </div>
     </div>
   );

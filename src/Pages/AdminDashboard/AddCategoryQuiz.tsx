@@ -52,10 +52,10 @@ const AddCategoryQuiz: React.FC = () => {
   };
 
   return (
-    <>
-      <SectionTitle titleLetter="Add " titleWord="Quiz" ></SectionTitle>
+    <div className="px-4 py-8 md:px-20 md:py-16">
+      <SectionTitle titleLetter="Add " titleWord="Quiz"></SectionTitle>
 
-      <div className="container mx-auto border p-5 rounded-lg m-4 lg:m-10 lg:p-10 shadow-lg bg-slate-100">
+      <div className="mx-auto border p-5 rounded-lg lg:p-10 shadow-lg bg-base-100 mt-10">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* level */}
           <div>
@@ -158,7 +158,7 @@ const AddCategoryQuiz: React.FC = () => {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

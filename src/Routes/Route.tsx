@@ -295,7 +295,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "allbuybook",
+        path: "all-bought-books",
         element: (
           <AdminRoute>
             <AllBuyBook></AllBuyBook>

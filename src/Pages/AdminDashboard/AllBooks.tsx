@@ -52,7 +52,7 @@ const AllBooks = () => {
 
   return (
     <div
-      className="w-full"
+      className="px-4 py-8 md:px-20 md:py-16"
       // style={{
       //   backgroundImage:
       //     "url(https://img.freepik.com/free-vector/pastel-ombre-background-pink-purple_53876-120750.jpg?w=2000)",
@@ -60,13 +60,13 @@ const AllBooks = () => {
     >
       {/* <h2 className="text-center text-3xl font-serif p-4">All Book Here</h2> */}
       <Helmet>
-        <title>  All Payment | Admin dashboard | Lang Master </title>
+        <title> All Books | Admin dashboard | Lang Master </title>
       </Helmet>
-      <SectionTitle titleLetter="All " titleWord="Book Here" ></SectionTitle>
+      <SectionTitle titleLetter="All " titleWord="Books"></SectionTitle>
 
-      <div className="flex  flex-col font-bold  p-6 shadow-md bg-[#linear-gradient(45deg,#efefef 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,#efefef 75%,#efefef),linear-gradient(45deg,#efefef 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,#efefef 75%,#efefef)]">
+      <div className="flex flex-col font-bold mt-10 shadow-md bg-[#linear-gradient(45deg,#efefef 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,#efefef 75%,#efefef),linear-gradient(45deg,#efefef 25%,rgba(239,239,239,0) 25%,rgba(239,239,239,0) 75%,#efefef 75%,#efefef)]">
         <div className="overflow-x-auto">
-          <div className="p-1.5 w-full inline-block align-middle">
+          <div className="w-full inline-block align-middle">
             <div className="overflow-hidden border rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-100">
