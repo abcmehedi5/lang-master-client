@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./Profile.css";
-import { FaCoins, FaEdit } from "react-icons/fa";
+import { FaCoins, FaEdit, FaUserAlt } from "react-icons/fa";
 // import { BsPersonFillAdd } from "react-icons/bs";
 import { Helmet } from "react-helmet-async";
 import ProfileEditModal from "./ProfileEditModal";
@@ -23,13 +23,13 @@ interface Profile {
   location: string;
   joiningDate: Date;
   email: string;
-  following: number;
-  followers: number;
   phoneNumber: string;
   score: number;
   image: string;
   role: string;
   state: string;
+  birthday: string;
+  gender: string;
 }
 
 const Profile: React.FC = () => {
@@ -38,7 +38,7 @@ const Profile: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const [data, setData] = useState<any>(null);
-  const [singleUser] = useUser();
+  const [singleUser, , refetch] = useUser();
 
   const handleEditButtonClick = () => {
     setIsModalOpen(true);
@@ -62,7 +62,10 @@ const Profile: React.FC = () => {
         `/users/update-user/${user?.email}`,
         { updatedData }
       );
-      toast("Successfully updated user profile:", response.data);
+      if (response.data.modifiedCount > 0) {
+        toast("Successfully updated user profile:", response.data);
+        refetch();
+      }
     } catch (error) {
       toast.error("Error updating user profile");
       console.error("Error updating user profile:", error);
@@ -70,107 +73,134 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="px-4 py-8 md:px-20 md:py-16">
       <Helmet>
         <title> Profile | Lang Master </title>
       </Helmet>
-      <div className="md:flex h-full gap-4 lg:gap-8 w-10/12 mx-auto mt-5 border-2 rounded-2xl p-10 bg-slate-200 shadow">
+      <div className="md:flex h-full gap-4 lg:gap-8 mt-5 border-2 rounded-2xl p-10 bg-gray-100 shadow">
         <div
           className="border rounded-lg shadow-md"
-          style={{ height: "470px", width: "100%" }}
+          style={{ height: "450px", width: "100%" }}
         >
           <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg ">
             <figure>
               <img
                 src={singleUser?.image}
-                alt="Shoes"
+                alt="Profile Picture"
                 className="w-full md:h-60 p-6 object-cover"
               />
             </figure>
             <div className="px-4">
-              <h2 className="text-xl font-semibold py-2">{singleUser?.name}</h2>
-              <p className="text-gray-600 flex items-center gap-3">
-                <BsTelephone /> {singleUser?.phoneNumber}
-              </p>
-              <hr className="py-2" />
-              <p className="text-gray-600 flex items-center gap-3">
-                <MdEmail /> {singleUser?.email}
-              </p>
-              <hr className="py-2" />
-              <p className="text-gray-600 flex items-center gap-3">
-                <ImLocation2 /> {singleUser?.address}
-              </p>
-              <hr className="py-2" />
-              <p className="text-gray-600 flex items-center gap-3">
-                {singleUser?.bio}
-              </p>
-              <div className="text-right m-3">
-                <button className="tooltip" onClick={handleEditButtonClick}>
-                  <span className="tooltiptext">Edit</span>
-                  <FaEdit />
-                </button>
+              <div className="flex justify-between">
+                <div>
+                  <h2 className="text-xl font-semibold py-2 fontKalam">
+                    {singleUser?.name}
+                  </h2>
+                  <p className="fontKalam text-[#757575] flex items-center gap-3">
+                    {singleUser?.bio}
+                  </p>
+                </div>
+                <div className="text-right m-3">
+                  <button className="tooltip" onClick={handleEditButtonClick}>
+                    <span className="tooltiptext">Edit</span>
+                    <FaEdit className="text-xl" />
+                  </button>
+                </div>
               </div>
+              <div className="mt-5">
+                <p className="text-gray-600 flex items-center gap-3">
+                  <BsTelephone /> {singleUser?.phoneNumber}
+                </p>
+                <hr className="py-2" />
+                <p className="text-gray-600 flex items-center gap-3">
+                  <MdEmail /> {singleUser?.email}
+                </p>
+                <hr className="py-2" />
+                <p className="text-gray-600 flex items-center gap-3">
+                  <ImLocation2 /> {singleUser?.address}
+                </p>
+              </div>
+              <hr className="py-2" />
             </div>
           </div>
         </div>
 
-        <div style={{ height: "470px", width: "100%" }}>
+        <div style={{ height: "450px", width: "100%" }}>
           {/* one */}
           <div className=" bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg border">
-            <div className="p-4">
+            <div className="p-4 space-y-5">
               {/* user payment History */}
-              <h2 className="text-xl font-semibold">User Pay Account</h2>
-              <hr className="py-2" />
               <div className="flex justify-between">
-                <p>My payment</p>
-                <button className="bg-gradient-to-r from-orange-500 to-pink-500 ...  text-white font-semibold lg:py-2 lg:px-6 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <p className="text-xl fontKalam font-semibold">My payment</p>
+                <button className="bg-gradient-to-r from-orange-500 to-pink-500 text-white font-semibold w-48 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300">
                   <Link to="/user-dashboard/userPaymentData">
-                    payment History
+                    Payment History
                   </Link>
                 </button>
               </div>
-            </div>
-
-            <div className="p-4">
-              {/* user payment History */}
-              <h2 className="text-xl font-semibold">User Book Account</h2>
-              <hr className="py-2" />
+              {/* users book  */}
               <div className="flex justify-between">
-                <p>My Book</p>
-                <button className="bg-gradient-to-r from-cyan-500 to-green-500 ...  text-white font-semibold lg:py-2 lg:px-6 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <p className="text-xl fontKalam font-semibold">My Book</p>
+                <button className="bg-gradient-to-r from-cyan-500 to-green-500 ...  text-white font-semibold w-48 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300">
                   <Link to="/user-dashboard/bought-books">Book History</Link>
                 </button>
               </div>
-              {/* user payment History */}
+
+              {/* users total coin  */}
+              <div className="flex justify-between">
+                <p className="text-xl fontKalam font-semibold flex items-center">
+                  Total Coin:{" "}
+                  <FaCoins className="text-yellow-500 text-2xl ml-2" />
+                </p>
+                <p
+                  className="bg-gradient-to-r from-purple-500 to-teal-500
+                text-white font-semibold w-48 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300 text-center"
+                >
+                  {singleUser?.score}
+                </p>
+              </div>
+              {/* role  */}
+              <div className="flex justify-between">
+                <p className="text-xl fontKalam font-semibold flex items-center">
+                  My Role:{" "}
+                  <FaUserAlt className="text-green-500 text-2xl ml-2" />
+                </p>
+                <p
+                  className="bg-gradient-to-r from-red-500 to-yellow-500
+                text-white font-semibold w-48 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300 text-center uppercase"
+                >
+                  {singleUser?.role}
+                </p>
+              </div>
             </div>
           </div>
 
           {/* two */}
           <div className=" bg-white mt-8 border rounded-lg shadow-md overflow-hidden hover:shadow-lg">
-            <div className="p-4">
-              <h2 className="text-xl font-semibold">My Score</h2>
-              <hr className="py-2" />
-              <div className="flex justify-evenly">
-                <p className="mt-1 flex items-center gap-1 text-xs font-medium text-black">
-                  <span className="font-bold">Score</span>{" "}
-                  <FaCoins className="text-yellow-500 text-2xl" />
+            <div className="p-4 space-y-5">
+              {/* user payment History */}
+              <div className="flex justify-between">
+                <p className="text-xl fontKalam font-semibold flex items-center">
+                  Date of Birth:
                 </p>
-                <strong className=" text-xl text-secondary px-4">
-                  {singleUser?.score}
-                </strong>
+                <p
+                  className="bg-gradient-to-r from-orange-500 to-lime-500
+                text-white font-semibold w-48 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300 text-center"
+                >
+                  {singleUser?.birthday}
+                </p>
               </div>
-            </div>
-
-            <div className="p-4">
-              <h2 className="text-xl font-semibold">My Role</h2>
-              <hr className="py-2" />
-              <div className="flex justify-evenly">
-                <p className="mt-1 flex items-center gap-1 text-xs font-medium text-black">
-                  <span className="font-bold">Role</span>
+              {/* users book  */}
+              <div className="flex justify-between">
+                <p className="text-xl fontKalam font-semibold flex items-center">
+                  Gender:
                 </p>
-                <strong className=" font-medium uppercase  items-center px-4">
-                  {singleUser?.role}
-                </strong>
+                <p
+                  className="bg-gradient-to-r from-emerald-500 to-purple-500
+                text-white font-semibold w-48 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-300 text-center"
+                >
+                  {singleUser?.gender}
+                </p>
               </div>
             </div>
           </div>

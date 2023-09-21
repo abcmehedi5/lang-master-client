@@ -22,7 +22,11 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
   onClose,
   onSubmit,
 }) => {
-  const { control, handleSubmit } = useForm<ProfileData>();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid }, // Add isValid from formState
+  } = useForm<ProfileData>();
 
   const onSubmitForm = (formData: ProfileData) => {
     onSubmit(formData);
@@ -35,12 +39,13 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
 
   return (
     <>
-      
-
       <div className="fixed inset-0 flex items-center justify-center z-50">
         <div className="fixed inset-0 bg-black opacity-70"></div>
         <div className="bg-white p-6 rounded-lg shadow-md relative md:w-1/2">
-          <SectionTitle titleLetter="Edit Your " titleWord="Profile" ></SectionTitle>
+          <SectionTitle
+            titleLetter="Edit Your "
+            titleWord="Profile"
+          ></SectionTitle>
           <form onSubmit={handleSubmit(onSubmitForm)}>
             <div className="space-y-4">
               {/* username  */}
@@ -54,6 +59,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                       type="text"
                       {...field}
                       className="w-full border rounded p-2"
+                      required
                     />
                   )}
                 />
@@ -69,6 +75,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                       type="text"
                       {...field}
                       className="w-full border rounded p-2"
+                      required
                     />
                   )}
                 />
@@ -85,6 +92,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                       type="date"
                       {...field}
                       className="w-full border rounded p-2"
+                      required
                     />
                   )}
                 />
@@ -102,6 +110,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                       placeholder="Address"
                       {...field}
                       className="w-full border rounded p-2"
+                      required
                     />
                   )}
                 />
@@ -118,17 +127,21 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                       placeholder="number"
                       {...field}
                       className="w-full border rounded p-2"
+                      required
                     />
                   )}
                 />
               </label>
 
               <div className="flex items-center space-x-4 text-xl">
-                {/* gender*/}
+                {/* Gender */}
                 <label>
                   <Controller
                     name="gender"
                     control={control}
+                    rules={{
+                      required: "Gender is required",
+                    }}
                     render={({ field }) => (
                       <>
                         <input
@@ -147,6 +160,9 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                   <Controller
                     name="gender"
                     control={control}
+                    rules={{
+                      required: "Gender is required",
+                    }}
                     render={({ field }) => (
                       <>
                         <input
@@ -166,6 +182,9 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                   <Controller
                     name="gender"
                     control={control}
+                    rules={{
+                      required: "Gender is required",
+                    }}
                     render={({ field }) => (
                       <>
                         <input
@@ -181,12 +200,20 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                   />
                 </label>
               </div>
+
+              {/* Display validation error */}
+              {errors.gender && (
+                <p className="text-red-500 text-sm">{errors.gender.message}</p>
+              )}
             </div>
 
             <div className="flex justify-end mt-4">
               <button
                 type="submit"
-                className="px-4 py-2 bg-orange-500 text-white rounded"
+                className={`px-4 py-2 bg-orange-500 text-white rounded ${
+                  errors.gender ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+                disabled={!!errors.gender}
               >
                 Save
               </button>
