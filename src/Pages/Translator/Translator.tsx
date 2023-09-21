@@ -14,7 +14,7 @@ type LanguageOption = {
 
 const Translator: React.FC = () => {
   const [charCount, setCharCount] = useState<number>(0);
-  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
+  // const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   const [optionss, setOptionss] = useState<LanguageOption[]>([]);
   const [from, setFrom] = useState<string>("en"); // English
   const [to, setTo] = useState<string>("en"); // Bengali
@@ -68,11 +68,11 @@ const Translator: React.FC = () => {
     const utterance = new SpeechSynthesisUtterance(textToSpeak);
     window.speechSynthesis.speak(utterance);
 
-    utterance.onend = () => {
-      setIsSpeaking(false);
-    };
+    // utterance.onend = () => {
+    //   setIsSpeaking(false);
+    // };
 
-    setIsSpeaking(true);
+    // setIsSpeaking(true);
   };
 
   // ------------ count character ---------------

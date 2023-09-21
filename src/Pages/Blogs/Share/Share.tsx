@@ -9,7 +9,7 @@ import {
 } from "react-share";
 
 interface ShareProps {
-  id: string;
+  id: string | undefined;
 }
 
 const Share: React.FC<ShareProps> = ({ id }) => {
@@ -17,14 +17,14 @@ const Share: React.FC<ShareProps> = ({ id }) => {
 
   return (
     <div>
-      <FacebookShareButton url={shareUrl} quote={'status'} hashtag={'#blog'}>
-        <FacebookIcon size={35} round={true}/>
+      <FacebookShareButton url={shareUrl} quote={"status"} hashtag={"#blog"}>
+        <FacebookIcon size={35} round={true} />
       </FacebookShareButton>
-      <WhatsappShareButton url={shareUrl} >
-        <WhatsappIcon size={35} round={true}/>
+      <WhatsappShareButton url={shareUrl}>
+        <WhatsappIcon size={35} round={true} />
       </WhatsappShareButton>
-      <LinkedinShareButton url={shareUrl} >
-        <LinkedinIcon size={35} round={true}/>
+      <LinkedinShareButton url={shareUrl}>
+        <LinkedinIcon size={35} round={true} />
       </LinkedinShareButton>
     </div>
   );

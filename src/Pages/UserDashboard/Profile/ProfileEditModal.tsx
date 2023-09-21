@@ -25,7 +25,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
   const {
     control,
     handleSubmit,
-    formState: { errors, isValid }, // Add isValid from formState
+    formState: { errors }, // Add isValid from formState
   } = useForm<ProfileData>();
 
   const onSubmitForm = (formData: ProfileData) => {

@@ -113,7 +113,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/singleBlogCard/:id",
+        path: "singleBlogCard/:id",
         element: <SingleBlogCard />,
       },
     ],

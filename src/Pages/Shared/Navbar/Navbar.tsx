@@ -3,7 +3,6 @@ import "./Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import { FiLogIn } from "react-icons/fi";
 import Notification from "../../Home/notification/Notification";
 import useAdmin from "../../../hooks/useAdmin";
 
@@ -132,7 +131,7 @@ const Navbar: React.FC = () => {
       </div>
 
       <div className="navbar-center">
-      <div className="navbar-center hidden lg:flex">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-white">
             <Navigation />
           </ul>

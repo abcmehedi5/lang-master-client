@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// import Select from "react-select";
 import { useForm, SubmitHandler } from "react-hook-form";
-import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 type QuizQuestion = {

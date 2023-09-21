@@ -7,7 +7,7 @@ import useSingleBlogData from "../../../hooks/useSingleBlogData";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 interface LikeProps {
-  postId: number;
+  postId: string;
   like: number;
   likedUsers: {
     email: string;
