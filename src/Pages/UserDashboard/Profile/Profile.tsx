@@ -49,6 +49,21 @@ const Profile: React.FC = () => {
   };
 
   const handleModalSubmit = async (data: any) => {
+    console.log("data", data);
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+
+    const url = `https://api.imgbb.com/1/upload?key=${
+      import.meta.env.VITE_IMGBB_API_KEY
+    }`;
+
+    const response = await fetch(url, {
+      method: "POST",
+      body: formData,
+    });
+    const result = await response.json();
+    const imageUrl = result?.data?.display_url;
+
     try {
       const updatedData = {
         name: data.name,
@@ -57,7 +72,9 @@ const Profile: React.FC = () => {
         address: data.address,
         phoneNumber: data.phoneNumber,
         gender: data.gender,
+        image: imageUrl,
       };
+      console.log(updatedData);
       const response = await axiosSecure.patch(
         `/users/update-user/${user?.email}`,
         { updatedData }
@@ -65,6 +82,8 @@ const Profile: React.FC = () => {
       if (response.data.modifiedCount > 0) {
         toast("Successfully updated user profile:", response.data);
         refetch();
+      } else {
+        toast("error updated user profile:", response.data);
       }
     } catch (error) {
       toast.error("Error updating user profile");
@@ -209,6 +228,7 @@ const Profile: React.FC = () => {
 
       {/* modal */}
       <ProfileEditModal
+        singleUser={singleUser}
         isOpen={isModalOpen}
         onClose={handleModalClose}
         onSubmit={handleModalSubmit}

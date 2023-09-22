@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Notification from "../../Home/notification/Notification";
 import useAdmin from "../../../hooks/useAdmin";
+import useUser from "../../../hooks/useUser";
 
 const Navbar: React.FC = () => {
   // check admin
@@ -13,7 +14,7 @@ const Navbar: React.FC = () => {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { user, logOut }: any = useContext(AuthContext);
-
+  const [singleUser] = useUser();
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -149,7 +150,7 @@ const Navbar: React.FC = () => {
           <div className="dropdown dropdown-end z-[1000000]">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={user?.photoURL} />
+                <img src={singleUser?.image} />
               </div>
             </label>
             <ul
