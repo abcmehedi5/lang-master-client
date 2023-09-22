@@ -88,7 +88,7 @@ const AllPayments: React.FC = () => {
       {loading ? (
         <LazyLoader></LazyLoader>
       ) : (
-        <div className="px-4 py-8 md:px-20 md:py-16">
+        <div className="px-4 mx-auto py-8 md:px-20 md:py-16">
           <Helmet>
             <title> All Payment | Admin dashboard | Lang Master </title>
           </Helmet>
@@ -98,7 +98,7 @@ const AllPayments: React.FC = () => {
           ></SectionTitle>
           <div className="mt-10 border p-6 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
             <div className="shadow-2xl bg-white">
-              <div style={{ height: 400, width: "100%" }}>
+              <div>
                 <DataGrid
                   rows={data}
                   columns={columns}
