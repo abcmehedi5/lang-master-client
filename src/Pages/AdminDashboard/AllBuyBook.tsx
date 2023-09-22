@@ -104,7 +104,7 @@ const AllBuyBook: React.FC = () => {
 
           <div className="border mt-10 p-6 rounded-2xl bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 ...">
             <div className="shadow-2xl bg-white">
-              <div style={{ height: 400, width: "100%" }}>
+              <div>
                 <DataGrid
                   rows={data}
                   columns={columns}
