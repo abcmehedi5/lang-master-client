@@ -36,7 +36,7 @@ const AllBooks = () => {
             console.error("Error deleting book:", error);
           });
 
-        // fetch(`http://localhost:5000/books/deleteBook/${id}`,{
+        // fetch(`https://lang-master-server-abcmehedi5.vercel.app/books/deleteBook/${id}`,{
         //     method : 'DELETE'
         // })
         //   .then((res) => res.json())

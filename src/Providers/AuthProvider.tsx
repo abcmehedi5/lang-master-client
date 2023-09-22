@@ -69,7 +69,7 @@
 //   //   const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
 //   //     setUser(currentUser);
 //   //     if (currentUser) {
-//   //       axios.post("http://localhost:5000/json-web-token/jwt").then((data) => {
+//   //       axios.post("https://lang-master-server-abcmehedi5.vercel.app/json-web-token/jwt").then((data) => {
 //   //         console.log(data);
 //   //         localStorage.setItem("access-token", data.data.token);
 //   //         setLoading(false);
@@ -89,7 +89,7 @@
 //       setUser(currentUser);
 //       if (currentUser) {
 //         axios
-//           .post("http://localhost:5000/json-web-token/jwt")
+//           .post("https://lang-master-server-abcmehedi5.vercel.app/json-web-token/jwt")
 //           .then((response) => {
 //             console.log(response);
 //             localStorage.setItem("access-token", response.data.token);
@@ -197,7 +197,7 @@ const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
       setUser(currentUser);
       if (currentUser) {
-        axios.post("http://localhost:5000/json-web-token/jwt").then((data) => {
+        axios.post("https://lang-master-server-abcmehedi5.vercel.app/json-web-token/jwt").then((data) => {
           localStorage.setItem("access-token", data.data.token);
           setLoading(false);
         });

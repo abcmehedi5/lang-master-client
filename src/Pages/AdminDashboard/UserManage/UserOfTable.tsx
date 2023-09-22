@@ -105,7 +105,7 @@ const UserOfTable: React.FC = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/users/user")
+    fetch("https://lang-master-server-abcmehedi5.vercel.app/users/user")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
