@@ -42,10 +42,10 @@ const LearningLayout = () => {
         {/* <ul className="w-64 bg-gradient-to-b h-screen  from-[#0A4D68] to-[#088395] text-white py-3"> */}
         <ul className="w-64 bg-gradient-to-b h-screen text-black bg-gray-100 ">
           <DashboardTop></DashboardTop>
-          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
+          <li className="px-5 py-1 transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/learning"
-              className="hover:text-green-600 flex gap-2 items-center"
+              className="flex gap-2 items-center"
             >
               <FcReading
                 style={{
@@ -59,10 +59,10 @@ const LearningLayout = () => {
             </NavLink>
           </li>
 
-          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
+          <li className="px-5 py-1 transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/quiz"
-              className="hover:text-green-600 flex gap-2 items-center"
+              className="flex gap-2 items-center"
             >
               <FcIdea
                 style={{
@@ -72,13 +72,13 @@ const LearningLayout = () => {
                   borderRadius: "50%",
                 }}
               />
-              প্রাক্টিস
+              প্র্যাকটিস
             </NavLink>
           </li>
-          <li className="px-5 py-1 hover: hover:bg-[#DDF4FF] transition duration-300 mt-2">
+          <li className="px-5 py-1 transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/grammar"
-              className="hover:text-green-600 flex gap-2 items-center"
+              className="flex gap-2 items-center"
             >
               <FcReadingEbook
                 style={{
@@ -95,7 +95,7 @@ const LearningLayout = () => {
           <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/books-buy"
-              className="hover:text-green-600 flex gap-2 items-center"
+              className=" flex gap-2 items-center"
             >
               <FcReadingEbook
                 style={{
@@ -111,7 +111,7 @@ const LearningLayout = () => {
           <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/leader-board"
-              className="hover:text-green-600 flex gap-2 items-center"
+              className=" flex gap-2 items-center"
             >
               <FcTodoList
                 style={{
@@ -128,7 +128,7 @@ const LearningLayout = () => {
           <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
             <NavLink
               to="/user-dashboard/coin-buy"
-              className="hover:text-green-600 flex gap-2 items-center"
+              className=" flex gap-2 items-center"
             >
               <FcReadingEbook style={{ fontSize: "30px" }} />
               কয়েন কিনুন
@@ -137,7 +137,7 @@ const LearningLayout = () => {
           <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-4">
             <NavLink
               to="/user-dashboard/profile"
-              className="hover:text-green-600 flex gap-2 items-center"
+              className=" flex gap-2 items-center"
             >
               <FcBusinessman
                 style={{
@@ -152,10 +152,7 @@ const LearningLayout = () => {
           </li>
 
           <li className="px-5 py-1 hover::bg-[#DDF4FF] transition duration-300 mt-2">
-            <NavLink
-              to="/"
-              className="hover:text-green-600 flex gap-2 items-center"
-            >
+            <NavLink to="/" className=" flex gap-2 items-center">
               <FcHome
                 style={{
                   fontSize: "35px",

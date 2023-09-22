@@ -328,7 +328,7 @@ const QuestionsForLearn = () => {
         <div className="mb-10">
           {/* Your certificate content */}
           <Link to={"/certificate"}>
-            <button className="defaultBtn">Cullect Certificate</button>
+            <button className="defaultBtn">Collect Certificate</button>
           </Link>
         </div>
       )}

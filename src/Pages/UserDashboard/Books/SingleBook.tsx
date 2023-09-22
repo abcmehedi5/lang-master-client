@@ -126,31 +126,6 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
                       {selectedBook.bookname}
                     </h3>
 
-                    <p className="mt-1.5 max-w-[45ch] text-xs text-gray-700">
-                      {selectedBook.description}
-                    </p>
-                  </div>
-
-                  <p className="text-red-600">{selectedBook.price} Coin</p>
-                </div>
-
-
-                <div className="flex justify-end mt-4">
-                  <button
-                    onClick={handleBuyNow}
-                    className="px-4 py-2 bg-yellow-400 text-black rounded"
-                  >
-                    Buy Now
-                  </button>
-                  <button
-                    onClick={handleModalClose}
-                    className="px-4 py-2 ml-4 border rounded"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </Transition.Child>
           </div>
         </Dialog >
       </Transition >
