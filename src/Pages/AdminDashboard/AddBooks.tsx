@@ -102,7 +102,7 @@ const AddBooks = () => {
   return (
     <div className="px-4 py-8 md:px-20 md:py-16">
       <Helmet>
-        <title> All Bought Books | Admin dashboard | Lang Master </title>
+        <title> Add Book | Admin dashboard | Lang Master </title>
       </Helmet>
       <SectionTitle titleLetter="Add " titleWord="Book"></SectionTitle>
       <div className="border-2 rounded-md shadow-md bg-rotate bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 mt-10">

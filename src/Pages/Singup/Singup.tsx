@@ -114,10 +114,14 @@ const Signup: React.FC = () => {
       <Helmet>
         <title> Sign Up | Lang Master </title>
       </Helmet>
-      <div className="my-10">
-        <div className="hero-content flex-col lg:flex-row gap-5">
-          <div>
-            <img className="md:pr-10" src={registerImg} alt="" />
+      <div className="my-10 ">
+        <div className="hero-content mx-auto flex-col lg:flex-row gap-10">
+          <div className="hidden md:block">
+            <img
+              className="md:pr-10 max-sm:w-[300px]"
+              src={registerImg}
+              alt=""
+            />
           </div>
           <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
             <h1 className="text-4xl font-bold pb-0 mb-0 fontKalam">
