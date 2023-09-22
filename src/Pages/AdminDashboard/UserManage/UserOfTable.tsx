@@ -131,102 +131,104 @@ const UserOfTable: React.FC = () => {
 
   return (
     <>
-      <SectionTitle titleLetter="User " titleWord="Manage"></SectionTitle>
       {users.length <= 0 ? (
         <LazyLoader></LazyLoader>
       ) : (
-        <div className="border-2 rounded-3xl shadow-2xl mt-10">
-          <div className="form-control p-6 w-10/12 mx-auto ">
-            <div className="input-group flex justify-center">
-              <input
-                onChange={(e: any) => setSearchText(e.target.value)}
-                type="text"
-                placeholder="Search User"
-                className="input input-bordered md:w-2/3 w-full"
-              />
-              <button onClick={handleSearch} className="btn btn-square ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </button>
+        <div className="px-4 py-8 md:px-20 md:py-16">
+          <SectionTitle titleLetter="User " titleWord="Manage"></SectionTitle>
+          <div className="border-2 rounded-3xl shadow-2xl mt-10">
+            <div className="form-control p-6 w-10/12 mx-auto ">
+              <div className="input-group flex justify-center">
+                <input
+                  onChange={(e: any) => setSearchText(e.target.value)}
+                  type="text"
+                  placeholder="Search User"
+                  className="input input-bordered md:w-2/3 w-full"
+                />
+                <button onClick={handleSearch} className="btn btn-square ">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
-          </div>
 
-          <div className="py-6 px-12">
-            <div className="overflow-x-auto">
-              <table className="table">
-                {/* head */}
-                <thead className="bg-emerald-700 text-white">
-                  <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Email</th>
+            <div className="py-6 px-12">
+              <div className="overflow-x-auto">
+                <table className="table">
+                  {/* head */}
+                  <thead className="bg-emerald-700 text-white">
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Email</th>
 
-                    <th>Role</th>
-                    <th>Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* row 1 */}
-
-                  {paginatedUsers.map((user, index) => (
-                    <tr key={user?._id} className="">
-                      <th>{startSerialNumber + index}</th>
-                      <td>{user?.name}</td>
-                      <td>{user?.email}</td>
-                      <td>
-                        {user.role === "admin" ? (
-                          <span onClick={() => handleMakeUser(user)}>
-                            <FaUserShield className="text-2xl text-violet-600 hover:cursor-pointer"></FaUserShield>
-                          </span>
-                        ) : (
-                          <span onClick={() => handleMakeAdmin(user)}>
-                            {" "}
-                            <FaUserAlt className="text-2xl text-cyan-500 hover:cursor-pointer">
-                              {" "}
-                            </FaUserAlt>
-                          </span>
-                        )}
-                      </td>
-                      <td>
-                        <button
-                          onClick={() => handleDelete(user._id)}
-                          className="text-2xl text-red-500"
-                        >
-                          <MdDeleteSweep />
-                        </button>
-                      </td>
+                      <th>Role</th>
+                      <th>Delete</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    {/* row 1 */}
+
+                    {paginatedUsers.map((user, index) => (
+                      <tr key={user?._id} className="">
+                        <th>{startSerialNumber + index}</th>
+                        <td>{user?.name}</td>
+                        <td>{user?.email}</td>
+                        <td>
+                          {user.role === "admin" ? (
+                            <span onClick={() => handleMakeUser(user)}>
+                              <FaUserShield className="text-2xl text-violet-600 hover:cursor-pointer"></FaUserShield>
+                            </span>
+                          ) : (
+                            <span onClick={() => handleMakeAdmin(user)}>
+                              {" "}
+                              <FaUserAlt className="text-2xl text-cyan-500 hover:cursor-pointer">
+                                {" "}
+                              </FaUserAlt>
+                            </span>
+                          )}
+                        </td>
+                        <td>
+                          <button
+                            onClick={() => handleDelete(user._id)}
+                            className="text-2xl text-red-500"
+                          >
+                            <MdDeleteSweep />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
+            {/* Pagination component */}
+            <ReactPaginate
+              previousLabel={"Previous"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(users.length / itemsPerPage)}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageChange}
+              containerClassName={"flex justify-center items-center my-4"}
+              activeClassName={"bg-blue-500 text-white "}
+              pageClassName={"text-blue-500 px-3"}
+            />
           </div>
-          {/* Pagination component */}
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={Math.ceil(users.length / itemsPerPage)}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageChange}
-            containerClassName={"flex justify-center items-center my-4"}
-            activeClassName={"bg-blue-500 text-white "}
-            pageClassName={"text-blue-500 px-3"}
-          />
         </div>
       )}
     </>
