@@ -53,32 +53,35 @@ const UserPaymentData: React.FC = () => {
   ];
 
   return (
-    <div className="w-9/12 mx-auto shadow-xl rounded-2xl border-2 mt-10">
-      <SectionTitle titleLetter="My"  titleWord="Payment" ></SectionTitle>
-      <div>
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell key={column.id}>{column.label}</TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {paymentData.map((row) => (
-                <TableRow key={row.transactionId}>
-                  <TableCell>{row.name}</TableCell>
-                  <TableCell>{row.email}</TableCell>
-                  <TableCell>{row.transactionId}</TableCell>
-                  <TableCell>{row.date}</TableCell>
+    < div className="mt-10">
+      <SectionTitle titleLetter="My" titleWord="Payment" ></SectionTitle>
+      <div className="w-9/12 mx-auto shadow-xl rounded-2xl border-2">
+        <div>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead className="bg-slate-50 ">
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell key={column.id}>{column.label}</TableCell>
+                  ))}
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {paymentData.map((row) => (
+                  <TableRow key={row.transactionId}>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>{row.email}</TableCell>
+                    <TableCell>{row.transactionId}</TableCell>
+                    <TableCell>{row.date}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
       </div>
     </div>
+
   );
 };
 
