@@ -113,12 +113,12 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
               >
                 Buy Now
               </button>
-              <button
+              {/* <button
                 onClick={handleModalClose}
                 className="px-4 py-2 ml-4 border rounded"
               >
                 Cancel
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
