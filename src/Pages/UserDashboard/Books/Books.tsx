@@ -63,7 +63,7 @@ const Books: any = () => {
       {books.length <= 0 ? (
         <LazyLoader></LazyLoader>
       ) : (
-        <div className="mt-8 px-4 py-8 md:px-20 md:py-16 mx-auto">
+        <div className="px-4 py-8 md:px-20 md:py-16 mx-auto">
           <div className="flex flex-col items-center">
             <SectionTitle
               titleLetter="Language  "
