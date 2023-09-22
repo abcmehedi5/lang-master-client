@@ -19,17 +19,22 @@
 }
 
 .drawer-side a {
-  background-color: transparent;
-  @apply px-5 py-2;
+  /* background-color: transparent; */
+  @apply px-5 py-2 font-semibold text-gray-700;
+}
+.drawer-side a:hover {
+  /* background-color: transparent; */
+  @apply text-[#8ED0A3];
 }
 
 .drawer-side a.active {
   color: #1cb0f8;
   /* color: #fff !important; */
-  @apply bg-[#DDF4FF];
-  border: 1px solid #84d8ff;
+  @apply bg-[#DDF4FF] rounded-sm;
+  box-shadow: 0 0 0 2px #84d8ff;
   color: #1cb0f8;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 /* font  */
