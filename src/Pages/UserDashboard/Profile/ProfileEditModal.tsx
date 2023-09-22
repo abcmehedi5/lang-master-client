@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
@@ -9,24 +9,51 @@ interface ProfileData {
   phoneNumber: number;
   birthday: string;
   gender: string;
+  image: string;
 }
 
 interface ProfileEditModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSubmit: (data: ProfileData) => void;
+  singleUser: {
+    name: string;
+    bio: string;
+    address: string;
+    phoneNumber: number;
+    birthday: string;
+    gender: string;
+    image: string;
+  };
 }
 
 const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
   isOpen,
   onClose,
   onSubmit,
+  singleUser,
 }) => {
   const {
     control,
+    register,
     handleSubmit,
+    setValue,
     formState: { errors }, // Add isValid from formState
   } = useForm<ProfileData>();
+
+  useEffect(() => {
+    if (isOpen && singleUser) {
+      const { name, bio, address, phoneNumber, birthday, gender, image } =
+        singleUser;
+      setValue("name", name);
+      setValue("bio", bio);
+      setValue("address", address);
+      setValue("phoneNumber", phoneNumber);
+      setValue("birthday", birthday);
+      setValue("gender", gender);
+      setValue("image", image);
+    }
+  }, [isOpen, singleUser, setValue]);
 
   const onSubmitForm = (formData: ProfileData) => {
     onSubmit(formData);
@@ -41,7 +68,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
     <>
       <div className="fixed inset-0 flex items-center justify-center z-50">
         <div className="fixed inset-0 bg-black opacity-70"></div>
-        <div className="bg-white p-6 rounded-lg shadow-md relative md:w-1/2">
+        <div className="bg-white p-6 rounded-lg shadow-md relative ">
           <SectionTitle
             titleLetter="Edit Your "
             titleWord="Profile"
@@ -81,9 +108,23 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                 />
               </label>
 
-              {/* birthday */}
-              <label>
-                <span className="block mt-3 px-2">Birthday</span>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo</span>
+                </label>
+                <input
+                  type="file"
+                  placeholder="photo"
+                  className="input input-bordered pt-2"
+                  accept="image/*"
+                  {...register("image")}
+                />
+              </div>
+
+             <div className="md:flex items-center justify-center gap-2">
+               {/* birthday */}
+               <label>
+                <span className="w-full mt-3 px-2">Birthday</span>
                 <Controller
                   name="birthday"
                   control={control}
@@ -100,7 +141,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
 
               {/* Address*/}
               <label>
-                <span className="block mt-3 px-2">Address</span>
+                <span className="w-full mt-3 px-2">Address</span>
                 <Controller
                   name="address"
                   control={control}
@@ -115,6 +156,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                   )}
                 />
               </label>
+             </div>
               {/* Phone Number*/}
               <label>
                 <span className="block mt-3 px-2">Phone Number</span>

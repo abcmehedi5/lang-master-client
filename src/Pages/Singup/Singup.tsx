@@ -54,6 +54,7 @@ const Signup: React.FC = () => {
       });
       const result = await response.json();
       const imageUrl = result?.data?.display_url;
+      
       createUserEmail(email, password)
         .then((result: UserCredential) => {
           const userlogin = result.user;
