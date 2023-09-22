@@ -77,7 +77,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
             <div className="space-y-4">
               {/* username  */}
               <label>
-                <span className="block mt-2 px-2">User Name</span>
+                <span className="block mb-1 mt-2 px-2">Full Name</span>
                 <Controller
                   name="name"
                   control={control}
@@ -93,7 +93,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
               </label>
               {/* bio  */}
               <label>
-                <span className="block mt-3 px-2">Short Bio</span>
+                <span className="block mb-1 mt-3 px-2">Short Bio</span>
                 <Controller
                   name="bio"
                   control={control}
@@ -117,6 +117,7 @@ const ProfileEditModal: React.FC<ProfileEditModalProps> = ({
                   placeholder="photo"
                   className="input input-bordered pt-2"
                   accept="image/*"
+                  required
                   {...register("image")}
                 />
               </div>

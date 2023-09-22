@@ -39,12 +39,15 @@ const LeaderBoard: FC = () => {
                       "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
                     borderRadius: "10px",
                   }}
-                  className={`grid grid-cols-2 text-center w-full mb-5 py-2 px-5 rounded-sm items-center text-lg ${
+                  className={`grid grid-cols-3  text-center w-full mb-5 py-2 px-5 rounded-sm items-center text-lg ${
                     index < 3 ? "bg-[#91D1A3]" : "bg-[#DDF4FF]"
                   }`}
                 >
-                  <div>
-                    <p className="flex items-center space-x-5 font-semibold text-2xl">
+
+
+
+                  <div className="col-span-2">
+                    <p className="flex items-center  space-x-5 font-semibold text-2xl">
                       {index < 3 ? (
                         // Use icons for the top three positions
                         <BiCrown />
@@ -62,12 +65,15 @@ const LeaderBoard: FC = () => {
                         </div>
                       </p>
                       <div>
-                        <p className="font-semibold px-3 text-xl">
+                        <p className="font-semibold  text-[18px]">
                           {userPoint?.name}
                         </p>
                       </div>
                     </p>
                   </div>
+
+
+
                   <div className="flex-grow flex justify-end">
                     <p className="text-[#757575] left-div">
                       {userPoint?.score} Points

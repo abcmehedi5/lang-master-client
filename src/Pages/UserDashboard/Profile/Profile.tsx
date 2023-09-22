@@ -99,14 +99,14 @@ const Profile: React.FC = () => {
       <div className="md:flex h-full gap-4 lg:gap-8 mt-5 border-2 rounded-2xl p-10 bg-gray-100 shadow">
         <div
           className="border rounded-lg shadow-md"
-          style={{ height: "450px", width: "100%" }}
+          style={{ height: "100%", width: "100%" }}
         >
           <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg ">
             <figure>
               <img
                 src={singleUser?.image}
                 alt="Profile Picture"
-                className="w-full md:h-60 p-6 object-cover"
+                className="w-52  rounded-full md:h-52 p-6 object-cover"
               />
             </figure>
             <div className="px-4">
