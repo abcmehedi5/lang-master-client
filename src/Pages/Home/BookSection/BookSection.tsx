@@ -4,7 +4,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link, useLocation } from "react-router-dom";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import LazyLoader from "../../../Components/LazyLoader/LazyLoader";
-import { Helmet } from "react-helmet-async";
 
 type Book = {
   id: number;
@@ -17,7 +16,7 @@ type Book = {
   status: string;
 };
 
-const Books: any = () => {
+const BookSection: any = () => {
   const location = useLocation();
   const [axiosSecure] = useAxiosSecure();
   const [books, setBooks] = useState<Book[]>([]);
@@ -61,9 +60,6 @@ const Books: any = () => {
 
   return (
     <>
-      <Helmet>
-        <title> Book Library | Lang Master </title>
-      </Helmet>
       {books.length <= 0 ? (
         <LazyLoader></LazyLoader>
       ) : (
@@ -98,6 +94,13 @@ const Books: any = () => {
                   onChange={handleSearchInputChange}
                 />
               </div>
+              {!showAllBooks && (
+                <Link to="/user-dashboard/books-buy">
+                  <div className="bg-[#95d3a2] p-4 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
+                    <span>Explore More Books</span>
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
 
@@ -144,19 +147,6 @@ const Books: any = () => {
                             {book.price} Coin
                           </span>
                         </p>
-
-                        {/* buy now btn  */}
-                        {/* <form className="mt-4">
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleEditButtonClick(book);
-                      }}
-                      className="block w-full rounded bg-yellow-400 p-3 text-sm font-medium transition hover:scale-105"
-                    >
-                      Buy Now
-                    </button>
-                  </form> */}
                       </div>
                     </div>
                   </div>
@@ -178,4 +168,4 @@ const Books: any = () => {
   );
 };
 
-export default Books;
+export default BookSection;

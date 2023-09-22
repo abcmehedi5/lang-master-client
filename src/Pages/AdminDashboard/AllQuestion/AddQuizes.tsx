@@ -19,7 +19,7 @@ const AddQuizes = () => {
   return (
     <div>
       <Helmet>
-        <title> AddQuizes | Admin dashboard | Lang Master </title>
+        <title> AddQuizzes | Admin dashboard | Lang Master </title>
       </Helmet>
       <h2 className="text-center text-xl font-bold mb-3">Add Quiz</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">

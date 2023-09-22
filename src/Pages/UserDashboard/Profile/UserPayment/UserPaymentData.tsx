@@ -11,6 +11,7 @@ import {
   Paper,
 } from "@mui/material";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import SectionTitle from "../../../../Components/SectionTitle/SectionTitle";
 
 interface PaymentData {
   name: string;
@@ -26,9 +27,7 @@ const UserPaymentData: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const url = `${import.meta.env.VITE_API_URL}/payment/paymentUser?email=${
-      user?.email
-    }`;
+    const url = `/payment/paymentUser?email=${user?.email}`;
     axiosSecure
       .get<PaymentData[]>(url)
       .then((response) => {
@@ -54,37 +53,35 @@ const UserPaymentData: React.FC = () => {
   ];
 
   return (
-    <div className="w-9/12 mx-auto shadow-xl rounded-2xl border-2 mt-10">
-      <div className="py-20  bg-rose-50">
-        <p>{error}</p>
-        <h2 className="text-center font-medium text-2xl text-gradient">
-          {user?.email}
-        </h2>
-      </div>
-      <div>
-        <TableContainer component={Paper}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell key={column.id}>{column.label}</TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {paymentData.map((row) => (
-                <TableRow key={row.transactionId}>
-                  <TableCell>{row.name}</TableCell>
-                  <TableCell>{row.email}</TableCell>
-                  <TableCell>{row.transactionId}</TableCell>
-                  <TableCell>{row.date}</TableCell>
+    < div className="mt-10">
+      <SectionTitle titleLetter="My" titleWord="Payment" ></SectionTitle>
+      <div className="w-9/12 mx-auto shadow-xl rounded-2xl border-2">
+        <div>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead className="bg-slate-50 ">
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell key={column.id}>{column.label}</TableCell>
+                  ))}
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {paymentData.map((row) => (
+                  <TableRow key={row.transactionId}>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell>{row.email}</TableCell>
+                    <TableCell>{row.transactionId}</TableCell>
+                    <TableCell>{row.date}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
       </div>
     </div>
+
   );
 };
 

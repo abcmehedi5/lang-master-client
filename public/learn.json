@@ -1,297 +1,337 @@
 [
   {
     "unit": "1",
-    "topic": "শূন্যস্থান পূরণ করুন",
+    "topic": "অনুশীলন",
     "totalLessons": "৫",
     "lessons": [
       {
         "lessonNumber": "১",
-        "lessonTitle": "articles অনুশীলন",
+        "lessonTitle": "এলোমেলো অনুশীলন ১",
         "points": "১০",
         "quiz": [
           {
-            "question": "______ longest river in _____ world is _____ Mississippi.",
-           "options": ["A/An/The", "The/The/The", "The/A/The"],
-            "correctAnswer": "The/The/The"
+            "question": "What is the plural form of child?",
+           "options": ["childs", "childes", "children"],
+            "correctAnswer": "children"
           },
           {
-            "question": "Where thereâ€™s _____ will, thereâ€™s _____ way.",
-           "options": ["a/an", "a/a", "the/an"],
-            "correctAnswer": "a/a"
+            "question": "Which word is a synonym for plethora?",
+           "options": ["abundance", "scarcity", "deficiency"],
+            "correctAnswer": "abundance"
           },
           {
-            "question": "Letâ€™s have _____ good breakfast and start the day.",
-           "options": ["a", "the", "an"],
-            "correctAnswer": "a"
+            "question": "Identify the correct sentence with proper punctuation:",
+           "options": [" She enjoys cooking baking and gardening.", "She enjoys cooking, baking and gardening.", "She enjoys cooking, baking, and gardening."],
+            "correctAnswer": "She enjoys cooking, baking and gardening."
           },
           {
-            "question": "This is _____ lion that I saw in the circus yesterday.",
-           "options": ["a", "the", "an"],
-            "correctAnswer": "the"
+            "question": "What is the past tense of the verb go?",
+           "options": ["goed", "went", "goned"],
+            "correctAnswer": "went"
           },
           {
-            "question": "My uncle was _____ first guest to arrive.",
-            "options": ["a", "the", "an"],
-            "correctAnswer": "the"
+            "question": "Which of the following is an example of a simile?",
+            "options": ["The stars were like diamonds in the sky.", "The wind whispered through the trees.", "The sun set behind the mountains."],
+            "correctAnswer": "The stars were like diamonds in the sky."
           },
           {
-            "question": "_____ Apple a day keeps the doctor away.",
-           "options": ["a", "the", "an"],
-            "correctAnswer": "an"
+            "question": "Which of the following is an example of an oxymoron?",
+           "options": ["Bitter sweet", " Happy", "Fast"],
+            "correctAnswer": "Bitter sweet"
           },
           {
-            "question": "Cricket is one of _____ most interesting sports.",
-           "options": ["a", "the", "an"],
-            "correctAnswer": "the"
+            "question": "What is the comparative form of good?",
+           "options": ["gooder", "better", "best"],
+            "correctAnswer": "better"
           },
           {
-            "question": "Ant is ______ insect.",
-           "options": ["a", "the", "an"],
-            "correctAnswer": "an"
+            "question": "Which of the following is an example of an oxymoron?",
+           "options": ["Happy", "Bitter sweet", "Fast"],
+            "correctAnswer": "Bitter sweet"
           },
           {
-            "question": "He saw _____ aeroplane in the sky.",
-           "options": ["a", "the", "an"],
-            "correctAnswer": "an"
+            "question": "What is the plural form of cactus?",
+           "options": ["cactuss", "cactuses", "cacti"],
+            "correctAnswer": "cacti"
           },
           {
-            "question": "_____ USA is _____ country. It is in North America.",
-           "options": ["The/A", "A/An", "A/The"],
-            "correctAnswer": "The/A"
+            "question": "Which word is a synonym for meticulous?",
+           "options": ["hasty", "thorough", "careless"],
+            "correctAnswer": "thorough"
           }
         ]
       },
       {
         "lessonNumber": "২",
-        "lessonTitle": "অব্যয় অনুশীলন ",
+        "lessonTitle": "এলোমেলো অনুশীলন ২",
         "points": "১০",
         "quiz": [
           {
-            "question": "This shop doesn’t have the books we were looking __.",
-           "options": ["up", "for", "on"],
-            "correctAnswer": "for"
+            "question": "Choose the correct spelling:",
+           "options": ["childs", "childes", "children"],
+            "correctAnswer": "children"
           },
           {
-            "question": "Priya’s house is ___ Rahul’s. ",
-           "options": ["next to", "after", "beside"],
-            "correctAnswer": "next to"
+            "question": "Which word is a synonym for plethora?",
+           "options": ["Accommodate", "Accommodate", "Acommodate"],
+            "correctAnswer": "Accommodate"
           },
           {
-            "question": "Dogs are always loyal __ their master. ",
-           "options": ["to", "for", "of"],
-            "correctAnswer": "to"
+            "question": "What is the comparative form of good?",
+           "options": ["gooder", "better", "best"],
+            "correctAnswer": "better"
           },
           {
-            "question": "My birthday is __ 20th January.",
-           "options": ["on", "at", "to"],
-            "correctAnswer": "on"
+            "question": "Which figure of speech involves an exaggeration for emphasis?",
+           "options": ["Metaphor", "Hyperbole", "Simile"],
+            "correctAnswer": "Hyperbole"
           },
           {
-            "question": "The girl working __ the departmental store is pretty.",
-            "options": ["up", "on", "at"],
-            "correctAnswer": "at"
+            "question": "Identify the type of conjunction in the following sentence: She neither likes coffee nor tea.",
+           "options": [" Coordinating conjunction", "Subordinating conjunction", "Correlative conjunction"],
+            "correctAnswer": "Correlative conjunction"
           },
           {
-            "question": "Netaji Subhas Chandra Bose was born ___ 23rd January. ",
-           "options": ["in", "at", "on"],
-            "correctAnswer": "on"
+            "question": "What is the plural form of cactus?",
+           "options": ["cactuss", "cactuses", "cacti"],
+            "correctAnswer": "cacti"
           },
           {
-            "question": "Humpty Dumpty sat __ a wall. ",
-           "options": ["up", "on", "in"],
-            "correctAnswer": "on"
+            "question": "What is the past participle form of the verb sing?",
+            "options": ["sung", "sang", "singed"],
+            "correctAnswer": "sung"
           },
           {
-            "question": "The IAS officer was posted __ the rural office.",
-           "options": ["at", "on", "in"],
-            "correctAnswer": "at"
+            "question": "Which of the following sentences is in the passive voice?",
+           "options": ["The cat chased the mouse.", " The mouse was chased by the cat.", " The mouse eats the cheese."],
+            "correctAnswer": "The mouse was chased by the cat."
+          },
+          
+          {
+            "question": "Which of the following is an example of an oxymoron?",
+           "options": ["Happy", "Bitter sweet", "Fast"],
+            "correctAnswer": "Bitter sweet"
           },
           {
-            "question": "The Sun will not rise __ 8 o’clock today. ",
-           "options": ["before", "since", "ago"],
-            "correctAnswer": "before"
-          },
-          {
-            "question": "The people sitting ____  us ordered a pineapple pizza",
-           "options": ["opposite", "behind", "left"],
-            "correctAnswer": "opposite"
+            "question": "Which word is a synonym for meticulous?",
+           "options": ["hasty", "thorough", "careless"],
+            "correctAnswer": "thorough"
           }
         ]
       },
       {
         "lessonNumber": "৩",
-        "lessonTitle": "সাধারণ ব্যাকরণ অনুশীলন",
+        "lessonTitle": "এলোমেলো অনুশীলন ৩",
         "points": "১০",
         "quiz": [
           {
-            "question": "Tell me if you ___ any help.?",
-            "options": ["need", "will need", "would need"],
-            "correctAnswer": "need"
+            "question": "Identify the sentence with correct subject-verb agreement:",
+            "options": [
+              "The team are playing well.",
+              "The team is playing well.",
+              "The team were playing well."
+            ],
+            "correctAnswer": "The team is playing well."
           },
           {
-            "question": "The first time I ___ him was at university?",
-            "options": ["met", "had met", "have met"],
-            "correctAnswer": "met"
+            "question": "What is the plural form of 'mouse'?",
+            "options": ["mouses", "mice", "mouse"],
+            "correctAnswer": "mice"
           },
           {
-            "question": "This is the garage ___ they used to work.",
-            "options": ["where", "which", "that"],
-            "correctAnswer": "where"
+            "question": "Which word is an antonym of 'benevolent'?",
+            "options": ["kind", "malevolent", "generous"],
+            "correctAnswer": "malevolent"
           },
           {
-            "question": "I ___ a terrible experience yesterday.",
-            "options": ["have", "had", "have had"],
-            "correctAnswer": "have"
+            "question": "Choose the correct sentence with proper punctuation:",
+            "options": [
+              "He enjoys hiking camping and fishing.",
+              "He enjoys hiking, camping and fishing.",
+              "He enjoys hiking camping, and fishing."
+            ],
+            "correctAnswer": "He enjoys hiking, camping and fishing."
           },
           {
-            "question": "That is my biggest regret ___ .",
-            "options": ["still", "yet", "already"],
-            "correctAnswer": "yet"
+            "question": "What is the superlative form of 'good'?",
+            "options": ["better", "best", "goodest"],
+            "correctAnswer": "best"
           },
           {
-            "question": "The valley ___ quiet and beautiful in the morning.",
-            "options": ["lays", "lay", "laid"],
-            "correctAnswer": "lay"
+            "question": "Which of the following is an example of a preposition?",
+            "options": ["jump", "over", "quickly"],
+            "correctAnswer": "over"
           },
           {
-            "question": "Each of us ___ the world differently.",
-            "options": ["see", "sees", "seen"],
-            "correctAnswer": "sees"
+            "question": "Identify the correct sentence with proper subject-verb agreement:",
+            "options": [
+              "The group of students is studying together.",
+              "The group of students are studying together.",
+              "The group of students were studying together."
+            ],
+            "correctAnswer": "The group of students is studying together."
           },
           {
-            "question": " ___ his illness, he could not write the exam.",
-            "options": ["Owing to", "Due to", "Either could be used here"],
-            "correctAnswer": "Either could be used here"
+            "question": "What is the past tense of the verb 'swim'?",
+            "options": ["swam", "swum", "swimed"],
+            "correctAnswer": "swam"
           },
           {
-            "question": " The summer term ___ on April 12th.",
-            "options": ["will start", "is starting", "starts"],
-            "correctAnswer": "starts"
+            "question": "Which word is a synonym for 'ephemeral'?",
+            "options": ["lasting", "fleeting", "permanent"],
+            "correctAnswer": "fleeting"
           },
           {
-            "question": "I will pay you back when I ___ a job.",
-            "options": ["will get", "get", "would get"],
-            "correctAnswer": "get"
+            "question": "Identify the sentence with correct capitalization:",
+            "options": [
+              "the quick brown fox jumps over the lazy dog.",
+              "The quick brown fox jumps over the lazy dog.",
+              "The Quick Brown Fox Jumps Over the Lazy Dog."
+            ],
+            "correctAnswer": "The quick brown fox jumps over the lazy dog."
           }
         ]
       },
       {
         "lessonNumber": "৪",
-        "lessonTitle": "উপযুক্ত শব্দ দিয়ে শূন্যস্থান পূরণ করুন",
+        "lessonTitle": "এলোমেলো অনুশীলন ৪",
         "points": "১০",
         "quiz": [
           {
-            "question": "The Union Budget is likely to be presented on February 26, two days ahead of the _____ date.",
-            "options": ["critical", "suitable", "conventional"],
-            "correctAnswer": "conventional"
+            "question": "Which word is an antonym of 'brave'?",
+            "options": ["timid", "courageous", "fearless"],
+            "correctAnswer": "timid"
           },
           {
-            "question": "I am sorry ______ the mistake.",
-            "options": ["to", "for", "with"],
-            "correctAnswer": "for"
-          }
-          ,{
-            "question": "He ____ her that she would pass.",
-            "options": ["assured", "insured", "ensured"],
-            "correctAnswer": "assured"
+            "question": "Choose the correct form of the possessive pronoun: 'That is ____ book.'",
+            "options": ["my", "mine", "me"],
+            "correctAnswer": "my"
           },
           {
-            "question": "Your father ____ worry. I’m a very careful driver.",
-            "options": ["needn’t", "none", "doesn’t"],
-            "correctAnswer": "needn’t"
-          }
-          ,{
-            "question": "The _____ chosen for construction of the building is in the heart of the city.",
-            "options": ["slight", "cite", "site"],
-            "correctAnswer": "site"
+            "question": "Identify the type of sentence: 'Have you visited the museum?'",
+            "options": ["Declarative", "Interrogative", "Imperative"],
+            "correctAnswer": "Interrogative"
           },
           {
-            "question": "____ pollution control measures are expensive, many industries hesitate to adopt them.",
-            "options": ["Although", "Because", "However"],
-            "correctAnswer": "Because"
-          }
-          ,{
-            "question": "It is not ____ for a man to be confined to the pursuit of wealth.",
-            "options": ["healthy", "easy", "possible"],
-            "correctAnswer": "healthy"
+            "question": "What is the comparative form of 'bad'?",
+            "options": ["worse", "baddest", "badder"],
+            "correctAnswer": "worse"
           },
           {
-            "question": "It is a story of two men and a batch of ____ armoured cars.",
-            "options": ["deceased", "defeated", "decrepit"],
-            "correctAnswer": "decrepit"
-          }
-          ,{
-            "question": "_____ his being innocent of the crime, the judge sentenced him to one year imprisonment.",
-            "options": ["In spite of", "In case of", "In the event of"],
-            "correctAnswer": "In spite of"
+            "question": "Which of the following is an example of a proper noun?",
+            "options": ["car", "London", "apple"],
+            "correctAnswer": "London"
           },
           {
-            "question": "Although there is _____ gunfire, there is no stiff resistance to the revolutionary army.",
-            "options": ["bitter", "meagre", "sporadic"],
-            "correctAnswer": "sporadic"
+            "question": "Identify the sentence with correct punctuation:",
+            "options": [
+              "She said, 'Hello' and walked away.",
+              "She said 'Hello' and walked away.",
+              "She said 'Hello', and walked away."
+            ],
+            "correctAnswer": "She said, 'Hello' and walked away."
+          },
+          {
+            "question": "What is the plural form of 'ox'?",
+            "options": ["oxs", "oxen", "oxes"],
+            "correctAnswer": "oxen"
+          },
+          {
+            "question": "Which word is a synonym for 'exquisite'?",
+            "options": ["plain", "beautiful", "common"],
+            "correctAnswer": "beautiful"
+          },
+          {
+            "question": "Identify the sentence with correct subject-verb agreement:",
+            "options": [
+              "The team have won the championship.",
+              "The team has won the championship.",
+              "The team is winning the championship."
+            ],
+            "correctAnswer": "The team has won the championship."
+          },
+          {
+            "question": "What is the adverb form of 'quick'?",
+            "options": ["quickly", "quickest", "quickness"],
+            "correctAnswer": "quickly"
           }
         ]
+        
       },
       {
         "lessonNumber": "৫",
-        "lessonTitle": "ক্রিয়ার সঠিক ফর্ম দিয়ে শূন্যস্থান পূরণ করুন",
+        "lessonTitle": "এলোমেলো অনুশীলন ৫",
         "points": "১০",
         "quiz": [
           {
-            "question": "He is______football",
-            "options": ["plays", "plays", "playing"],
-            "correctAnswer": "playing"
+            "question": "What is the plural form of 'knife'?",
+            "options": ["knifes", "knives", "knife"],
+            "correctAnswer": "knives"
           },
           {
-            "question": "The shop______at nine o’clock every morning.",
-            "options": ["open", "opens", "is opening"],
-            "correctAnswer": "opens "
-          }
-          ,{
-            "question": " I______next month",
-            "options": ["will be coming", "am coming", "shall be coming"],
-            "correctAnswer": "shall be coming"
+            "question": "Which word is an antonym of 'joyful'?",
+            "options": ["happy", "miserable", "content"],
+            "correctAnswer": "miserable"
           },
           {
-            "question": "That house______to my uncle. ",
-            "options": ["belong", "belongs", "is belonging"],
-            "correctAnswer": "belongs"
-          }
-          ,{
-            "question": "You______when I came to your house. ",
-            "options": ["are sleeping", "were sleeping", "slept"],
-            "correctAnswer": "were sleeping"
+            "question": "Choose the correct sentence with proper punctuation:",
+            "options": [
+              "He went to the store, and then to the park.",
+              "He went to the store and then to the park.",
+              "He went to the store and then, to the park."
+            ],
+            "correctAnswer": "He went to the store and then to the park."
           },
           {
-            "question": "When I______ my dinner I went to bed.",
-            "options": ["had", "have had", "had had"],
-            "correctAnswer": "had had"
-          }
-          ,{
-            "question": "I thanked him for what he______.",
-            "options": ["did", "has done", "had done"],
-            "correctAnswer": "had done"
+            "question": "What is the superlative form of 'far'?",
+            "options": ["farrer", "farther", "farthest"],
+            "correctAnswer": "farthest"
           },
           {
-            "question": " A hardworking student______the prize",
-            "options": ["win", "wins", "won"],
-            "correctAnswer": "wins"
-          }
-          ,{
-            "question": "She______ with her bad-tempered roommate",
-            "options": ["put up", "puts up", "putted up"],
-            "correctAnswer": "put up"
+            "question": "Which of the following is an example of a conjunction?",
+            "options": ["and", "big", "quickly"],
+            "correctAnswer": "and"
           },
           {
-            "question": " It______since eight o’clock this morning. ",
-            "options": ["is raining", "was raining", "has been raining"],
-            "correctAnswer": "has been raining"
+            "question": "Identify the sentence with correct capitalization:",
+            "options": [
+              "the sun sets in the west.",
+              "The sun sets in the west.",
+              "the Sun sets in the West."
+            ],
+            "correctAnswer": "The sun sets in the west."
+          },
+          {
+            "question": "What is the plural form of 'focus'?",
+            "options": ["foci", "focusses", "focuses"],
+            "correctAnswer": "foci"
+          },
+          {
+            "question": "Which word is a synonym for 'vivid'?",
+            "options": ["dull", "bright", "pale"],
+            "correctAnswer": "bright"
+          },
+          {
+            "question": "Identify the sentence with correct subject-verb agreement:",
+            "options": [
+              "The crowd are cheering for their team.",
+              "The crowd is cheering for their team.",
+              "The crowd were cheering for their team."
+            ],
+            "correctAnswer": "The crowd is cheering for their team."
+          },
+          {
+            "question": "What is the adverb form of 'quiet'?",
+            "options": ["quietly", "quieter", "quietness"],
+            "correctAnswer": "quietly"
           }
         ]
+        
+        
       }
     ],
     "points": "৫০",
-    "progress": "৮৫"
+    "progress": "6৫"
   },
 
 

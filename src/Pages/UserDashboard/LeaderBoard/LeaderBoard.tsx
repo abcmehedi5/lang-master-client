@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Helmet } from "react-helmet-async";
 import { BiCrown } from "react-icons/bi";
 import useLeaderBoard from "../../../hooks/useLeaderBoardData/useLeaderBoard";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 interface UserPoint {
   name: string;
@@ -13,20 +14,21 @@ interface UserPoint {
 const LeaderBoard: FC = () => {
   const { allLeaderBoardData: usersPoint } = useLeaderBoard();
   return (
-    <div className="md:w-9/12 mx-auto px-4 md:px-0">
+    <div className="px-4 py-8 md:px-20 md:py-16">
       <Helmet>
         <title> Leader-board | Lang Master </title>
       </Helmet>
-      <div className="w-full mx-auto md:flex mt-14">
-        <div className="w-full md:mx-10 text-center">
+      <div className="md:grid grid-cols-12 gap-10">
+        <div className="text-center col-span-8">
           <div className="space-y-2 mb-2">
-            <h1 className="text-3xl font-semibold">লিডারবোর্ড আনলক করুন!</h1>
-            <p className="text-xl text-gray-600 font-semibold">
-              প্রতিযোগিতায় অংশ নিতে হলে আপনাকে আরও 7টি লেসন শেষ করতে হবে
+            <SectionTitle titleLetter="লিডার " titleWord="বোর্ড"></SectionTitle>
+            <p className="text-xl text-gray-700 block md:hidden">
+              লেসন প্র্যাকটিস করে পয়েন্ট জিতুন, এবং মেতে উঠুন লিডারবোর্ডের
+              প্রতিযোগিতায়
             </p>
           </div>
           <hr className="my-5 border" />
-          <div>
+          <div className="mt-10">
             {usersPoint
               .sort((a: UserPoint, b: UserPoint) => b.score - a.score)
               .map((userPoint: any, index: number) => (
@@ -35,9 +37,10 @@ const LeaderBoard: FC = () => {
                   style={{
                     boxShadow:
                       "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
+                    borderRadius: "10px",
                   }}
-                  className={`grid grid-cols-2 text-center w-full mb-5 py-2 px-5 items-center text-lg ${
-                    index < 3 ? "bg-[#eabb75]" : "bg-base-300"
+                  className={`grid grid-cols-2 text-center w-full mb-5 py-2 px-5 rounded-sm items-center text-lg ${
+                    index < 3 ? "bg-[#91D1A3]" : "bg-[#DDF4FF]"
                   }`}
                 >
                   <div>
@@ -74,16 +77,19 @@ const LeaderBoard: FC = () => {
               ))}
           </div>
         </div>
-        {/* <div className="md:w-[400px] w-full h-full mx-auto border-2 px-3 py-4 md:mr-10 rounded-lg">
+        <div
+          className="col-span-4 border-2 px-3 py-4 rounded-lg h-fit space-y-3 hidden md:block"
+          style={{ marginTop: "60px" }}
+        >
           <h5 className="text-gray-500 text-xl">লিডারবোর্ড কী?</h5>
           <p className="text-2xl">
             লেসন প্র্যাকটিস করুন। পয়েন্ট জিতুন। প্রতিযোগিতায় মেতে উঠুন।
           </p>
           <p className="text-xl text-gray-700">
-            লেসন প্র্যাকটিস করে পয়েন্ট জিতুন, এবং মেতে উঠুন সাপ্তাহিক
-            লিডারবোর্ডের প্রতিযোগিতায়
+            লেসন প্র্যাকটিস করে পয়েন্ট জিতুন, এবং মেতে উঠুন লিডারবোর্ডের
+            প্রতিযোগিতায়
           </p>
-        </div> */}
+        </div>
       </div>
     </div>
   );
