@@ -3,6 +3,7 @@ import Select from "react-select";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 type FormValue = {
   Level: string;
@@ -34,7 +35,7 @@ const AddCategoryQuiz: React.FC = () => {
       const response = await axiosSecure.post("/quizs/quiz", data);
       if (response.status === 200) {
         // Successfully saved data
-        console.log("Data saved successfully!");
+        toast.success("Data saved successfully!");
       } else {
         console.error("Failed to save data");
       }

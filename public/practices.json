@@ -1,0 +1,73 @@
+[
+  {
+    "Level": "hard",
+    "questionData": [
+        {
+            "question": "Identify the sentence with correct subject-verb agreement:",
+            "options": [
+              "The team are playing well.",
+              "The team is playing well.",
+              "The team were playing well."
+            ],
+            "correctAnswer": "The team is playing well."
+          },
+          {
+            "question": "What is the plural form of 'mouse'?",
+            "options": ["mouses", "mice", "mouse"],
+            "correctAnswer": "mice"
+          },
+          {
+            "question": "Which word is an antonym of 'benevolent'?",
+            "options": ["kind", "malevolent", "generous"],
+            "correctAnswer": "malevolent"
+          },
+          {
+            "question": "Choose the correct sentence with proper punctuation:",
+            "options": [
+              "He enjoys hiking camping and fishing.",
+              "He enjoys hiking, camping and fishing.",
+              "He enjoys hiking camping, and fishing."
+            ],
+            "correctAnswer": "He enjoys hiking, camping and fishing."
+          },
+          {
+            "question": "What is the superlative form of 'good'?",
+            "options": ["better", "best", "goodest"],
+            "correctAnswer": "best"
+          },
+          {
+            "question": "Which of the following is an example of a preposition?",
+            "options": ["jump", "over", "quickly"],
+            "correctAnswer": "over"
+          },
+          {
+            "question": "Identify the correct sentence with proper subject-verb agreement:",
+            "options": [
+              "The group of students is studying together.",
+              "The group of students are studying together.",
+              "The group of students were studying together."
+            ],
+            "correctAnswer": "The group of students is studying together."
+          },
+          {
+            "question": "What is the past tense of the verb 'swim'?",
+            "options": ["swam", "swum", "swimed"],
+            "correctAnswer": "swam"
+          },
+          {
+            "question": "Which word is a synonym for 'ephemeral'?",
+            "options": ["lasting", "fleeting", "permanent"],
+            "correctAnswer": "fleeting"
+          },
+          {
+            "question": "Identify the sentence with correct capitalization:",
+            "options": [
+              "the quick brown fox jumps over the lazy dog.",
+              "The quick brown fox jumps over the lazy dog.",
+              "The Quick Brown Fox Jumps Over the Lazy Dog."
+            ],
+            "correctAnswer": "The quick brown fox jumps over the lazy dog."
+          }
+    ]
+  }
+]

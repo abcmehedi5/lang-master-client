@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { useForm } from "react-hook-form";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 const AddQuizes = () => {
   const { register, handleSubmit } = useForm();
@@ -11,7 +11,7 @@ const AddQuizes = () => {
     correctAnswer: "",
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     // Handle form submission here
     console.log(data);
   };

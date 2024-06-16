@@ -2,7 +2,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { UserCredential } from "firebase/auth";
 import registerImg from "../../../public/register.svg";
 import GoogleFb from "../Shared/Google-Fb/GoogleFb";
 import { Helmet } from "react-helmet-async";
@@ -54,11 +53,9 @@ const Signup: React.FC = () => {
       });
       const result = await response.json();
       const imageUrl = result?.data?.display_url;
-      
+
       createUserEmail(email, password)
-        .then((result: UserCredential) => {
-          const userlogin = result.user;
-          console.log(userlogin);
+        .then(() => {
           // send user data on mongodb start.................
 
           const saveUser = {

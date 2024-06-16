@@ -17,7 +17,7 @@ const Footer = () => {
   };
   return (
     <footer>
-      <img src={wave} alt="bg" />
+      <img src={wave} alt="bg" loading="lazy" />
       {/* <div className="bg-[#156279] grid grid-cols-1 md:grid-cols-2 py-2 px-5"> */}
       {/* <div>
           <img

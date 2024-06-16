@@ -57,7 +57,6 @@ const AddLesson: React.FC = () => {
       .get("/learning-questions/addQuize", lessonTitle)
       .then((data) => {
         alert(data);
-        console.log(data);
       });
 
     // setSelectedLessonId(lessonId);
@@ -91,7 +90,7 @@ const AddLesson: React.FC = () => {
     }
   };
 
-  const onQuizChange = (index: any, field: any, value: any) => {
+  const onQuizChange = (index: number, field: any, value: any) => {
     setQuizes((prevQuizes) => {
       const newQuizes: any = [...prevQuizes];
       newQuizes[index][field] = value;
