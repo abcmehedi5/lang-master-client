@@ -98,8 +98,7 @@ const QuestionsForLearn = () => {
 
             await axiosSecure
               .post("/notifications/notification", notificationData)
-              .then((result) => {
-                console.log(result);
+              .then(() => {
                 Swal.fire({
                   // title: "Good job!",
                   text: "আপনার পয়েন্ট সংগ্রহ হয়েছে",

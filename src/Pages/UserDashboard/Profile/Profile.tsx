@@ -12,6 +12,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 import { ImLocation2 } from "react-icons/im";
 import { BsTelephone } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 
 interface Profile {
   _id: string;
@@ -48,8 +49,7 @@ const Profile: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const handleModalSubmit = async (data: any) => {
-    console.log("data", data);
+  const handleModalSubmit: SubmitHandler<FieldValues> = async (data) => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
 
@@ -74,7 +74,6 @@ const Profile: React.FC = () => {
         gender: data.gender,
         image: imageUrl,
       };
-      console.log(updatedData);
       const response = await axiosSecure.patch(
         `/users/update-user/${user?.email}`,
         { updatedData }

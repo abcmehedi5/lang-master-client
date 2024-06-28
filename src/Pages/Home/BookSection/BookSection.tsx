@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import SingleBook from "./SingleBook";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link, useLocation } from "react-router-dom";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import LazyLoader from "../../../Components/LazyLoader/LazyLoader";
 
-type Book = {
-  id: number;
+type TBook = {
+  _id: number;
   bookname: string;
   bookimage: string;
   writer: string;
@@ -16,19 +16,19 @@ type Book = {
   status: string;
 };
 
-const BookSection: any = () => {
+const BookSection = () => {
   const location = useLocation();
   const [axiosSecure] = useAxiosSecure();
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<TBook[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const [selectedBook, setSelectedBook] = useState<TBook | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSearchInputChange = (e: any) => {
+  const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
   };
 
-  const handleEditButtonClick = (book: Book) => {
+  const handleEditButtonClick = (book: TBook) => {
     setSelectedBook(book);
     setIsModalOpen(true);
   };
@@ -112,7 +112,7 @@ const BookSection: any = () => {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4  mt-8">
               {filteredBooks
                 .slice(0, showAllBooks ? filteredBooks.length : 8)
-                .map((book: any) => (
+                .map((book: TBook) => (
                   <div
                     key={book._id}
                     onClick={(e) => {
@@ -128,13 +128,15 @@ const BookSection: any = () => {
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black bg-opacity-70 text-white">
                       <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium absolute top-0 left-0">
-                        {book.status}
+                        {book.status ? book.status : "New"}
                       </span>
                       <span className="text-2xl absolute top-0 right-0 p-2 cursor-pointer">
                         ❤️
                       </span>
                       <div className="flex flex-col justify-center items-center absolute inset-0">
-                        <h3 className="text-lg font-medium">{book.bookname}</h3>
+                        <h3 className="text-lg font-medium text-center">
+                          {book.bookname}
+                        </h3>
                         <h3 className="mt-2 font-medium">
                           Writer: {book.writer}
                         </h3>

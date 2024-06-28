@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -15,11 +13,22 @@ interface CoverProps {
   // Define any props you might pass to the component
 }
 
+interface TUserPoints {
+  email: string;
+  image: string;
+  name: string;
+  phoneNumber: string;
+  role: string;
+  score: number;
+  unit: string[];
+  _id: string;
+}
+
 const Cover: React.FC<CoverProps> = () => {
-  const { allLeaderBoardData: usersPoint } = useLeaderBoard();
+  const { allLeaderBoardData: usersPoint } = useLeaderBoard()
+
   return (
     <div className="bg-gradient-to-r from-[#95d3a2] to-[#359fac]">
-
       <div className="banner md:flex items-center justify-between relative md:py-0 pb-16 md:h-[90vh] md:px-7 gap-20 w-11/12 mx-auto pt-12">
         <div className="absolute animatespin h-20 w-20 opacity-95 hidden md:block right-10 bottom-32">
           <img src={shap1} />
@@ -35,7 +44,8 @@ const Cover: React.FC<CoverProps> = () => {
           <img
             className="w-full h-full"
             src="https://i.ibb.co/s1vDwGW/banner-img-1.png"
-            alt=""
+            alt="banner img"
+            loading="lazy"
           />
         </div>
         <div className="md:w-1/2 text-center mt-10 md:mt-0">
@@ -50,7 +60,7 @@ const Cover: React.FC<CoverProps> = () => {
           </p>
 
           <div className="flex my-2 justify-center">
-            {usersPoint.slice(0, 3).map((userPoint: any) => (
+            {usersPoint.slice(0, 3).map((userPoint: TUserPoints) => (
               <img
                 key={userPoint._id}
                 className="w-10 h-10 rounded-full border-2"

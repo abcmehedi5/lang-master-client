@@ -4,7 +4,7 @@ const TermsAndCondition = () => {
             <h1 className="font-bold text-4xl my-10">Terms and Conditions of Service    
             <hr className="border-1 border-black mt-2"/></h1>
             <div className="text-xl">
-                <p className="mb-5 font-bold text-xl">Welcome to Langmaster! These terms and conditions ("Terms") govern your use of the Langmaster website and mobile applications (collectively, "the Service"). By using Langmaster, you agree to be bound by these Terms. If you do not agree to abide by these Terms and Conditions, you are not authorized to use, access, or participate in the Service.</p> <br />
+                <p className="mb-5 font-semibold text-xl">Welcome to Langmaster! These terms and conditions ("Terms") govern your use of the Langmaster website and mobile applications (collectively, "the Service"). By using Langmaster, you agree to be bound by these Terms. If you do not agree to abide by these Terms and Conditions, you are not authorized to use, access, or participate in the Service.</p> <br />
 
                 <p className="font-bold text-2xl my-3">1. Definitions</p>
 

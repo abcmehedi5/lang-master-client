@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../../Providers/AuthProvider";
 
 interface User {
   _id: string;
@@ -10,15 +9,16 @@ interface User {
 }
 
 const UserTable: React.FC = () => {
-  const { user }: any = useContext(AuthContext);
-  console.log(user);
+  // const { user }: any = useContext(AuthContext);
 
   const [users, setUsers] = useState<User[]>([]);
   const [searchText, setSearchText] = useState<string>("");
 
   const handleSearch = () => {
     if (searchText !== "") {
-      fetch(`https://lang-master-server-abcmehedi5.vercel.app/users/user/${searchText}`)
+      fetch(
+        `https://lang-master-server-abcmehedi5.vercel.app/users/user/${searchText}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setUsers(data);
@@ -42,9 +42,12 @@ const UserTable: React.FC = () => {
       if (result.isConfirmed) {
         setUsers(users.filter((user) => user._id !== _id));
 
-        fetch(`https://lang-master-server-abcmehedi5.vercel.app/users/user/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://lang-master-server-abcmehedi5.vercel.app/users/user/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => {
             if (!res.ok) {
               throw new Error("Network response was not ok");
@@ -52,7 +55,6 @@ const UserTable: React.FC = () => {
             return res.json();
           })
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
@@ -66,12 +68,14 @@ const UserTable: React.FC = () => {
 
   // admin created
   const handleMakeAdmin = (user: any) => {
-    fetch(`https://lang-master-server-abcmehedi5.vercel.app/users/admin/${user._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://lang-master-server-abcmehedi5.vercel.app/users/admin/${user._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           Swal.fire({
             position: "top-end",
@@ -100,7 +104,9 @@ const UserTable: React.FC = () => {
       <div className="form-control p-6">
         <div className="input-group">
           <input
-            onChange={(e: any) => setSearchText(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setSearchText(e.target.value)
+            }
             type="text"
             placeholder="Search…"
             className="input input-bordered"

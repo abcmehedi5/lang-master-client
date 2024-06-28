@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 type QuizQuestion = {
   question: string;
@@ -57,12 +58,12 @@ const AddTopicData: React.FC = () => {
       );
       if (response.status === 200) {
         // Successfully saved data
-        console.log("তথ্যটি সফলভাবে সংরক্ষিত হয়েছে!");
+        toast.success("তথ্যটি সফলভাবে সংরক্ষিত হয়েছে!");
       } else {
-        console.error("তথ্য সংরক্ষণে সমস্যা হয়েছে");
+        toast.error("তথ্য সংরক্ষণে সমস্যা হয়েছে");
       }
-    } catch (error) {
-      console.error("তথ্য সংরক্ষণে সমস্যা:", error);
+    } catch (error: any) {
+      toast.error("তথ্য সংরক্ষণে সমস্যা:", error.message);
     }
   };
 

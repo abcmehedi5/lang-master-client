@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { UserCredential } from "firebase/auth";
 import GoogleFb from "../Shared/Google-Fb/GoogleFb";
 import { Helmet } from "react-helmet-async";
 import useToast from "../../hooks/useToast";
@@ -30,9 +29,7 @@ const Login: React.FC = () => {
 
   const onSubmit = (data: FormData) => {
     loginUser(data.email, data.password)
-      .then((result: UserCredential) => {
-        const userlogin = result.user;
-        console.log(userlogin);
+      .then(() => {
         navigate(from, { replace: true });
         successAlert("login successfull");
       })

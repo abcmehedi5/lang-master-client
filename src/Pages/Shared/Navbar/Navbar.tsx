@@ -15,6 +15,7 @@ const Navbar: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { user, logOut }: any = useContext(AuthContext);
   const [singleUser] = useUser();
+  console.log(singleUser);
   const handleLogout = () => {
     logOut()
       .then(() => {})
@@ -123,12 +124,6 @@ const Navbar: React.FC = () => {
             alt=""
           />
         </Link>
-
-        {/* <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-white">
-            <Navigation />
-          </ul>
-        </div> */}
       </div>
 
       <div className="navbar-center">
@@ -149,8 +144,20 @@ const Navbar: React.FC = () => {
         {user ? (
           <div className="dropdown dropdown-end z-[1000000]">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src={singleUser?.image} />
+              <div className="w-10 rounded-full border">
+                {singleUser?.image ? (
+                  <img
+                    src={singleUser?.image}
+                    loading="lazy"
+                    alt="Profile Image"
+                  />
+                ) : (
+                  <img
+                    src="https://cdn.icon-icons.com/icons2/1371/PNG/512/robot02_90810.png"
+                    loading="lazy"
+                    alt="Profile Image"
+                  />
+                )}
               </div>
             </label>
             <ul

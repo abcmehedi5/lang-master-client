@@ -24,19 +24,15 @@ const AboutUs = () => {
 
       <div className="w-11/12 md:w-10/12 mx-auto">
         <div className="text-center mt-4">
-          <h3 className="text-3xl font-semibold mb-3">
+          <h3 className="text-3xl font-semibold mb-3 max-w-xl mx-auto">
             Meet our team of experts in developing and building a flawless
             website.
           </h3>
-          <p className="text-gray-500 text-sm font-medium">
+          <p className="text-gray-500 text-sm max-w-2xl mx-auto">
             Our team is composed of dedicated professionals with a wealth of
             experience in creating exceptional websites. Each member brings a
             unique set of skills and expertise, ensuring that every aspect of
-            your project is handled with precision and care. From design to
-            development, we work tirelessly to bring your vision to life. With a
-            keen eye for detail and a passion for innovation, we strive to
-            deliver nothing short of excellence. Partner with us, and let's turn
-            your ideas into an extraordinary online presence.
+            your project is handled with precision and care.
           </p>
         </div>
         {/* about us card section */}

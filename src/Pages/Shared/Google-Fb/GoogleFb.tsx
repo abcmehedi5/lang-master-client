@@ -31,7 +31,7 @@ const GoogleFb = () => {
         axiosSecure
           .post("/users/user", saveUser)
           .then(() => {
-            successAlert("login successfull");
+            successAlert("login successfully");
           })
           .catch(() => {});
 
@@ -40,7 +40,7 @@ const GoogleFb = () => {
         navigate(from, { replace: true });
       })
       .catch((err: any) => {
-        console.log(err.message);
+        console.error(err.message);
       });
   };
 
