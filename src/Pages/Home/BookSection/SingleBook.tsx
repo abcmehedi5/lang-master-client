@@ -118,7 +118,7 @@ const SingleBook = ({ handleModalClose, selectedBook }: any) => {
                   <img
                     src={selectedBook.bookimage}
                     alt=""
-                    className="h-[350px] w-full object-cover sm:h-[450px]"
+                    className="h-[350px] w-full object-cover sm:h-[450px] rounded-xl"
                   />
                 </div>
                 <div className="mt-3 flex justify-between text-sm">

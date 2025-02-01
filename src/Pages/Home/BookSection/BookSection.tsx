@@ -119,12 +119,12 @@ const BookSection = () => {
                       e.preventDefault();
                       handleEditButtonClick(book);
                     }}
-                    className="group relative block overflow-hidden cursor-pointer"
+                    className="group relative block overflow-hidden cursor-pointer rounded-xl"
                   >
                     <img
                       src={book.bookimage}
                       alt=""
-                      className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                      className="h-64 w-full rounded-xl object-cover transition duration-500 group-hover:scale-105 sm:h-72"
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black bg-opacity-70 text-white">
                       <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium absolute top-0 left-0">

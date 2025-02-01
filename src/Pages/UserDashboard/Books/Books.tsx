@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SingleBook from "./SingleBook";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import LazyLoader from "../../../Components/LazyLoader/LazyLoader";
 import { Helmet } from "react-helmet-async";
@@ -116,22 +116,24 @@ const Books: any = () => {
                       e.preventDefault();
                       handleEditButtonClick(book);
                     }}
-                    className="group relative block overflow-hidden cursor-pointer"
+                    className="group relative block overflow-hidden cursor-pointer rounded-xl"
                   >
                     <img
                       src={book.bookimage}
                       alt=""
-                      className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+                      className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72 rounded-xl"
                     />
                     <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black bg-opacity-70 text-white">
                       <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium absolute top-0 left-0">
-                        {book.status}
+                        {book.status ? book.status : "New"}
                       </span>
                       <span className="text-2xl absolute top-0 right-0 p-2 cursor-pointer">
                         ❤️
                       </span>
                       <div className="flex flex-col justify-center items-center absolute inset-0">
-                        <h3 className="text-lg font-medium">{book.bookname}</h3>
+                        <h3 className="text-lg font-medium text-center">
+                          {book.bookname}
+                        </h3>
                         <h3 className="mt-2 font-medium">
                           Writer: {book.writer}
                         </h3>

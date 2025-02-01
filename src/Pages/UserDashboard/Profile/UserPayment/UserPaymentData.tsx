@@ -24,7 +24,8 @@ const UserPaymentData: React.FC = () => {
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
   const [paymentData, setPaymentData] = useState<PaymentData[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const url = `/payment/paymentUser?email=${user?.email}`;
@@ -33,14 +34,14 @@ const UserPaymentData: React.FC = () => {
       .then((response) => {
         if (response.status === 200) {
           setPaymentData(response.data);
-          setError(null);
+          // setError(null);
         } else {
-          setError("Error retrieving data.");
+          // setError("Error retrieving data.");
           setPaymentData([]);
         }
       })
       .catch(() => {
-        setError("Error occurred during the request.");
+        // setError("Error occurred during the request.");
         setPaymentData([]);
       });
   }, [user?.email, axiosSecure]);
@@ -53,8 +54,8 @@ const UserPaymentData: React.FC = () => {
   ];
 
   return (
-    < div className="mt-10">
-      <SectionTitle titleLetter="My" titleWord="Payment" ></SectionTitle>
+    <div className="mt-10">
+      <SectionTitle titleLetter="My" titleWord="Payment"></SectionTitle>
       <div className="w-9/12 mx-auto shadow-xl rounded-2xl border-2">
         <div>
           <TableContainer component={Paper}>
@@ -81,7 +82,6 @@ const UserPaymentData: React.FC = () => {
         </div>
       </div>
     </div>
-
   );
 };
 

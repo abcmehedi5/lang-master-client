@@ -13,6 +13,7 @@ const Blogs = () => {
   const [search, setSearch] = useState("");
 
   const { blog } = useBlogData();
+  console.log(blog);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -40,7 +41,7 @@ const Blogs = () => {
 
   return (
     <>
-     <Helmet>
+      <Helmet>
         <title>Blogs | Lang Master </title>
       </Helmet>
       <SubHeader title="Blog"></SubHeader>
