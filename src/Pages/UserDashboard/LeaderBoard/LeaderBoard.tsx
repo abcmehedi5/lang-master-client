@@ -43,9 +43,6 @@ const LeaderBoard: FC = () => {
                     index < 3 ? "bg-[#91D1A3]" : "bg-[#DDF4FF]"
                   }`}
                 >
-
-
-
                   <div className="col-span-2">
                     <p className="flex items-center  space-x-5 font-semibold text-2xl">
                       {index < 3 ? (
@@ -57,11 +54,15 @@ const LeaderBoard: FC = () => {
                       )}
                       <p className="avatar">
                         <div className="border rounded-lg w-12 h-12">
-                          <img
-                            src={userPoint?.image}
-                            alt="Avatar Tailwind CSS Component"
-                            className="rounded-lg"
-                          />
+                          {userPoint.image ? (
+                            <img
+                              src={userPoint?.image}
+                              alt="Avatar"
+                              className="rounded-lg"
+                            />
+                          ) : (
+                            ""
+                          )}
                         </div>
                       </p>
                       <div>
@@ -71,8 +72,6 @@ const LeaderBoard: FC = () => {
                       </div>
                     </p>
                   </div>
-
-
 
                   <div className="flex-grow flex justify-end">
                     <p className="text-[#757575] left-div">
