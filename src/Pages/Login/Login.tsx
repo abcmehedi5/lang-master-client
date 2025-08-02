@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 import useToast from "../../hooks/useToast";
 import { Toaster } from "react-hot-toast";
 import loginAni from "./../../../public/loginAni.json";
-import Lottie from "lottie-react-web";
+import Lottie from "lottie-react";
 interface FormData {
   email: string;
   password: string;
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
           {/* <img className="md:w-1/2" src={login} alt="" /> */}
           <div className="lg:w-1/2">
             <Lottie
-              options={{ animationData: loginAni, loop: true, autoplay: true }}
+               animationData= {loginAni} loop= {true} autoplay= {true}
             />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

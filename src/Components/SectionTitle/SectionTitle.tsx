@@ -1,4 +1,4 @@
-import "./SectionTitle.css";
+import "./SectionTItle.css";
 interface SectionTitleProps {
   titleLetter: string;
   titleWord: string;

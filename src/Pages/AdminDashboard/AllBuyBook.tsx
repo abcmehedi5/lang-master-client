@@ -8,7 +8,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
-import { RiDeleteBin6Line } from "react-icons/Ri";
+import { MdDelete } from "react-icons/md";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet-async";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
@@ -82,7 +82,7 @@ const AllBuyBook: React.FC = () => {
       sortable: false,
       renderCell: (params: any) => (
         <button onClick={() => handleDelete(params.row._id)}>
-          <RiDeleteBin6Line className="text-center text-xl text-red-500" />
+          <MdDelete className="text-center text-xl text-red-500" />
         </button>
       ),
     },

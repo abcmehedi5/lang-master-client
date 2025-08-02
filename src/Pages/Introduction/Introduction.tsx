@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import learn from "../../../public/learnLanguage/LearnFive.json";
 import learno from "../../../public/learnLanguage/learnTwo.json";
 import lear from "../../../public/learnLanguage/learnFour.json";
-import Lottie from "lottie-react-web";
+import Lottie from "lottie-react";
 
 const Introduction = () => {
   useEffect(() => {
@@ -32,11 +32,11 @@ const Introduction = () => {
               <div className="md:flex items-center justify-center">
                 <div className="md:w-1/2">
                   <Lottie
-                    options={{
-                      animationData: learn,
-                      loop: true,
-                      autoplay: true,
-                    }}
+                    
+                      animationData= {learn}
+                      loop= {true}
+                      autoplay= {true}
+                    
                   />
                 </div>
                 <div className="md:w-1/2">
@@ -66,11 +66,11 @@ const Introduction = () => {
                 </div>
                 <div className="md:w-1/2">
                   <Lottie
-                    options={{
-                      animationData: learno,
-                      loop: true,
-                      autoplay: true,
-                    }}
+                    
+                      animationData= {learno}
+                      loop= {true}
+                      autoplay= {true}
+                    
                     height={250}
                   />
                 </div>
@@ -125,11 +125,11 @@ const Introduction = () => {
               <div className="md:flex items-center justify-center">
                 <div className="">
                   <Lottie
-                    options={{
-                      animationData: lear,
-                      loop: true,
-                      autoplay: true,
-                    }}
+                    
+                      animationData= {lear}
+                      loop= {true}
+                      autoplay= {true}
+                    
                     height={350}
                   />
                 </div>

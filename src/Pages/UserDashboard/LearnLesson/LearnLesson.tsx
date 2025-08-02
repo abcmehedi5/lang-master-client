@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import useLearnData from "../../../hooks/useLearnData/useLearnData";
 import { LearnDataItem } from "../../../hooks/useLearnData/LearnDataItem";
-import Lottie from "lottie-react-web";
+import Lottie from "lottie-react";
 import lessonAnimation from "../../../assets/lessonAnimation.json";
 
 const LearnLesson = () => {
@@ -29,11 +29,11 @@ const LearnLesson = () => {
         <div>
           <div>
             <Lottie
-              options={{
-                animationData: lessonAnimation,
-                loop: true,
-                autoplay: true,
-              }}
+              
+                animationData= {lessonAnimation}
+                loop= {true}
+                autoplay= {true}
+              
               width={400}
               height={400}
             />

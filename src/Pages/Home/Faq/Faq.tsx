@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import shap3 from "../../../../public/shape-3.svg";
 import { BsFillCartCheckFill, BsPatchQuestionFill } from "react-icons/bs";
-import { RiLoginCircleFill } from "react-icons/Ri";
+import { BiSolidLogInCircle  } from "react-icons/bi";
 import { PiBooksThin } from "react-icons/pi";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import Aos from "aos";
@@ -34,7 +34,7 @@ const Faq = () => {
               <p>How to start?</p>
             </div>
             <div className="md:flex items-center gap-3 text-xl p-3 bg-indigo-100 drop-shadow-lg hover:skew-y-6 font-medium duration-500">
-              <RiLoginCircleFill className="text-blue-400" />{" "}
+              <BiSolidLogInCircle  className="text-blue-400" />{" "}
               <p>Want To Login?</p>
             </div>
             <div className="md:flex items-center gap-3 drop-shadow-lg text-xl font-medium p-3 bg-indigo-100 hover:skew-y-6 duration-500">
