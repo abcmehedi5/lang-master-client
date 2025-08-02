@@ -8,14 +8,8 @@
   scroll-behavior: smooth;
 }
 
-@media (min-width: 768px) {
-  .defaultBtn {
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.15rem;
-    padding: 1rem 2rem;
-  }
+.container {
+  @apply max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8
 }
 
 .drawer-side a {
@@ -48,39 +42,7 @@
   font-family: "Yellowtail", cursive;
 }
 
-/* CSS */
-.defaultBtn {
-  align-self: center;
-  background-color: #fff;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, 0.479) 10px 15px 15px -10px;
-  color: #41403e;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  padding: 0.75rem;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 155px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
 
-.defaultBtn:hover {
-  box-shadow: rgba(0, 0, 0, 0.615) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-}
-
-.defaultBtn:focus {
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
-}
 .text-gradient {
   -webkit-background-clip: text;
   background-clip: text;

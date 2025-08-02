@@ -17,11 +17,11 @@ const Home = () => {
         <title>Lang Master </title>
       </Helmet>
       <Cover></Cover>
-      <div className="md:w-10/12 mx-auto w-11/12">
-        <Lessons></Lessons>
-      </div>
+      {/* <div className="md:w-10/12 mx-auto w-11/12"> */}
       <Overview></Overview>
-      <div className="md:w-10/12 mx-auto w-11/12">
+      <Lessons></Lessons>
+      {/* </div> */}
+      <div className="container">
         <LearnLanguage></LearnLanguage>
         <HomepageBlog></HomepageBlog>
         <BookSection></BookSection>

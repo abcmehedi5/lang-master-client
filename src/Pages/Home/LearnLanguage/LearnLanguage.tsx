@@ -1,72 +1,64 @@
 import { FaGraduationCap } from "react-icons/fa";
 import { BsPeople } from "react-icons/bs";
+import { ImBooks } from "react-icons/im";
 import CountUp from "react-countup";
 import { useState } from "react";
-
-import { ImBooks } from "react-icons/im";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 function LearnLanguage() {
   const [counton] = useState(true);
 
+  const data = [
+    {
+      icon: <BsPeople size={30} />,
+      label: "Learners",
+      count: 3000,
+    },
+    {
+      icon: <ImBooks size={30} />,
+      label: "Online Books",
+      count: 4500,
+    },
+    {
+      icon: <FaGraduationCap size={30} />,
+      label: "Instructors",
+      count: 23,
+    },
+  ];
+
   return (
-    <>
-      
-        <div className="py-5 mt-12">
-          <SectionTitle
-            titleLetter="Some"
-            titleWord=" Information About Our Company"
-          ></SectionTitle>
+    <div className="mt-20">
+      <SectionTitle titleLetter="Our" titleWord="Impact" />
 
-          {/* Learning Footer & use Icons */}
-
-          <div className="w-full mt-10 bg-gradient-to-r from-[#359eace9] to-[#95d3a2] py-7 sm:flex text-white items-center justify-evenly">
-            <div className="flex flex-col text-center text-3xl ">
-              {/* <h3>3000+</h3> */}
-              <h1>
+      <div className="mt-8 w-full bg-gradient-to-r from-[#359eace9] to-[#95d3a2] py-10 px-4 text-white rounded-lg">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 items-center justify-center max-w-6xl mx-auto">
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center text-center group transition-all duration-300"
+            >
+              <div className="text-4xl font-bold">
                 {counton && (
-                  <CountUp start={0} end={3000} duration={2} separator="," />
+                  <CountUp
+                    start={0}
+                    end={item.count}
+                    duration={2}
+                    separator=","
+                  />
                 )}
                 +
-              </h1>
-
-              <div className="flex text-xl items-center justify-center">
-                <BsPeople className="m-2" />
-                <p>Learners</p>
+              </div>
+              <div className="flex items-center justify-center gap-2 mt-2 text-lg font-medium">
+                <span className="text-white group-hover:scale-110 transition-transform duration-300">
+                  {item.icon}
+                </span>
+                <p>{item.label}</p>
               </div>
             </div>
-            <hr className=" bg-white sm:w-1 h-5 md:h-8 lg:h-12" />
-            <div className="flex flex-col text-center text-3xl sm:py-0 py-2">
-              <h1>
-                {counton && (
-                  <CountUp start={0} end={4500} duration={2} separator="," />
-                )}
-                +
-              </h1>
-
-              <div className="flex text-xl items-center justify-center">
-                <ImBooks className="m-2" />
-                <p>Online Books</p>
-              </div>
-            </div>
-            <hr className=" bg-white sm:w-1 h-5 md:h-8 lg:h-12" />
-            <div className="flex flex-col text-center text-3xl">
-              <h1>
-                {counton && (
-                  <CountUp start={0} end={23} duration={2} separator="," />
-                )}
-                +
-              </h1>
-
-              <div className="flex text-xl items-center justify-center">
-                <FaGraduationCap className="m-2" />
-                <p>Instuctors</p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-    
-    </>
+      </div>
+    </div>
   );
 }
 
