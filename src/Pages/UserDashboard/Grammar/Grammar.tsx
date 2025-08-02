@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import grammarLottie from "../../../../public/grammarLottie.json";
-import Lottie from "lottie-react-web";
+import Lottie from "lottie-react";
 import "./Grammar.css";
 import Sentence from "./Sentence";
 import Tense from "./Tense/Tense";
@@ -14,11 +14,10 @@ function Grammar() {
         <title>Grammar | Lang Master</title>
       </Helmet>
       <Lottie
-        options={{
-          animationData: grammarLottie,
-          loop: true,
-          autoplay: true,
-        }}
+       
+          animationData= {grammarLottie}
+          loop= {true}
+          autoplay= {true}
         height={150}
       />
 

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import BuyingAmount from "./BuyingAmount";
-import Lottie from "lottie-react-web";
+import Lottie from "lottie-react";
 import payCoin from "../../../../public/payCoin.json";
 import emailjs from "@emailjs/browser";
 import { Helmet } from "react-helmet-async";
@@ -130,11 +130,11 @@ const CoinBuy = () => {
           আসবে।
         </p> */}
             <Lottie
-              options={{
-                animationData: payCoin,
-                loop: true,
-                autoplay: true,
-              }}
+             
+                animationData= {payCoin}
+                loop= {true}
+                autoplay= {true}
+              
               height={500}
             />
           </div>

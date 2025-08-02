@@ -1,6 +1,6 @@
 import paperplane from "../../../../public/paperplane2.json";
 import contact from "../../../../public/contact.jpg";
-import Lottie from "lottie-react-web";
+import Lottie from "lottie-react";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import { useEffect } from "react";
 import Aos from "aos";
@@ -15,16 +15,16 @@ const Contact = () => {
       <div className="md:flex items-center justify-center md:h-[400px] relative mt-14">
         <div
           className="w-full absolute top-0 left-0 h-full"
-          style={{ zIndex: 10 }}
+          style={{ zIndex: 20 }}
           data-aos="fade-zoom-in"
           data-aos-duration="1000"
         >
           <Lottie
-            options={{
-              animationData: paperplane,
-              loop: true,
-              autoplay: true,
-            }}
+            
+              animationData= {paperplane}
+              loop= {true}
+              autoplay= {true}
+            
           />
         </div>
         {/* ---content--- */}

@@ -1,28 +1,24 @@
-
-import Lottie from "lottie-react-web";
-import error from "../../public/error.json"
+import Lottie from "lottie-react";
+import error from "../../public/error.json";
 import { Link } from "react-router-dom";
 const Error = () => {
   return (
-    <>
-     
-      <div className="flex justify-center min-h-screen items-center">
-
+    <section className="min-h-screen flex flex-col items-center justify-center">
+      <div className="flex justify-center items-center">
         <Lottie
-          options={{
-            animationData: error,
-            loop: true,
-            autoplay: true,
-          }}
+          animationData={error}
+          loop={true}
+          autoplay={true}
           width={600}
           height={600}
         />
       </div>
-      <div className="mx-40 my-6">
-      <Link className="text-white bg-black px-4 py-2 rounded" to="/">Home</Link>
+      <div className="flex justify-center">
+        <Link className="text-white bg-black px-4 py-2 rounded" to="/">
+          Back To Home
+        </Link>
       </div>
-      
-    </>
+    </section>
   );
 };
 
