@@ -20,9 +20,9 @@ const AboutUs = () => {
       <Helmet>
         <title>About us | Lang Master </title>
       </Helmet>
-      <SubHeader title={"About us"}></SubHeader>
 
-      <div className="w-11/12 md:w-10/12 mx-auto">
+      <div className="container">
+        <SubHeader title="About us"></SubHeader>
         <div className="text-center mt-4">
           <h3 className="text-3xl font-semibold mb-3 max-w-xl mx-auto">
             Meet our team of experts in developing and building a flawless
@@ -52,20 +52,19 @@ const AboutUs = () => {
             </p>
           </div>
           <div
-            className="text-center bg-[#c9dbcdae] py-10 rounded-md"
+            className="text-center  bg-[#f2eeeb] py-10 rounded-md"
             style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
           >
             <img
-              className="rounded-full mx-auto w-[100px] h-[100px]"
-              src={nazmul}
+              className="rounded-full mx-auto w-[100px]"
+              src={mostakim}
               alt=""
             />
-            <h4 className="text-md font-bold mt-3">Md: Nazmul Hossain</h4>
+            <h4 className="text-md font-bold mt-3">Md. Mostakim Ahamed</h4>
             <p className="text-sm font-serif px-14">
               Worked as a Full stack web developer in this project
             </p>
           </div>
-
           <div
             className="text-center  bg-[#f5d2bc8b] py-10 rounded-md"
             style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
@@ -80,17 +79,16 @@ const AboutUs = () => {
               Worked as a Full stack web developer in this project
             </p>
           </div>
-
           <div
-            className="text-center  bg-[#f2eeeb] py-10 rounded-md"
+            className="text-center bg-[#c9dbcdae] py-10 rounded-md"
             style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
           >
             <img
-              className="rounded-full mx-auto w-[100px]"
-              src={mostakim}
+              className="rounded-full mx-auto w-[100px] h-[100px]"
+              src={nazmul}
               alt=""
             />
-            <h4 className="text-md font-bold mt-3">Md. Mostakim Ahamed</h4>
+            <h4 className="text-md font-bold mt-3">Md: Nazmul Hossain</h4>
             <p className="text-sm font-serif px-14">
               Worked as a Full stack web developer in this project
             </p>

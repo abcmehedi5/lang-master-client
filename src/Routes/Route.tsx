@@ -31,7 +31,6 @@ import AllPayments from "../Pages/AdminDashboard/AllPayments";
 import Support from "../Pages/Home/Support/Support";
 import BoughtBooks from "../Pages/UserDashboard/BoughtBooks/BoughtBooks";
 import AllBuyBook from "../Pages/AdminDashboard/AllBuyBook";
-import Translator from "../Pages/Translator/Translator";
 import Statistics from "../Pages/AdminDashboard/Statistics/Statistics";
 import Certificate from "../Pages/Cartificate/Certificate";
 import AllBooks from "../Pages/AdminDashboard/AllBooks";
@@ -41,6 +40,7 @@ import AddLesson from "../Pages/AdminDashboard/AllQuestion/AddLesson";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndCondition from "../Pages/TermsAndCondition/TermsAndCondition";
 import Introduction from "../Pages/Introduction/Introduction";
+import TranslatorPage from "../Pages/Translator/TranslatorPage";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +74,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/translator",
-        element: <Translator></Translator>,
+        element: <TranslatorPage></TranslatorPage>,
       },
       {
         path: "/privacy-policy",
