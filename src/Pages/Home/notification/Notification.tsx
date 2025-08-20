@@ -6,12 +6,12 @@ import { TiDeleteOutline } from "react-icons/ti";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import useToast from "../../../hooks/useToast";
+import toast from "react-hot-toast";
+
 const Notification = () => {
   const { user }: any = useContext(AuthContext);
   const [axiosSecure] = useAxiosSecure();
   const [open, setOpen] = useState(false);
-  const [successAlert, errorAlert] = useToast();
   // load notification data
   const {
     data: notifications = [],
@@ -27,16 +27,27 @@ const Notification = () => {
     },
   });
 
+  const capitalizeWords = (text: string) =>
+    text
+      .split(" ")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+
+  const getErrorMessage = (error: any) =>
+    error?.response?.data?.message || error.message || "Something went wrong";
+
   // notification delete
 
   const handleNotificationDelete = async (id: string) => {
     try {
       const res = await axiosSecure.delete("/notifications/notification/" + id);
 
-      successAlert(res.data.message);
+      const msg = res.data.message || "Notification deleted";
+      toast.success(capitalizeWords(msg));
+
       refetch();
-    } catch (error) {
-      errorAlert(error);
+    } catch (error: any) {
+      toast(capitalizeWords(getErrorMessage(error)));
     }
   };
 
