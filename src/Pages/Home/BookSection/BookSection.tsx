@@ -2,8 +2,9 @@ import { ChangeEvent, useEffect, useState } from "react";
 import SingleBook from "./SingleBook";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { Link, useLocation } from "react-router-dom";
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import LazyLoader from "../../../Components/LazyLoader/LazyLoader";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import WhiteButton from "../../../Components/Buttons/WhiteBtn";
 
 type TBook = {
   _id: number;
@@ -63,14 +64,14 @@ const BookSection = () => {
       {books.length <= 0 ? (
         <LazyLoader></LazyLoader>
       ) : (
-        <div className="px-4 py-8 md:px-20 md:py-16 mx-auto">
+        <div className="mt-20">
           <div className="flex flex-col items-center">
             <SectionTitle
-              titleLetter="Language  "
+              titleLetter="Language"
               titleWord="Library"
             ></SectionTitle>
             {/* search bar  */}
-            <div className="mt-4 md:flex p-4 md:space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+            <div className="flex flex-col md:flex-row max-md:items-center p-4 md:space-x-6 bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
               <div className="flex md:mb-0 mb-2 bg-gray-100 p-4 md:w-72 space-x-4 rounded-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,9 +97,9 @@ const BookSection = () => {
               </div>
               {!showAllBooks && (
                 <Link to="/user-dashboard/books-buy">
-                  <div className="bg-[#95d3a2] p-4 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
-                    <span>Explore More Books</span>
-                  </div>
+                  <WhiteButton className="bg-gradient-to-r from-[#95d3a2] to-[#359fac] text-white">
+                    Explore More Books
+                  </WhiteButton>
                 </Link>
               )}
             </div>
@@ -119,36 +120,42 @@ const BookSection = () => {
                       e.preventDefault();
                       handleEditButtonClick(book);
                     }}
-                    className="group relative block overflow-hidden cursor-pointer rounded-xl"
+                    className="group relative w-full cursor-pointer overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-lg shadow-sm transition-all duration-300 hover:shadow-xl"
                   >
-                    <img
-                      src={book.bookimage}
-                      alt=""
-                      className="h-64 w-full rounded-xl object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-                    />
-                    <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black bg-opacity-70 text-white">
-                      <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium absolute top-0 left-0">
-                        {book.status ? book.status : "New"}
+                    <div className="w-full">
+                      <img
+                        src={book.bookimage}
+                        alt="Books"
+                        className="h-64 w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1"
+                      />
+                    </div>
+
+                    {/* Overlay with mobile-visible default */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 text-white opacity-100 backdrop-blur-md transition-opacity duration-300 md:opacity-0 md:group-hover:opacity-100">
+                      <span className="absolute left-0 top-0 rounded-br-xl bg-yellow-400 px-3 py-1.5 text-xs font-semibold text-black shadow">
+                        {book.status || "New"}
                       </span>
-                      <span className="text-2xl absolute top-0 right-0 p-2 cursor-pointer">
+
+                      <span className="absolute right-0 top-0 p-3 text-lg transition-transform hover:scale-110">
                         ❤️
                       </span>
-                      <div className="flex flex-col justify-center items-center absolute inset-0">
-                        <h3 className="text-lg font-medium text-center">
+
+                      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
+                        <h3 className="text-xl font-semibold tracking-wide">
                           {book.bookname}
                         </h3>
-                        <h3 className="mt-2 font-medium">
-                          Writer: {book.writer}
-                        </h3>
-                        <div className="flex items-center">
-                          {/* Add Rating component here */}
-                        </div>
+                        <h4 className="mt-1 text-sm text-gray-200">
+                          by {book.writer}
+                        </h4>
                         <p className="mt-2 text-sm">
                           <b>Price:</b>{" "}
-                          <span className="text-green-500 font-semibold">
+                          <span className="font-bold text-green-400">
                             {book.price} Coin
                           </span>
                         </p>
+                        <button className="mt-4 rounded-full bg-green-500 px-4 py-1.5 text-sm font-medium text-white shadow hover:bg-green-600 transition-all duration-200">
+                          View Details
+                        </button>
                       </div>
                     </div>
                   </div>

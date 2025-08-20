@@ -1,11 +1,9 @@
-// import { FaRegStar, FaStar } from "react-icons/fa";
-// import Rating from "react-rating";
 import "./Testimonial.css";
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import Aos from "aos";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useEffect } from "react";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 interface Review {
   _id: string;
@@ -34,7 +32,7 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <section>
+    <section className="mt-20">
       <SectionTitle titleLetter="Te" titleWord="stimonials"></SectionTitle>
       <div
         className="mt-10 py-10 px-10 overflow-hidden bg-[#ffe8cf86] relative rounded-2xl"
@@ -56,7 +54,7 @@ const Testimonial = () => {
               delivering excellence. We're grateful for their trust and look
               forward to more shared victories.
             </p>
-            <h4 className="text-xl capitalize font-semibold text-gray-700">
+            <h4 className="text-xl capitalize font-semibold text-gray-700 mb-6">
               review {reviews?.length}0 +
             </h4>
           </div>

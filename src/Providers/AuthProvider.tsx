@@ -29,7 +29,6 @@ const googleprovider = new GoogleAuthProvider();
 
 const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState(null);
-  console.log(user);
   const [loading, setLoading] = useState(true);
   // create user email and password
   const createUserEmail = (email: any, password: any) => {

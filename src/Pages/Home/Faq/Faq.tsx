@@ -1,26 +1,25 @@
-import { Link } from "react-router-dom";
 import shap3 from "../../../../public/shape-3.svg";
 import { BsFillCartCheckFill, BsPatchQuestionFill } from "react-icons/bs";
-import { BiSolidLogInCircle  } from "react-icons/bi";
+import { BiSolidLogInCircle } from "react-icons/bi";
 import { PiBooksThin } from "react-icons/pi";
-import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import Aos from "aos";
 import { useEffect } from "react";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 const Faq = () => {
   useEffect(() => {
     Aos.init();
   }, []);
   return (
-    <div className="my-20">
+    <div className="mt-20">
       <SectionTitle titleLetter="FAQ " titleWord="Corner"></SectionTitle>
-      <div className="flex md:flex-row flex-col-reverse items-center justify-between gap-20 mt-14">
+      <div className="flex md:flex-row flex-col-reverse items-center justify-between gap-8 md:gap-20 mt-10">
         {/* -----img side----- */}
         <div
           className="md:w-1/2 p-4"
           data-aos="fade-zoom-in"
           data-aos-duration="1000"
         >
-          <h1 className="text-5xl font-bold text-red-300">
+          <h1 className="text-xl font-bold text-red-300">
             Do You Have Any Questions?
           </h1>
           <p className="my-4">
@@ -34,7 +33,7 @@ const Faq = () => {
               <p>How to start?</p>
             </div>
             <div className="md:flex items-center gap-3 text-xl p-3 bg-indigo-100 drop-shadow-lg hover:skew-y-6 font-medium duration-500">
-              <BiSolidLogInCircle  className="text-blue-400" />{" "}
+              <BiSolidLogInCircle className="text-blue-400" />{" "}
               <p>Want To Login?</p>
             </div>
             <div className="md:flex items-center gap-3 drop-shadow-lg text-xl font-medium p-3 bg-indigo-100 hover:skew-y-6 duration-500">
@@ -45,9 +44,6 @@ const Faq = () => {
               <PiBooksThin className="text-red-300" /> <p>Can't Buy Books? </p>
             </div>
           </div>
-          <Link to="/faq">
-            <button className="defaultBtn">Know More</button>
-          </Link>
         </div>
         {/* -----img side----- */}
         <div

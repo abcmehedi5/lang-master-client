@@ -13,7 +13,6 @@ const Blogs = () => {
   const [search, setSearch] = useState("");
 
   const { blog } = useBlogData();
-  console.log(blog);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -44,8 +43,8 @@ const Blogs = () => {
       <Helmet>
         <title>Blogs | Lang Master </title>
       </Helmet>
+      <div className="container">
       <SubHeader title="Blog"></SubHeader>
-      <div className="w-11/12 mx-auto">
         <div className="flex md:flex-row gap-6 flex-col-reverse items-center justify-between">
           <BlogPost></BlogPost>
           <SearchBlog handleSearch={handleSearch}></SearchBlog>

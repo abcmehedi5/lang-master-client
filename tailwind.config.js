@@ -6,6 +6,10 @@ export default {
     extend: {
       fontFamily:{
         abc:["Zeyada","cursive"]
+      },
+      colors: {
+        primaryBg: "#95d3a2",
+        secondaryBg: "#359fac"
       }
     },
     themes: ["light", "dark", "cupcake"],
